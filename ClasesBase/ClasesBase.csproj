@@ -41,7 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Butaca.cs" />
+    <Compile Include="Clasificacion.cs" />
+    <Compile Include="Cliente.cs" />
+    <Compile Include="Genero.cs" />
+    <Compile Include="Pelicula.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proyeccion.cs" />
+    <Compile Include="Rol.cs" />
+    <Compile Include="Sala.cs" />
+    <Compile Include="Ticket.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
