@@ -3,70 +3,70 @@
   <Class Name="ClasesBase.Usuario">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQBAAAEAQAAAAEAAAABAAgAAACCAAAAAAAAAAAAAACA=</HashCode>
+      <HashCode>EQBAABEAQAAAAEAAAABAAgAAACCAAAAAAAAAAAAAACA=</HashCode>
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClasesBase.Rol">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAACAAAAAAAAAAAAAIACA=</HashCode>
+      <HashCode>AAAIAAAAAAAACAAAAAAAAAAAACAAAAgAAAAAAAAIACA=</HashCode>
       <FileName>Rol.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClasesBase.Cliente">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAACAAAAAgQAAAIEAAAAAAAAAAAAAAAwAAAAMAAA=</HashCode>
+      <HashCode>AIAAAACAAAAAgQAAAIEAAAAAAAAAAAAACAwAAAgMAAA=</HashCode>
       <FileName>Cliente.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClasesBase.Pelicula">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAQAAAAAAAAAAAAAIAAAACAAAAAAAAAEAAoABAAM=</HashCode>
+      <HashCode>gAAAAQAAAAAAAAAAAAAIAAAACAAAAAAAFAEAApQBAAM=</HashCode>
       <FileName>Pelicula.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClasesBase.Genero">
     <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAgAAAAI=</HashCode>
+      <HashCode>AAgAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAAAAgAIAAI=</HashCode>
       <FileName>Genero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClasesBase.Clasificacion">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Position X="7.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <HashCode>gAAAAAAAAAACAAAAAgAAAAAAAAAAAAAACAAAAIgAAAA=</HashCode>
       <FileName>Clasificacion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClasesBase.Proyeccion">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAQAACAgAAAAIAAAAAAAAAAAAAAAAAiAAAAIgAAE=</HashCode>
+      <HashCode>AAAIAQAACAgAAAAIIAAAACAAAAAAAAAAAiAAAAIgAAE=</HashCode>
       <FileName>Proyeccion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClasesBase.Butaca">
     <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAAACAAAAAAAAAAAAAAgCACAAAAAgAAA=</HashCode>
+      <HashCode>AAAKAAAAAAAAAAACAAAAAAAAAAAAAAoCACAAAAAgAAA=</HashCode>
       <FileName>Butaca.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClasesBase.Sala">
     <Position X="12.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAAAAABAAEAgAAAACAAAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAABAAEAgAgAACAIAAAgAAA=</HashCode>
       <FileName>Sala.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ClasesBase.Ticket">
     <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAIAAAACAAAAAACAIAAAAAAAAAAABgCACQQAAAkAAA=</HashCode>
+      <HashCode>AIAIAAAACAAAAAACAIAAAAAAAAAACBgCACwQAAAkAAA=</HashCode>
       <FileName>Ticket.cs</FileName>
     </TypeIdentifier>
   </Class>
