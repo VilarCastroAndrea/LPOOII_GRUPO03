@@ -2,6 +2,7 @@
  Universidad Nacional de Jujuy Facultad de ingenieria
   Carera    Analista Programador Universitario
   Materia:  Laboratorio de Programación Orientada a Objetos II
+  Desarrollo de trabajo practico
   Integrantes:
                 Joel Fernando, Cabana 
                 Franco Josué, Matorras
