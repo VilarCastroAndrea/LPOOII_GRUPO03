@@ -5,6 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
+        Title="Iniciar Sesion" Height="450" Width="400"  WindowStartupLocation="CenterScreen">
+    <Window.Resources>
 
+        <Style x:Key="LabelLogin" TargetType="Label">
+            <Setter Property="Foreground" Value="Gray" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Foreground" Value="#848484"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FFF1F1F1">
+        <Grid HorizontalAlignment="Left" Height="232" Margin="24,141,0,0" VerticalAlignment="Top" Width="339" Background="#FFF9F9F9">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="186*"/>
+                <ColumnDefinition Width="187*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Style="{StaticResource LabelLogin}" Content="Usuario"  HorizontalAlignment="Left" Margin="19,15,0,0" VerticalAlignment="Top" Height="28" Width="60"/>
+            <Label Style="{StaticResource LabelLogin}" Content="Contraseña" HorizontalAlignment="Left" Margin="19,83,0,0" VerticalAlignment="Top" Height="28" Width="84"/>
+
+            <TextBox Name="txtUsuario"  HorizontalAlignment="Left" Height="24" Margin="25,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" Grid.ColumnSpan="2" BorderBrush="#FFB4B2B2" FontSize="14" Background="White"/>
+            <PasswordBox Name="txtPassword" HorizontalAlignment="Left" Margin="25,115,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="288" Height="24" FontSize="14"/>
+            <Button Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="25,169,0,0" VerticalAlignment="Top" Width="288" Grid.ColumnSpan="2" Height="30" FontSize="14" Foreground="White" FontFamily="Segoe UI Semibold" Background="#FFEC141C" />
+        </Grid>
+        <Image HorizontalAlignment="Right" Height="108" Margin="0,28,80,0" VerticalAlignment="Top" Width="239" Source="img/logoCine.png"/>
+
+    </Grid>
 </Window>
