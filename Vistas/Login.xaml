@@ -27,9 +27,9 @@
 
             <TextBox Name="txtUsuario"  HorizontalAlignment="Left" Height="24" Margin="25,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" Grid.ColumnSpan="2" BorderBrush="#FFB4B2B2" FontSize="14" Background="White"/>
             <PasswordBox Name="txtPassword" HorizontalAlignment="Left" Margin="25,115,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="288" Height="24" FontSize="14"/>
-            <Button Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="25,169,0,0" VerticalAlignment="Top" Width="288" Grid.ColumnSpan="2" Height="30" FontSize="14" Foreground="White" FontFamily="Segoe UI Semibold" Background="#FFEC141C" />
+            <Button Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="25,169,0,0" VerticalAlignment="Top" Width="288" Grid.ColumnSpan="2" Height="36" FontSize="14" Foreground="White" FontFamily="Segoe UI Semibold" Background="#FFEC141C" Click="BtnIngresar_Click" />
         </Grid>
-        <Image HorizontalAlignment="Right" Height="108" Margin="0,28,80,0" VerticalAlignment="Top" Width="239" Source="img/logoCine.png"/>
+        <Image HorizontalAlignment="Right" Height="108" Margin="0,28,82,0" VerticalAlignment="Top" Width="239" Source="img/logoCine.png"/>
 
     </Grid>
 </Window>

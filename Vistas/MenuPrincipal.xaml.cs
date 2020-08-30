@@ -23,5 +23,32 @@ namespace Vistas
         {
             InitializeComponent();
         }
+
+        private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = listViewMenu.SelectedIndex;
+            moverCursoMenu(index);
+
+
+            switch (index) {
+                case 0: stackPanelPrincipal.Children.Clear();
+                    stackPanelPrincipal.Children.Add(new Clientes());
+                    break;
+                case 1:
+                    stackPanelPrincipal.Children.Clear();
+                    stackPanelPrincipal.Children.Add(new Pelicula());
+                    break;
+
+                default:
+                    break;
+            }
+
+
+        }
+
+        private void moverCursoMenu(int index)
+        {
+          
+        }
     }
 }

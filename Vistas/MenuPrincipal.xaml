@@ -5,8 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="MenuPrincipal" Height="450" Width="800">
+        Title="MenuPrincipal" Height="600" Width="1100" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+
+
     <Grid>
-        
+        <StackPanel x:Name="stackPanelPrincipal"  Margin="130,0,0,0">
+           
+        </StackPanel>
+
+        <Grid  Width="130" HorizontalAlignment="Left" Background="#282d31">
+            <ListView x:Name="listViewMenu" Margin="0 80" Background="Transparent" BorderBrush="Transparent" Foreground="LightGray" SelectionChanged="ListViewMenu_SelectionChanged" SelectedIndex="0">
+                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Clientes" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Ticket" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Peliculas" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Butacas" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Proyecciones" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Usuarios" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </Grid>
     </Grid>
+   
+    
+    
 </Window>
