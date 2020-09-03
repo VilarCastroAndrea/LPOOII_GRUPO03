@@ -1,5 +1,4 @@
 ﻿using ClasesBase;
-using System;
 using System.Windows;
 
 namespace Vistas
@@ -15,5 +14,9 @@ namespace Vistas
             usuario.Content = logueado.Usu_NombreUsuario;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
