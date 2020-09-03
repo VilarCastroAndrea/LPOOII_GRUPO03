@@ -9,7 +9,7 @@
     <Grid Background="#FFEAEBEA">
 
         <StackPanel HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" VerticalAlignment="Top" Width="930" Background="White"/>
-        <Button Name="btnNuevaPelicula" x:FieldModifier="public" Content="Nueva Pelicula" HorizontalAlignment="Left" Margin="23,20,0,0" VerticalAlignment="Top" Width="108" Background="White" BorderBrush="#FFB4B4B4" Height="23" FontSize="14"/>
+        <Button Name="btnNuevaPelicula" x:FieldModifier="public" Content="Nueva Pelicula" HorizontalAlignment="Left" Margin="23,20,0,0" VerticalAlignment="Top" Width="108" Background="White" BorderBrush="#FFB4B4B4" Height="23" FontSize="14" Click="BtnNuevaPelicula_Click"/>
         <Button Name="btnEditarPelicula" Content="Editar Pelicula" HorizontalAlignment="Left" Margin="146,20,0,0" VerticalAlignment="Top" Width="108" Height="23" Background="White" BorderBrush="#FFB4B4B4" FontSize="14"/>
         <Button Name="btnElimarPelicula" Content="Eliminar Pelicula" HorizontalAlignment="Left" Margin="269,20,0,0" VerticalAlignment="Top" Width="108" Height="23" Background="White" BorderBrush="#FFB4B4B4" FontSize="14"/>
         <StackPanel Name="stackPanelPelicula"  x:FieldModifier="public" HorizontalAlignment="Left" Height="476" Margin="10,77,0,0" VerticalAlignment="Top" Width="930" Background="White">

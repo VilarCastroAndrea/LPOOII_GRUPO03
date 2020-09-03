@@ -84,6 +84,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PeliculaNueva.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Peliculas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +96,9 @@
   <ItemGroup>
     <Compile Include="MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PeliculaNueva.xaml.cs">
+      <DependentUpon>PeliculaNueva.xaml</DependentUpon>
     </Compile>
     <Compile Include="Peliculas.xaml.cs">
       <DependentUpon>Peliculas.xaml</DependentUpon>

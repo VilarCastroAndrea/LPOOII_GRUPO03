@@ -24,5 +24,11 @@ namespace Vistas
         {
             InitializeComponent();
         }
+
+        private void BtnNuevaPelicula_Click(object sender, RoutedEventArgs e)
+        {
+            PeliculaNueva peliculaNueva = new PeliculaNueva();
+            peliculaNueva.Show();
+        }
     }
 }
