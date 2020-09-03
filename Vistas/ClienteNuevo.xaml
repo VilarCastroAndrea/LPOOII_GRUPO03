@@ -1,0 +1,40 @@
+﻿<Window x:Class="Vistas.ClienteNuevo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vistas"
+        mc:Ignorable="d"
+        Title="Nuevo Cliente" Height="450" Width="800"  WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Width" Value="250" />
+        </Style>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Background" Value="White" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <TextBox Name="txtNombre" HorizontalAlignment="Left" Height="30" Margin="44,51,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+        <TextBox  Name="txtApellido" HorizontalAlignment="Left" Height="30" Margin="44,110,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <TextBox  Name="txtDni"  HorizontalAlignment="Left" Height="30" Margin="44,169,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <TextBox  Name="txtTelefono" HorizontalAlignment="Left" Height="30" Margin="44,228,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="44,22,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.145,-0.462" Width="134"/>
+        <Label Content="D.N.I" HorizontalAlignment="Left" Margin="44,140,0,0" VerticalAlignment="Top"/>
+        <Label Content="Telefono" HorizontalAlignment="Left" Margin="44,199,0,0" VerticalAlignment="Top"/>
+        <Label Content="Apellido" HorizontalAlignment="Left" Margin="44,81,0,0" VerticalAlignment="Top"/>
+        <TextBox  Name="txtEmail" HorizontalAlignment="Left" Height="30" Margin="44,287,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <Label Content="E-Mail" HorizontalAlignment="Left" Margin="44,258,0,0" VerticalAlignment="Top"/>
+        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="183,350,0,0" VerticalAlignment="Top" Width="111" Height="34" Click="Button_Click"/>
+    </Grid>
+
+
+
+</Window>

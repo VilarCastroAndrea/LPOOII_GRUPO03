@@ -37,15 +37,23 @@ namespace Vistas
             usuario2.Usu_Password = "123";
             usuario2.Rol_Codigo = 2;
 
-            if (txtUsuario.Text == usuario1.Usu_NombreUsuario || txtPassword.Password.ToString() == usuario1.Usu_Password)
+           
+
+            if (txtUsuario.Text == usuario1.Usu_NombreUsuario && txtPassword.Password.ToString() == usuario1.Usu_Password)
             {
+                UsuarioLogin.rol_Codigo = usuario1.Rol_Codigo;
+                UsuarioLogin.usu_ApellidoNombre = "Ignacio Scocco";
+
 
                 MenuPrincipal menu = new MenuPrincipal();
                 menu.Show();
                 this.Close();
             }
             else {
-                if (txtUsuario.Text == usuario2.Usu_NombreUsuario || txtPassword.Password.ToString() == usuario2.Usu_Password) {
+                if (txtUsuario.Text == usuario2.Usu_NombreUsuario && txtPassword.Password.ToString() == usuario2.Usu_Password) {
+
+                    UsuarioLogin.rol_Codigo = usuario2.Rol_Codigo;
+                    UsuarioLogin.usu_ApellidoNombre = "JuanFer Quintero";
 
                     MenuPrincipal menu = new MenuPrincipal();
                     menu.Show();

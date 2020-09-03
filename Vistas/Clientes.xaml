@@ -4,9 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vistas"
-             mc:Ignorable="d" Height="2580" Width="4995.6">
-    <Grid Background="#FFBB0000">
-        <Label Content="Label" HorizontalAlignment="Left" Margin="916,535,0,0" VerticalAlignment="Top"/>
+             mc:Ignorable="d" d:DesignWidth="950" Height="563"
+             >
+    <Grid Background="#FFEAEBEA">
+
+        <StackPanel HorizontalAlignment="Left" Height="44" Margin="10,10,0,0" VerticalAlignment="Top" Width="930" Background="White"/>
+        <Button Name="btnNuevaCliente" x:FieldModifier="public" Content="Nuevo Cliente" HorizontalAlignment="Left" Margin="23,20,0,0" VerticalAlignment="Top" Width="108" Background="White" BorderBrush="#FFB4B4B4" Height="23" Click="Button_Click_1" FontSize="14"/>
+        <Button Name="btnEditarCliente" Content="Editar Cliente" HorizontalAlignment="Left" Margin="146,20,0,0" VerticalAlignment="Top" Width="108" Height="23" Background="White" BorderBrush="#FFB4B4B4" FontSize="14"/>
+        <Button Name="btnElimarCliente" Content="Eliminar Cliente" HorizontalAlignment="Left" Margin="269,20,0,0" VerticalAlignment="Top" Width="108" Height="23" Background="White" BorderBrush="#FFB4B4B4" FontSize="14"/>
+        <StackPanel Name="stackPanelCliente"  x:FieldModifier="public" HorizontalAlignment="Left" Height="476" Margin="10,77,0,0" VerticalAlignment="Top" Width="930" Background="White">
+            
+        </StackPanel>
+
+
 
     </Grid>
 </UserControl>

@@ -52,6 +52,7 @@
     <Compile Include="Sala.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

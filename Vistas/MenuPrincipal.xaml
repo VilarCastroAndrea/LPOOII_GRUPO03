@@ -5,50 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="MenuPrincipal" Height="600" Width="1100" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Cinemark Hoyts" Height="600" Width="1100" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded">
 
 
     <Grid>
-        <StackPanel x:Name="stackPanelPrincipal"  Margin="130,0,0,0">
-           
+        <StackPanel x:Name="stackPanelPrincipal"  Margin="130,0,0,0" Background="Aqua">
+
         </StackPanel>
 
+
+
         <Grid  Width="130" HorizontalAlignment="Left" Background="#282d31">
-            <ListView x:Name="listViewMenu" Margin="0 80" Background="Transparent" BorderBrush="Transparent" Foreground="LightGray" SelectionChanged="ListViewMenu_SelectionChanged" SelectedIndex="0">
-                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+            <ListView x:Name="listViewMenu" Margin="0,130,0,80" Background="Transparent" BorderBrush="Transparent" Foreground="LightGray" SelectionChanged="ListViewMenu_SelectionChanged" SelectedIndex="0">
+                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left" FocusableChanged="ListViewItem_FocusableChanged">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Clientes" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                        <TextBlock Text="Clientes" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Ticket" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                        <TextBlock Text="Ticket" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Peliculas" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                        <TextBlock Text="Peliculas" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Butacas" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                        <TextBlock Text="Butacas" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                <ListViewItem  Name="itemProyecciones" Height="23" Width="126" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Proyecciones" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                        <TextBlock Text="Proyecciones" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                <ListViewItem Name="itemUsuario" Height="23" Width="126" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Usuarios" FontSize="15" VerticalAlignment="Center" Margin="30 0"/>
+                        <TextBlock Text="Usuarios" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
             </ListView>
+            <Image HorizontalAlignment="Left" Height="64" VerticalAlignment="Top" Width="130" Source="img/logo2.png" Stretch="UniformToFill"/>
+            <Label Name="NombreUusario"  HorizontalContentAlignment="center"  HorizontalAlignment="Left" Margin="6,64,0,0" Height="30" Width="120" Foreground="#FFC3C3C3" VerticalAlignment="Top"/>
+            <Separator HorizontalAlignment="Left" Height="2" Margin="0,119,0,0" VerticalAlignment="Top" Width="128" Foreground="White" Background="#FF919191"/>
+            <Label  Name="RolUusario" HorizontalContentAlignment="center" HorizontalAlignment="Left" Margin="6,94,0,0" VerticalAlignment="Top" Width="120" Foreground="#FF979797" Height="25"/>
+
         </Grid>
     </Grid>
-   
-    
-    
+
+
+
 </Window>

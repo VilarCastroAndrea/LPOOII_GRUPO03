@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Vistas
 {
     /// <summary>
-    /// Lógica de interacción para Pelicula.xaml
+    /// Lógica de interacción para Peliculas.xaml
     /// </summary>
-    public partial class Pelicula : UserControl
+    public partial class Peliculas : UserControl
     {
-        public Pelicula()
+        public Peliculas()
         {
             InitializeComponent();
         }
