@@ -55,6 +55,8 @@ namespace Vistas
             pelicula.Peli_Duracion = txtPeliDuracion.Text;
             pelicula.Peli_Imagen1 = txtImagenPeli.Text;
 
+            
+
             ImageSource imageSource = new BitmapImage(new Uri(pelicula.Peli_Imagen1));
 
             imgprueba.Source = imageSource;
