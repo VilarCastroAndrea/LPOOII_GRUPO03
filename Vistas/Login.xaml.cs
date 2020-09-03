@@ -10,7 +10,6 @@ namespace Vistas
     {
         Usuario usuarioVendedor = new Usuario("vendedor", "vendedor", "Vendedor", 1);
         Usuario usuarioAdministrador = new Usuario("admin", "admin", "Administrador", 2);
-        public Usuario logueado = new Usuario();
         public Login()
         {
             InitializeComponent();
@@ -28,12 +27,12 @@ namespace Vistas
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = new MainWindow();
+
             if (txtbUsuario.Text != "" && txtbContraseña.Text != "")
             {
                 if (txtbUsuario.Text.Equals(usuarioAdministrador.Usu_NombreUsuario) && txtbContraseña.Text.Equals(usuarioAdministrador.Usu_Password))
                 {
-                    logueado = usuarioAdministrador;
+                    MainWindow main = new MainWindow(usuarioAdministrador);
                     main.Show();
                     this.Close();
                 }
@@ -41,7 +40,7 @@ namespace Vistas
                 {
                     if (txtbUsuario.Text.Equals(usuarioVendedor.Usu_NombreUsuario) && txtbContraseña.Text.Equals(usuarioVendedor.Usu_Password))
                     {
-                        logueado = usuarioVendedor;
+                        MainWindow main = new MainWindow(usuarioVendedor);
                         main.Show();
                         this.Close();
                     }

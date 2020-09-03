@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClasesBase;
+using System;
 using System.Windows;
 
 namespace Vistas
@@ -8,13 +9,11 @@ namespace Vistas
     /// </summary>
     public partial class MainWindow : Window
     {
-        Login login = new Login();
-        public MainWindow()
+        public MainWindow(Usuario logueado)
         {
             InitializeComponent();
-            Console.Write(login.logueado);
-            usuario.Content = login.logueado.Usu_NombreUsuario;
-
+            usuario.Content = logueado.Usu_NombreUsuario;
         }
+
     }
 }
