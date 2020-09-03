@@ -5,6 +5,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800" >
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        Title="Login" Height="371" Width="415.5" Background="#FFEE1111" >
+    <Grid>
+        <Image x:Name="imgFondo" Height="348" VerticalAlignment="Top" Source="img/fondo.png" RenderTransformOrigin="0.5,0.5"/>
+        <Image x:Name="imgLogin" Height="359" VerticalAlignment="Top" Source="img/login.png" Margin="29,8,37,-19" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-2.588"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-7.955"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label x:Name="lblUsuario" Content="Usuario" HorizontalAlignment="Left" Margin="39,208,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="14" Background="#00000000" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.506"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox x:Name="txtbUsuario" HorizontalAlignment="Left" Height="20" Margin="47,231,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130" TextChanged="TextBox" Background="#FF353630" BorderBrush="#FF2E2F29" Foreground="White" FontSize="16" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.629"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label x:Name="lblContraseña" Content="Contraseña" HorizontalAlignment="Left" Margin="202,200,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="14" Background="#00000000" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.82"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox x:Name="txtbContraseña" HorizontalAlignment="Left" Height="20" Margin="210,225,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130" TextChanged="TextBox_TextChanged" Background="#FF353630" BorderBrush="#FF2E2F29" Foreground="White" FontSize="16" RenderTransformOrigin="0.491,1.223">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.463"/>
+                    <TranslateTransform X="0.617" Y="0.043"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label Content="{Binding Source={x:Static sys:DateTime.Now}}" HorizontalAlignment="Left" Height="29" Margin="45,267,0,0"  VerticalAlignment="Top" Width="118" RenderTransformOrigin="0.5,0.5" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="16">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-2.348"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="btnIngresar" Content="Ingrsar" HorizontalAlignment="Left" Margin="255,299,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FF560715" BorderBrush="#FF530612" Foreground="White" Click="Button_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-3.373"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
 
+    </Grid>
 </Window>
