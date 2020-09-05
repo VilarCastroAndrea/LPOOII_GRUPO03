@@ -21,7 +21,7 @@ namespace Vistas
     /// </summary>
     public partial class PeliculaNueva : Window
     {
-        BitmapImage bitmapImage;
+        
 
         public PeliculaNueva()
         {
@@ -55,14 +55,24 @@ namespace Vistas
             pelicula.Peli_Duracion = txtPeliDuracion.Text;
             pelicula.Peli_Imagen1 = txtImagenPeli.Text;
 
-            
 
-            ImageSource imageSource = new BitmapImage(new Uri(pelicula.Peli_Imagen1));
+           
 
-            imgprueba.Source = imageSource;
-            
+            //ImageSource imageSource = new BitmapImage(new Uri(pelicula.Peli_Imagen1));
 
-            
+            // imgprueba.Source = imageSource;
+
+            MessageBoxResult messageBoxResult = MessageBox.Show("Estas seguro?", "Agregar Pelicula", MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                MessageBox.Show(
+                     "Pelcula\n" +
+                     "Titulo : " + pelicula.Peli_Titulo + "\n" +
+                     "Duracion:" + pelicula.Peli_Duracion + "min"
+                    );
+            }
+
 
         }
     }

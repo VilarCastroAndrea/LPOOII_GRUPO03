@@ -54,6 +54,8 @@ namespace Vistas
                     break;
                 case 3:
                     /*Seccion Butacas*/
+                    AsignacionDeButacas butacas = new AsignacionDeButacas();
+                    butacas.Show();
 
                     break;
                 case 4:

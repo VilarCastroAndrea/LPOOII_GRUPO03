@@ -32,26 +32,18 @@ namespace Vistas
 
         private void butacas() {
 
-            int columnas = 5;
-            int filas = 5;
+            int columnas = 20;
+            int filas = 10;
+            //codigo ascci de letra A
+            int abc = 65; 
 
-            //creacion de las columnas en el grid
+            //crea las columnas en el grid
             for (int i=0; i<columnas;i++) {
                 ColumnDefinition gridCol = new ColumnDefinition();
                  grid.ColumnDefinitions.Add(gridCol);
             }
 
-            //columns
-            /*
-            ColumnDefinition gridCol1 = new ColumnDefinition();
-            ColumnDefinition gridCol2 = new ColumnDefinition();
-            ColumnDefinition gridCol3 = new ColumnDefinition();
-            grid.ColumnDefinitions.Add(gridCol1);
-            grid.ColumnDefinitions.Add(gridCol2);
-            grid.ColumnDefinitions.Add(gridCol3);
-            */
-
-            //creacion de las filas en el grid
+            //crea las filas en el grid
             for (int i = 0; i < filas; i++)
             {
                 RowDefinition gridRow = new RowDefinition();
@@ -59,84 +51,55 @@ namespace Vistas
             }
 
 
-            //rows
-            /*
-            RowDefinition gridRow1 = new RowDefinition();
-            gridRow1.Height = new GridLength(45);
-            RowDefinition gridRow2 = new RowDefinition();
-            gridRow2.Height = new GridLength(45);
-            RowDefinition gridRow3 = new RowDefinition();
-            gridRow3.Height = new GridLength(45);
-            grid.RowDefinitions.Add(gridRow1);
-            grid.RowDefinitions.Add(gridRow2);
-            grid.RowDefinitions.Add(gridRow3);
-            */
-
-
-
+            string ocupado1 = "A1";
+            string ocupado2 = "C6";
+            string ocupado3 = "C7";
             //agrega  los botones a la fila y columna correspondiente
-            int abc = 65;
-
             for (int i=0; i<filas; i++) {
                 char c = (char) (abc+i);
                 for (int j=0; j<columnas; j++) {
                     Button butaca = new Button();
                     butaca.Content = c +" "+ (j+1);
+                    butaca.Name = c +""+(j + 1);
+                    butaca.Background = Brushes.LightGray;
+                    butaca.BorderBrush = Brushes.White;
+                    //controla butacas ocupadas hardcodeado
+                    if (ocupado1.Equals(butaca.Name) || (ocupado2.Equals(butaca.Name)||(ocupado3.Equals(butaca.Name) ) )) {
+                        butaca.Background = Brushes.Red;
+                    }
+
+                    //evento clic para cada boton
+                    butaca.Click += (s, e) => {
+                        MessageBox.Show("Soy el boton :"+ butaca.Name);
+
+                        //colores de butacas segun ocupacion, seleccion, y desocupado
+                         if (butaca.Background == Brushes.LightGray)
+                        {
+                            butaca.Background = Brushes.Green;
+                        }
+                        else {
+                            if (butaca.Background == Brushes.Green)
+                            {
+                                butaca.Background = Brushes.LightGray;
+                            }
+                            else {
+                                MessageBox.Show("No puedes seleccionar esta butaca, ya esta ocupada");
+                            }
+                        }
+                       
+                    };
+
                     Grid.SetRow(butaca, i);
                     Grid.SetColumn(butaca, j);
                     grid.Children.Add(butaca);
                 }
             }
 
-
-
-
-            // Add second column header    
-            /*
-            Button butaca1 = new Button();
-            butaca1.Content = "butaca1";
-            Grid.SetRow(butaca1, 0);
-            Grid.SetColumn(butaca1, 0);
-
-            Button butaca2 = new Button();
-            butaca2.Content = "butaca2";
-            Grid.SetRow(butaca2, 0);
-            Grid.SetColumn(butaca2, 1);
-
-            Button butaca3 = new Button();
-            butaca3.Content = "butaca3";
-            Grid.SetRow(butaca3, 0);
-            Grid.SetColumn(butaca3, 2);
-
-            ///////////
-            Button butaca4 = new Button();
-            butaca4.Content = "butaca4";
-            Grid.SetRow(butaca4, 1);
-            Grid.SetColumn(butaca4, 0);
-
-            Button butaca5 = new Button();
-            butaca5.Content = "butaca5";
-            Grid.SetRow(butaca5, 1);
-            Grid.SetColumn(butaca5, 1);
-
-            Button butaca6 = new Button();
-            butaca6.Content = "butaca6";
-            Grid.SetRow(butaca6, 1);
-            Grid.SetColumn(butaca6, 2);
-
-
-
-            //// Add column headers to the Grid    
-            ///
-            grid.Children.Add(butaca1);
-            grid.Children.Add(butaca2);
-            grid.Children.Add(butaca3);
-            grid.Children.Add(butaca4);
-            grid.Children.Add(butaca5);
-            grid.Children.Add(butaca6);
-            */
-
         }
 
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
