@@ -6,9 +6,14 @@
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        Title="Login" Height="371" Width="415.5" Background="#FFEE1111" >
+        Title="Login" Height="371" Width="415.5" >
+    <Window.Background>
+        <RadialGradientBrush>
+            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="#FF0D6472"/>
+        </RadialGradientBrush>
+    </Window.Background>
     <Grid>
-        <Image x:Name="imgFondo" Height="348" VerticalAlignment="Top" Source="img/fondo.png" RenderTransformOrigin="0.5,0.5"/>
         <Image x:Name="imgLogin" Height="359" VerticalAlignment="Top" Source="img/login.png" Margin="29,8,37,-19" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -69,7 +74,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Button x:Name="btnIngresar" Content="Ingrsar" HorizontalAlignment="Left" Margin="255,299,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FF560715" BorderBrush="#FF530612" Foreground="White" Click="Button_Click">
+        <Button x:Name="btnIngresar" Content="Ingrsar" HorizontalAlignment="Left" Margin="255,299,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FF063037" BorderBrush="#FF063037" Foreground="White" Click="Button_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

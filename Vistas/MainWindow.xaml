@@ -7,21 +7,31 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid Margin="0,0,168,0" Background="Black">
+        <Grid Margin="0,0,168,0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF005255" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
 
         </Grid>
-        <Grid Margin="609,0,-273,0">
+        <Grid Margin="610,0,0,0">
             <Grid.Background>
-                <ImageBrush ImageSource="img/fondo.png"/>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF005659"/>
+                    <GradientStop Color="#FF005457"/>
+                </LinearGradientBrush>
             </Grid.Background>
-            <Button Content="Usuario" HorizontalAlignment="Left" Height="30" Margin="10,87,0,0" VerticalAlignment="Top" Width="159" Background="#FF9C0B0A" BorderBrush="#FF9C0B0A" Foreground="White" FontFamily="Arial Rounded MT Bold" Click="Button_Click"/>
-            <Button Content="Pelicula" HorizontalAlignment="Left" Height="30" Margin="10,136,0,0" VerticalAlignment="Top" Width="159" Background="#FF9C0B0A" BorderBrush="#FF9C0B0A" Foreground="White" FontFamily="Arial Rounded MT Bold" Click="Button_Click"/>
-            <Button Content="Butaca" HorizontalAlignment="Left" Height="30" Margin="10,184,0,0" VerticalAlignment="Top" Width="159" Background="#FF9C0B0A" BorderBrush="#FF9C0B0A" Foreground="White" FontFamily="Arial Rounded MT Bold" Click="Button_Click"/>
-            <Button Content="Proyecciones" HorizontalAlignment="Left" Height="30" Margin="10,232,0,0" VerticalAlignment="Top" Width="159" Background="#FF9C0B0A" BorderBrush="#FF9C0B0A" Foreground="White" FontFamily="Arial Rounded MT Bold" Click="Button_Click"/>
-            <Button Content="Cliente" HorizontalAlignment="Left" Height="30" Margin="10,280,0,0" VerticalAlignment="Top" Width="159" Background="#FF9C0B0A" BorderBrush="#FF9C0B0A" Foreground="White" FontFamily="Arial Rounded MT Bold" Click="Button_Click"/>
-            <Button Content="Tickets" HorizontalAlignment="Left" Height="30" Margin="10,329,0,0" VerticalAlignment="Top" Width="159" Background="#FF9C0B0A" BorderBrush="#FF9C0B0A" Foreground="White" FontFamily="Arial Rounded MT Bold" Click="Button_Click"/>
-            <Button Content="Salir" HorizontalAlignment="Left" Height="30" Margin="10,379,0,0" VerticalAlignment="Top" Width="159" Background="#FF9C0B0A" BorderBrush="#FF9C0B0A" Foreground="White" FontFamily="Arial Rounded MT Bold" Click="Button_Click"/>
-            <Label Name="usuario" Content="Label" HorizontalAlignment="Left" Margin="51,0,0,0" VerticalAlignment="Top" Background="#00000000" Foreground="White"/>
+            <Grid.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.OpacityMask>
+            <Label x:Name="usuario" Content="Label" HorizontalAlignment="Left" Margin="120,10,0,0" VerticalAlignment="Top" Foreground="White"/>
+
         </Grid>
     </Grid>
 </Window>
