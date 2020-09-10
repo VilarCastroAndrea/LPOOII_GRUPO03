@@ -1,5 +1,6 @@
 ﻿using ClasesBase;
 using System.Windows;
+using Vistas.rsc;
 
 namespace Vistas
 {
@@ -8,20 +9,22 @@ namespace Vistas
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(Usuario logueado)
+        public MainWindow()
         {
             InitializeComponent();
-            mostrarBotones(logueado);
+            mostrarBotones();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void mostrarBotones(Usuario usuario)
+        /// <summary>
+        /// Muestra los botones segun el usuario que se encuentra logeado
+        /// </summary>
+        private void mostrarBotones()
         {
-            if (usuario.Rol_Codigo == 1)
+            if (UsuarioLogin.rol_Codigo == 1)
             {
                 btnCliente.Visibility = Visibility.Hidden;
                 btnTicket.Visibility = Visibility.Hidden;
@@ -51,6 +54,34 @@ namespace Vistas
         {
             panelPrincipal.Children.Clear();
             panelPrincipal.Children.Add(new WPFButaca());
+        }
+
+
+        /// <summary>
+        /// Boton para deslogear
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            deslogearUsuario();
+            Close();
+            login.Show();
+        }
+
+
+        /// <summary>
+        /// Borra los datos que tiene guardado el usuario que se logeo
+        /// </summary>
+        private void deslogearUsuario()
+        {
+            UsuarioLogin.rol_Codigo = -1;
+            UsuarioLogin.usu_ApellidoNombre = null;
+            UsuarioLogin.usu_Disponible = false;
+            UsuarioLogin.usu_Id = -1;
+            UsuarioLogin.usu_NombreUsuario = null;
+            UsuarioLogin.usu_Password = null;
         }
     }
 }

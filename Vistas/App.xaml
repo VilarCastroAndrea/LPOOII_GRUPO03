@@ -7,11 +7,10 @@
         <Style x:Key="ButtonButaca" TargetType="Button">
             <Setter Property="Background" Value="#FF04292F"/>
             <Setter Property="Foreground" Value="White"/>
-
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="20" Background="{TemplateBinding Background}" BorderThickness="1">
+                        <Border CornerRadius="20" Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="White">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
 
                             </ContentPresenter>
