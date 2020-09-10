@@ -10,7 +10,10 @@ namespace Vistas
     public partial class WPFButaca : UserControl
     {
         Style appButtonStyle = (Style)Application.Current.Resources["ButtonButaca"];
-        private int[,] mat;
+
+        //Matriz utilizada como bd ficticia
+        private int[,] baseDeDatosFicticia;
+
         public WPFButaca()
         {
             InitializeComponent();
@@ -22,7 +25,8 @@ namespace Vistas
 
             int columnas = 15;
             int filas = 6;
-            mat = new int[filas, columnas];
+            //inicializacion de la base de datos
+            baseDeDatosFicticia = new int[filas, columnas];
             //codigo ascci de letra A
             int abc = 65;
 
@@ -46,12 +50,15 @@ namespace Vistas
                 char c = (char)(abc + i);
                 for (int j = 0; j < columnas; j++)
                 {
-                    mat[i, j] = 0;
+                    //inicializa los acientos como disponibles (0)
+                    baseDeDatosFicticia[i, j] = 0;
+                    //creacion de botones dinamicos dentro del bucle for
                     Button butaca = new Button();
                     butaca.Content = c + "," + (j + 1);
                     butaca.Width = 30;
                     butaca.Height = 30;
                     butaca.Style = appButtonStyle;
+                    //asignacion del evento click en el boton dinamico
                     butaca.Click += Butaca_Click;
                     Grid.SetRow(butaca, i);
                     Grid.SetColumn(butaca, j);
@@ -62,19 +69,26 @@ namespace Vistas
 
         }
 
-
+        /// <summary>
+        /// valida todos los asientos en funcion de su disponibilidad con un color que represente la misma 
+        /// </summary>
         private void validarAsientos()
         {
 
             foreach (var item in grid.Children)
             {
-                if (mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] == 0)
+                //Si el aciento no esta ocupado el boton obtendra un estilo que muestre su disponibilidad
+
+                //Debido a que la informacion (fila y columna) se encuentra en el boton, tomo dicho 
+                //boton y lo utilizo para consultar en la matriz su disponiibilidad 
+                //(0 Disponible, 1 Seleccionado y 2 Ocupado) y le pone un color en funcion de la misma
+                if (baseDeDatosFicticia[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 0)
                 {
                     ((Button)item).Background = Brushes.Gray;
                 }
                 else
                 {
-                    if (mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] == 1)
+                    if (baseDeDatosFicticia[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
                     {
                         ((Button)item).Background = Brushes.Green;
                     }
@@ -87,51 +101,71 @@ namespace Vistas
             }
         }
 
-
-        private int obtenerFila(string filaColumna)
+        /// <summary>
+        /// al mandarle el contenido del boton a esta funcion devuelve la fila del boton
+        /// </summary>
+        /// <param name="botonFilaColumna"></param>
+        /// <returns></returns>
+        private int obtenerFilaBoton(string botonFilaColumna)
         {
-            string[] valores = filaColumna.Split(',');
+            string[] valores = botonFilaColumna.Split(',');
             int aux = char.Parse(valores[0]);
             return aux - 65;
         }
-        private int obtenerColumna(string filaColumna)
+
+        /// <summary>
+        /// al mandarle el contenido del boton a esta funcion devuelve la columna del boton
+        /// </summary>
+        /// <param name="botonFilaColumna"></param>
+        /// <returns></returns>
+        private int obtenerColumnaBoton(string botonFilaColumna)
         {
-            string[] valores = filaColumna.Split(',');
+            string[] valores = botonFilaColumna.Split(',');
             return int.Parse(valores[1]) - 1;
         }
 
 
 
-
+        /// <summary>
+        /// al hacer click en algun boton que representa las butacas
+        /// verifica si el mismo esta oocupado, disponible y seleccionado para
+        /// realizar una accion correspondiente ya sea mostrar un cartel de error o
+        /// cambiar el color del boton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Butaca_Click(object sender, RoutedEventArgs e)
         {
-            if (mat[obtenerFila(((Button)sender).Content.ToString()), obtenerColumna(((Button)sender).Content.ToString())] == 2)
+            if (baseDeDatosFicticia[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 2)
                 MessageBox.Show("Asiento Ocupado");
             else
             {
-                if (mat[obtenerFila(((Button)sender).Content.ToString()), obtenerColumna(((Button)sender).Content.ToString())] == 1)
+                if (baseDeDatosFicticia[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 1)
                 {
-                    mat[obtenerFila(((Button)sender).Content.ToString()), obtenerColumna(((Button)sender).Content.ToString())] = 0;
+                    baseDeDatosFicticia[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 0;
                 }
                 else
                 {
-                    mat[obtenerFila(((Button)sender).Content.ToString()), obtenerColumna(((Button)sender).Content.ToString())] = 1;
+                    baseDeDatosFicticia[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 1;
                 }
             }
             validarAsientos();
         }
 
-
+        /// <summary>
+        /// guarda los botones que fueron seleccionados y pasa su disponibilidad a ocupado
+        /// una vez realizado eso vuellve a validar los asientos comparandolos con la bd ficticia
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
             foreach (var item in grid.Children)
             {
 
-                if (mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] == 1)
+                if (baseDeDatosFicticia[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
                 {
-                    mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] = 2;
-
-
+                    baseDeDatosFicticia[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
                 }
 
 
