@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClasesBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,26 +24,33 @@ namespace Vistas
 
         private int[,] mat;
 
+        private Celda[,] celdas;
+
+        private List<Butaca> butacasVendidas = new List<Butaca>();
+        private List<Celda> celdasSelec = new List<Celda>();
+
         public AsignacionDeButacas()
         {
             InitializeComponent();
-            butacas();
+            CrearButacas();
            
         }
 
 
-        private void butacas() {
+        private void CrearButacas() {
 
             int columnas = 20;
             int filas = 10;
-            mat = new int[filas, columnas];
+            celdas = new Celda[filas, columnas];
+            //mat = new int[filas, columnas];
             //codigo ascci de letra A
-            int abc = 65; 
+            int abc = 65;
 
             //crea las columnas en el grid
-            for (int i=0; i<columnas;i++) {
+            for (int i = 0; i < columnas; i++)
+            {
                 ColumnDefinition gridCol = new ColumnDefinition();
-                 grid.ColumnDefinitions.Add(gridCol);
+                grid.ColumnDefinitions.Add(gridCol);
             }
 
             //crea las filas en el grid
@@ -52,45 +60,43 @@ namespace Vistas
                 grid.RowDefinitions.Add(gridRow);
             }
 
+            for(int i = 0; i < filas; i++)
+            {
+                char c = (char)(abc + i);
+                for (int j = 0; j < columnas; j++)
+                {
+                    //Celda cel = new Celda();
+                    //cel = celdas[i, j];
+                    celdas[i, j] = new Celda();
+                    celdas[i, j].IniciarButaca(new Butaca(c.ToString(), j+1 , 1), new Button());
 
-            //agrega  los botones a la fila y columna correspondiente
-            for (int i=0; i<filas; i++) {
-                char c = (char) (abc+i);
-                for (int j=0; j<columnas; j++) {
-                    mat[i, j] = 0;
-                    Button butaca = new Button();
-                    butaca.Content = c + "," + (j + 1);
-                    butaca.Click += Butaca_Click;
-                    Grid.SetRow(butaca, i);
-                    Grid.SetColumn(butaca, j);
-                    grid.Children.Add(butaca);
+                    celdas[i, j].BotonAsociado.Click += Butaca_Click;
+
+                    Grid.SetRow(celdas[i, j].BotonAsociado, i);
+                    Grid.SetColumn(celdas[i, j].BotonAsociado, j);
+                    grid.Children.Add(celdas[i, j].BotonAsociado);
                 }
-                validarAsientos();
             }
+            validarAsientos();
 
         }
 
         private void validarAsientos()
         {
-
-            foreach (var item in grid.Children)
+            //ANTES Obtener listado de butacas vendidas de la base de datos
+           // IF AUXILIAR PARA DEMOSTRAR
+           if(butacasVendidas.Count == 0)
             {
-                if (mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] == 0)
-                {
-                    ((Button)item).Background = Brushes.Gray;
-                }
-                else
-                {
-                    if (mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] == 1)
-                    {
-                        ((Button)item).Background = Brushes.Green;
-                    }
-                    else
-                    {
-                        ((Button)item).Background = Brushes.Red;
-                    }
-                }
+                butacasVendidas.Add(new Butaca("C", 3, 1));
+                butacasVendidas.Add(new Butaca("C", 4, 1));
+            }
+            
 
+            foreach (Butaca but in butacasVendidas)
+            {
+                int fil = char.Parse(but.But_Fila) - 64 - 1;
+                int col = but.But_Nro - 1;
+                celdas[fil, col].OcuparButaca();
             }
         }
 
@@ -112,36 +118,40 @@ namespace Vistas
 
         private void Butaca_Click(object sender, RoutedEventArgs e)
         {
-            if (mat[obtenerFila(((Button)sender).Content.ToString()), obtenerColumna(((Button)sender).Content.ToString())] == 2)
+            Brush color =  ((Button)sender).Background;
+            if (color.Equals(Brushes.Red))
+            {
                 MessageBox.Show("Asiento Ocupado");
+            }
             else
             {
-                if (mat[obtenerFila(((Button)sender).Content.ToString()), obtenerColumna(((Button)sender).Content.ToString())] == 1)
+                int fila = Grid.GetRow((Button)sender);
+                int col = Grid.GetColumn((Button)sender);
+
+                //Si el color de la celda es gris se guarda como posible compra
+                if (color.Equals(Brushes.Gray))
                 {
-                    mat[obtenerFila(((Button)sender).Content.ToString()), obtenerColumna(((Button)sender).Content.ToString())] = 0;
+                    celdas[fila, col].SeleccionarButaca();
+                    celdasSelec.Add(celdas[fila, col]);
                 }
-                else
+                //Si el boton es verde se vuelve a gris y se elimina de posible compra
+                else if(color.Equals(Brushes.Green))
                 {
-                    mat[obtenerFila(((Button)sender).Content.ToString()), obtenerColumna(((Button)sender).Content.ToString())] = 1;
+                    celdas[fila, col].LiberarButaca();
+                    celdasSelec.Remove(celdas[fila, col]);
                 }
+
             }
-            validarAsientos();
         }
 
 
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in grid.Children)
+            foreach(Celda cel in celdasSelec)
             {
-
-                if (mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] == 1)
-                {
-                    mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] = 2;
-
-
-                }
-
-
+                cel.Butaca.But_Disponible = false;
+                //Se guarda en la BD
+                butacasVendidas.Add(cel.Butaca);
             }
             validarAsientos();
         }

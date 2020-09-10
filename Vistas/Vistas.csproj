@@ -78,6 +78,7 @@
     <Compile Include="AsignacionDeButacas.xaml.cs">
       <DependentUpon>AsignacionDeButacas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Celda.cs" />
     <Compile Include="ClienteNuevo.xaml.cs">
       <DependentUpon>ClienteNuevo.xaml</DependentUpon>
     </Compile>
