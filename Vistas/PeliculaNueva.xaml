@@ -31,8 +31,8 @@
         <TextBox   Name="txtImagenPeli" HorizontalAlignment="Left" Height="30" Margin="44,287,0,0"  VerticalAlignment="Top" Width="171" />
         <Label Content="Imagen" HorizontalAlignment="Left" Margin="44,258,0,0" VerticalAlignment="Top"/>
         <Button Name="btnAgregar" Content="Aceptar" HorizontalAlignment="Left" Margin="183,350,0,0" VerticalAlignment="Top" Width="111" Height="34" Click="Button_Click_1" />
-        <ComboBox Name="cbxGenero" HorizontalAlignment="Left" Margin="44,169,0,0" VerticalAlignment="Top" Width="250" Height="30"/>
-        <ComboBox Name="cbxClase" HorizontalAlignment="Left" Margin="44,233,0,0" VerticalAlignment="Top" Width="250" Height="30"/>
+        <ComboBox Name="cmbGenero" HorizontalAlignment="Left" Margin="44,169,0,0" VerticalAlignment="Top" Width="250" Height="30"/>
+        <ComboBox Name="cmbClasificacion" HorizontalAlignment="Left" Margin="44,233,0,0" VerticalAlignment="Top" Width="250" Height="30"/>
         <Image Name="imgPeli" HorizontalAlignment="Left" Height="266" Margin="340,51,0,0" VerticalAlignment="Top" Width="218"/>
         <Button Name="btnExaminar" Content="Examinar" HorizontalAlignment="Left" Margin="220,287,0,0" VerticalAlignment="Top" Width="74" Height="30" Click="Button_Click"/>
         <Image Name="imgprueba" HorizontalAlignment="Left" Height="174" Margin="592,110,0,0" VerticalAlignment="Top" Width="154"/>
