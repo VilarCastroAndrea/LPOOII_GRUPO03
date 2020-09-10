@@ -70,7 +70,7 @@ namespace Vistas
             {
                 if (mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] == 0)
                 {
-                    ((Button)item).Style = appButtonStyle;
+                    ((Button)item).Background = Brushes.Gray;
                 }
                 else
                 {
