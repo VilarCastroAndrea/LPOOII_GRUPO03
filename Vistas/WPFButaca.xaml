@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Vistas.WPFButaca"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vistas"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF042A30"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="357" Margin="125,10,0,0" VerticalAlignment="Top" Width="506" Source="img/pro.png"/>
+        <Rectangle Fill="#FF031F24" HorizontalAlignment="Left" Height="16" Margin="10,40,0,0" Stroke="White" VerticalAlignment="Top" Width="36"/>
+        <Rectangle Fill="#FF4CC91E" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="10,71,0,0"/>
+        <Rectangle Fill="#FFF03030" HorizontalAlignment="Left" Height="16" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="10,101,0,0"/>
+        <Label Content="Disponible" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Height="26" Margin="51,38,0,0" Foreground="White" FontFamily="Arial Black"/>
+        <Label Content="Su elección" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" FontFamily="Arial Black" Foreground="#FFFFFDFD" Margin="51,70,0,0"/>
+        <Label Content="Ocupado" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="28" FontFamily="Arial Black" Foreground="White" Margin="51,99,0,0"/>
+        <Grid Name="grid" HorizontalAlignment="Left" Height="224" Margin="125,129,0,0" VerticalAlignment="Top" Width="506">
+
+        </Grid>
+        <Button Content="Reservar" HorizontalAlignment="Left" Margin="556,372,0,0" VerticalAlignment="Top" Width="75" Click="BtnGuardar_Click" Background="#FF04292F" BorderBrush="#FF033740" Foreground="White"/>
+    </Grid>
+</UserControl>
