@@ -11,9 +11,7 @@ namespace Vistas
         public MainWindow(Usuario logueado)
         {
             InitializeComponent();
-            usuario.Content = logueado.Usu_NombreUsuario;
             mostrarBotones(logueado);
-            panelPrincipal.Children.Add(new WPFCliente());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,6 +45,12 @@ namespace Vistas
         {
             panelPrincipal.Children.Clear();
             panelPrincipal.Children.Add(new WPFPelicula());
+        }
+
+        private void BtnButaca_Click(object sender, RoutedEventArgs e)
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new WPFButaca());
         }
     }
 }

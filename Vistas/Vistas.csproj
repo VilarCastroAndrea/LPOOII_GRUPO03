@@ -144,5 +144,8 @@
   <ItemGroup>
     <Folder Include="rsc\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\pro.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
