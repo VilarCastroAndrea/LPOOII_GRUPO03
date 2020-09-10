@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vistas"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="400" d:DesignWidth="800">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -13,17 +13,20 @@
                 <GradientStop Color="#FF042A30"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="295" Margin="13,11,0,0" VerticalAlignment="Top" Width="176" Foreground="White" FontWeight="Bold"/>
-        <Label Content="Titulo" HorizontalAlignment="Left" Margin="28,44,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="31"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="29,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
-        <Label Content="Duracion" HorizontalAlignment="Left" Margin="29,103,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="28,134,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="337" Margin="13,11,0,0" VerticalAlignment="Top" Width="176" Foreground="White" FontWeight="Bold"/>
+        <Label Content="Titulo" HorizontalAlignment="Left" Margin="28,44,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
+        <TextBox Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="29,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        <Label Content="Duracion" HorizontalAlignment="Left" Margin="29,103,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
+        <TextBox Name="txtDuracion" HorizontalAlignment="Left" Height="23" Margin="28,134,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
         <Label Content="Genero" HorizontalAlignment="Left" Margin="28,162,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="28,193,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        <ComboBox Name="cmbGenero" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="29,197,0,0"  Background="#FF02090A" />
         <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="29,221,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="28,252,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
-        <Button Content="Agregar" HorizontalAlignment="Left" Margin="28,329,0,0" VerticalAlignment="Top" Width="145" Foreground="White" Background="#FF040303" BorderBrush="#FF04191B"/>
-        <DataGrid HorizontalAlignment="Left" Height="381" Margin="222,20,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="White"/>
+        <ComboBox Name="cmbClasificacion" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="18" Margin="29,252,0,0"/>
+        <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="145" Foreground="White" Background="#FF040303" BorderBrush="#FF04191B" Click="BtnAltaPelicula_Click"/>
+        <DataGrid HorizontalAlignment="Left" Height="370" Margin="218,20,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="White"/>
+        <Label Content="Imagen" HorizontalAlignment="Left" Margin="28,275,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
+        <TextBox x:Name="txtImagenPeli" HorizontalAlignment="Left" Height="23" Margin="28,306,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        <Button Name="ExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="98,281,0,0" VerticalAlignment="Top" Width="75" Click="ExaminarImg_Click" Background="#FF04191B" BorderBrush="#FF04191B" Foreground="White" />
 
     </Grid>
 </UserControl>

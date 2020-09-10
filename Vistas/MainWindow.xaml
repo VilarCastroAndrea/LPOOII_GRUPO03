@@ -12,6 +12,11 @@
     </Window.Resources>
     <Grid>
         <Grid Margin="0,0,30,0" Name="panelPrincipal">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="1"/>
@@ -19,7 +24,7 @@
                 </LinearGradientBrush>
             </Grid.Background>
         </Grid>
-        <Grid Margin="748,0,0,0" Background="Black">
+        <Grid Margin="748,0,0,0" Background="Black" RenderTransformOrigin="0.5,0.826">
             <Button HorizontalAlignment="Left" Name="btnCliente" Margin="3,74,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnCliente_Click">
                 <fa:ImageAwesome Icon="StreetView" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
@@ -37,6 +42,9 @@
             </Button>
             <Button HorizontalAlignment="Left" Name="btnProyeccion" Margin="3,274,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
                 <fa:ImageAwesome Icon="FileMovieOutline" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
+            </Button>
+            <Button HorizontalAlignment="Left" Name="btnSalir" Margin="3,314,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
+                <fa:ImageAwesome Icon="Openid" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
             <Label x:Name="usuario" Content="Label" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="White" Margin="0,373,0,0"/>
         </Grid>
