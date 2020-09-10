@@ -56,14 +56,24 @@ namespace Vistas
             panelPrincipal.Children.Add(new WPFButaca());
         }
 
+
+        /// <summary>
+        /// Boton para deslogear
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
-            deslogearUsuario()
+            deslogearUsuario();
             Close();
             login.Show();
         }
 
+
+        /// <summary>
+        /// Borra los datos que tiene guardado el usuario que se logeo
+        /// </summary>
         private void deslogearUsuario()
         {
             UsuarioLogin.rol_Codigo = -1;
