@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="rsc\UsuarioLogin.cs" />
     <Compile Include="WPFButaca.xaml.cs">
       <DependentUpon>WPFButaca.xaml</DependentUpon>
     </Compile>
@@ -141,9 +142,7 @@
   <ItemGroup>
     <Resource Include="img\logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="rsc\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="img\pro.png" />
   </ItemGroup>
