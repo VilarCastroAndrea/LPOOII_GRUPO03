@@ -12,11 +12,41 @@ namespace Vistas
         {
             InitializeComponent();
             usuario.Content = logueado.Usu_NombreUsuario;
+            mostrarBotones(logueado);
+            panelPrincipal.Children.Add(new WPFCliente());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void mostrarBotones(Usuario usuario)
+        {
+            if (usuario.Rol_Codigo == 1)
+            {
+                btnCliente.Visibility = Visibility.Hidden;
+                btnTicket.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnButaca.Visibility = Visibility.Hidden;
+                btnUsuario.Visibility = Visibility.Hidden;
+                btnProyeccion.Visibility = Visibility.Hidden;
+                btnPelicula.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void BtnCliente_Click(object sender, RoutedEventArgs e)
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new WPFCliente());
+        }
+
+        private void BtnPelicula_Click(object sender, RoutedEventArgs e)
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new WPFPelicula());
         }
     }
 }

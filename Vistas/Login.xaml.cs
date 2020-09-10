@@ -8,8 +8,9 @@ namespace Vistas
     /// </summary>
     public partial class Login : Window
     {
-        Usuario usuarioVendedor = new Usuario("vendedor", "vendedor", "Vendedor", 1);
-        Usuario usuarioAdministrador = new Usuario("admin", "admin", "Administrador", 2);
+        Usuario usuarioAdministrador = new Usuario("admin", "admin", "Administrador", 1);
+        Usuario usuarioVendedor = new Usuario("vendedor", "vendedor", "Vendedor", 2);
+
         public Login()
         {
             InitializeComponent();
