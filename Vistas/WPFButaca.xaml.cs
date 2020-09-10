@@ -9,6 +9,7 @@ namespace Vistas
     /// </summary>
     public partial class WPFButaca : UserControl
     {
+        Style appButtonStyle = (Style)Application.Current.Resources["ButtonButaca"];
         private int[,] mat;
         public WPFButaca()
         {
@@ -19,8 +20,8 @@ namespace Vistas
         private void butacas()
         {
 
-            int columnas = 20;
-            int filas = 10;
+            int columnas = 15;
+            int filas = 6;
             mat = new int[filas, columnas];
             //codigo ascci de letra A
             int abc = 65;
@@ -39,8 +40,6 @@ namespace Vistas
                 grid.RowDefinitions.Add(gridRow);
             }
 
-
-
             //agrega  los botones a la fila y columna correspondiente
             for (int i = 0; i < filas; i++)
             {
@@ -50,6 +49,9 @@ namespace Vistas
                     mat[i, j] = 0;
                     Button butaca = new Button();
                     butaca.Content = c + "," + (j + 1);
+                    butaca.Width = 30;
+                    butaca.Height = 30;
+                    butaca.Style = appButtonStyle;
                     butaca.Click += Butaca_Click;
                     Grid.SetRow(butaca, i);
                     Grid.SetColumn(butaca, j);
@@ -68,7 +70,7 @@ namespace Vistas
             {
                 if (mat[obtenerFila(((Button)item).Content.ToString()), obtenerColumna(((Button)item).Content.ToString())] == 0)
                 {
-                    ((Button)item).Background = Brushes.Gray;
+                    ((Button)item).Style = appButtonStyle;
                 }
                 else
                 {
@@ -140,4 +142,3 @@ namespace Vistas
 
     }
 }
-
