@@ -19,7 +19,9 @@ namespace Vistas
         {
 
         }
-
+        /// <summary>
+        /// Muestra los botones segun el usuario que se encuentra logeado
+        /// </summary>
         private void mostrarBotones()
         {
             if (UsuarioLogin.rol_Codigo == 1)
@@ -52,6 +54,24 @@ namespace Vistas
         {
             panelPrincipal.Children.Clear();
             panelPrincipal.Children.Add(new WPFButaca());
+        }
+
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            deslogearUsuario()
+            Close();
+            login.Show();
+        }
+
+        private void deslogearUsuario()
+        {
+            UsuarioLogin.rol_Codigo = -1;
+            UsuarioLogin.usu_ApellidoNombre = null;
+            UsuarioLogin.usu_Disponible = false;
+            UsuarioLogin.usu_Id = -1;
+            UsuarioLogin.usu_NombreUsuario = null;
+            UsuarioLogin.usu_Password = null;
         }
     }
 }

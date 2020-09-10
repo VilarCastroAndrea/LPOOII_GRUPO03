@@ -19,6 +19,11 @@ namespace Vistas
             usuarios.Add(new Usuario("vendedor", "123", "Ignacio Scocco", 2));
         }
 
+        /// <summary>
+        /// Compara los datos ingresados en el login y si son correctos guarda el usuario que ingreso y 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             bool encontro = false;
@@ -34,15 +39,10 @@ namespace Vistas
                     break;
                 }
             }
-
             if (encontro == false)
             {
                 MessageBox.Show("No se encontro el usuario " + txtbUsuario.Text, "Error");
             }
-
-
-
-
         }
 
         /// <summary>
