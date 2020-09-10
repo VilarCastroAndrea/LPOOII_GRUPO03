@@ -18,7 +18,7 @@ namespace Vistas
     /// <summary>
     /// Lógica de interacción para AsignacionDeButacas.xaml
     /// </summary>
-    public partial class AsignacionDeButacas : Window
+    public partial class AsignacionDeButacas : UserControl
     {
 
         private int[,] mat;
@@ -147,9 +147,5 @@ namespace Vistas
         }
 
 
-        private void BtnSalir_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }

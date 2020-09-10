@@ -1,14 +1,14 @@
-﻿<Window x:Class="Vistas.AsignacionDeButacas"
+﻿<UserControl x:Class="Vistas.AsignacionDeButacas"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="Asignacion De Butacas" Height="550" Width="1000"  WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
-    <Grid>
-        <Image HorizontalAlignment="Left" Height="105" Margin="24,10,0,0" VerticalAlignment="Top" Width="941" Source="img/pantalla.png" Stretch="Fill"/>
-        <Grid Name="grid" HorizontalAlignment="Left" Height="261" Margin="24,138,0,0" VerticalAlignment="Top" Width="941">
+ >
+    <Grid Background="White">
+        <Image HorizontalAlignment="Left" Height="105" Margin="8,10,0,0" VerticalAlignment="Top" Width="941" Source="img/pantalla.png" Stretch="Fill"/>
+        <Grid Name="grid" HorizontalAlignment="Left" Height="261" Margin="16,138,0,0" VerticalAlignment="Top" Width="918">
 
         </Grid>
         <Rectangle Fill="#FFB4B4B4" HorizontalAlignment="Left" Height="16" Margin="24,422,0,0" Stroke="Black" VerticalAlignment="Top" Width="36"/>
@@ -17,7 +17,6 @@
         <Label Content="Disponible" HorizontalAlignment="Left" Margin="65,417,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
         <Label Content="Su elección" HorizontalAlignment="Left" Margin="65,445,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Ocupado" HorizontalAlignment="Left" Margin="65,471,0,0" VerticalAlignment="Top" Width="75" Height="28"/>
-        <Button Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="870,471,0,0" VerticalAlignment="Top" Width="95" Height="28" Click="BtnSalir_Click"/>
-        <Button Content="Guardar" HorizontalAlignment="Left" Margin="748,471,0,0" VerticalAlignment="Top" Width="95" Height="28" Click="BtnGuardar_Click"/>
+        <Button Content="Guardar" HorizontalAlignment="Left" Margin="828,449,0,0" VerticalAlignment="Top" Width="95" Height="28" Click="BtnGuardar_Click"/>
     </Grid>
-</Window>
+</UserControl>

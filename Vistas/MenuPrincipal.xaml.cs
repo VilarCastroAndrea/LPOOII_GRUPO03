@@ -54,8 +54,8 @@ namespace Vistas
                     break;
                 case 3:
                     /*Seccion Butacas*/
-                    AsignacionDeButacas butacas = new AsignacionDeButacas();
-                    butacas.Show();
+                    stackPanelPrincipal.Children.Clear();
+                    stackPanelPrincipal.Children.Add(new AsignacionDeButacas());
 
                     break;
                 case 4:
