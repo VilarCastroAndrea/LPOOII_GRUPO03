@@ -25,6 +25,11 @@ namespace Vistas
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Evento boton ingresar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnIngresar_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario1 = new Usuario();
