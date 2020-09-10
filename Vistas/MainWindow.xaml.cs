@@ -1,5 +1,6 @@
 ﻿using ClasesBase;
 using System.Windows;
+using Vistas.rsc;
 
 namespace Vistas
 {
@@ -8,10 +9,10 @@ namespace Vistas
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(Usuario logueado)
+        public MainWindow()
         {
             InitializeComponent();
-            mostrarBotones(logueado);
+            mostrarBotones();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -19,9 +20,9 @@ namespace Vistas
 
         }
 
-        private void mostrarBotones(Usuario usuario)
+        private void mostrarBotones()
         {
-            if (usuario.Rol_Codigo == 1)
+            if (UsuarioLogin.rol_Codigo == 1)
             {
                 btnCliente.Visibility = Visibility.Hidden;
                 btnTicket.Visibility = Visibility.Hidden;

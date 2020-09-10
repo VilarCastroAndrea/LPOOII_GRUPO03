@@ -34,7 +34,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox x:Name="txtbUsuario" HorizontalAlignment="Left" Height="20" Margin="47,231,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130" TextChanged="TextBox" Background="#FF353630" BorderBrush="#FF2E2F29" Foreground="White" FontSize="16" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="txtbUsuario" HorizontalAlignment="Left" Height="20" Margin="47,231,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130" Background="#FF353630" BorderBrush="#FF2E2F29" Foreground="White" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
