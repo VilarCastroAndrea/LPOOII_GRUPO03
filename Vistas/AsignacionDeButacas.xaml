@@ -18,5 +18,6 @@
         <Label Content="Su elección" HorizontalAlignment="Left" Margin="65,445,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Ocupado" HorizontalAlignment="Left" Margin="65,471,0,0" VerticalAlignment="Top" Width="75" Height="28"/>
         <Button Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="870,471,0,0" VerticalAlignment="Top" Width="95" Height="28" Click="BtnSalir_Click"/>
+        <Button Content="Guardar" HorizontalAlignment="Left" Margin="748,471,0,0" VerticalAlignment="Top" Width="95" Height="28" Click="BtnGuardar_Click"/>
     </Grid>
 </Window>

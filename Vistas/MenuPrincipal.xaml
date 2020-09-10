@@ -17,22 +17,22 @@
 
         <Grid  Width="130" HorizontalAlignment="Left" Background="#282d31">
             <ListView x:Name="listViewMenu" Margin="0,130,0,80" Background="Transparent" BorderBrush="Transparent" Foreground="LightGray" SelectionChanged="ListViewMenu_SelectionChanged" SelectedIndex="0">
-                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left" FocusableChanged="ListViewItem_FocusableChanged">
+                <ListViewItem Name="itemClientes" Height="23" Width="126" HorizontalAlignment="Left" FocusableChanged="ListViewItem_FocusableChanged">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Clientes" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                <ListViewItem Name="itemTickets" Height="23" Width="126" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Ticket" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                <ListViewItem Name="itemPeliculas" Height="23" Width="126" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Peliculas" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>
                 </ListViewItem>
-                <ListViewItem Height="23" Width="126" HorizontalAlignment="Left">
+                <ListViewItem Name="itemButacas" Height="23" Width="126" HorizontalAlignment="Left">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Butacas" FontSize="16" VerticalAlignment="Center" Margin="20 0"/>
                     </StackPanel>

@@ -95,6 +95,13 @@ namespace Vistas
             {
                 itemUsuario.Visibility = Visibility.Hidden;
                 itemProyecciones.Visibility = Visibility.Hidden;
+                itemPeliculas.Visibility = Visibility.Hidden;
+                itemButacas.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                itemClientes.Visibility = Visibility.Hidden;
+                itemTickets.Visibility = Visibility.Hidden;
             }
         }
 
