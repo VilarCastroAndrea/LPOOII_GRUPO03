@@ -29,9 +29,9 @@ namespace Vistas
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            if (txtbUsuario.Text != "" && txtbContraseña.Text != "")
+            if (txtbUsuario.Text != "" && txtbContraseña.Password != "")
             {
-                if (txtbUsuario.Text.Equals(usuarioAdministrador.Usu_NombreUsuario) && txtbContraseña.Text.Equals(usuarioAdministrador.Usu_Password))
+                if (txtbUsuario.Text.Equals(usuarioAdministrador.Usu_NombreUsuario) && txtbContraseña.Password.Equals(usuarioAdministrador.Usu_Password))
                 {
                     MainWindow main = new MainWindow(usuarioAdministrador);
                     main.Show();
@@ -39,7 +39,7 @@ namespace Vistas
                 }
                 else
                 {
-                    if (txtbUsuario.Text.Equals(usuarioVendedor.Usu_NombreUsuario) && txtbContraseña.Text.Equals(usuarioVendedor.Usu_Password))
+                    if (txtbUsuario.Text.Equals(usuarioVendedor.Usu_NombreUsuario) && txtbContraseña.Password.Equals(usuarioVendedor.Usu_Password))
                     {
                         MainWindow main = new MainWindow(usuarioVendedor);
                         main.Show();

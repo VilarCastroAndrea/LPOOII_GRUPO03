@@ -23,5 +23,6 @@
         <Grid Name="grid" HorizontalAlignment="Left" Height="261" Margin="78,138,0,0" VerticalAlignment="Top" Width="601">
 
         </Grid>
+        <Button Content="Guardar" HorizontalAlignment="Left" Margin="542,338,0,0" VerticalAlignment="Top" Width="75" Click="BtnGuardar_Click"/>
     </Grid>
 </UserControl>
