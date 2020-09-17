@@ -15,17 +15,21 @@
             </LinearGradientBrush>
         </Grid.Background>
         <GroupBox Header="Cliente" HorizontalAlignment="Left" Height="342" Margin="16,12,0,0" VerticalAlignment="Top" Width="176" Foreground="White" FontWeight="Bold"/>
-        <Label Content="DNI" HorizontalAlignment="Left" Margin="31,45,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="31"/>
-        <TextBox Name="txtDni" HorizontalAlignment="Left" Height="23" Margin="32,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White" PreviewTextInput="TextBox_PreviewTextInput"/>
-        <Label Content="Nombre" HorizontalAlignment="Left" Margin="32,104,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
-        <TextBox Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="31,135,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White" PreviewTextInput="PreviewTextInputOnlyLetters"/>
-        <Label Content="Apellido" HorizontalAlignment="Left" Margin="31,163,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
-        <TextBox Name="txtApellido" HorizontalAlignment="Left" Height="23" Margin="31,194,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White" PreviewTextInput="PreviewTextInputOnlyLetters"/>
-        <Label Content="Telefono" HorizontalAlignment="Left" Margin="32,222,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="55"/>
-        <TextBox Name="txtTelefono" HorizontalAlignment="Left" Height="23" Margin="31,253,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White" PreviewTextInput="TextBox_PreviewTextInput"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="32,281,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="38"/>
-        <TextBox Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="32,312,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        <Label Content="DNI" Margin="31,45,0,0"  Style="{StaticResource LabelCustom}"/>
+        <TextBox Name="txtDni" Margin="32,76,0,0"  PreviewTextInput="TextBox_PreviewTextInput" Style="{StaticResource TextBoxCustom}"/>
+        <Label Content="Nombre" Margin="32,104,0,0" Style="{StaticResource LabelCustom}"/>
+        <TextBox Name="txtNombre" Margin="31,135,0,0"  PreviewTextInput="PreviewTextInputOnlyLetters" Style="{StaticResource TextBoxCustom}"/>
+        <Label Content="Apellido" Margin="31,163,0,0" Style="{StaticResource LabelCustom}"/>
+        <TextBox Name="txtApellido" Margin="31,194,0,0" PreviewTextInput="PreviewTextInputOnlyLetters" Style="{StaticResource TextBoxCustom}"/>
+        <Label Content="Telefono" Margin="32,222,0,0" Style="{StaticResource LabelCustom}"/>
+        <TextBox Name="txtTelefono" Margin="31,253,0,0" PreviewTextInput="TextBox_PreviewTextInput" Style="{StaticResource TextBoxCustom}"/>
+        <Label Content="Email" Margin="32,281,0,0" Style="{StaticResource LabelCustom}"/>
+        <TextBox Name="txtEmail" Margin="32,312,0,0" Style="{StaticResource TextBoxCustom}"/>
+        <Button Name="btnAlta" Style="{StaticResource BotonCustom}" Click="BtnAlta_Click"/>
+        <!--
         <Button Name="btnAlta" Content="Agregar" HorizontalAlignment="Left" Margin="31,370,0,0" VerticalAlignment="Top" Width="145" Foreground="White" Background="#FF040303" BorderBrush="#FF04191B" Click="BtnAlta_Click"/>
+         <TextBox Name="txtDni" HorizontalAlignment="Left" Height="23" Margin="32,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White" PreviewTextInput="TextBox_PreviewTextInput"/>
+        -->
         <DataGrid HorizontalAlignment="Left" Height="368" Margin="219,22,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="White"/>
     </Grid>
 </UserControl>

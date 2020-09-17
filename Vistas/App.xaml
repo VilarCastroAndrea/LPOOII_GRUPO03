@@ -4,20 +4,12 @@
              xmlns:local="clr-namespace:Vistas"
              StartupUri="Login.xaml">
     <Application.Resources>
-        <Style x:Key="ButtonButaca" TargetType="Button">
-            <Setter Property="Background" Value="#FF04292F"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="20" Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="White">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
-
-                            </ContentPresenter>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="styles/RDButacas.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="styles/RDCliente.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="styles/RDPeliculas.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

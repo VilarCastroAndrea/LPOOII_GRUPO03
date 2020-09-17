@@ -22,11 +22,14 @@
         <ComboBox Name="cmbGenero" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="29,197,0,0"  Background="#FF02090A" />
         <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="29,221,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
         <ComboBox Name="cmbClasificacion" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="18" Margin="29,252,0,0"/>
-        <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="145" Foreground="White" Background="#FF040303" BorderBrush="#FF04191B" Click="BtnAltaPelicula_Click"/>
+        <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="145" Click="BtnAltaPelicula_Click" Style="{StaticResource btnPeliculaEstilo}"/>
         <DataGrid HorizontalAlignment="Left" Height="370" Margin="218,20,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="White"/>
         <Label Content="Imagen" HorizontalAlignment="Left" Margin="28,275,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
         <TextBox x:Name="txtImagenPeli" HorizontalAlignment="Left" Height="23" Margin="28,306,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
-        <Button Name="ExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="98,281,0,0" VerticalAlignment="Top" Width="75" Click="ExaminarImg_Click" Background="#FF04191B" BorderBrush="#FF04191B" Foreground="White" />
+        <Button Name="ExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="98,281,0,0" VerticalAlignment="Top" Width="75" Click="ExaminarImg_Click" Style="{StaticResource btnPeliculaEstilo}"/>
 
+        <!--
+        <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="145" Foreground="White" Background="#FF040303" BorderBrush="#FF04191B" Click="BtnAltaPelicula_Click"/>
+        -->
     </Grid>
 </UserControl>
