@@ -7,7 +7,7 @@ namespace Vistas
     /// <summary>
     /// Lógica de interacción para WPFButaca.xaml
     /// </summary>
-    public partial class WPFButaca : UserControl
+    public partial class WPFButaca
     {
         Style appButtonStyle = (Style)Application.Current.Resources["ButtonButaca"];
 

@@ -4,21 +4,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 
-namespace Vistas
+namespace Vistas.UserControl.Pelicula
 {
     /// <summary>
-    /// Lógica de interacción para WPFPelicula.xaml
+    /// Lógica de interacción para WPFAltaPelicula.xaml
     /// </summary>
-    public partial class WPFPelicula : UserControl
+    public partial class WPFAltaPelicula
     {
         Clasificacion clasificacion = new Clasificacion();
         Genero genero = new Genero();
         ArrayList clasificaciones = new ArrayList();
         List<Genero> generos = new List<Genero>();
-
-        public WPFPelicula()
+        public WPFAltaPelicula()
         {
             InitializeComponent();
             crearClasificaciones();
@@ -68,7 +66,7 @@ namespace Vistas
                 if (resultado == MessageBoxResult.Yes)
                 {
                     MessageBox.Show("Pelicula Guardado con exito");
-                    Pelicula nuevaPelicula = new Pelicula(0, txtTitulo.Text, txtDuracion.Text, Int32.Parse(cmbGenero.SelectedIndex.ToString()), Int32.Parse(cmbClasificacion.SelectedIndex.ToString()), txtImagenPeli.Text);
+                    //Pelicula nuevaPelicula = new Pelicula(0, txtTitulo.Text, txtDuracion.Text, Int32.Parse(cmbGenero.SelectedIndex.ToString()), Int32.Parse(cmbClasificacion.SelectedIndex.ToString()), txtImagenPeli.Text);
                 }
                 limpiarCampos();
             }

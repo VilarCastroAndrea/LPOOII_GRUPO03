@@ -59,13 +59,25 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="rsc\UsuarioLogin.cs" />
-    <Compile Include="WPFButaca.xaml.cs">
+    <Compile Include="UserControl\Pelicula\WPFAltaPelicula.xaml.cs">
+      <DependentUpon>WPFAltaPelicula.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\WPFButaca.xaml.cs">
       <DependentUpon>WPFButaca.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPFCliente.xaml.cs">
+    <Compile Include="UserControl\Cliente\WPFCliente.xaml.cs">
       <DependentUpon>WPFCliente.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPFPelicula.xaml.cs">
+    <Compile Include="UserControl\Cliente\WPFAltaCliente.xaml.cs">
+      <DependentUpon>WPFAltaCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Cliente\WPFMostrarCliente.xaml.cs">
+      <DependentUpon>WPFMostrarCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Pelicula\WPFMostrarPelicula.xaml.cs">
+      <DependentUpon>WPFMostrarPelicula.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Pelicula\WPFPelicula.xaml.cs">
       <DependentUpon>WPFPelicula.xaml</DependentUpon>
     </Compile>
     <Page Include="Login.xaml">
@@ -95,19 +107,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="styles\RDMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="styles\RDPeliculas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPFButaca.xaml">
+    <Page Include="UserControl\Pelicula\WPFAltaPelicula.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPFCliente.xaml">
+    <Page Include="UserControl\WPFButaca.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPFPelicula.xaml">
+    <Page Include="UserControl\Cliente\WPFCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Cliente\WPFAltaCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Cliente\WPFMostrarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Pelicula\WPFMostrarPelicula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Pelicula\WPFPelicula.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

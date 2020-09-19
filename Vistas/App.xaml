@@ -2,13 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Vistas"
-             StartupUri="Login.xaml">
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="styles/RDButacas.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="styles/RDCliente.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="styles/RDPeliculas.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="styles/RDMain.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

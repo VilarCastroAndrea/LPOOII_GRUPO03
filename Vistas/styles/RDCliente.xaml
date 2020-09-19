@@ -21,10 +21,9 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
+
     <!-- Boton Registrar -->
     <Style x:Key="BotonCustom" TargetType="Button">
-        <Setter Property="Content" Value="Agregar"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Margin" Value="31,370,0,0"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -33,7 +32,7 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="#FF040303"/>
         <Setter Property="BorderBrush" Value="#FF04191B"/>
-        
+
         <!-- Set Template -->
         <Setter Property="Template" Value="{StaticResource btnClientePlantilla}"/>
     </Style>
@@ -45,7 +44,7 @@
         <Setter Property="Foreground" Value="White"/>
 
     </Style>
-    
+
     <!-- TextBox -->
     <Style x:Key="TextBoxCustom" TargetType="TextBox">
         <Setter Property="HorizontalAlignment" Value="Left"/>

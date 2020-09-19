@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Vistas.WPFPelicula"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vistas"
+             mc:Ignorable="d" 
+             d:DesignHeight="490" d:DesignWidth="760">
+    <Grid Height="490" Width="760">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF042A30"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Name="panelPelicula" Height="420" Width="200" Margin="20,40,540,30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <DataGrid HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="White"/>
+        <Button Name="btnModificarPelicula" Style="{StaticResource BotonModificar}" Click="BtnModificarPelicula_Click" />
+        <Button Name="btnAltaPelicula" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaPelicula_Click" />
+        <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>
+        <!--
+        <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="145" Foreground="White" Background="#FF040303" BorderBrush="#FF04191B" Click="BtnAltaPelicula_Click"/>
+        -->
+    </Grid>
+</UserControl>

@@ -1,17 +1,15 @@
 ﻿using ClasesBase;
 using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-
 namespace Vistas
 {
     /// <summary>
-    /// Lógica de interacción para WPFCliente.xaml
+    /// Lógica de interacción para WPFAltaCliente.xaml
     /// </summary>
-    public partial class WPFCliente : UserControl
+    public partial class WPFAltaCliente
     {
-        public WPFCliente()
+        public WPFAltaCliente()
         {
             InitializeComponent();
         }
