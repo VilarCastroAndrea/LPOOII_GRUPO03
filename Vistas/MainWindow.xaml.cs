@@ -1,7 +1,6 @@
-﻿using ClasesBase;
-using System.Windows;
+﻿using System.Windows;
 using Vistas.rsc;
-
+using Vistas.UserControl.Proyeccion;
 namespace Vistas
 {
     /// <summary>
@@ -82,6 +81,12 @@ namespace Vistas
             UsuarioLogin.usu_Id = -1;
             UsuarioLogin.usu_NombreUsuario = null;
             UsuarioLogin.usu_Password = null;
+        }
+
+        private void BtnProyeccion_Click(object sender, RoutedEventArgs e)
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new WPFProyeccion());
         }
     }
 }

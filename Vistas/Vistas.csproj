@@ -62,6 +62,15 @@
     <Compile Include="UserControl\Pelicula\WPFAltaPelicula.xaml.cs">
       <DependentUpon>WPFAltaPelicula.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Proyeccion\WPFAltaProyeccion.xaml.cs">
+      <DependentUpon>WPFAltaProyeccion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Proyeccion\WPFMostrarProyeccion.xaml.cs">
+      <DependentUpon>WPFMostrarProyeccion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Proyeccion\WPFProyeccion.xaml.cs">
+      <DependentUpon>WPFProyeccion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\WPFButaca.xaml.cs">
       <DependentUpon>WPFButaca.xaml</DependentUpon>
     </Compile>
@@ -116,6 +125,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Pelicula\WPFAltaPelicula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Proyeccion\WPFAltaProyeccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Proyeccion\WPFMostrarProyeccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Proyeccion\WPFProyeccion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

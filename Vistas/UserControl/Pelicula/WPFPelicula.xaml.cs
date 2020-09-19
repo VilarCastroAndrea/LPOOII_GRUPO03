@@ -1,4 +1,6 @@
-﻿namespace Vistas
+﻿using Vistas.UserControl.Pelicula;
+
+namespace Vistas
 {
     /// <summary>
     /// Lógica de interacción para WPFPelicula.xaml
@@ -22,7 +24,7 @@
         private void BtnAltaPelicula_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             panelPelicula.Children.Clear();
-            //panelPelicula.Children.Add(new WPFAltaPelicula());
+            panelPelicula.Children.Add(new WPFAltaPelicula());
         }
     }
 }
