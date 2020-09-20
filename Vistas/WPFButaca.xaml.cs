@@ -18,6 +18,8 @@ namespace Vistas
         {
             InitializeComponent();
             butacas();
+
+
         }
 
         private void butacas()
