@@ -10,7 +10,7 @@
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF010A0C"/>
+                <GradientStop Color="#FF021113"/>
             </LinearGradientBrush>
         </Grid.Background>
         <GroupBox Header="Proyeccion" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>
@@ -23,6 +23,7 @@
         <Label Content="Sala" HorizontalAlignment="Left" Margin="35,216,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
         <TextBox x:Name="txtSala" HorizontalAlignment="Left" Height="23" Margin="30,247,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
         <Label Content="Cartelera" HorizontalAlignment="Left" Margin="35,275,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
-        <Button x:Name="btnAlta" Content="Agregar" Style="{StaticResource BotonCustom}"  Margin="29,360,0,0"/>
+        <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="29,350,0,0"/>
+        <Button x:Name="btnBoja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="29,375,0,0"/>
     </Grid>
 </UserControl>
