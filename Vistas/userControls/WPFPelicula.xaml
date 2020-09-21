@@ -14,18 +14,18 @@
             </LinearGradientBrush>
         </Grid.Background>
         <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="337" Margin="13,11,0,0" VerticalAlignment="Top" Width="176" Foreground="White" FontWeight="Bold"/>
-        <Label Content="Titulo" HorizontalAlignment="Left" Margin="28,44,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
-        <TextBox Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="29,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
-        <Label Content="Duracion" HorizontalAlignment="Left" Margin="29,103,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
-        <TextBox Name="txtDuracion" HorizontalAlignment="Left" Height="23" Margin="28,134,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
-        <Label Content="Genero" HorizontalAlignment="Left" Margin="28,162,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
+        <Label Content="Titulo" Margin="28,44,0,0" Style="{StaticResource LabelCustom}"/>
+        <TextBox Name="txtTitulo" Margin="29,75,0,0" Style="{StaticResource TextBoxCustom}"/>
+        <Label Content="Duracion" Margin="29,103,0,0" Style="{StaticResource LabelCustom}"/>
+        <TextBox Name="txtDuracion" Margin="28,134,0,0" Style="{StaticResource TextBoxCustom}"/>
+        <Label Content="Genero" Margin="28,162,0,0" Style="{StaticResource LabelCustom}"/>
         <ComboBox Name="cmbGenero" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="29,197,0,0"  Background="#FF02090A" />
-        <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="29,221,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
+        <Label Content="Clasificacion" Margin="29,221,0,0" Style="{StaticResource LabelCustom}"/>
         <ComboBox Name="cmbClasificacion" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="18" Margin="29,252,0,0"/>
         <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="145" Click="BtnAltaPelicula_Click" Style="{StaticResource btnPeliculaEstilo}"/>
         <DataGrid HorizontalAlignment="Left" Height="370" Margin="218,20,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="White"/>
-        <Label Content="Imagen" HorizontalAlignment="Left" Margin="28,275,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
-        <TextBox x:Name="txtImagenPeli" HorizontalAlignment="Left" Height="23" Margin="28,306,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        <Label Content="Imagen" Margin="28,275,0,0" Style="{StaticResource LabelCustom}"/>
+        <TextBox x:Name="txtImagenPeli" Margin="28,306,0,0" Style="{StaticResource TextBoxCustom}"/>
         <Button Name="ExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="98,281,0,0" VerticalAlignment="Top" Width="75" Click="ExaminarImg_Click" Style="{StaticResource btnPeliculaEstilo}"/>
 
         <!--

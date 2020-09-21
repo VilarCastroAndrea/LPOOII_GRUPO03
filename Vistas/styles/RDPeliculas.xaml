@@ -28,4 +28,6 @@
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Template" Value="{StaticResource btnPeliculaPlantilla}"/>
     </Style>
+
+    
 </ResourceDictionary>
