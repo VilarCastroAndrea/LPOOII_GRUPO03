@@ -18,7 +18,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
-        <DataGrid Name="dgvListaDeProyecciones" HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="White" IsReadOnly="True"  SelectionChanged="DgvListaDeProyecciones_SelectionChanged"/>
+        <DataGrid Name="dgvListaDeProyecciones" HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="Black" IsReadOnly="True"  SelectionChanged="DgvListaDeProyecciones_SelectionChanged"/>
         <Button Name="btnModificarCliente" Style="{StaticResource BotonModificar}" Click="BtnModificarCliente_Click" />
         <Button Name="btnAltaCliente" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaCliente_Click"/>
         <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>

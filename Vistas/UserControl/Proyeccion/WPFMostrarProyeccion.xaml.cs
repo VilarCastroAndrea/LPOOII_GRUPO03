@@ -13,6 +13,8 @@ namespace Vistas.UserControl.Proyeccion
     /// </summary>
     public partial class WPFMostrarProyeccion
     {
+        List<ClasesBase.Pelicula> listaPeliculas = new List<ClasesBase.Pelicula>();
+        List<ClasesBase.Sala> listaSalas = new List<ClasesBase.Sala>();
         ClasesBase.Proyeccion proyeccionMostrar;
         WPFProyeccion proyeccionPadre;
         /// <summary>
@@ -24,17 +26,67 @@ namespace Vistas.UserControl.Proyeccion
         {
             proyeccionMostrar = verProyeccion;
             InitializeComponent();
+            cargarPeliculas();
+            cargarSalas();
+            cargarComboPeliculas();
+            cargarComboSalas();
             if (proyeccionMostrar != null)
             {
                 txtFecha.Text = proyeccionMostrar.Proy_Fecha;
                 txtHora.Text = proyeccionMostrar.Proy_Hora;
-                txtSala.Text = proyeccionMostrar.Sla_NroSala.ToString();
-                txtTitulo.Text = proyeccionMostrar.Peli_Codigo.ToString();
+                txtSala.SelectedItem = proyeccionMostrar.Sla_NroSala.ToString();
+                txtTitulo.SelectedItem = proyeccionMostrar.Peli_Codigo.ToString();
                 proyeccionPadre = proyeccion;
             }
 
 
         }
+
+        /// <summary>
+        /// carga el combobox de peliculas
+        /// </summary>
+        private void cargarComboPeliculas()
+        {
+            txtTitulo.ItemsSource = listaPeliculas;
+            txtTitulo.DisplayMemberPath = "Peli_Titulo";
+            txtTitulo.SelectedValue = "Peli_Codigo";
+            txtTitulo.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// carga el combobox de salas
+        /// </summary>
+        private void cargarComboSalas()
+        {
+            txtSala.ItemsSource = listaSalas;
+            txtSala.DisplayMemberPath = "Sla_Descripcion";
+            txtSala.SelectedValue = "Sla_NroSala";
+            txtSala.SelectedIndex = 0;
+        }
+
+
+
+        /// <summary>
+        /// genera salas estaticas
+        /// </summary>
+        private void cargarSalas()
+        {
+            listaSalas.Add(new ClasesBase.Sala(1, 15, "Prueba 1"));
+            listaSalas.Add(new ClasesBase.Sala(2, 20, "Prueba 2"));
+            listaSalas.Add(new ClasesBase.Sala(3, 30, "Prueba 3"));
+        }
+
+        /// <summary>
+        /// genera peliculas al de forma estatica
+        /// </summary>
+        private void cargarPeliculas()
+        {
+            listaPeliculas.Add(new ClasesBase.Pelicula(1, "Shreck", "12:00", 1, 1, ""));
+            listaPeliculas.Add(new ClasesBase.Pelicula(2, "La Mascara", "12:00", 1, 1, ""));
+            listaPeliculas.Add(new ClasesBase.Pelicula(3, "Mulan", "12:00", 1, 1, ""));
+        }
+
+
         /// <summary>
         /// llama al metodo de la clase padre para modificar una proyeccion
         /// </summary>
