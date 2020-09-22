@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:UC="clr-namespace:Vistas.ControlUsuario"
+        xmlns:UC="clr-namespace:Vistas.UserControl"
         Title="Login" Height="371" Width="415.5" >
     <Window.Background>
         <RadialGradientBrush>
@@ -27,7 +27,7 @@
         </Image>
 
         <UC:UCLogin x:Name="login" HorizontalAlignment="left" />
-        
+
         <Label Content="{Binding Source={x:Static sys:DateTime.Now}}" HorizontalAlignment="Left" Height="29" Margin="45,267,0,0"  VerticalAlignment="Top" Width="138" RenderTransformOrigin="0.5,0.5" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="16">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -38,7 +38,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        
+
         <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="255,299,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FF063037" BorderBrush="#FF063037" Foreground="White" Click="Button_Click">
             <Button.RenderTransform>
                 <TransformGroup>

@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Vistas.ControlUsuario.UCLogin"
+﻿<UserControl x:Class="Vistas.UserControl.UCLogin"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Vistas.ControlUsuario"
+             xmlns:local="clr-namespace:Vistas.UserControl"
              mc:Ignorable="d" 
              d:DesignHeight="371" d:DesignWidth="415.15">
     <Grid>
@@ -47,6 +47,6 @@
                 </TransformGroup>
             </PasswordBox.RenderTransform>
         </PasswordBox>
-       
+
     </Grid>
 </UserControl>

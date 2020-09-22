@@ -1,8 +1,5 @@
-﻿using ClasesBase;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Input;
 
 
 namespace Vistas.UserControl.Proyeccion
@@ -16,7 +13,7 @@ namespace Vistas.UserControl.Proyeccion
         /// simulacion de bd
         /// </summary>
         private List<ClasesBase.Proyeccion> listaDeProyecciones;
-        private bool selecciono = false;
+        //private bool selecciono = false;
         public int index = 0;
         /// <summary>
         /// al iniciar se inicializara una lista de proyecciones y se cargara en el data grid view
