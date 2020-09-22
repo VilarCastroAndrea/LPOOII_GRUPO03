@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF042A30"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Image HorizontalAlignment="Left" Height="357" Margin="125,10,0,0" VerticalAlignment="Top" Width="506" Source="img/pro.png"/>
+        <Image HorizontalAlignment="Left" Height="357" Margin="125,10,0,0" VerticalAlignment="Top" Width="506" Source="../img/pro.png"/>
         <Rectangle Fill="#FF031F24" HorizontalAlignment="Left" Height="16" Margin="10,40,0,0" Stroke="White" VerticalAlignment="Top" Width="36"/>
         <Rectangle Fill="#FF4CC91E" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="10,71,0,0"/>
         <Rectangle Fill="#FFF03030" HorizontalAlignment="Left" Height="16" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="10,101,0,0"/>
