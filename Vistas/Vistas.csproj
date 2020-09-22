@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ControlUsuario\UCLogin.xaml.cs">
+      <DependentUpon>UCLogin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="rsc\UsuarioLogin.cs" />
     <Compile Include="WPFButaca.xaml.cs">
       <DependentUpon>WPFButaca.xaml</DependentUpon>
@@ -68,6 +71,10 @@
     <Compile Include="WPFPelicula.xaml.cs">
       <DependentUpon>WPFPelicula.xaml</DependentUpon>
     </Compile>
+    <Page Include="ControlUsuario\UCLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
