@@ -29,7 +29,7 @@ namespace Vistas
             bool encontro = false;
             foreach (Usuario usuario in usuarios)
             {
-                if (txtbUsuario.Text.Equals(usuario.Usu_NombreUsuario) && txtbContraseña.Password.Equals(usuario.Usu_Password))
+                if (login.Usuario.Equals(usuario.Usu_NombreUsuario) && login.Contraseña.Equals(usuario.Usu_Password))
                 {
                     guardarUsuLogin(usuario);
                     MainWindow menu = new MainWindow();
@@ -41,7 +41,7 @@ namespace Vistas
             }
             if (encontro == false)
             {
-                MessageBox.Show("No se encontro el usuario " + txtbUsuario.Text, "Error");
+                MessageBox.Show("No se encontro el usuario " + login.Usuario, "Error");
             }
         }
 
