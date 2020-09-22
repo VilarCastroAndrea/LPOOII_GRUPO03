@@ -84,7 +84,7 @@ namespace Vistas
                 //(0 Disponible, 1 Seleccionado y 2 Ocupado) y le pone un color en funcion de la misma
                 if (baseDeDatosFicticia[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 0)
                 {
-                    ((Button)item).Background = Brushes.Gray;
+                    ((Button)item).Background = null;
                 }
                 else
                 {
