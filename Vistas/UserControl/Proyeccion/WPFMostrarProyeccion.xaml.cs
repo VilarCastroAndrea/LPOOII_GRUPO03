@@ -15,7 +15,11 @@ namespace Vistas.UserControl.Proyeccion
     {
         ClasesBase.Proyeccion proyeccionMostrar;
         WPFProyeccion proyeccionPadre;
-
+        /// <summary>
+        /// constructor con clase para modificar y clase padre para llamar a sus acciones
+        /// </summary>
+        /// <param name="verProyeccion"></param>
+        /// <param name="proyeccion"></param>
         public WPFMostrarProyeccion(ClasesBase.Proyeccion verProyeccion, WPFProyeccion proyeccion)
         {
             proyeccionMostrar = verProyeccion;
@@ -31,16 +35,30 @@ namespace Vistas.UserControl.Proyeccion
 
 
         }
-
+        /// <summary>
+        /// llama al metodo de la clase padre para modificar una proyeccion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnModificar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            proyeccionPadre.modificarProyeccion(new ClasesBase.Proyeccion(proyeccionMostrar.Proy_Codigo, txtFecha.Text
-                , txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text),true));
+            MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea Modificar esta proyeccion?" + txtFecha.Text + ", " + txtHora.Text + ", " +
+txtSala.Text + ", " + txtTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (resultado == MessageBoxResult.Yes)
+            {
+                MessageBox.Show("Proyeccion Modificada con exito");
+                ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text));
+                proyeccionPadre.modificarProyeccion(new ClasesBase.Proyeccion(proyeccionMostrar.Proy_Codigo, txtFecha.Text
+                    , txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text), true));
+            }
         }
-
+        /// <summary>
+        /// elimina una proyeccion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnBoja_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
                 MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea borrar esta proyeccion?" + txtFecha.Text + ", " + txtHora.Text + ", " +
              txtSala.Text + ", " + txtTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (resultado == MessageBoxResult.Yes)
@@ -51,10 +69,6 @@ namespace Vistas.UserControl.Proyeccion
                 proyeccionPadre.borrarProyeccion(new ClasesBase.Proyeccion(proyeccionMostrar.Proy_Codigo, txtFecha.Text
                     , txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text), true));
             }
-            
-
-
-
         }
     }
 }
