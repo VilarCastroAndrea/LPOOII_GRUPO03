@@ -101,7 +101,7 @@ txtSala.Text + ", " + txtTitulo.Text, "Atención", MessageBoxButton.YesNo, Messa
                 MessageBox.Show("Proyeccion Modificada con exito");
                 ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text));
                 proyeccionPadre.modificarProyeccion(new ClasesBase.Proyeccion(proyeccionMostrar.Proy_Codigo, txtFecha.Text
-                    , txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text), true));
+                    , txtHora.Text, int.Parse(txtSala.SelectedIndex.ToString()), int.Parse(txtTitulo.SelectedIndex.ToString()), true));
             }
         }
         /// <summary>
@@ -119,7 +119,7 @@ txtSala.Text + ", " + txtTitulo.Text, "Atención", MessageBoxButton.YesNo, Messa
                     MessageBox.Show("Proyeccion Eliminada con exito");
                     ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text));
                 proyeccionPadre.borrarProyeccion(new ClasesBase.Proyeccion(proyeccionMostrar.Proy_Codigo, txtFecha.Text
-                    , txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text), true));
+                    , txtHora.Text, int.Parse(txtSala.SelectedIndex.ToString()), int.Parse(txtTitulo.SelectedIndex.ToString()), true));
             }
         }
     }
