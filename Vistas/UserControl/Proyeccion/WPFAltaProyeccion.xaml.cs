@@ -30,10 +30,10 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarComboPeliculas()
         {
-            txtTitulo.ItemsSource = listaPeliculas;
-            txtTitulo.DisplayMemberPath = "Peli_Titulo";
-            txtTitulo.SelectedValue = "Peli_Codigo";
-            txtTitulo.SelectedIndex = 0;
+            cmbTitulo.ItemsSource = listaPeliculas;
+            cmbTitulo.DisplayMemberPath = "Peli_Titulo";
+            cmbTitulo.SelectedValue = "Peli_Codigo";
+            cmbTitulo.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -41,10 +41,10 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarComboSalas()
         {
-            txtSala.ItemsSource = listaSalas;
-            txtSala.DisplayMemberPath = "Sla_Descripcion";
-            txtSala.SelectedValue = "Sla_NroSala";
-            txtSala.SelectedIndex = 0;
+            cmbSala.ItemsSource = listaSalas;
+            cmbSala.DisplayMemberPath = "Sla_Descripcion";
+            cmbSala.SelectedValue = "Sla_NroSala";
+            cmbSala.SelectedIndex = 0;
         }
 
 
@@ -63,7 +63,7 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarPeliculas()
         {
-            listaPeliculas.Add(new ClasesBase.Pelicula(1,"Shreck","12:00",1,1,""));
+            listaPeliculas.Add(new ClasesBase.Pelicula(1, "Shreck", "12:00", 1, 1, ""));
             listaPeliculas.Add(new ClasesBase.Pelicula(2, "La Mascara", "12:00", 1, 1, ""));
             listaPeliculas.Add(new ClasesBase.Pelicula(3, "Mulan", "12:00", 1, 1, ""));
         }
@@ -73,12 +73,12 @@ namespace Vistas.UserControl.Proyeccion
             if (validarCamposVacios() != true)
             {
                 MessageBoxResult resultado = MessageBox.Show("Los siguientes datos son correctos? " + txtFecha.Text + ", " + txtHora.Text + ", " +
-             txtSala.Text + ", " + txtTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+             cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (resultado == MessageBoxResult.Yes)
                 {
 
                     MessageBox.Show("Proyeccion Guardada con exito");
-                    ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(txtSala.SelectedIndex.ToString()), int.Parse(txtTitulo.SelectedIndex.ToString()));
+                    ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(cmbSala.SelectedIndex.ToString()), int.Parse(cmbTitulo.SelectedIndex.ToString()));
                     proyeccionPadre.agregarProyeccion(nuevaProyeccion);
                     limpiarCampos();
                 }
@@ -92,14 +92,14 @@ namespace Vistas.UserControl.Proyeccion
         {
             txtFecha.Text = "";
             txtHora.Text = "";
-            txtSala.Text = "";
-            txtTitulo.Text = "";
+            cmbSala.Text = "";
+            cmbTitulo.Text = "";
         }
 
 
         private bool validarCamposVacios()
         {
-            if (txtFecha.Text == "" && txtHora.Text == "" && txtSala.Text == "" && txtTitulo.Text == "")
+            if (txtFecha.Text == "" && txtHora.Text == "" && cmbSala.Text == "" && cmbTitulo.Text == "")
             {
                 return true;
             }
