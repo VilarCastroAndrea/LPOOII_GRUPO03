@@ -17,6 +17,7 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private List<ClasesBase.Proyeccion> listaDeProyecciones;
         private bool selecciono = false;
+        public int index = 0;
         /// <summary>
         /// al iniciar se inicializara una lista de proyecciones y se cargara en el data grid view
         /// </summary>
@@ -78,7 +79,7 @@ namespace Vistas.UserControl.Proyeccion
         /// <param name="proyeccionModificar"></param>
         public void modificarProyeccion(ClasesBase.Proyeccion proyeccionModificar)
         {
-            foreach(ClasesBase.Proyeccion proyeccion in listaDeProyecciones)
+            foreach (ClasesBase.Proyeccion proyeccion in listaDeProyecciones)
             {
                 if (proyeccionModificar.Proy_Codigo == proyeccion.Proy_Codigo)
                 {
@@ -131,7 +132,7 @@ namespace Vistas.UserControl.Proyeccion
         private void DgvListaDeProyecciones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             panelProyeccion.Children.Clear();
-            panelProyeccion.Children.Add( new WPFMostrarProyeccion((ClasesBase.Proyeccion)dgvListaDeProyecciones.SelectedItem, this));
+            panelProyeccion.Children.Add(new WPFMostrarProyeccion((ClasesBase.Proyeccion)dgvListaDeProyecciones.SelectedItem, this));
         }
     }
 }

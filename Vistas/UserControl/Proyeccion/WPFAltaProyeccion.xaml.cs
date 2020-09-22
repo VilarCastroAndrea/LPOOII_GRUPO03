@@ -78,7 +78,7 @@ namespace Vistas.UserControl.Proyeccion
                 {
 
                     MessageBox.Show("Proyeccion Guardada con exito");
-                    ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(cmbSala.SelectedIndex.ToString()), int.Parse(cmbTitulo.SelectedIndex.ToString()));
+                    ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(proyeccionPadre.index++, txtFecha.Text, txtHora.Text, int.Parse(cmbSala.SelectedIndex.ToString()), int.Parse(cmbTitulo.SelectedIndex.ToString()));
                     proyeccionPadre.agregarProyeccion(nuevaProyeccion);
                     limpiarCampos();
                 }
