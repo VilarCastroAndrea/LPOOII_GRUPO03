@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Butaca.cs" />
-    <Compile Include="Clasificacion.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Pelicula.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

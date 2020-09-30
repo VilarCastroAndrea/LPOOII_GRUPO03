@@ -1,9 +1,5 @@
-﻿using ClasesBase;
-using System;
-using System.Collections.Generic;
-using System.Collections;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Input;
 
 namespace Vistas.UserControl.Proyeccion
 
@@ -71,9 +67,9 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarSalas()
         {
-            listaSalas.Add(new ClasesBase.Sala(1, 15, "Prueba 1"));
-            listaSalas.Add(new ClasesBase.Sala(2, 20, "Prueba 2"));
-            listaSalas.Add(new ClasesBase.Sala(3, 30, "Prueba 3"));
+            //listaSalas.Add(new ClasesBase.Sala(1, 15, "Prueba 1"));
+            //listaSalas.Add(new ClasesBase.Sala(2, 20, "Prueba 2"));
+            //listaSalas.Add(new ClasesBase.Sala(3, 30, "Prueba 3"));
         }
 
         /// <summary>
@@ -81,9 +77,9 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarPeliculas()
         {
-            listaPeliculas.Add(new ClasesBase.Pelicula(1, "Shreck", "12:00", 1, 1, ""));
-            listaPeliculas.Add(new ClasesBase.Pelicula(2, "La Mascara", "12:00", 1, 1, ""));
-            listaPeliculas.Add(new ClasesBase.Pelicula(3, "Mulan", "12:00", 1, 1, ""));
+            //listaPeliculas.Add(new ClasesBase.Pelicula(1, "Shreck", "12:00", 1, 1, ""));
+            //listaPeliculas.Add(new ClasesBase.Pelicula(2, "La Mascara", "12:00", 1, 1, ""));
+            //listaPeliculas.Add(new ClasesBase.Pelicula(3, "Mulan", "12:00", 1, 1, ""));
         }
 
 
@@ -94,15 +90,15 @@ namespace Vistas.UserControl.Proyeccion
         /// <param name="e"></param>
         private void BtnModificar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea Modificar esta proyeccion?" + txtFecha.Text + ", " + txtHora.Text + ", " +
-txtSala.Text + ", " + txtTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (resultado == MessageBoxResult.Yes)
-            {
-                MessageBox.Show("Proyeccion Modificada con exito");
-                //ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text));
-                proyeccionPadre.modificarProyeccion(new ClasesBase.Proyeccion(proyeccionMostrar.Proy_Codigo, txtFecha.Text
-                    , txtHora.Text, int.Parse(txtSala.SelectedIndex.ToString()), int.Parse(txtTitulo.SelectedIndex.ToString()), true));
-            }
+            //            MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea Modificar esta proyeccion?" + txtFecha.Text + ", " + txtHora.Text + ", " +
+            //txtSala.Text + ", " + txtTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            //            if (resultado == MessageBoxResult.Yes)
+            //            {
+            //                MessageBox.Show("Proyeccion Modificada con exito");
+            //                //ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text));
+            //                proyeccionPadre.modificarProyeccion(new ClasesBase.Proyeccion(proyeccionMostrar.Proy_Codigo, txtFecha.Text
+            //                    , txtHora.Text, int.Parse(txtSala.SelectedIndex.ToString()), int.Parse(txtTitulo.SelectedIndex.ToString()), true));
+            //            }
         }
         /// <summary>
         /// elimina una proyeccion

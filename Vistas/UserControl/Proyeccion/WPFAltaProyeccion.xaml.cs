@@ -1,8 +1,4 @@
-﻿using ClasesBase;
-using System;
-using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.Collections.Generic;
 
 namespace Vistas.UserControl.Proyeccion
 {
@@ -53,9 +49,9 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarSalas()
         {
-            listaSalas.Add(new ClasesBase.Sala(1, 15, "Prueba 1"));
-            listaSalas.Add(new ClasesBase.Sala(2, 20, "Prueba 2"));
-            listaSalas.Add(new ClasesBase.Sala(3, 30, "Prueba 3"));
+            //listaSalas.Add(new ClasesBase.Sala(1, 15, "Prueba 1"));
+            //listaSalas.Add(new ClasesBase.Sala(2, 20, "Prueba 2"));
+            //listaSalas.Add(new ClasesBase.Sala(3, 30, "Prueba 3"));
         }
 
         /// <summary>
@@ -63,26 +59,26 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarPeliculas()
         {
-            listaPeliculas.Add(new ClasesBase.Pelicula(1, "Shreck", "12:00", 1, 1, ""));
-            listaPeliculas.Add(new ClasesBase.Pelicula(2, "La Mascara", "12:00", 1, 1, ""));
-            listaPeliculas.Add(new ClasesBase.Pelicula(3, "Mulan", "12:00", 1, 1, ""));
+            //listaPeliculas.Add(new ClasesBase.Pelicula(1, "Shreck", "12:00", 1, 1, ""));
+            //listaPeliculas.Add(new ClasesBase.Pelicula(2, "La Mascara", "12:00", 1, 1, ""));
+            //listaPeliculas.Add(new ClasesBase.Pelicula(3, "Mulan", "12:00", 1, 1, ""));
         }
 
         private void BtnAlta_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (validarCamposVacios() != true)
-            {
-                MessageBoxResult resultado = MessageBox.Show("Los siguientes datos son correctos? " + txtFecha.Text + ", " + txtHora.Text + ", " +
-             cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (resultado == MessageBoxResult.Yes)
-                {
+            //if (validarCamposVacios() != true)
+            //{
+            //    MessageBoxResult resultado = MessageBox.Show("Los siguientes datos son correctos? " + txtFecha.Text + ", " + txtHora.Text + ", " +
+            // cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            //    if (resultado == MessageBoxResult.Yes)
+            //    {
 
-                    MessageBox.Show("Proyeccion Guardada con exito");
-                    ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(proyeccionPadre.index++, txtFecha.Text, txtHora.Text, int.Parse(cmbSala.SelectedIndex.ToString()), int.Parse(cmbTitulo.SelectedIndex.ToString()));
-                    proyeccionPadre.agregarProyeccion(nuevaProyeccion);
-                    limpiarCampos();
-                }
-            }
+            //        MessageBox.Show("Proyeccion Guardada con exito");
+            //        ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(proyeccionPadre.index++, txtFecha.Text, txtHora.Text, int.Parse(cmbSala.SelectedIndex.ToString()), int.Parse(cmbTitulo.SelectedIndex.ToString()));
+            //        proyeccionPadre.agregarProyeccion(nuevaProyeccion);
+            //        limpiarCampos();
+            //    }
+            //}
         }
 
         /// <summary>
