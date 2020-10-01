@@ -45,6 +45,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Butaca.cs" />
+    <Compile Include="cinesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cinesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Cliente.cs" />
     <Compile Include="Pelicula.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,10 +62,22 @@
     <Compile Include="Rol.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Ticket.cs" />
+    <Compile Include="TrabajarPeliculas.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="cinesDataSet.xsc">
+      <DependentUpon>cinesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="cinesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cinesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cinesDataSet.xss">
+      <DependentUpon>cinesDataSet.xsd</DependentUpon>
+    </None>
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

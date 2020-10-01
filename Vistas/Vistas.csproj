@@ -208,12 +208,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClasesBase\ClasesBase.csproj">
-      <Project>{c2350e96-826f-4b55-b148-da01546134dc}</Project>
-      <Name>ClasesBase</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="img\login.png" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +222,11 @@
   <ItemGroup>
     <Resource Include="img\fondoPrincipal.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ClasesBase\ClasesBase.csproj">
+      <Project>{c2350e96-826f-4b55-b148-da01546134dc}</Project>
+      <Name>ClasesBase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

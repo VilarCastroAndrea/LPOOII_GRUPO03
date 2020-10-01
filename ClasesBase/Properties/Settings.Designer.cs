@@ -33,5 +33,16 @@ namespace ClasesBase.Properties {
                 return ((string)(this["cinesConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\men_v\\Desktop\\facult" +
+            "ad\\LPOOII\\BD\\cines.mdf;Integrated Security=True;Connect Timeout=30")]
+        public string cinesConnectionString1 {
+            get {
+                return ((string)(this["cinesConnectionString1"]));
+            }
+        }
     }
 }
