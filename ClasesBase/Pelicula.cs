@@ -31,7 +31,7 @@
             this.Peli_Genero = peli_genero;
             this.Peli_Clasificacion = peli_clasificacion;
             this.peli_Disponible = true;
-            this.Peli_Imagen1 = peli_Imagen;
+            this.Peli_Imagen = peli_Imagen;
         }
 
         /// <summary>
@@ -52,7 +52,7 @@
             this.Peli_Genero = peli_genero;
             this.Peli_Clasificacion = peli_clasificacion;
             this.peli_Disponible = peli_Disponible;
-            this.Peli_Imagen1 = peli_Imagen;
+            this.Peli_Imagen = peli_Imagen;
         }
 
         /// <summary>
@@ -62,7 +62,7 @@
         public string Peli_Titulo { get => peli_Titulo; set => peli_Titulo = value; }
         public string Peli_Duracion { get => peli_Duracion; set => peli_Duracion = value; }
         public bool Peli_Disponible { get => peli_Disponible; set => peli_Disponible = value; }
-        public string Peli_Imagen1 { get => peli_Imagen; set => peli_Imagen = value; }
+        public string Peli_Imagen { get => peli_Imagen; set => peli_Imagen = value; }
         public string Peli_Genero { get => peli_Genero; set => peli_Genero = value; }
         public string Peli_Clasificacion { get => peli_Clasificacion; set => peli_Clasificacion = value; }
     }
