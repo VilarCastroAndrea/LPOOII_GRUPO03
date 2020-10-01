@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace ClasesBase
 {
-    class TrabajarPelicula
+    public class TrabajarPelicula
     {
         /// <summary>
         /// Alta pelicula con stored procedure
