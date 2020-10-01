@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<clasificacion>
+  <tipo name="ATP"/>  
+  <tipo name="ATP c/r"/>
+  <tipo name="SAM 13"/>
+  <tipo name="SAM 13 c/r"/>
+  <tipo name="SAM 16"/>
+  <tipo name="SAM 16 c/r"/>
+  <tipo name="SAM 18"/>
+</clasificacion>
