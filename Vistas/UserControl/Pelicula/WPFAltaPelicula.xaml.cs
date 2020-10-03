@@ -12,9 +12,14 @@ namespace Vistas.UserControl.Pelicula
         //Genero genero = new Genero();
         //ArrayList clasificaciones = new ArrayList();
         //List<Genero> generos = new List<Genero>();
+        public string[] Names { get; set; }
+ 
         public WPFAltaPelicula()
         {
             InitializeComponent();
+
+
+            Names = new string[] { "hola", "chau" };
             //crearClasificaciones();
             //cargarComboClasificacion();
             //crearGeneros();
