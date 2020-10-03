@@ -1,6 +1,8 @@
-﻿namespace ClasesBase
+﻿using System.ComponentModel;
+
+namespace ClasesBase
 {
-    public class Cliente
+    public class Cliente : IDataErrorInfo
     {
         private int cli_DNI;
         private string cli_Nombre;
@@ -50,6 +52,8 @@
             this.cli_Disponible = cli_Disponible;
         }
 
+       
+
         /// <summary>
         /// Get & Set
         /// </summary>
@@ -59,5 +63,49 @@
         public string Cli_Telefono { get => cli_Telefono; set => cli_Telefono = value; }
         public string Cli_Email { get => cli_Email; set => cli_Email = value; }
         public bool Cli_Disponible { get => cli_Disponible; set => cli_Disponible = value; }
+
+
+        public string this[string columnName] {
+            get {
+                string msg_error = null;
+
+                switch (columnName) {
+                    case "cli_DNI":
+                        msg_error = validar_Dni();
+                        break;
+                }
+
+                return msg_error;
+            }
+
+        }
+
+        public string Error => throw new System.NotImplementedException();
+
+        //validaciones de dni
+        private string validar_Dni() {
+
+            if (string.IsNullOrEmpty(cli_DNI.ToString()))
+            {
+                return "el valor del campo es obligatorio";
+            }
+            return null;
+           
+        }
+
+        private string validar_nombre()
+        {
+
+            if (string.IsNullOrEmpty(cli_Nombre))
+            {
+                return "el valor del campo es obligatorio";
+            }
+            return null;
+
+        }
+
+
+
     }
+
 }
