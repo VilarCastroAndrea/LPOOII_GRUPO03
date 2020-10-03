@@ -3,15 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Vistas.UserControl.Pelicula"
-          
+             xmlns:local="clr-namespace:Vistas.UserControl.Pelicula"          
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
-    
-        
-
-      
-        
+            
     <Grid Name="panelAltaPelicula">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -19,30 +14,29 @@
                 <GradientStop Color="#FF021113"/>
             </LinearGradientBrush>
         </Grid.Background>
-            <Grid.Resources>
-                <XmlDataProvider x:Key="clasif" Source="Clasificaciones.xml" XPath="/clasificacion"/>
-
-            </Grid.Resources>
+        
+        <Grid.Resources>
+           <XmlDataProvider x:Key="clasif" Source="/DatosComboBox.xml" XPath="/datos"/>               
+        </Grid.Resources>
+        
         <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold">
             <TextBox x:Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="10,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
         </GroupBox>
         <Label Content="Titulo" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
         <Label Content="Duracion" HorizontalAlignment="Left" Margin="35,89,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
         <TextBox Name="txtDuracion" HorizontalAlignment="Left" Height="23" Margin="26,115,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        
         <Label Content="Genero" HorizontalAlignment="Left" Margin="35,138,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
-        <ComboBox Name="cmbGenero" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="26,164,0,0"  Background="#FF02090A" />
-       
-            <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="35,183,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
-        <ListBox ItemsSource="{Binding Source={StaticResource clasif},XPath=tipo/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="144" Margin="26,209,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible">
-            
-        </ListBox> 
+        <ComboBox Name="cmbGenero" ItemsSource="{Binding Source={StaticResource clasif},XPath=genero/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="26,164,0,0"  Background="#FF02090A"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True">
+        </ComboBox>
+        
+        <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="35,183,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
+        <ComboBox Name="cmbClasificacion" ItemsSource="{Binding Source={StaticResource clasif},XPath=tipo/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="21" Margin="26,209,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True">
+        </ComboBox>
         
         <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="26,370,0,0" VerticalAlignment="Top" Width="145" Click="BtnAltaPelicula_Click" Style="{StaticResource btnPeliculaEstilo}"/>
         <Label Content="Imagen" HorizontalAlignment="Left" Margin="26,227,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
         <TextBox x:Name="txtImagenPeli" HorizontalAlignment="Left" Height="23" Margin="25,255,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
         <Button Name="ExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="95,230,0,0" VerticalAlignment="Top" Width="75" Click="ExaminarImg_Click" Style="{StaticResource btnPeliculaEstilo}"/>
-    </Grid>
-  
-  
-    
+    </Grid>    
 </UserControl>

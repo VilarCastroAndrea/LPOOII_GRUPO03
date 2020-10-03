@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<datos>
+  <tipo name="ATP"/>  
+  <tipo name="ATP c/r"/>
+  <tipo name="SAM 13"/>
+  <tipo name="SAM 13 c/r"/>
+  <tipo name="SAM 16"/>
+  <tipo name="SAM 16 c/r"/>
+  <tipo name="SAM 18"/>
+  
+  <genero name="DRAMA"/>
+  <genero name="COMEDIA"/>
+  <genero name="ACCION"/>
+  <genero name="BELICA"/>
+  <genero name="AVENTURA"/>
+  <genero name="TERROR"/>
+  <genero name="MUSICALES"/>
+  <genero name="CRIMEN"/>
+  <genero name="INFANTILES"/>
+  <genero name="ADULTOS"/>
+</datos>
+
+

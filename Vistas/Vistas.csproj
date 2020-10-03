@@ -229,7 +229,7 @@
     <Resource Include="img\fondoPrincipal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Clasificaciones.xml" />
+    <Resource Include="DatosComboBox.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
