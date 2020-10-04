@@ -33,7 +33,7 @@
                         <GridViewColumn Width="100" Header="Codigo" DisplayMemberBinding="{Binding Path=PELI_Codigo}"/>
                         <GridViewColumn Width="100" Header="Titulo" DisplayMemberBinding="{Binding Path=PELI_Titulo}"/>
                         <GridViewColumn Width="100" Header="Duracion" DisplayMemberBinding="{Binding Path=PELI_Duracion}"/>
-                        <GridViewColumn Width="102" Header="Genero" DisplayMemberBinding="{Binding Path=PELI_Genero}"/>
+                        <GridViewColumn Width="92" Header="Genero" DisplayMemberBinding="{Binding Path=PELI_Genero}"/>
                         <GridViewColumn Width="100" Header="Clasificacion" DisplayMemberBinding="{Binding Path=PELI_Clasificacion}"/>
                     </GridView>
                 </ListView.View>
