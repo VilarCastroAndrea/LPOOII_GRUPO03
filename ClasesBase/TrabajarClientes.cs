@@ -72,10 +72,11 @@ namespace ClasesBase
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "INSERT INTO Cliente(CLI_Nombre, CLI_Apellido, CLI_Telefono, CLI_Email, CLI_Disponible) values(@nom, @ape, @tel, @ema, @dis)";
+            cmd.CommandText = "INSERT INTO Cliente(CLI_DNI, CLI_Nombre, CLI_Apellido, CLI_Telefono, CLI_Email, CLI_Disponible) values(@dni, @nom, @ape, @tel, @ema, @dis)";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
 
+            cmd.Parameters.AddWithValue("@dni", cli.Cli_DNI);
             cmd.Parameters.AddWithValue("@nom", cli.Cli_Nombre);
             cmd.Parameters.AddWithValue("@ape", cli.Cli_Apellido);
             cmd.Parameters.AddWithValue("@tel", cli.Cli_Telefono);
