@@ -34,15 +34,18 @@ namespace Vistas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnAlta_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (validarCampos() == true)
+        {  
+            
+            if (validarCampos())
             {
                 MessageBoxResult resultado = MessageBox.Show("Los siguientes datos son correctos? " + txtDni.Text + ", " + txtNombre.Text + ", " +
                              txtApellido.Text + ", " + txtTelefono.Text + ", " + txtEmail.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (resultado == MessageBoxResult.Yes)
                 {
-                    MessageBox.Show("Cliente Guardado con exito");
                     Cliente cliente = new Cliente(Int32.Parse(txtDni.Text), txtNombre.Text, txtApellido.Text, txtTelefono.Text, txtEmail.Text);
+                    cliente.Cli_Disponible = true;
+                    TrabajarClientes.Insert_Cliente(cliente);
+                    MessageBox.Show("Cliente Guardado con exito");
                 }
                 limpiarCampos();
             }
@@ -50,7 +53,7 @@ namespace Vistas
             {
                 MessageBoxResult resultado = MessageBox.Show("Formulario incompleto ", "Atención");
             }
-
+            
         }
 
         /// <summary>

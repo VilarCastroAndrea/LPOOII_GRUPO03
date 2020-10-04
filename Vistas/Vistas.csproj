@@ -92,6 +92,9 @@
     <Compile Include="UserControl\Pelicula\WPFPelicula.xaml.cs">
       <DependentUpon>WPFPelicula.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValidarCliente.xaml.cs">
+      <DependentUpon>ValidarCliente.xaml</DependentUpon>
+    </Compile>
     <Page Include="UserControl\UCLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +179,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Pelicula\WPFPelicula.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="validaciones\RDValidarCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ValidarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
