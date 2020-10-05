@@ -114,24 +114,18 @@ namespace ClasesBase
         /// <returns></returns>
         public static Cliente TraerCliente2(string dniCliente)
         {
-            
-            
-            Cliente cli = new Cliente();
             DataTable dt = TraerClienteByDni(dniCliente);
-            DataRow dr = dt.Rows[0];
-            cli.Cli_Apellido = dr["Apellido"].ToString();
-            cli.Cli_Nombre = dr["Nombre"].ToString();
-            cli.Cli_Telefono = dr["Telefono"].ToString();
-            //cli.Cli_Email = dr[4].ToString();
-            return cli;
-            
-            
-            // cli.Cli_DNI = int.Parse(dt.Rows[0].Field<string>(0));
-            //cli.Cli_Apellido = dt.Rows[0].Field<string>("CLI_Apellido");
-            //cli.Cli_Nombre = dt.Rows[0].Field<string>("CLI_Nombre");
-            //cli.Cli_Telefono = dt.Rows[0].Field<string>("CLI_Telefono");
-            //cli.Cli_Email = dt.Rows[0].Field<string>("CLI_Email");
-            //return null;
+            if (dt != null)
+            {
+                Cliente cli = new Cliente();
+                DataRow dr = dt.Rows[0];
+                cli.Cli_Apellido = dr["Apellido"].ToString();
+                cli.Cli_Nombre = dr["Nombre"].ToString();
+                cli.Cli_Telefono = dr["Telefono"].ToString();
+                return cli;
+            }
+
+            return null;
         }
     }
 }

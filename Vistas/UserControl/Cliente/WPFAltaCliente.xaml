@@ -53,6 +53,8 @@
         <GroupBox Header="Cliente" HorizontalAlignment="Left" Margin="10,10,0,0"
                   Height="400"  Width="180" 
                   Foreground="White"  VerticalAlignment="Top" FontWeight="Bold"/>
+        
+        <!-- DNI -->
         <Label Content="DNI" Margin="35,45,0,0"  
                Style="{StaticResource LabelCustom}"/>
         
@@ -69,6 +71,7 @@
             </TextBox.Text>
         </TextBox>
         
+        <!-- Nombre -->
         <Label Content="Nombre" Margin="35,94,0,0"
                Style="{StaticResource LabelCustom}"/>
         
@@ -83,6 +86,7 @@
             </TextBox.Text>
         </TextBox>
         
+        <!-- Apellido -->
         <Label Content="Apellido" Margin="36,144,0,0" 
                Style="{StaticResource LabelCustom}"/>
         <TextBox x:Name="txtApellido" Margin="30,172,0,0" PreviewTextInput="PreviewTextInputOnlyLetters" 
@@ -96,6 +100,7 @@
             </TextBox.Text>
         </TextBox>
         
+        <!-- Telefono -->
         <Label Content="Telefono" Margin="35,195,0,0" RenderTransformOrigin="0.873,0.5"
                Style="{StaticResource LabelCustom}" />
         
@@ -110,11 +115,13 @@
             </TextBox.Text>
         </TextBox>
         
+        <!-- Email -->
         <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
         
         <TextBox x:Name="txtEmail" Margin="30,270,0,0" 
                  Style="{StaticResource TextBoxCustom}"/>
 
+        <!-- Boton Agregar -->
         <Button x:Name="btnAlta" Content="Agregar" Margin="30,320,0,0"
                 Style="{StaticResource BotonCustom}" 
                 Click="BtnAlta_Click" />
