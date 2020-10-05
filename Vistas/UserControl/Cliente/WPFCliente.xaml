@@ -4,9 +4,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vistas"
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              xmlns:fa="http://schemas.fontawesome.io/icons/" x:Class="Vistas.WPFCliente"
              mc:Ignorable="d" 
              d:DesignHeight="490" d:DesignWidth="760">
+    
+    <UserControl.Resources>
+        <ObjectDataProvider
+            x:Key="LIST_CLIENTES"
+            ObjectType="{x:Type svc:TrabajarClientes}"
+            MethodName="TraerClientes"
+            />
+    </UserControl.Resources>
+        
     <Grid Height="490" Width="760">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -24,7 +34,19 @@
         <Button Name="btnAlta" Content="Agregar" HorizontalAlignment="Left" Margin="31,370,0,0" VerticalAlignment="Top" Width="145" Foreground="White" Background="#FF040303" BorderBrush="#FF04191B" Click="BtnAlta_Click"/>
          <TextBox Name="txtDni" HorizontalAlignment="Left" Height="23" Margin="32,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White" PreviewTextInput="TextBox_PreviewTextInput"/>
         -->
-        <DataGrid HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="White"/>
+        <DataGrid Name="dgClientes" HorizontalAlignment="Left" Height="405"
+                  Margin="238,55,0,0" VerticalAlignment="Top" Width="502" 
+                  Background="Black" BorderBrush="#FF04272D" Foreground="Black"
+                  ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}}"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="DNI" Width="70" Binding="{Binding Path=CLI_DNI}"/>
+                <DataGridTextColumn Header="Apellido" Width="70" Binding="{Binding Path=CLI_Apellido}"/>
+                <DataGridTextColumn Header="Nombre" Width="70" Binding="{Binding Path=CLI_Nombre}"/>
+                <DataGridTextColumn Header="Teléfono" Width="80" Binding="{Binding Path=CLI_Telefono}"/>
+                <DataGridTextColumn Header="E-mail" Width="100" Binding="{Binding Path=CLI_Email}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Name="btnModificarCliente" Style="{StaticResource BotonModificar}" Click="BtnModificarCliente_Click"/>
         <Button Name="btnAltaCliente" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaCliente_Click"/>
         <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>

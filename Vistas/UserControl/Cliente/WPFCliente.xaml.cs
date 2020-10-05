@@ -10,6 +10,8 @@
             InitializeComponent();
             panelCliente.Children.Clear();
             panelCliente.Children.Add(new WPFMostrarCliente());
+            //Cargar DataGrid
+            
         }
 
         private void BtnModificarCliente_Click(object sender, System.Windows.RoutedEventArgs e)
