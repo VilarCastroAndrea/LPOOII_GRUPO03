@@ -59,7 +59,8 @@
         <TextBox x:Name="txtDni" Margin="30,70,42,331"  
                  PreviewTextInput="TextBox_PreviewTextInput" 
                  Style="{StaticResource TextBoxCustom}" 
-                 DataContext="{StaticResource DATA_CLIENT}">
+                 DataContext="{StaticResource DATA_CLIENT}"
+                 >
             <TextBox.Text>
                 <Binding Path="Cli_DNI" 
                          UpdateSourceTrigger="PropertyChanged" 

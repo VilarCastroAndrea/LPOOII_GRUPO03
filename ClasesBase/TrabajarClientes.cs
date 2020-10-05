@@ -63,6 +63,8 @@ namespace ClasesBase
             return dt;
         }
 
+
+
         /// <summary>
         /// Inserta un nuevo cliente en la base de datos.
         /// </summary>
@@ -96,12 +98,40 @@ namespace ClasesBase
         public Cliente TraerCliente()
         {
             Cliente oCliente = new Cliente();
+            oCliente.Cli_DNI = 0;
             oCliente.Cli_Apellido = "";
             oCliente.Cli_Nombre = "";
             oCliente.Cli_Telefono = "";
-
             return oCliente;
 
+        }
+
+        /// <summary>
+        /// Devuelve un objeto cliente de la base de datos 
+        /// a partir de su DNI
+        /// </summary>
+        /// <param name="dniCliente">DNI del cliente</param>
+        /// <returns></returns>
+        public static Cliente TraerCliente2(string dniCliente)
+        {
+            
+            
+            Cliente cli = new Cliente();
+            DataTable dt = TraerClienteByDni(dniCliente);
+            DataRow dr = dt.Rows[0];
+            cli.Cli_Apellido = dr["Apellido"].ToString();
+            cli.Cli_Nombre = dr["Nombre"].ToString();
+            cli.Cli_Telefono = dr["Telefono"].ToString();
+            //cli.Cli_Email = dr[4].ToString();
+            return cli;
+            
+            
+            // cli.Cli_DNI = int.Parse(dt.Rows[0].Field<string>(0));
+            //cli.Cli_Apellido = dt.Rows[0].Field<string>("CLI_Apellido");
+            //cli.Cli_Nombre = dt.Rows[0].Field<string>("CLI_Nombre");
+            //cli.Cli_Telefono = dt.Rows[0].Field<string>("CLI_Telefono");
+            //cli.Cli_Email = dt.Rows[0].Field<string>("CLI_Email");
+            //return null;
         }
     }
 }

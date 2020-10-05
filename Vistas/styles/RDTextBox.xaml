@@ -5,7 +5,16 @@
 
     <ObjectDataProvider x:Key="DATA_CLIENT"
                             ObjectType="{x:Type svc:TrabajarClientes}"
-                            MethodName="TraerCliente"></ObjectDataProvider>
+                            MethodName="TraerCliente">
+    </ObjectDataProvider>
+
+    <ObjectDataProvider x:Key="DATA_CLIENT_MOD"
+                            ObjectType="{x:Type svc:TrabajarClientes}"
+                            MethodName="TraerCliente2">
+        <ObjectDataProvider.MethodParameters>0</ObjectDataProvider.MethodParameters>
+    </ObjectDataProvider>
+
+
     <ControlTemplate x:Key="TextBoxErrorTemplate">
         <DockPanel>
             <Ellipse DockPanel.Dock="Right" Margin="135,5" Width="10" Height="10">
@@ -19,10 +28,10 @@
         </DockPanel>
     </ControlTemplate>
 
-    <!-- TextBox -->
+    <!-- TextBox CUSTOM -->
     <Style x:Key="TextBoxCustom" TargetType="TextBox">
         <Setter Property="Margin" Value="4,4,10,4"/>
-        
+
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="TextWrapping" Value="Wrap"/>

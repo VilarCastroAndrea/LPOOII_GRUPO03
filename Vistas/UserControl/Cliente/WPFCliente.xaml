@@ -38,7 +38,8 @@
                   Margin="238,55,0,0" VerticalAlignment="Top" Width="502" 
                   Background="Black" BorderBrush="#FF04272D" Foreground="Black"
                   ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}}"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False" 
+                  SelectionChanged="DgClientes_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="DNI" Width="70" Binding="{Binding Path=CLI_DNI}"/>
                 <DataGridTextColumn Header="Apellido" Width="70" Binding="{Binding Path=CLI_Apellido}"/>
