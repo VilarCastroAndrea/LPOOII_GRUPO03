@@ -27,7 +27,7 @@
             </Grid.ColumnDefinitions>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" RenderTransformOrigin="0.528,0.906">
-            <ListView Name="peliculas" ItemsSource="{Binding Source={StaticResource listar_Peliculas}}">
+            <ListView Name="listPeliculas" ItemsSource="{Binding Source={StaticResource listar_Peliculas}}" SelectionChanged="Peliculas_SelectionChanged" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="100" Header="Codigo" DisplayMemberBinding="{Binding Path=Codigo}"/>

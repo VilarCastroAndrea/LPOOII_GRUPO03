@@ -32,7 +32,7 @@ namespace ClasesBase
         /// </summary>
         /// <param name="codigoPelicula"></param>
         /// <param name="disponible"></param>
-        public static void bajaPelicula(string codigoPelicula, bool disponible)
+        public static void bajaPelicula(int codigoPelicula, bool disponible)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -53,7 +53,7 @@ namespace ClasesBase
         /// </summary>
         /// <param name="codigoPelicula"></param>
         /// <param name="dis"></param>
-        public static void bajaPeliculaFisica(string codigoPelicula)
+        public static void bajaPeliculaFisica(int codigoPelicula)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -84,7 +84,6 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@duracion", pelicula.Peli_Duracion);
             cmd.Parameters.AddWithValue("@genero", pelicula.Peli_Genero);
             cmd.Parameters.AddWithValue("@clasificacion", pelicula.Peli_Clasificacion);
-            cmd.Parameters.AddWithValue("@disponible", pelicula.Peli_Disponible);
             cmd.Parameters.AddWithValue("@imagen", pelicula.Peli_Imagen);
             cmd.Parameters.AddWithValue("@codigoPelicula", pelicula.Peli_Codigo);
             cnn.Open();

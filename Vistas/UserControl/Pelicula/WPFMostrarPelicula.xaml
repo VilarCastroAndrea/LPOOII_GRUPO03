@@ -13,6 +13,10 @@
                 <GradientStop Color="#FF010A0C"/>
             </LinearGradientBrush>
         </Grid.Background>
+        <Grid.Resources>
+            <XmlDataProvider x:Key="clasif" Source="/DatosComboBox.xml" XPath="/datos"/>
+        </Grid.Resources>
+        
         <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold">
             <TextBox x:Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="10,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
         </GroupBox>
@@ -20,14 +24,14 @@
         <Label Content="Duracion" HorizontalAlignment="Left" Margin="35,89,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
         <TextBox x:Name="txtDuracion" HorizontalAlignment="Left" Height="23" Margin="26,115,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
         <Label Content="Genero" HorizontalAlignment="Left" Margin="35,138,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
-        <ComboBox x:Name="cmbGenero" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="26,164,0,0"  Background="#FF02090A" />
+        <ComboBox Name="cmbGenero" ItemsSource="{Binding Source={StaticResource clasif},XPath=genero/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="26,164,0,0"  Background="#FF02090A"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True"></ComboBox>
         <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="35,183,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
-        <ComboBox x:Name="cmbClasificacion" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="18" Margin="26,209,0,0"/>
-        <Label Content="Imagen" HorizontalAlignment="Left" Margin="26,227,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
+        <ComboBox Name="cmbClasificacion" ItemsSource="{Binding Source={StaticResource clasif},XPath=tipo/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="21" Margin="26,209,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True"></ComboBox>
+                <Label Content="Imagen" HorizontalAlignment="Left" Margin="26,227,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
         <TextBox x:Name="txtImagenPeli" HorizontalAlignment="Left" Height="23" Margin="25,255,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
-        <Button x:Name="ExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="95,230,0,0" VerticalAlignment="Top" Width="75"  Style="{StaticResource btnPeliculaEstilo}"/>
-        <Button x:Name="btnModificarPelicula" Content="Modificar" HorizontalAlignment="Left" Margin="26,350,0,0" VerticalAlignment="Top" Width="145"  Style="{StaticResource btnPeliculaEstilo}"/>
-        <Button x:Name="btnBajaPelicula" Content="Borrar" HorizontalAlignment="Left" Margin="26,375,0,0" VerticalAlignment="Top" Width="145"  Style="{StaticResource btnPeliculaEstilo}"/>
+        <Button x:Name="ExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="95,230,0,0" VerticalAlignment="Top" Width="75"  Style="{StaticResource btnPeliculaEstilo}" Click="ExaminarImg_Click"/>
+        <Button x:Name="btnModificarPelicula" Content="Modificar" HorizontalAlignment="Left" Margin="26,350,0,0" VerticalAlignment="Top" Width="145"  Style="{StaticResource btnPeliculaEstilo}" Click="BtnModificarPelicula_Click"/>
+        <Button x:Name="btnBajaPelicula" Content="Borrar" HorizontalAlignment="Left" Margin="26,375,0,0" VerticalAlignment="Top" Width="145"  Style="{StaticResource btnPeliculaEstilo}" Click="BtnBajaPelicula_Click"/>
 
     </Grid>
 </UserControl>
