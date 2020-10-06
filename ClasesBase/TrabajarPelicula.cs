@@ -113,14 +113,14 @@ namespace ClasesBase
         /// Listar peliculas disponibles
         /// </summary>
         /// <returns></returns>
-        public static DataTable ListaPeliculaDisponible(bool disponible)
+        public static DataTable ListaPeliculaDisponible()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "listarPeliculaDisponible";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@disponible", disponible);
+            cmd.Parameters.AddWithValue("@disponible", true);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
