@@ -3,9 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:DATOS="clr-namespace:ClasesBase;assembly=ClasesBase"
+             xmlns:TIPOS="clr-namespace:System;assembly=mscorlib"
+             
              xmlns:local="clr-namespace:Vistas"
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="oCliente" ObjectType="{x:Type DATOS:TrabajarCliente}" MethodName="buscarCliente">
+            <ObjectDataProvider.MethodParameters>
+                <TIPOS:String>0</TIPOS:String>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>     
+    </UserControl.Resources>
+   
     <Grid Name="panelMostrarCliente">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -14,17 +25,28 @@
             </LinearGradientBrush>
         </Grid.Background>
         <GroupBox Header="Cliente" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>
-        <Label Content="DNI" Margin="35,45,0,0"  Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtDni" Margin="30,70,0,0"  Style="{StaticResource TextBoxCustom}"/>
-        <Label Content="Nombre" Margin="35,94,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtNombre" Margin="30,120,0,0"  Style="{StaticResource TextBoxCustom}"/>
-        <Label Content="Apellido" Margin="36,144,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtApellido" Margin="30,172,0,0" Style="{StaticResource TextBoxCustom}"/>
-        <Label Content="Telefono" Margin="35,195,0,0" Style="{StaticResource LabelCustom}" RenderTransformOrigin="0.873,0.5"/>
-        <TextBox x:Name="txtTelefono" Margin="30,220,0,0" Style="{StaticResource TextBoxCustom}"/>
-        <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}"/>
-        <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="30,320,0,0"/>
-        <Button x:Name="btnBaja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="30,360,0,0"/>
+        <Label Content="Buscar" Margin="30,29,0,0"  Style="{StaticResource LabelCustom}"/>
+        <TextBox x:Name="txtBuscar" Margin="31,54,0,0"  Style="{StaticResource TextBoxCustom}">
+            <TextBox.Text>
+                <Binding 
+                         Source="{StaticResource ResourceKey=oCliente}"
+                         Path="MethodParameters[0]" 
+                         BindsDirectlyToSource="True" 
+                         UpdateSourceTrigger="PropertyChanged">
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label Content="DNI" Margin="30,77,0,0"  Style="{StaticResource LabelCustom}"/>
+        <TextBox x:Name="txtDni" Margin="30,103,0,0"  Style="{StaticResource TextBoxCustom}" Text="{Binding Source={StaticResource oCliente}, Path=Cli_DNI}"/>
+        <Label Content="Nombre" Margin="31,126,0,0" Style="{StaticResource LabelCustom}"/>
+        <TextBox x:Name="txtNombre" Margin="31,157,0,0"  Style="{StaticResource TextBoxCustom}" Text="{Binding Source={StaticResource oCliente}, Path=Cli_Nombre}" />
+        <Label Content="Apellido" Margin="31,180,0,0" Style="{StaticResource LabelCustom}" RenderTransformOrigin="0.506,1.59"/>
+        <TextBox x:Name="txtApellido" Margin="31,206,0,0" Style="{StaticResource TextBoxCustom}" Text="{Binding Source={StaticResource oCliente}, Path=Cli_Apellido}"/>
+        <Label Content="Telefono" Margin="30,229,0,0" Style="{StaticResource LabelCustom}" RenderTransformOrigin="0.873,0.5"/>
+        <TextBox x:Name="txtTelefono" Margin="31,255,0,0" Style="{StaticResource TextBoxCustom}" Text="{Binding Source={StaticResource oCliente}, Path=Cli_Telefono}"/>
+        <Label Content="Email" Margin="31,278,0,0" Style="{StaticResource LabelCustom}" RenderTransformOrigin="0.465,1.103"/>
+        <TextBox x:Name="txtEmail" Margin="31,304,0,0" Style="{StaticResource TextBoxCustom}" Text="{Binding Source={StaticResource oCliente}, Path=Cli_Email}"/>
+        <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="30,344,0,0" Click="BtnModificar_Click"/>
+        <Button x:Name="btnBaja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="30,375,0,0"/>
     </Grid>
 </UserControl>

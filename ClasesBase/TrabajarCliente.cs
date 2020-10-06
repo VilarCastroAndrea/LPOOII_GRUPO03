@@ -50,17 +50,65 @@ namespace ClasesBase
             cnn.Close();
         }
 
+        public static void modificarCliente(Cliente cliente)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
-        public Cliente traerCliente() {
-            Cliente cliente = new Cliente();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "UPDATE Cliente set CLI_Nombre=@nombre,CLI_Apellido=@apellido,CLI_Telefono=@tel,CLI_Email=@email  WHERE CLI_DNI=@dni";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
 
-            cliente.Cli_Nombre = "";
-            cliente.Cli_Apellido = "";
-            cliente.Cli_Email = "";
-            cliente.Cli_Telefono = "";
+            cmd.Parameters.AddWithValue("@dni", cliente.Cli_DNI);
+            cmd.Parameters.AddWithValue("@nombre", cliente.Cli_Nombre);
+            cmd.Parameters.AddWithValue("@apellido", cliente.Cli_Apellido);
+            cmd.Parameters.AddWithValue("@tel", cliente.Cli_Telefono);
+            cmd.Parameters.AddWithValue("@email", cliente.Cli_Email);
+
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
 
 
-            return null;
+        public Cliente buscarCliente(string dni) {
+            int dnibuscar;
+
+            if (string.IsNullOrEmpty(dni))
+            {
+                dnibuscar = 0;
+            }
+            else {
+              dnibuscar  = Int32.Parse(dni);
+            }
+           
+
+            SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM Cliente WHERE CLI_DNI=@dni";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+            cmd.Parameters.AddWithValue("@dni",dnibuscar);
+
+            conn.Open();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            Cliente cliente = null;
+
+            if (reader.Read()) {
+                cliente = new Cliente();
+                cliente.Cli_DNI = (int)reader["CLI_DNI"];
+                cliente.Cli_Nombre = (string)reader["CLI_Nombre"];
+                cliente.Cli_Apellido = (string)reader["CLI_Apellido"];
+                cliente.Cli_Telefono = (string)reader["CLI_Telefono"];
+                cliente.Cli_Email = (string)reader["CLI_Email"];
+
+            }
+
+            conn.Close();
+
+            return cliente;
         }
 
 
