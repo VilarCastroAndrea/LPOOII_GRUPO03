@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Windows;
 using Vistas.UserControl.Pelicula;
 
 namespace Vistas
@@ -19,17 +20,25 @@ namespace Vistas
 
         private void BtnModificarPelicula_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            panelPelicula.Children.Clear();
-            DataRowView item = (DataRowView)listPeliculas.SelectedItem;
-            ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
-            pelicula.Peli_Codigo = Convert.ToInt32(item["Codigo"]);
-            pelicula.Peli_Clasificacion= Convert.ToString(item["Clasificacion"]);
-            pelicula.Peli_Duracion = Convert.ToString(item["Duracion"]);
-            pelicula.Peli_Genero = Convert.ToString(item["Genero"]);
-   //         pelicula.Peli_Imagen = Convert.ToString(item["Imagen"]);
-            pelicula.Peli_Titulo= Convert.ToString(item["Titulo"]);
+            try
+            {
+                panelPelicula.Children.Clear();
+                DataRowView item = (DataRowView)listPeliculas.SelectedItem;
+                ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
+                pelicula.Peli_Codigo = Convert.ToInt32(item["Codigo"]);
+                pelicula.Peli_Clasificacion = Convert.ToString(item["Clasificacion"]);
+                pelicula.Peli_Duracion = Convert.ToString(item["Duracion"]);
+                pelicula.Peli_Genero = Convert.ToString(item["Genero"]);
+                //         pelicula.Peli_Imagen = Convert.ToString(item["Imagen"]);
+                pelicula.Peli_Titulo = Convert.ToString(item["Titulo"]);
 
-            panelPelicula.Children.Add(new WPFMostrarPelicula(pelicula,this));
+                panelPelicula.Children.Add(new WPFMostrarPelicula(pelicula, this));
+            }
+            catch
+            {
+                MessageBoxResult resultado = MessageBox.Show("Debe seleccionar una pelicula ppara modificarla", "Atención");
+            }
+
         }
 
 
