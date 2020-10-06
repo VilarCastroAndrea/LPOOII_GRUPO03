@@ -9,8 +9,11 @@ namespace Vistas
     /// </summary>
     public partial class WPFAltaCliente
     {
-        public WPFAltaCliente()
+        private WPFCliente clientePadre;
+
+        public WPFAltaCliente(WPFCliente cliente)
         {
+            clientePadre = cliente;
             InitializeComponent();
         }
 
@@ -29,6 +32,10 @@ namespace Vistas
             cliente.Cli_Email = txtEmail.Text;
             cliente.Cli_Disponible = true;
             cliente.Cli_Telefono = txtTelefono.Text;
+
+
+            clientePadre.Clientes.Items.Refresh();
+            MessageBox.Show("se mando a actualizar");
 
             TrabajarCliente.insertarCliente(cliente);
 

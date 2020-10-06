@@ -16,12 +16,13 @@
         {
             panelCliente.Children.Clear();
             panelCliente.Children.Add(new WPFMostrarCliente());
+           
         }
 
         private void BtnAltaCliente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             panelCliente.Children.Clear();
-            panelCliente.Children.Add(new WPFAltaCliente());
+            panelCliente.Children.Add(new WPFAltaCliente(this));
         }
     }
 }
