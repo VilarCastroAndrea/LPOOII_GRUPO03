@@ -9,9 +9,20 @@ namespace Vistas
     /// </summary>
     public partial class WPFAltaCliente
     {
+        /// <summary>
+        /// Objeto que referencia al padre
+        /// </summary>
+        private WPFCliente oPadre;
+
         public WPFAltaCliente()
         {
             InitializeComponent();
+        }
+
+        public WPFAltaCliente(WPFCliente padre)
+        {
+            InitializeComponent();
+            oPadre = padre;
         }
 
         /// <summary>
@@ -46,6 +57,7 @@ namespace Vistas
                     cliente.Cli_Disponible = true;
                     TrabajarClientes.Insert_Cliente(cliente);
                     MessageBox.Show("Cliente Guardado con exito");
+                    oPadre.ActualizarDataGrid();
                 }
                 limpiarCampos();
             }

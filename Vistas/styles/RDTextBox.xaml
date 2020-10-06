@@ -11,7 +11,7 @@
     <ObjectDataProvider x:Key="DATA_CLIENT_MOD"
                             ObjectType="{x:Type svc:TrabajarClientes}"
                             MethodName="TraerCliente2">
-        <ObjectDataProvider.MethodParameters>0</ObjectDataProvider.MethodParameters>
+        <ObjectDataProvider.MethodParameters>1</ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
 

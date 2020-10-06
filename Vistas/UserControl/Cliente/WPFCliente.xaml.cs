@@ -25,7 +25,7 @@ namespace Vistas
         private void BtnAltaCliente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             panelCliente.Children.Clear();
-            panelCliente.Children.Add(new WPFAltaCliente());
+            panelCliente.Children.Add(new WPFAltaCliente(this));
         }
 
         private void DgClientes_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -55,6 +55,14 @@ namespace Vistas
             c.Cli_Telefono = row["CLI_Telefono"].ToString();
             c.Cli_Email = row["CLI_Email"].ToString();
             return c;
+        }
+
+        /// <summary>
+        /// Actualiza el DataGrid
+        /// </summary>
+        public void ActualizarDataGrid()
+        {
+            //Como actualizar?
         }
     }
 }

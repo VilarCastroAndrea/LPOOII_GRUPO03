@@ -8,22 +8,32 @@ namespace Vistas
     /// </summary>
     public partial class WPFMostrarCliente
     {
-        ClasesBase.Cliente cliente;
+        /// <summary>
+        /// Cliente para realizar el alta
+        /// </summary>
+        private Cliente cliente;
+
+        /// <summary>
+        /// Objeto WPFCliente para tener referencia al padre
+        /// </summary>
+        private WPFCliente oPadre;
+
         public WPFMostrarCliente()
         {
-            cliente = new ClasesBase.Cliente();
+            cliente = new Cliente();
             InitializeComponent();
         }
 
-        public WPFMostrarCliente(ClasesBase.Cliente verCliente, WPFCliente padre)
+        public WPFMostrarCliente(Cliente verCliente, WPFCliente padre)
         {
             InitializeComponent();
-            cliente = new ClasesBase.Cliente();
+            cliente = new Cliente();
+
             if (verCliente != null)
             {
                 cliente = verCliente;
                 CargarFormularioModificarCliente();
-
+                oPadre = padre;
             }
         }
 

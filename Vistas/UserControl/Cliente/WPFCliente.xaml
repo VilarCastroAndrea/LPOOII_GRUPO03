@@ -11,6 +11,7 @@
     
     <UserControl.Resources>
         <ObjectDataProvider
+            x:Name="odpClientes"
             x:Key="LIST_CLIENTES"
             ObjectType="{x:Type svc:TrabajarClientes}"
             MethodName="TraerClientes"

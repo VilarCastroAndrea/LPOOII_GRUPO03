@@ -36,7 +36,7 @@ namespace ClasesBase
         /// </summary>
         /// <param name="dniCliente">Dni del cliente</param>
         /// <returns></returns>
-        public static DataTable TraerClienteByDni(string dniCliente)
+        public static DataTable TraerClienteByDni(int dniCliente)
         {
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
@@ -46,7 +46,7 @@ namespace ClasesBase
             cmd.CommandText += " CLI_Telefono as 'Telefono' ";
             cmd.CommandText += " FROM Cliente as C";
             cmd.CommandText += " WHERE";
-            cmd.CommandText += " CLI_DNI LIKE @pattern ";
+            cmd.CommandText += " CLI_DNI = @pattern ";
 
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
@@ -114,7 +114,8 @@ namespace ClasesBase
         /// <returns></returns>
         public static Cliente TraerCliente2(string dniCliente)
         {
-            DataTable dt = TraerClienteByDni(dniCliente);
+            int dni = int.Parse(dniCliente);
+            DataTable dt = TraerClienteByDni(dni);
             if (dt != null)
             {
                 Cliente cli = new Cliente();
