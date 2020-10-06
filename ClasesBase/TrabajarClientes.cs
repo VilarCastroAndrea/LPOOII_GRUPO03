@@ -43,15 +43,16 @@ namespace ClasesBase
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "SELECT ";
             cmd.CommandText += " CLI_Apellido as 'Apellido', CLI_Nombre as 'Nombre', ";
-            cmd.CommandText += " CLI_Telefono as 'Telefono' ";
+            cmd.CommandText += " CLI_Telefono as 'Telefono', ";
+            cmd.CommandText += " CLI_Email as 'Email' ";
             cmd.CommandText += " FROM Cliente as C";
             cmd.CommandText += " WHERE";
-            cmd.CommandText += " CLI_DNI = @pattern ";
+            cmd.CommandText += " CLI_DNI = @dni ";
 
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
 
-            cmd.Parameters.AddWithValue("@pattern", "%" + dniCliente + "%");
+            cmd.Parameters.AddWithValue("@dni", dniCliente);
 
             //Ejecutar consulta
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -90,12 +91,57 @@ namespace ClasesBase
             conn.Close();
         }
 
+        /// <summary>
+        /// Elimina un Cliente por su DNI
+        /// </summary>
+        /// <param name="cliente"></param>
+        public static void EliminarCliente(Cliente cliente)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "DELETE FROM Cliente WHERE CLI_DNI=@dni";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+
+            cmd.Parameters.AddWithValue("@dni", cliente.Cli_DNI);
+
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
+        /// <summary>
+        /// Actualiz un Cliente por su DNI
+        /// </summary>
+        /// <param name="cliente"></param>
+        public static void ActualizarCliente(Cliente cliente)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "UPDATE Cliente set CLI_Nombre=@nombre,CLI_Apellido=@apellido,CLI_Telefono=@tel, CLI_Email=@email WHERE CLI_DNI=@dni";
+
+            cmd.Parameters.AddWithValue("@dni", cliente.Cli_DNI);
+            cmd.Parameters.AddWithValue("@nombre", cliente.Cli_Nombre);
+            cmd.Parameters.AddWithValue("@apellido", cliente.Cli_Apellido);
+            cmd.Parameters.AddWithValue("@tel", cliente.Cli_Telefono);
+            cmd.Parameters.AddWithValue("@email", cliente.Cli_Email);
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+
+        }
 
         /// <summary>
         /// Inicializa un cliente para el formulario
         /// </summary>
         /// <returns></returns>
-        public Cliente TraerCliente()
+        public Cliente IniciarCliente()
         {
             Cliente oCliente = new Cliente();
             oCliente.Cli_DNI = 0;
@@ -112,19 +158,24 @@ namespace ClasesBase
         /// </summary>
         /// <param name="dniCliente">DNI del cliente</param>
         /// <returns></returns>
-        public static Cliente TraerCliente2(string dniCliente)
+        public static Cliente TraerCliente(string dniCliente)
         {
-            int dni = int.Parse(dniCliente);
-            DataTable dt = TraerClienteByDni(dni);
-            if (dt != null)
+            if(!String.IsNullOrEmpty(dniCliente))
             {
-                Cliente cli = new Cliente();
-                DataRow dr = dt.Rows[0];
-                cli.Cli_Apellido = dr["Apellido"].ToString();
-                cli.Cli_Nombre = dr["Nombre"].ToString();
-                cli.Cli_Telefono = dr["Telefono"].ToString();
-                return cli;
+                int dni = int.Parse(dniCliente);
+                DataTable dt = TraerClienteByDni(dni);
+                if (dt.Rows.Count > 0)
+                {
+                    Cliente cli = new Cliente();
+                    DataRow dr = dt.Rows[0];
+                    cli.Cli_Apellido = dr["Apellido"].ToString();
+                    cli.Cli_Nombre = dr["Nombre"].ToString();
+                    cli.Cli_Telefono = dr["Telefono"].ToString();
+                    cli.Cli_Email = dr["Email"].ToString();
+                    return cli;
+                }
             }
+            
 
             return null;
         }

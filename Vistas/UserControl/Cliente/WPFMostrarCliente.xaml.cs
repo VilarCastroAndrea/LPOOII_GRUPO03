@@ -49,5 +49,31 @@ namespace Vistas
             txtTelefono.Text = cliente.Cli_Telefono;
             txtEmail.Text = cliente.Cli_Email;
         }
+
+        private void BtnModificar_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Cliente cli = new Cliente();
+            cli.Cli_DNI = int.Parse(txtDni.Text);
+            cli.Cli_Apellido = txtApellido.Text;
+            cli.Cli_Nombre = txtNombre.Text;
+            cli.Cli_Telefono = txtTelefono.Text;
+            cli.Cli_Email = txtTelefono.Text;
+            cli.Cli_Disponible = true;
+
+            TrabajarClientes.ActualizarCliente(cli);
+        }
+
+        private void BtnBaja_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Cliente cli = new Cliente();
+            cli.Cli_DNI = int.Parse(txtDni.Text);
+            cli.Cli_Apellido = txtApellido.Text;
+            cli.Cli_Nombre = txtNombre.Text;
+            cli.Cli_Telefono = txtTelefono.Text;
+            cli.Cli_Email = txtTelefono.Text;
+            cli.Cli_Disponible = true;
+
+            TrabajarClientes.EliminarCliente(cli);
+        }
     }
 }

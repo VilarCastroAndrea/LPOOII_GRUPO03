@@ -80,7 +80,7 @@
         <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}"/>
         
         <!-- Botones Modificar/Borrar -->
-        <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="30,320,0,0"/>
-        <Button x:Name="btnBaja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="30,360,0,0"/>
+        <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="30,320,0,0" Click="BtnModificar_Click"/>
+        <Button x:Name="btnBaja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="30,360,0,0" Click="BtnBaja_Click"/>
     </Grid>
 </UserControl>

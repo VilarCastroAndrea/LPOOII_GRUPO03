@@ -1,17 +1,20 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
-                    xmlns:local="clr-namespace:Vistas.styles">
-
+                    xmlns:local="clr-namespace:Vistas.styles"
+                    xmlns:StringType="clr-namespace:System;assembly=mscorlib">
+                    
     <ObjectDataProvider x:Key="DATA_CLIENT"
                             ObjectType="{x:Type svc:TrabajarClientes}"
-                            MethodName="TraerCliente">
+                            MethodName="IniciarCliente">
     </ObjectDataProvider>
 
     <ObjectDataProvider x:Key="DATA_CLIENT_MOD"
                             ObjectType="{x:Type svc:TrabajarClientes}"
-                            MethodName="TraerCliente2">
-        <ObjectDataProvider.MethodParameters>1</ObjectDataProvider.MethodParameters>
+                            MethodName="TraerCliente">
+        <ObjectDataProvider.MethodParameters>
+            <StringType:String>0</StringType:String>
+        </ObjectDataProvider.MethodParameters>
     </ObjectDataProvider>
 
 
