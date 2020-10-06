@@ -11,7 +11,7 @@
         <ObjectDataProvider
             x:Key="listar_Peliculas"
             ObjectType="{x:Type svc:TrabajarPelicula}"
-            MethodName="traerPeliculas"
+            MethodName="ListaPeliculaDisponible"
             />
     </UserControl.Resources>
     <Grid Height="490" Width="760">
@@ -30,11 +30,11 @@
             <ListView Name="peliculas" ItemsSource="{Binding Source={StaticResource listar_Peliculas}}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="100" Header="Codigo" DisplayMemberBinding="{Binding Path=PELI_Codigo}"/>
-                        <GridViewColumn Width="100" Header="Titulo" DisplayMemberBinding="{Binding Path=PELI_Titulo}"/>
-                        <GridViewColumn Width="100" Header="Duracion" DisplayMemberBinding="{Binding Path=PELI_Duracion}"/>
-                        <GridViewColumn Width="102" Header="Genero" DisplayMemberBinding="{Binding Path=PELI_Genero}"/>
-                        <GridViewColumn Width="100" Header="Clasificacion" DisplayMemberBinding="{Binding Path=PELI_Clasificacion}"/>
+                        <GridViewColumn Width="100" Header="Codigo" DisplayMemberBinding="{Binding Path=Codigo}"/>
+                        <GridViewColumn Width="100" Header="Titulo" DisplayMemberBinding="{Binding Path=Titulo}"/>
+                        <GridViewColumn Width="100" Header="Duracion" DisplayMemberBinding="{Binding Path=Duracion}"/>
+                        <GridViewColumn Width="102" Header="Genero" DisplayMemberBinding="{Binding Path=Genero}"/>
+                        <GridViewColumn Width="100" Header="Clasificacion" DisplayMemberBinding="{Binding Path=Clasificacion}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
