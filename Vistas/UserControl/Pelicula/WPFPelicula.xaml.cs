@@ -12,7 +12,7 @@ namespace Vistas
         {
             InitializeComponent();
             panelPelicula.Children.Clear();
-            panelPelicula.Children.Add(new WPFMostrarPelicula());
+            panelPelicula.Children.Add(new WPFAltaPelicula());
         }
 
         private void BtnModificarPelicula_Click(object sender, System.Windows.RoutedEventArgs e)
