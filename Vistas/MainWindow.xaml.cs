@@ -18,6 +18,12 @@ namespace Vistas
         {
 
         }
+
+        public void refrescarPelicula()
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new WPFPelicula(this));
+        }
         /// <summary>
         /// Muestra los botones segun el usuario que se encuentra logeado
         /// </summary>
@@ -46,7 +52,7 @@ namespace Vistas
         private void BtnPelicula_Click(object sender, RoutedEventArgs e)
         {
             panelPrincipal.Children.Clear();
-            panelPrincipal.Children.Add(new WPFPelicula());
+            panelPrincipal.Children.Add(new WPFPelicula(this));
         }
 
         private void BtnButaca_Click(object sender, RoutedEventArgs e)

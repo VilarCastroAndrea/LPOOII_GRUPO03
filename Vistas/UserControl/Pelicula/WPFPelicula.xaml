@@ -14,7 +14,7 @@
             MethodName="ListaPeliculaDisponible"
             />
     </UserControl.Resources>
-    <Grid Height="490" Width="760">
+    <Grid Name="grdPrincipal" Height="490" Width="760">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
@@ -27,7 +27,7 @@
             </Grid.ColumnDefinitions>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" RenderTransformOrigin="0.528,0.906">
-            <ListView Name="listPeliculas" ItemsSource="{Binding Source={StaticResource listar_Peliculas}}" SelectionChanged="Peliculas_SelectionChanged" >
+            <ListView Name="listPeliculas" ItemsSource="{Binding Source={StaticResource listar_Peliculas}}" SelectionChanged="Peliculas_SelectionChanged" IsSynchronizedWithCurrentItem="True">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="100" Header="Codigo" DisplayMemberBinding="{Binding Path=Codigo}"/>

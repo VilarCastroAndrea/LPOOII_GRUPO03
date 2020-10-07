@@ -11,9 +11,14 @@ namespace Vistas.UserControl.Pelicula
     {
  
         public string name { get; set; }
-        public WPFAltaPelicula()
+
+        WPFPelicula padre;
+
+        public WPFAltaPelicula(WPFPelicula formularioPadre)
         {
             InitializeComponent();
+            padre = formularioPadre;
+
         }
         
 
@@ -24,7 +29,7 @@ namespace Vistas.UserControl.Pelicula
             {
                 try
                 {
-                    ClasesBase.TrabajarPelicula.altaPelicula(new ClasesBase.Pelicula(1,txtTitulo.Text,txtDuracion.Text,cmbGenero.Text,cmbClasificacion.Text,txtImagenPeli.Text));
+                    padre.altaPelicula(new ClasesBase.Pelicula(0,txtTitulo.Text,txtDuracion.Text,cmbGenero.Text,cmbClasificacion.Text,txtImagenPeli.Text));
                     MessageBoxResult resultado = MessageBox.Show("Se agrego la pelicula con exito", "Atención");
                     limpiarCampos();
                 }

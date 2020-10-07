@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using Vistas.UserControl.Pelicula;
 
 namespace Vistas
@@ -10,14 +14,19 @@ namespace Vistas
     /// </summary>
     public partial class WPFPelicula
     {
-
-        public WPFPelicula()
+        MainWindow ventana;
+        public WPFPelicula(MainWindow main)
         {
             InitializeComponent();
             panelPelicula.Children.Clear();
-            panelPelicula.Children.Add(new WPFAltaPelicula());
+            panelPelicula.Children.Add(new WPFAltaPelicula(this));
+            ventana = main;
         }
-
+        public void altaPelicula(ClasesBase.Pelicula peliculaNueva)
+        {
+            ClasesBase.TrabajarPelicula.altaPelicula(peliculaNueva);
+            ventana.refrescarPelicula();
+        }
         private void BtnModificarPelicula_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             try
@@ -47,8 +56,7 @@ namespace Vistas
         public void modificarPelicula(ClasesBase.Pelicula pelicula)
         {
             ClasesBase.TrabajarPelicula.modificarPelicula(pelicula);
-            panelPelicula.Children.Clear();
-            panelPelicula.Children.Add(new WPFAltaPelicula());
+            ventana.refrescarPelicula();
         }
 
 
@@ -65,8 +73,9 @@ namespace Vistas
             }
             finally
             {
+                ventana.refrescarPelicula();
                 panelPelicula.Children.Clear();
-                panelPelicula.Children.Add(new WPFAltaPelicula());
+                panelPelicula.Children.Add(new WPFAltaPelicula(this));
             }
         }
 
@@ -74,7 +83,7 @@ namespace Vistas
         private void BtnAltaPelicula_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             panelPelicula.Children.Clear();
-            panelPelicula.Children.Add(new WPFAltaPelicula());
+            panelPelicula.Children.Add(new WPFAltaPelicula(this));
         }
 
         private void Peliculas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

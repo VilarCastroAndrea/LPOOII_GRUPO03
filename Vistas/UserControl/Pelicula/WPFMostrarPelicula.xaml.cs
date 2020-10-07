@@ -28,7 +28,7 @@ namespace Vistas
             if (validarCampos() == true)
             {
 
-                proyeccionPadre.modificarPelicula(new ClasesBase.Pelicula(1, txtTitulo.Text, txtDuracion.Text, cmbGenero.Text, cmbClasificacion.Text, txtImagenPeli.Text));
+                proyeccionPadre.modificarPelicula(new ClasesBase.Pelicula(peliculaSeleccionada.Peli_Codigo, txtTitulo.Text, txtDuracion.Text, cmbGenero.Text, cmbClasificacion.Text, txtImagenPeli.Text));
                     MessageBoxResult resultado = MessageBox.Show("Se modifico la pelicula con exito", "Atención");
                     limpiarCampos();
             }
