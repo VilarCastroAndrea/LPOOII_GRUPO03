@@ -70,7 +70,7 @@ namespace Vistas
             cli.Cli_Apellido = txtApellido.Text;
             cli.Cli_Nombre = txtNombre.Text;
             cli.Cli_Telefono = txtTelefono.Text;
-            cli.Cli_Email = txtTelefono.Text;
+            cli.Cli_Email = txtEmail.Text;
             cli.Cli_Disponible = true;
 
             TrabajarClientes.EliminarCliente(cli);

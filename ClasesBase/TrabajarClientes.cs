@@ -160,13 +160,15 @@ namespace ClasesBase
         /// <returns></returns>
         public static Cliente TraerCliente(string dniCliente)
         {
-            if(!String.IsNullOrEmpty(dniCliente))
+            Cliente cli = null;
+            if (!String.IsNullOrEmpty(dniCliente))
             {
+
                 int dni = int.Parse(dniCliente);
                 DataTable dt = TraerClienteByDni(dni);
                 if (dt.Rows.Count > 0)
                 {
-                    Cliente cli = new Cliente();
+                    cli = new Cliente();
                     DataRow dr = dt.Rows[0];
                     cli.Cli_Apellido = dr["Apellido"].ToString();
                     cli.Cli_Nombre = dr["Nombre"].ToString();
@@ -175,9 +177,7 @@ namespace ClasesBase
                     return cli;
                 }
             }
-            
-
-            return null;
+            return cli;
         }
     }
 }
