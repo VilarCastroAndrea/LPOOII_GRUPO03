@@ -1,5 +1,7 @@
 ﻿using Microsoft.Win32;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace Vistas.UserControl.Pelicula
 {
@@ -99,6 +101,17 @@ namespace Vistas.UserControl.Pelicula
             openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
             openFileDialog1.DefaultExt = ".jpeg";
             txtImagenPeli.Text = openFileDialog1.FileName;
+            Image.Source = new BitmapImage(new System.Uri(openFileDialog1.FileName));
+        }
+
+        /// <summary>
+        /// REVISAR NO TERMINADO!
+        /// </summary>
+        /// <param name="imagen"></param>
+        /// <returns></returns>
+        public string EncodeImage(Image imagen)
+        {
+            return "qwe";
         }
     }
 }
