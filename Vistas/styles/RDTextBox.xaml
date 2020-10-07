@@ -3,12 +3,14 @@
                     xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
                     xmlns:local="clr-namespace:Vistas.styles"
                     xmlns:StringType="clr-namespace:System;assembly=mscorlib">
-                    
+              
+    <!-- Data Provider para el ALTA CLIENTE -->
     <ObjectDataProvider x:Key="DATA_CLIENT"
                             ObjectType="{x:Type svc:TrabajarClientes}"
                             MethodName="IniciarCliente">
     </ObjectDataProvider>
 
+    <!-- Data Provider Para el MODIFICAR CLIENTE-->
     <ObjectDataProvider x:Key="DATA_CLIENT_MOD"
                             ObjectType="{x:Type svc:TrabajarClientes}"
                             MethodName="TraerCliente">
