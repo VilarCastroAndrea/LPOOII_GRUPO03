@@ -4,8 +4,44 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vistas"
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
+    <!--
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="DATA_CLIENT"
+                            ObjectType="{x:Type svc:TrabajarClientes}"
+                            MethodName="TraerCliente"></ObjectDataProvider>
+        <ControlTemplate x:Key="TextBoxErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="135,5" Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#11FF1111" Offset="0"/>
+                            <GradientStop Color="#FFFF0000" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </DockPanel>
+        </ControlTemplate>
+        
+        <Style x:Key="EstiloError" TargetType="TextBox">
+            <Setter Property="Margin" Value="4,4,10,4"/>
+            <Setter Property="Validation.ErrorTemplate"
+                    Value="{StaticResource TextBoxErrorTemplate}"/>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors)[0].ErrorContent"
+                                     RelativeSource="{x:Static RelativeSource.Self}"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    -->
     <Grid Name="panelAltaCliente">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -13,17 +49,81 @@
                 <GradientStop Color="#FF021113"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <GroupBox Header="Cliente" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>
-        <Label Content="DNI" Margin="35,45,0,0"  Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtDni" Margin="30,70,0,0"  PreviewTextInput="TextBox_PreviewTextInput" Style="{StaticResource TextBoxCustom}"/>
-        <Label Content="Nombre" Margin="35,94,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtNombre" Margin="30,120,0,0"  PreviewTextInput="PreviewTextInputOnlyLetters" Style="{StaticResource TextBoxCustom}"/>
-        <Label Content="Apellido" Margin="36,144,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtApellido" Margin="30,172,0,0" PreviewTextInput="PreviewTextInputOnlyLetters" Style="{StaticResource TextBoxCustom}"/>
-        <Label Content="Telefono" Margin="35,195,0,0" Style="{StaticResource LabelCustom}" RenderTransformOrigin="0.873,0.5"/>
-        <TextBox x:Name="txtTelefono" Margin="30,220,0,0" PreviewTextInput="TextBox_PreviewTextInput" Style="{StaticResource TextBoxCustom}"/>
+        
+        <GroupBox Header="Cliente" HorizontalAlignment="Left" Margin="10,10,0,0"
+                  Height="400"  Width="180" 
+                  Foreground="White"  VerticalAlignment="Top" FontWeight="Bold"/>
+        
+        <!-- DNI -->
+        <Label Content="DNI" Margin="35,45,0,0"  
+               Style="{StaticResource LabelCustom}"/>
+        
+        <TextBox x:Name="txtDni" Margin="30,70,42,331"  
+                 PreviewTextInput="TextBox_PreviewTextInput" 
+                 Style="{StaticResource TextBoxCustom}" 
+                 DataContext="{StaticResource DATA_CLIENT}"
+                 >
+            <TextBox.Text>
+                <Binding Path="Cli_DNI" 
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+            </TextBox.Text>
+        </TextBox>
+        
+        <!-- Nombre -->
+        <Label Content="Nombre" Margin="35,94,0,0"
+               Style="{StaticResource LabelCustom}"/>
+        
+        <TextBox x:Name="txtNombre" Margin="30,120,42,281"  PreviewTextInput="PreviewTextInputOnlyLetters"
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_CLIENT}">
+            <TextBox.Text>
+                <Binding Path="Cli_Nombre"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+            </TextBox.Text>
+        </TextBox>
+        
+        <!-- Apellido -->
+        <Label Content="Apellido" Margin="36,144,0,0" 
+               Style="{StaticResource LabelCustom}"/>
+        <TextBox x:Name="txtApellido" Margin="30,172,0,0" PreviewTextInput="PreviewTextInputOnlyLetters" 
+                 Style="{StaticResource TextBoxCustom}" 
+                 DataContext="{StaticResource DATA_CLIENT}">
+            <TextBox.Text>
+                <Binding Path="Cli_Apellido" 
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+            </TextBox.Text>
+        </TextBox>
+        
+        <!-- Telefono -->
+        <Label Content="Telefono" Margin="35,195,0,0" RenderTransformOrigin="0.873,0.5"
+               Style="{StaticResource LabelCustom}" />
+        
+        <TextBox x:Name="txtTelefono" Margin="30,220,0,0" PreviewTextInput="TextBox_PreviewTextInput" 
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_CLIENT}">
+            <TextBox.Text>
+                <Binding Path="Cli_Telefono" 
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnDataErrors="True" 
+                         ValidatesOnExceptions="True"/>
+            </TextBox.Text>
+        </TextBox>
+        
+        <!-- Email -->
         <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}"/>
-        <Button x:Name="btnAlta" Content="Agregar" Style="{StaticResource BotonCustom}" Click="BtnAlta_Click" Margin="30,320,0,0"/>
+        
+        <TextBox x:Name="txtEmail" Margin="30,270,0,0" 
+                 Style="{StaticResource TextBoxCustom}"/>
+
+        <!-- Boton Agregar -->
+        <Button x:Name="btnAlta" Content="Agregar" Margin="30,320,0,0"
+                Style="{StaticResource BotonCustom}" 
+                Click="BtnAlta_Click" />
     </Grid>
 </UserControl>

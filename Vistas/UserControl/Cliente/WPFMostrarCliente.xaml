@@ -14,17 +14,73 @@
             </LinearGradientBrush>
         </Grid.Background>
         <GroupBox Header="Cliente" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>
+        
+        <!--DNI-->
         <Label Content="DNI" Margin="35,45,0,0"  Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtDni" Margin="30,70,0,0"  Style="{StaticResource TextBoxCustom}"/>
+        <TextBox x:Name="txtDni" Margin="30,70,0,0"  
+                 Style="{StaticResource TextBoxCustom}"
+                 >
+            <TextBox.Text>
+                <Binding Source="{StaticResource DATA_CLIENT_MOD}"
+                         Path="MethodParameters[0]"
+                         BindsDirectlyToSource="True"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True"
+                         ValidatesOnDataErrors="True"
+                         />
+            </TextBox.Text>
+        </TextBox>
+        
+        <!-- Nombre -->
         <Label Content="Nombre" Margin="35,94,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtNombre" Margin="30,120,0,0"  Style="{StaticResource TextBoxCustom}"/>
+        <TextBox x:Name="txtNombre" Margin="30,120,0,0"  
+                 Style="{StaticResource TextBoxCustom}"
+                 >
+            <TextBox.Text>
+                <Binding Source="{StaticResource DATA_CLIENT_MOD}"
+                         Path="Cli_Nombre"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True"
+                         ValidatesOnExceptions="True"
+                         />
+            </TextBox.Text>
+        </TextBox>
+        
+        <!-- Apellido -->
         <Label Content="Apellido" Margin="36,144,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtApellido" Margin="30,172,0,0" Style="{StaticResource TextBoxCustom}"/>
+        <TextBox x:Name="txtApellido" Margin="30,172,0,0" 
+                 Style="{StaticResource TextBoxCustom}">
+            <TextBox.Text>
+                <Binding Source="{StaticResource DATA_CLIENT_MOD}"
+                         Path="Cli_Apellido"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True"
+                         ValidatesOnExceptions="True"
+                         />
+            </TextBox.Text>
+        </TextBox>
+        
+        <!-- Telefono -->
         <Label Content="Telefono" Margin="35,195,0,0" Style="{StaticResource LabelCustom}" RenderTransformOrigin="0.873,0.5"/>
-        <TextBox x:Name="txtTelefono" Margin="30,220,0,0" Style="{StaticResource TextBoxCustom}"/>
+        <TextBox x:Name="txtTelefono" Margin="30,220,0,0" 
+                 Style="{StaticResource TextBoxCustom}"
+                 >
+            <TextBox.Text>
+                <Binding Source="{StaticResource DATA_CLIENT_MOD}"
+                         Path="Cli_Telefono"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnDataErrors="True"
+                         ValidatesOnExceptions="True"
+                         />
+            </TextBox.Text>
+        </TextBox>
+        
+        <!-- Email -->
         <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
         <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}"/>
-        <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="30,320,0,0"/>
-        <Button x:Name="btnBaja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="30,360,0,0"/>
+        
+        <!-- Botones Modificar/Borrar -->
+        <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="30,320,0,0" Click="BtnModificar_Click"/>
+        <Button x:Name="btnBaja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="30,360,0,0" Click="BtnBaja_Click"/>
     </Grid>
 </UserControl>
