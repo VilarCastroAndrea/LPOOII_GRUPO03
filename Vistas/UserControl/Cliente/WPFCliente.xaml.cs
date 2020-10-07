@@ -28,18 +28,18 @@ namespace Vistas
             panelCliente.Children.Add(new WPFAltaCliente(this));
         }
 
-        private void DgClientes_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            DataGrid dg = (DataGrid) sender;
-            DataRowView row_selected = dg.SelectedItem as DataRowView;
-            if(row_selected != null)
-            {
-                Cliente clienteSeleccionado = ConvertirDRVaCliente(row_selected);
-                panelCliente.Children.Clear();
-                panelCliente.Children.Add(new WPFMostrarCliente(clienteSeleccionado, this));
-            }
+        //private void DgClientes_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        //{
+        //    DataGrid dg = (DataGrid) sender;
+        //    DataRowView row_selected = dg.SelectedItem as DataRowView;
+        //    if(row_selected != null)
+        //    {
+        //        Cliente clienteSeleccionado = ConvertirDRVaCliente(row_selected);
+        //        panelCliente.Children.Clear();
+        //        panelCliente.Children.Add(new WPFMostrarCliente(clienteSeleccionado, this));
+        //    }
 
-        }
+        //}
 
         /// <summary>
         /// Convierte un objeto DataRowView a un Objeto Cliente
@@ -63,6 +63,23 @@ namespace Vistas
         public void ActualizarDataGrid()
         {
             //Como actualizar?
+        }
+
+        /// <summary>
+        /// Evento clic del ListView para seleccionar un cliente de la tabla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DtClientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView dg = (ListView)sender;
+            DataRowView row_selected = dg.SelectedItem as DataRowView;
+            if (row_selected != null)
+            {
+                Cliente clienteSeleccionado = ConvertirDRVaCliente(row_selected);
+                panelCliente.Children.Clear();
+                panelCliente.Children.Add(new WPFMostrarCliente(clienteSeleccionado, this));
+            }
         }
     }
 }
