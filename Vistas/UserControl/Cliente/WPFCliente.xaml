@@ -16,8 +16,8 @@
             x:Key="listar_Clientes"
          />
     </UserControl.Resources>
-    
-    
+
+
     <Grid Height="490" Width="760">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -36,7 +36,7 @@
          <TextBox Name="txtDni" HorizontalAlignment="Left" Height="23" Margin="32,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White" PreviewTextInput="TextBox_PreviewTextInput"/>
         -->
         <Grid  HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black">
-            <ListView Name="Clientes" ItemsSource="{Binding Source={StaticResource listar_Clientes}}">
+            <ListView  Name="Clientes"  ItemsSource="{Binding Source={StaticResource listar_Clientes}, UpdateSourceTrigger=Explicit}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="80" Header="Dni" DisplayMemberBinding="{Binding Path=CLI_DNI}"/>
@@ -46,11 +46,13 @@
                         <GridViewColumn Width="130" Header="Email" DisplayMemberBinding="{Binding Path=CLI_Email}"/>
                     </GridView>
                 </ListView.View>
-            </ListView> 
+            </ListView>
         </Grid>
         <Button Name="btnModificarCliente" Style="{StaticResource BotonModificar}" Click="BtnModificarCliente_Click"/>
         <Button Name="btnAltaCliente" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaCliente_Click"/>
-        <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>
+        <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White">
+            <Button Name="btnActualizar" Content="actualizar" HorizontalAlignment="Left" Height="17" Margin="50,-6,0,0" VerticalAlignment="Top" Width="91" Click="BtnActualizar_Click"/>
+        </GroupBox>
 
     </Grid>
 </UserControl>

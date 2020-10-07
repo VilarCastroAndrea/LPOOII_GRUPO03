@@ -1,4 +1,7 @@
-﻿namespace Vistas
+﻿using System.Windows.Controls;
+using System.Windows.Data;
+
+namespace Vistas
 {
     /// <summary>
     /// Lógica de interacción para WPFCliente.xaml
@@ -23,6 +26,14 @@
         {
             panelCliente.Children.Clear();
             panelCliente.Children.Add(new WPFAltaCliente(this));
+        }
+
+        private void BtnActualizar_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+            //Clientes.Items.Refresh();
+            BindingExpression be = Clientes.GetBindingExpression(ListView.ItemsSourceProperty);
+            be.UpdateSource();
         }
     }
 }

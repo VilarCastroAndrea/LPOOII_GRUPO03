@@ -1,6 +1,7 @@
 ﻿using ClasesBase;
 using System;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 namespace Vistas
 {
@@ -34,7 +35,7 @@ namespace Vistas
             cliente.Cli_Telefono = txtTelefono.Text;
 
 
-            clientePadre.Clientes.Items.Refresh();
+           
             MessageBox.Show("se mando a actualizar");
 
             TrabajarCliente.insertarCliente(cliente);
@@ -42,7 +43,14 @@ namespace Vistas
 
         }
 
-    
+        private void actualizarList() {
+
+            //BindingExpression be = clientePadre.Clientes.GetBindingExpression(clientePadre.Clientes.SourceUpdated);
+           // be.UpdateSource();
+           
+        }
+
+
 
     }
 }
