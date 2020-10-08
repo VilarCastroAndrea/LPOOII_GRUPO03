@@ -32,7 +32,7 @@ namespace Vistas.UserControl.Pelicula
                     name = "qweqweqwewewe";
                     padre.altaPelicula(new ClasesBase.Pelicula(0,txtTitulo.Text,txtDuracion.Text,cmbGenero.Text,cmbClasificacion.Text,txtImagenPeli.Text));
                     MessageBoxResult resultado = MessageBox.Show("Se agrego la pelicula con exito", "Atención");
-                    //limpiarCampos();
+                    limpiarCampos();
                 }
                 catch(Exception error)
                 {

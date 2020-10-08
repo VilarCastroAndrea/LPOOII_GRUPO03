@@ -14,18 +14,18 @@ namespace Vistas
     /// </summary>
     public partial class WPFPelicula
     {
-        MainWindow ventana;
+        MainWindow ventanaPadre;
         public WPFPelicula(MainWindow main)
         {
             InitializeComponent();
             panelPelicula.Children.Clear();
             panelPelicula.Children.Add(new WPFAltaPelicula(this));
-            ventana = main;
+            ventanaPadre = main;
         }
         public void altaPelicula(ClasesBase.Pelicula peliculaNueva)
         {
             ClasesBase.TrabajarPelicula.altaPelicula(peliculaNueva);
-            ventana.refrescarPelicula();
+            ventanaPadre.refrescarPelicula();
         }
         private void BtnModificarPelicula_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -56,7 +56,7 @@ namespace Vistas
         public void modificarPelicula(ClasesBase.Pelicula pelicula)
         {
             ClasesBase.TrabajarPelicula.modificarPelicula(pelicula);
-            ventana.refrescarPelicula();
+            ventanaPadre.refrescarPelicula();
         }
 
 
@@ -73,7 +73,7 @@ namespace Vistas
             }
             finally
             {
-                ventana.refrescarPelicula();
+                ventanaPadre.refrescarPelicula();
                 panelPelicula.Children.Clear();
                 panelPelicula.Children.Add(new WPFAltaPelicula(this));
             }
