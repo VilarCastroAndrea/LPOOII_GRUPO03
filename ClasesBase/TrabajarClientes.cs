@@ -152,6 +152,8 @@ namespace ClasesBase
 
         }
 
+
+
         /// <summary>
         /// Devuelve un objeto cliente de la base de datos 
         /// a partir de su DNI

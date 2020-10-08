@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using ClasesBase;
 
 namespace Vistas
@@ -57,10 +58,15 @@ namespace Vistas
             cli.Cli_Apellido = txtApellido.Text;
             cli.Cli_Nombre = txtNombre.Text;
             cli.Cli_Telefono = txtTelefono.Text;
-            cli.Cli_Email = txtTelefono.Text;
+            cli.Cli_Email = txtEmail.Text;
             cli.Cli_Disponible = true;
 
             TrabajarClientes.ActualizarCliente(cli);
+
+            MessageBox.Show("Se modifico el registro");
+            limpiarcampos();
+
+
         }
 
         private void BtnBaja_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -74,6 +80,17 @@ namespace Vistas
             cli.Cli_Disponible = true;
 
             TrabajarClientes.EliminarCliente(cli);
+
         }
+
+
+        private void limpiarcampos() {
+            txtDni.Text = null;
+            txtApellido.Text = null;
+            txtNombre.Text = null;
+            txtTelefono.Text = null;
+            txtEmail.Text = null;
+        }
+
     }
 }

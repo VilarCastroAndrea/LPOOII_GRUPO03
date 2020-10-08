@@ -77,7 +77,13 @@
         
         <!-- Email -->
         <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}"/>
+        <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}">
+            <TextBox.Text>
+                <Binding Source="{StaticResource DATA_CLIENT_MOD}"
+                         Path="Cli_Email"
+                         />
+            </TextBox.Text>
+        </TextBox>
         
         <!-- Botones Modificar/Borrar -->
         <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="30,320,0,0" Click="BtnModificar_Click"/>
