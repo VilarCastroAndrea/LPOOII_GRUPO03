@@ -62,11 +62,10 @@ namespace Vistas
             cli.Cli_Disponible = true;
 
             TrabajarClientes.ActualizarCliente(cli);
-
+            
             MessageBox.Show("Se modifico el registro");
             limpiarcampos();
-
-
+            
         }
 
         private void BtnBaja_Click(object sender, System.Windows.RoutedEventArgs e)
