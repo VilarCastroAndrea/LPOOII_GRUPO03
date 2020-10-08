@@ -75,16 +75,17 @@ namespace ClasesBase
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "INSERT INTO Cliente(CLI_DNI, CLI_Nombre, CLI_Apellido, CLI_Telefono, CLI_Email, CLI_Disponible) values(@dni, @nom, @ape, @tel, @ema, @dis)";
+            //cmd.CommandText = "INSERT INTO Cliente(CLI_DNI, CLI_Nombre, CLI_Apellido, CLI_Telefono, CLI_Email, CLI_Disponible) values(@dni, @nom, @ape, @tel, @ema, @dis)";
+            cmd.CommandText = "altaCliente";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = conn;
 
             cmd.Parameters.AddWithValue("@dni", cli.Cli_DNI);
-            cmd.Parameters.AddWithValue("@nom", cli.Cli_Nombre);
-            cmd.Parameters.AddWithValue("@ape", cli.Cli_Apellido);
-            cmd.Parameters.AddWithValue("@tel", cli.Cli_Telefono);
-            cmd.Parameters.AddWithValue("@ema", cli.Cli_Email);
-            cmd.Parameters.AddWithValue("@dis", cli.Cli_Disponible);
+            cmd.Parameters.AddWithValue("@nombre", cli.Cli_Nombre);
+            cmd.Parameters.AddWithValue("@apellido", cli.Cli_Apellido);
+            cmd.Parameters.AddWithValue("@telelefono", cli.Cli_Telefono);
+            cmd.Parameters.AddWithValue("@email", cli.Cli_Email);
+            cmd.Parameters.AddWithValue("@disponible", cli.Cli_Disponible);
 
             conn.Open();
             cmd.ExecuteNonQuery();
