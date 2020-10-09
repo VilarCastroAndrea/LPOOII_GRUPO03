@@ -70,15 +70,23 @@ namespace Vistas
 
         private void BtnBaja_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Cliente cli = new Cliente();
-            cli.Cli_DNI = int.Parse(txtDni.Text);
-            cli.Cli_Apellido = txtApellido.Text;
-            cli.Cli_Nombre = txtNombre.Text;
-            cli.Cli_Telefono = txtTelefono.Text;
-            cli.Cli_Email = txtEmail.Text;
-            cli.Cli_Disponible = true;
+            MessageBoxResult resultado = MessageBox.Show("¿Desea eliminar este cliente? " + txtDni.Text + ", " + txtNombre.Text + ", " +
+                             txtApellido.Text + ", " + txtTelefono.Text + ", " + txtEmail.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (resultado == MessageBoxResult.Yes)
+            {
+                Cliente cli = new Cliente();
+                cli.Cli_DNI = int.Parse(txtDni.Text);
+                cli.Cli_Apellido = txtApellido.Text;
+                cli.Cli_Nombre = txtNombre.Text;
+                cli.Cli_Telefono = txtTelefono.Text;
+                cli.Cli_Email = txtEmail.Text;
+                cli.Cli_Disponible = true;
 
-            TrabajarClientes.EliminarCliente(cli);
+                TrabajarClientes.EliminarCliente(cli);
+
+                limpiarcampos();
+            }
+            
 
         }
 

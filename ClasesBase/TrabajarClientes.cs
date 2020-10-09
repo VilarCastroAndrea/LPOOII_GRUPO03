@@ -19,8 +19,8 @@ namespace ClasesBase
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT * FROM Cliente";
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "listarClientes";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = conn;
 
             DataTable dt = new DataTable();
@@ -41,15 +41,9 @@ namespace ClasesBase
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT ";
-            cmd.CommandText += " CLI_Apellido as 'Apellido', CLI_Nombre as 'Nombre', ";
-            cmd.CommandText += " CLI_Telefono as 'Telefono', ";
-            cmd.CommandText += " CLI_Email as 'Email' ";
-            cmd.CommandText += " FROM Cliente as C";
-            cmd.CommandText += " WHERE";
-            cmd.CommandText += " CLI_DNI = @dni ";
+            cmd.CommandText = "buscarClientePorDni";
 
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = conn;
 
             cmd.Parameters.AddWithValue("@dni", dniCliente);
@@ -75,16 +69,16 @@ namespace ClasesBase
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "INSERT INTO Cliente(CLI_DNI, CLI_Nombre, CLI_Apellido, CLI_Telefono, CLI_Email, CLI_Disponible) values(@dni, @nom, @ape, @tel, @ema, @dis)";
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "altaCliente";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = conn;
 
             cmd.Parameters.AddWithValue("@dni", cli.Cli_DNI);
-            cmd.Parameters.AddWithValue("@nom", cli.Cli_Nombre);
-            cmd.Parameters.AddWithValue("@ape", cli.Cli_Apellido);
-            cmd.Parameters.AddWithValue("@tel", cli.Cli_Telefono);
-            cmd.Parameters.AddWithValue("@ema", cli.Cli_Email);
-            cmd.Parameters.AddWithValue("@dis", cli.Cli_Disponible);
+            cmd.Parameters.AddWithValue("@nombre", cli.Cli_Nombre);
+            cmd.Parameters.AddWithValue("@apellido", cli.Cli_Apellido);
+            cmd.Parameters.AddWithValue("@telefono", cli.Cli_Telefono);
+            cmd.Parameters.AddWithValue("@email", cli.Cli_Email);
+            cmd.Parameters.AddWithValue("@disponible", cli.Cli_Disponible);
 
             conn.Open();
             cmd.ExecuteNonQuery();
@@ -100,8 +94,8 @@ namespace ClasesBase
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "DELETE FROM Cliente WHERE CLI_DNI=@dni";
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "bajaCliente";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
 
             cmd.Parameters.AddWithValue("@dni", cliente.Cli_DNI);
@@ -120,15 +114,16 @@ namespace ClasesBase
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "UPDATE Cliente set CLI_Nombre=@nombre,CLI_Apellido=@apellido,CLI_Telefono=@tel, CLI_Email=@email WHERE CLI_DNI=@dni";
+            cmd.CommandText = "modificarCliente";
 
             cmd.Parameters.AddWithValue("@dni", cliente.Cli_DNI);
             cmd.Parameters.AddWithValue("@nombre", cliente.Cli_Nombre);
             cmd.Parameters.AddWithValue("@apellido", cliente.Cli_Apellido);
-            cmd.Parameters.AddWithValue("@tel", cliente.Cli_Telefono);
+            cmd.Parameters.AddWithValue("@telefono", cliente.Cli_Telefono);
             cmd.Parameters.AddWithValue("@email", cliente.Cli_Email);
+            cmd.Parameters.AddWithValue("@disponible", cliente.Cli_Disponible);
 
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
 
             cnn.Open();

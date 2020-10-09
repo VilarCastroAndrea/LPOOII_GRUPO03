@@ -130,6 +130,14 @@ namespace ClasesBase
             {
                 return "El valor del campo es obligatorio";
             }
+            else if(Cli_DNI < 10000000)
+            {
+                return "El DNI debe ser de 8 digitos";
+            }
+            else if(Cli_DNI > 99999999)
+            {
+                return "El DNI no debe superar los 8 digitos";
+            }
             return null;
         }
     }
