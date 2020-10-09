@@ -57,6 +57,7 @@
     <Compile Include="Rol.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Ticket.cs" />
+    <Compile Include="TrabajarCliente.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

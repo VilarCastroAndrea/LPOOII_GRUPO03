@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              xmlns:local="clr-namespace:Vistas"
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
@@ -15,15 +16,38 @@
         </Grid.Background>
         <GroupBox Header="Cliente" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>
         <Label Content="DNI" Margin="35,45,0,0"  Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtDni" Margin="30,70,0,0"  PreviewTextInput="TextBox_PreviewTextInput" Style="{StaticResource TextBoxCustom}"/>
+        <TextBox x:Name="txtDni" Margin="30,70,0,0"  PreviewTextInput="TextBox_PreviewTextInput" Style="{StaticResource TextBoxCustom}" DataContext="{StaticResource DATA_CLIENT}" >
+            <TextBox.Text>
+                <Binding Path="CLI_dni" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True" />
+            </TextBox.Text>
+            
+        </TextBox>
         <Label Content="Nombre" Margin="35,94,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtNombre" Margin="30,120,0,0"  PreviewTextInput="PreviewTextInputOnlyLetters" Style="{StaticResource TextBoxCustom}"/>
+        <TextBox x:Name="txtNombre" Margin="30,120,0,0"  PreviewTextInput="PreviewTextInputOnlyLetters" Style="{StaticResource TextBoxCustom}" DataContext="{StaticResource DATA_CLIENT}">
+            <TextBox.Text>
+                <Binding Path="CLI_nombre" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True" />
+            </TextBox.Text>
+        </TextBox>
         <Label Content="Apellido" Margin="36,144,0,0" Style="{StaticResource LabelCustom}"/>
-        <TextBox x:Name="txtApellido" Margin="30,172,0,0" PreviewTextInput="PreviewTextInputOnlyLetters" Style="{StaticResource TextBoxCustom}"/>
+        <TextBox x:Name="txtApellido" Margin="30,172,0,0" PreviewTextInput="PreviewTextInputOnlyLetters" Style="{StaticResource TextBoxCustom}" DataContext="{StaticResource DATA_CLIENT}">
+            <TextBox.Text>
+                <Binding Path="CLI_apellido" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True" />
+            </TextBox.Text>
+        </TextBox>
         <Label Content="Telefono" Margin="35,195,0,0" Style="{StaticResource LabelCustom}" RenderTransformOrigin="0.873,0.5"/>
-        <TextBox x:Name="txtTelefono" Margin="30,220,0,0" PreviewTextInput="TextBox_PreviewTextInput" Style="{StaticResource TextBoxCustom}"/>
+        <TextBox x:Name="txtTelefono" Margin="30,220,0,0" PreviewTextInput="TextBox_PreviewTextInput" Style="{StaticResource TextBoxCustom}" DataContext="{StaticResource DATA_CLIENT}">
+            <TextBox.Text>
+                <Binding Path="CLI_telefono" UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True" ValidatesOnDataErrors="True" />
+            </TextBox.Text>
+        </TextBox>
         <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
         <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}"/>
         <Button x:Name="btnAlta" Content="Agregar" Style="{StaticResource BotonCustom}" Click="BtnAlta_Click" Margin="30,320,0,0"/>
+        
     </Grid>
+    
 </UserControl>
