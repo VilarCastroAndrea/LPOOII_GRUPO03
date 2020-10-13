@@ -15,6 +15,7 @@ namespace Vistas
         public Login()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             usuarios.Add(new Usuario("admin", "123", "Ignacio Scocco", 1));
             usuarios.Add(new Usuario("vendedor", "123", "Ignacio Scocco", 2));
         }

@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using Vistas.rsc;
 using Vistas.UserControl.Proyeccion;
+using Vistas.UserControl.Usuario;
+
 namespace Vistas
 {
     /// <summary>
@@ -10,6 +12,7 @@ namespace Vistas
     {
         public MainWindow()
         {
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             InitializeComponent();
             mostrarBotones();
         }
@@ -93,6 +96,12 @@ namespace Vistas
         {
             panelPrincipal.Children.Clear();
             panelPrincipal.Children.Add(new WPFProyeccion());
+        }
+
+        private void BtnUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new UCUsuario());
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿namespace ClasesBase
+﻿using System.ComponentModel;
+
+namespace ClasesBase
+
 {
-    public class Usuario
+    public class Usuario : INotifyPropertyChanged
     {
         private int usu_Id;
         private string usu_NombreUsuario;
@@ -49,11 +52,52 @@
         /// <summary>
         /// Get & Set
         /// </summary>
-        public int Usu_Id { get => usu_Id; set => usu_Id = value; }
-        public string Usu_NombreUsuario { get => usu_NombreUsuario; set => usu_NombreUsuario = value; }
-        public string Usu_Password { get => usu_Password; set => usu_Password = value; }
-        public string Usu_ApellidoNombre { get => usu_ApellidoNombre; set => usu_ApellidoNombre = value; }
-        public int Rol_Codigo { get => rol_Codigo; set => rol_Codigo = value; }
-        public bool Usu_Disponible { get => usu_Disponible; set => usu_Disponible = value; }
+        public int Usu_Id {
+            get { return usu_Id;}
+            set { usu_Id = value;}
+        }
+        public string Usu_NombreUsuario {
+            get {return usu_NombreUsuario; }
+            set { usu_NombreUsuario = value;
+                Notificar("NombreUsuario");
+            }
+        }
+        public string Usu_Password {
+            get { return usu_Password; }
+            set { usu_Password = value;
+                Notificar("Password");
+            }
+        }
+        public string Usu_ApellidoNombre {
+            get { return usu_ApellidoNombre; }
+            set { usu_ApellidoNombre = value;
+                Notificar("ApellidoNombre");
+            }
+        }
+        public int Rol_Codigo {
+            get { return rol_Codigo; }
+            set { rol_Codigo = value;
+                Notificar("Rol");
+            }
+        }
+        public bool Usu_Disponible {
+            get { return usu_Disponible; }
+            set { usu_Disponible = value;
+                Notificar("Disponible");
+            }
+        }
+
+       
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void Notificar(string NombrePropiedad)
+        {
+            if (this.PropertyChanged != null)
+            {
+                PropertyChanged(this, new
+                PropertyChangedEventArgs(NombrePropiedad));
+            }
+        }
+
     }
 }

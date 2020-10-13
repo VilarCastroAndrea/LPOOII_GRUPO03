@@ -6,7 +6,8 @@
        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="520" Width="810">
+        Title="MainWindow" Height="520" Width="810"
+        ResizeMode="NoResize">
     <Window.Resources>
 
     </Window.Resources>
@@ -28,7 +29,7 @@
             <Button HorizontalAlignment="Left" Name="btnTicket" Margin="3,127,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
                 <fa:ImageAwesome Icon="Ticket" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
-            <Button HorizontalAlignment="Left" Name="btnUsuario" Margin="3,167,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
+            <Button HorizontalAlignment="Left" Name="btnUsuario" Margin="3,167,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnUsuario_Click">
                 <fa:ImageAwesome Icon="User" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
             <Button HorizontalAlignment="Left" Name="btnPelicula" Margin="3,207,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnPelicula_Click">
