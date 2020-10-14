@@ -124,5 +124,15 @@ namespace Vistas.UserControl.Usuario
                 Vista.MoveCurrentToFirst();
             }
         }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            btnEliminarUsuario.Visibility = Visibility.Visible;
+            btnPrimero.Visibility = Visibility.Visible;
+            btnPrevio.Visibility = Visibility.Visible;
+            btnSiguiente.Visibility = Visibility.Visible;
+            btnUltimo.Visibility = Visibility.Visible;
+            btnCancelar.Visibility = Visibility.Hidden;
+        }
     }
 }

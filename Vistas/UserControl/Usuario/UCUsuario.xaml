@@ -27,7 +27,7 @@
                     >
             <Button Name="btnNuevoUsuario" Click="BtnNuevoUsuario_Click">Nuevo</Button>
             <Button Name="btnEliminarUsuario">Eliminar</Button>
-            <Button Name="btnCancelar">Cancelar</Button>
+            <Button Name="btnCancelar" Click="BtnCancelar_Click">Cancelar</Button>
             <Button Name="btnGuardarUsuario" Height="20" VerticalAlignment="Top" Click="BtnGuardarUsuario_Click">Guardar</Button>
         </StackPanel>
 
