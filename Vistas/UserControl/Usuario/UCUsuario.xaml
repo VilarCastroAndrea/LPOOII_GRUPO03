@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vistas.UserControl.Usuario"
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+             xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
              d:DesignHeight="490" d:DesignWidth="760" Loaded="UserControlUsuario_Loaded">
     <UserControl.Resources>
@@ -13,28 +14,80 @@
             ObjectType="{x:Type svc:TrabajarUsuario}"
             MethodName="traerUsuarios">
         </ObjectDataProvider>
+        <CollectionViewSource
+            x:Key="VISTA_USER" 
+            Source="{StaticResource ResourceKey=LIST_USER}" 
+            Filter="eventVistaUsuario_Filter">
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription 
+                    PropertyName="Usu_NombreUsuario" 
+                    Direction="Ascending"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
     </UserControl.Resources>
 
+    <Grid Background="White">
 
-    <Grid Background="White" Loaded="Grid_Loaded">
-        <Button  Name="nuevo" Content="Nuevo" HorizontalAlignment="Left" Margin="37,32,0,0" VerticalAlignment="Top" Width="87" Height="27" Click="Nuevo_Click"/>
-        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="146,32,0,0" VerticalAlignment="Top" Width="88" Height="27"/>
-        <Button Content="Guardar" HorizontalAlignment="Left" Margin="259,32,0,0" VerticalAlignment="Top" Width="85" Height="27"/>
-        <Canvas Name="canvas_content" DataContext="{Binding Source={StaticResource ResourceKey=LIST_USER}}" Margin="364,19,0,0">
-            <StackPanel Height="124" Width="386">
+        <Button Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="24,219,0,0" VerticalAlignment="Top" Width="85" Height="27" Click="BtnGuardar_Click"/>
+        <Canvas Name="canvas_content" DataContext="{Binding Source={StaticResource ResourceKey=LIST_USER}}" Margin="15,305,362,29">
+            <StackPanel Height="217" Width="386" Canvas.Top="-48">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="40">
                     <Button Name="btnPrimero" Content="|&lt;" Width="38" Margin="0 0 10 0" Click="BtnPrimero_Click"/>
-                    <Button Name="btnPrevio" Content="&lt;" Width="34" Margin="0 0 10 0"/>
-                    <Button Name="btnSiguiente" Content="&gt;" Width="36" Margin="0 0 10 0"/>
+                    <Button Name="btnPrevio" Content="&lt;" Width="34" Margin="0 0 10 0" Click="BtnPrevio_Click"/>
+                    <Button Name="btnSiguiente" Content="&gt;" Width="36" Margin="0 0 10 0" Click="BtnSiguiente_Click"/>
                     <Button x:Name="btnUltimo" Content="&gt;|" Width="34" Margin="0 0 10 0" Click="BtnUltimo_Click"/>
                 </StackPanel>
-                <StackPanel Height="100">
-                    <TextBlock Text="{Binding Usu_NombreUsuario}" Height="33" Margin="115,0,128,0"/>
-                    <TextBlock Text="{Binding Usu_ApellidoNombre}" Height="33" Margin="115,0,128,0"/>
-                    <TextBlock Text="{Binding Usu_Password}" Height="33" Margin="115,0,128,0"/>
+                <StackPanel Height="162" Margin="0,0,10,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Id :"/>
+                        <TextBox Name="txtId" Text="{Binding Usu_Id}" Height="20" Margin="11,4,128,0" Width="50"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Usuario :"/>
+                        <TextBox Name="txtUsuario2" Text="{Binding Usu_NombreUsuario}" Height="20" Margin="11,4,128,0" Width="131"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Nombre y Apellido :"/>
+                        <TextBox Name="txtNombreApellido2" Text="{Binding Usu_ApellidoNombre}" Height="20" Margin="11,4,128,0" Width="178"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Password :"/>
+                        <TextBox Name="txtPassword2" Text="{Binding Usu_Password}" Height="20" Margin="11,4,128,0" Width="178"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Rol :"/>
+                        <ComboBox Name="cmbRol2" SelectedValue="{Binding Rol_Codigo}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="276"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="48" Margin="0 5 0 0">
+                        <Button Name="btnEliminar" Content="Eliminar" Margin="10 0 10 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="88" Height="27" Click="BtnEliminar_Click"/>
+                        <Button Name="btnActualizar" Content="Actualizar" Margin="10 0 10 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="88" Height="27" Click="BtnActualizar_Click"/>
+                    </StackPanel>
+
                 </StackPanel>
             </StackPanel>
         </Canvas>
+        <Label Content="Usuario :" HorizontalAlignment="Left" Margin="19,23,0,0" VerticalAlignment="Top" Height="27" Width="81"/>
+        <Label  Content="Nombre y Apellido" HorizontalAlignment="Left" Margin="19,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="19,109,0,0" VerticalAlignment="Top"/>
+        <Label Content="Rol" HorizontalAlignment="Left" Margin="19,152,0,0" VerticalAlignment="Top" Width="52"/>
+        <TextBox Name="txtNombreApellido" HorizontalAlignment="Left" Height="23" Margin="26,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+        <TextBox Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="24,133,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="276"/>
+        <TextBox Name="txtUsuario" HorizontalAlignment="Left" Height="23" Margin="24,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276"/>
+        <ComboBox Name="cmbRol" HorizontalAlignment="Left" Margin="24,178,0,0" VerticalAlignment="Top" Width="276"/>
+        <ListView Grid.Row="1" Name="lstUsuario" ItemsSource="{Binding Source={StaticResource VISTA_USER}}" HorizontalAlignment="Left" Height="378" Margin="342,90,0,0" VerticalAlignment="Top" Width="402">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="20" DisplayMemberBinding="{Binding Usu_Id}"/>
+                    <GridViewColumn Header="Usuario" Width="80" DisplayMemberBinding="{Binding Usu_NombreUsuario}"/>
+                    <GridViewColumn Header="Apellido y Nombre" Width="120" DisplayMemberBinding="{Binding Usu_ApellidoNombre}"/>
+                    <GridViewColumn Header="Password" Width="100" DisplayMemberBinding="{Binding Usu_Password}"/>
+                    <GridViewColumn Header="Disponible" Width="70" DisplayMemberBinding="{Binding Usu_Disponible}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Usuario :" HorizontalAlignment="Left" Margin="342,59,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="n" Name="txtBuscarUsuario" HorizontalAlignment="Left" Height="23" Margin="403,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" TextChanged="TxtBuscarUsuario_TextChanged"/>
+        <TextBox Name="txtPrueba" HorizontalAlignment="Left" Height="23" Margin="403,27,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
     </Grid>
 
 </UserControl>
