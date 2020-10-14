@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="Vistas.UserControl.Usuario.UCUsuario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vistas.UserControl.Usuario"
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+             mc:Ignorable="d" 
+             d:DesignHeight="490" d:DesignWidth="760">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="LIST_USER"
+                            ObjectType="{x:Type svc:TrabajarUsuario}"
+                            MethodName="TraerUsuarios">
+
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <Grid Background="White" Margin="0,0,10,0">
+        <GroupBox Header="ABM Usuario" HorizontalAlignment="Left" Margin="10,10,0,0"
+                  Height="430"  Width="750" 
+                  Foreground="Black"  VerticalAlignment="Top" FontWeight="Bold"/>
+        
+        <!-- Botones de Operacion -->
+        <StackPanel HorizontalAlignment="Left" 
+                    Orientation="Horizontal"
+                    Margin="20,28,0,442" 
+                    Width="389"
+                    >
+            <Button Name="btnNuevoUsuario" Click="BtnNuevoUsuario_Click">Nuevo</Button>
+            <Button Name="btnEliminarUsuario">Eliminar</Button>
+            <Button Name="btnCancelar">Cancelar</Button>
+            <Button Name="btnGuardarUsuario" Height="20" VerticalAlignment="Top" Click="BtnGuardarUsuario_Click">Guardar</Button>
+        </StackPanel>
+
+        <!-- Botones de Navegacion -->
+        <StackPanel HorizontalAlignment="Left" 
+                    Orientation="Horizontal" 
+                    Margin="346,28,0,437" Width="261"
+                    >
+            <Button Name="btnPrimero" Click="BtnPrimero_Click">Primero</Button>
+            <Button Name="btnPrevio" Click="BtnPrevio_Click">Previo</Button>
+            <Button Name="btnSiguiente" Click="BtnSiguiente_Click">Siguiente</Button>
+            <Button Name="btnUltimo" Click="BtnUltimo_Click">Ultimo</Button>
+        </StackPanel>
+
+        <!-- Formulario Usuario -->
+        <Grid Margin="20,53,113,54">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Columna 1 - Labels -->
+            <StackPanel Orientation="Vertical"
+                        HorizontalAlignment="Left"
+                        Grid.Column="0">
+                <Label>Código</Label>
+                <Label>Apellido</Label>
+                <Label>Nombre</Label>
+                <Label>User Name</Label>
+                <Label>Password</Label>
+                <Label>Rol</Label>
+            </StackPanel>
+
+            <!-- Columna 2 - TextBox -->
+            <StackPanel Name="stpContent"
+                        Orientation="Vertical"
+                        HorizontalAlignment="Left"
+                        Grid.Column="1" Width="192"
+                        DataContext="{Binding Source={StaticResource ResourceKey=LIST_USER}}">
+
+                <!-- Padding -->
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Margin" Value="0,7,0,0"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <!-- TextBox -->
+                <TextBox Name="txtCodigo"
+                         Text="{Binding Usu_id}"></TextBox>
+                <TextBox Name="txtApellido"
+                         Text="{Binding Usu_ApellidoNombre}"></TextBox>
+                <TextBox Name="txtNombre"
+                         Text="{Binding Usu_ApellidoNombre}"></TextBox>
+                <TextBox Name="txtUserName"
+                         Text="{Binding Usu_NombreUsuario}"></TextBox>
+                <TextBox Name="txtPassword"
+                         Text="{Binding Usu_Password}"></TextBox>
+                <TextBox Name="txtRol"
+                         Text="{Binding Rol_Codigo}"></TextBox>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
