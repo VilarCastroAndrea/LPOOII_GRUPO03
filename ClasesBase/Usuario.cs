@@ -1,6 +1,9 @@
-﻿namespace ClasesBase
+﻿using System;
+using System.ComponentModel;
+
+namespace ClasesBase
 {
-    public class Usuario
+    public class Usuario : INotifyPropertyChanged
     {
         private int usu_Id;
         private string usu_NombreUsuario;
@@ -50,10 +53,33 @@
         /// Get & Set
         /// </summary>
         public int Usu_Id { get => usu_Id; set => usu_Id = value; }
-        public string Usu_NombreUsuario { get => usu_NombreUsuario; set => usu_NombreUsuario = value; }
-        public string Usu_Password { get => usu_Password; set => usu_Password = value; }
+        public string Usu_NombreUsuario { get => usu_NombreUsuario;
+            set
+            {
+                usu_NombreUsuario = value;
+                Notificador(usu_NombreUsuario);
+            }
+        }
+        public string Usu_Password { get => usu_Password;
+            set
+            {
+                usu_Password = value;
+                Notificador(usu_Password);
+            }
+        }
+
         public string Usu_ApellidoNombre { get => usu_ApellidoNombre; set => usu_ApellidoNombre = value; }
         public int Rol_Codigo { get => rol_Codigo; set => rol_Codigo = value; }
         public bool Usu_Disponible { get => usu_Disponible; set => usu_Disponible = value; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void Notificador(string prop)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            }
+        }
     }
 }

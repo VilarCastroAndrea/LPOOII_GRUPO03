@@ -74,6 +74,9 @@
     <Compile Include="UserControl\Proyeccion\WPFProyeccion.xaml.cs">
       <DependentUpon>WPFProyeccion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Usuario\WPFUsuario.xaml.cs">
+      <DependentUpon>WPFUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\WPFButaca.xaml.cs">
       <DependentUpon>WPFButaca.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Proyeccion\WPFProyeccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Usuario\WPFUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
