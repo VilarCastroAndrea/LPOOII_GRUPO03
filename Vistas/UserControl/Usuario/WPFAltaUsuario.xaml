@@ -15,16 +15,14 @@
         </Grid.Background>
         <GroupBox Header="Usuario" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="695" Foreground="White">
             <Grid>
-                <Label Content="Nombre Usuario" HorizontalAlignment="Left" Margin="168,70,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <Label Content="Password" HorizontalAlignment="Left" Margin="168,114,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <Label Content="Apellido y Nombre" HorizontalAlignment="Left" Margin="168,158,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <Label Content="Rol" HorizontalAlignment="Left" Margin="168,204,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <Label Content="Disponible" HorizontalAlignment="Left" Margin="168,249,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,73,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,162,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,207,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,249,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <Label Content="Nombre Usuario" HorizontalAlignment="Left" Margin="167,89,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="Password" HorizontalAlignment="Left" Margin="167,133,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="Apellido y Nombre" HorizontalAlignment="Left" Margin="167,177,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="Rol" HorizontalAlignment="Left" Margin="167,223,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,134,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,178,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,223,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                 <Button x:Name="btnAltaUsuario" Content="Agregar" Margin="404,304,0,0"
                 Style="{StaticResource BotonCustom}" />
             </Grid>

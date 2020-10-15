@@ -28,7 +28,6 @@
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                 <TextBox HorizontalAlignment="Left" Height="23" Margin="334,213,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,253,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                 <Button HorizontalAlignment="Left" Name="btnModificar" Margin="154,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
                     <fa:ImageAwesome Icon="Edit" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                 </Button>
