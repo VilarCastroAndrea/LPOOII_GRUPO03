@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Vistas.UserControl.Usuario
 {
     /// <summary>
-    /// Lógica de interacción para WPFAltaUsuario.xaml
+    /// Lógica de interacción para WPFListarUsuario.xaml
     /// </summary>
-    public partial class WPFAltaUsuario 
+    public partial class WPFListarUsuario 
     {
-        public WPFAltaUsuario()
+        public WPFListarUsuario()
         {
             InitializeComponent();
         }

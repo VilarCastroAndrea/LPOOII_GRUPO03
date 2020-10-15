@@ -26,5 +26,23 @@ namespace Vistas.UserControl.Usuario
             panelUsuario.Children.Clear();
             panelUsuario.Children.Add(new WPFMostrarUsuario());
         }
+
+        private void BtnMostrarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            panelUsuario.Children.Clear();
+            panelUsuario.Children.Add(new WPFMostrarUsuario());
+        }
+
+        private void BtnAltaAltaUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            panelUsuario.Children.Clear();
+            panelUsuario.Children.Add(new WPFAltaUsuario());
+        }
+
+        private void BtnListarUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            panelUsuario.Children.Clear();
+            panelUsuario.Children.Add(new WPFListarUsuario());
+        }
     }
 }

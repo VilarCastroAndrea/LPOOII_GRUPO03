@@ -18,9 +18,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
-        <Button Name="btnMostrarUsuario" Style="{StaticResource BotonModificar}" Content="Mostrar" />
-        <Button Name="btnAltaAltaUsuario" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" />
-        <Button Name="btnListarUsuario" Style="{StaticResource BotonModificar}" Content="Listar" Margin="220,20,0,0" Background="#FF071B1F" BorderBrush="#FF071B1F" />
+        <Button Name="btnMostrarUsuario" Style="{StaticResource BotonModificar}" Content="Mostrar" Click="BtnMostrarUsuario_Click" />
+        <Button Name="btnAltaAltaUsuario" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaAltaUsuario_Click" />
+        <Button Name="btnListarUsuario" Style="{StaticResource BotonModificar}" Content="Listar" Margin="220,20,0,0" Background="#FF071B1F" BorderBrush="#FF071B1F" Click="BtnListarUsuario_Click" />
 
     </Grid>
 </UserControl>
