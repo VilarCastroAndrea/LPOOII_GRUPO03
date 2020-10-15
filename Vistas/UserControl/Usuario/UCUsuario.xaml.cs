@@ -42,8 +42,9 @@ namespace Vistas.UserControl.Usuario
             Usuario oUsu = CapturarInputs();
             oUsu.Usu_Disponible = true;
             //Guardar Usuario en la bd
-            //TrabajarUsuario.InsertarUsuario(oUsu);
+            TrabajarUsuario.InsertarUsuario(oUsu);
             //Actualizar la lista
+            //listaUsuarios = TrabajarUsuario.TraerUsuarios();
             listaUsuarios.Add(oUsu);
             Vista.MoveCurrentToLast();
             //Mostrar mensaje de exito
@@ -64,11 +65,14 @@ namespace Vistas.UserControl.Usuario
         private Usuario CapturarInputs()
         {
             Usuario oUsuario = new Usuario();
-            oUsuario.Usu_Id = int.Parse(txtCodigo.Text);
+            if (!String.IsNullOrEmpty(txtCodigo.Text))
+            {
+                oUsuario.Usu_Id = int.Parse(txtCodigo.Text);
+            }
             oUsuario.Usu_NombreUsuario = txtUserName.Text;
             oUsuario.Usu_Password = txtPassword.Text;
             oUsuario.Usu_ApellidoNombre = txtApellido.Text + "," + txtNombre.Text;
-            oUsuario.Rol_Codigo = int.Parse(txtCodigo.Text);
+            oUsuario.Rol_Codigo = int.Parse(txtRol.Text);
             return oUsuario;
         }
 

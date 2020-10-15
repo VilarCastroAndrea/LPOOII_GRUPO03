@@ -15,13 +15,37 @@ namespace ClasesBase
         /// Obtie los usuarios de la base de datos
         /// </summary>
         /// <returns></returns>
-        public ObservableCollection<Usuario> TraerUsuarios()
+        public static ObservableCollection<Usuario> TraerUsuarios()
         {
             ObservableCollection<Usuario> listaUsuarios = new ObservableCollection<Usuario>();
 
-            listaUsuarios.Add(new Usuario("admin","123","admin",0));
-            listaUsuarios.Add(new Usuario("vendedor", "123", "vendedor", 1));
+            SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT * FROM Usuario";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+
+            if(dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Usuario u = new Usuario();
+                    u.Usu_Id = int.Parse(dr["USU_ID"].ToString());
+                    u.Usu_NombreUsuario = dr["USU_NombreUsuario"].ToString();
+                    u.Usu_Password = dr["USU_Password"].ToString();
+                    u.Usu_ApellidoNombre = dr["USU_ApellidoNombre"].ToString();
+                    u.Rol_Codigo = int.Parse(dr["ROL_Codigo"].ToString());
+                    u.Usu_Disponible = bool.Parse(dr["USU_Disponible"].ToString());
+                    listaUsuarios.Add(u);
+                }
+            }
+            
             return listaUsuarios;
         }
 
@@ -29,7 +53,7 @@ namespace ClasesBase
         /// Inserta un usuario en la base de datos
         /// </summary>
         /// <param name="usu"></param>
-        public void InsertarUsuario(Usuario usu)
+        public static void InsertarUsuario(Usuario usu)
         {
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
@@ -55,7 +79,7 @@ namespace ClasesBase
         /// Elimina un usuario de la base de datos
         /// </summary>
         /// <param name="usu"></param>
-        public void EliminarUsuario(Usuario usu)
+        public static void EliminarUsuario(Usuario usu)
         {
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -73,7 +97,7 @@ namespace ClasesBase
         /// Actualiza un usuario de la base de datos
         /// </summary>
         /// <param name="usu"></param>
-        public void ActualizarUsuario(Usuario usu)
+        public static void ActualizarUsuario(Usuario usu)
         {
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
