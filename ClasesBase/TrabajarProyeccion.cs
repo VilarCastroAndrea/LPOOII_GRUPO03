@@ -1,26 +1,25 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 
-
 namespace ClasesBase
 {
-    class TrabajarUsuario
+    class TrabajarProyeccion
     {
         /// <summary>
-        /// Alta usuario con stored procedure
+        /// Alta Proyeccion con stored procedure
         /// </summary>
-        /// <param name="usuario"></param>
-        public static void altaUsuario(Usuario usuario)
+        /// <param name="proyeccion"></param>
+        public static void altaProyeccion(Proyeccion proyeccion)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "altaUsuario";
+            cmd.CommandText = "altaProyeccion";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@nombreUsuario", usuario.Usu_NombreUsuario);
-            cmd.Parameters.AddWithValue("@password", usuario.Usu_Password);
-            cmd.Parameters.AddWithValue("@apellidoNombre", usuario.Usu_ApellidoNombre);
-            cmd.Parameters.AddWithValue("@codigo", usuario.Rol_Codigo);
+            cmd.Parameters.AddWithValue("@fecha", proyeccion.Proy_Fecha);
+            cmd.Parameters.AddWithValue("@hora", proyeccion.Proy_Hora);
+            cmd.Parameters.AddWithValue("@sala", proyeccion.Sla_NroSala);
+            cmd.Parameters.AddWithValue("@peliCodigo", proyeccion.Peli_Codigo);
             cmd.Parameters.AddWithValue("@disponible", true);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -28,18 +27,18 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Baja de usuario logica con stored procedure
+        /// Baja de proyeccion logica con stored procedure
         /// </summary>
-        /// <param name="idUsuario"></param>
+        /// <param name="proyeccionCodigo"></param>
         /// <param name="disponible"></param>
-        public static void bajaUsuario(int idUsuario, bool disponible)
+        public static void bajaProyeccion(int proyeccionCodigo, bool disponible)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "bajaUsuario";
+            cmd.CommandText = "bajaProyeccion";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@usuarioId", idUsuario);
+            cmd.Parameters.AddWithValue("@proyeccionCodigo", proyeccionCodigo);
             cmd.Parameters.AddWithValue("@disponible", disponible);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -49,57 +48,32 @@ namespace ClasesBase
 
 
         /// <summary>
-        /// Baja de usuario fisica con stored procedure
+        /// Baja de proyeccion fisica con stored procedure
         /// </summary>
-        /// <param name="usuarioId"></param>
-        /// <param name="dis"></param>
-        public static void bajaUsuarioFisica(int usuarioId)
+        /// <param name="proyeccionCodigo"></param>
+        public static void bajaProyeccionFisica(int proyeccionCodigo)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "bajaUsuarioFisica";
+            cmd.CommandText = "bajaProyeccionFisica";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@usuarioId", usuarioId);
-            cnn.Open();
-            cmd.ExecuteNonQuery();
-            cnn.Close();
-
-        }
-
-
-
-
-        /// <summary>
-        /// Modificar usuario con stored procedure
-        /// </summary>
-        /// <param name="usuario"></param>
-        public static void modificarUsuario(Usuario usuario)
-        {
-            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "modificarUsuario";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@id", usuario.Usu_Id);
-            cmd.Parameters.AddWithValue("@nombreUsuario", usuario.Usu_NombreUsuario);
-            cmd.Parameters.AddWithValue("@password", usuario.Usu_Password);
-            cmd.Parameters.AddWithValue("@apellidoNombre", usuario.Usu_ApellidoNombre);
-            cmd.Parameters.AddWithValue("@codigoRol", usuario.Rol_Codigo);
+            cmd.Parameters.AddWithValue("@proyeccionCodigo", proyeccionCodigo);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
 
+
         /// <summary>
-        /// Lista todos los Usuarios
+        /// Lista todas las proyecciones
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarUsuarios()
+        public static DataTable listarProyecciones()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarUsuarioss";
+            cmd.CommandText = "listarProyecciones";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -109,14 +83,14 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Listar Usuarios disponibles
+        /// Listar Proyecciones disponibles
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarUsuariosDisponibles()
+        public static DataTable listarProyeccionesDisponibles()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarUsuarioDisponible";
+            cmd.CommandText = "listarProyeccionDisponible";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             cmd.Parameters.AddWithValue("@disponible", true);
@@ -126,6 +100,25 @@ namespace ClasesBase
             return dt;
         }
 
-        
+        /// <summary>
+        /// Modificar Proyeccion con stored procedure
+        /// </summary>
+        /// <param name="proyeccion"></param>
+        public static void modificarProyeccion(Proyeccion proyeccion)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "modificarProyeccion";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@codigo", proyeccion.Proy_Codigo);
+            cmd.Parameters.AddWithValue("@fecha", proyeccion.Proy_Fecha);
+            cmd.Parameters.AddWithValue("@hora", proyeccion.Proy_Hora);
+            cmd.Parameters.AddWithValue("@numeroSala", proyeccion.Sla_NroSala);
+            cmd.Parameters.AddWithValue("@peliCodigo", proyeccion.Peli_Codigo);
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
     }
 }
