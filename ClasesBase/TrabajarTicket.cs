@@ -3,41 +3,44 @@ using System.Data.SqlClient;
 
 namespace ClasesBase
 {
-    class TrabajarSala
+    class TrabajarTicket
     {
-
         /// <summary>
-        /// Alta Sala con stored procedure
+        /// Alta Ticket con stored procedure
         /// </summary>
-        /// <param name="sala"></param>
-        public static void altaSala(Sala sala)
+        /// <param name="ticket"></param>
+        public static void altaTicket(Ticket ticket)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "altaSala";
+            cmd.CommandText = "altaTicket";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@descripcion", sala.Sla_Descripcion);
-            cmd.Parameters.AddWithValue("@disponible", true);
+            cmd.Parameters.AddWithValue("@fechaVenta", ticket.Tick_FechaVenta);
+            cmd.Parameters.AddWithValue("@cliDni", ticket.Cli_DNI);
+            cmd.Parameters.AddWithValue("@butacaId", ticket.But_Id);
+            cmd.Parameters.AddWithValue("@proyeccionCodigo", ticket.Proy_Codigo);
+            cmd.Parameters.AddWithValue("@usuId", ticket.Usu_Id);
+            cmd.Parameters.AddWithValue("@estado", true);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
 
         /// <summary>
-        /// Baja de sala logica con stored procedure
+        /// Baja de ticket logica con stored procedure
         /// </summary>
-        /// <param name="numeroSala"></param>
-        /// <param name="disponible"></param>
-        public static void bajaSala(int numeroSala, bool disponible)
+        /// <param name="numeroTicket"></param>
+        /// <param name="estado"></param>
+        public static void bajaTicket(int numeroTicket, bool estado)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "bajaSala";
+            cmd.CommandText = "bajaTicket";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@numeroSala", numeroSala);
-            cmd.Parameters.AddWithValue("@disponible", disponible);
+            cmd.Parameters.AddWithValue("@numeroTicket", numeroTicket);
+            cmd.Parameters.AddWithValue("@estado", estado);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -46,33 +49,32 @@ namespace ClasesBase
 
 
         /// <summary>
-        /// Baja de Sala fisica con stored procedure
+        /// Baja de ticket fisica con stored procedure
         /// </summary>
-        /// <param name="numeroSala"></param>
-        public static void bajaSalaFisica(int numeroSala)
+        /// <param name="ticketNumero"></param>
+        public static void bajaTicketFisica(int ticketNumero)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "bajaSalaFisica";
+            cmd.CommandText = "bajaTicketFisica";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@numeroSala", numeroSala);
+            cmd.Parameters.AddWithValue("@ticketNumero", ticketNumero);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
-
         }
 
 
         /// <summary>
-        /// Lista todos las Salas
+        /// Lista todos los tickets
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarSalas()
+        public static DataTable listarTickets()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarSalas";
+            cmd.CommandText = "listarTickets";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -82,17 +84,17 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Listar Salas disponibles
+        /// Listar Tickets disponibles
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarSalasDisponibles()
+        public static DataTable listarTicketDisponibles()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarSalaDisponibles";
+            cmd.CommandText = "listarTicketDisponible";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@disponible", true);
+            cmd.Parameters.AddWithValue("@estado", true);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -100,22 +102,25 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Modificar Sala con stored procedure
+        /// Modificar Ticket con stored procedure
         /// </summary>
-        /// <param name="sala"></param>
-        public static void modificarSala(Sala sala)
+        /// <param name="ticket"></param>
+        public static void modificarProyeccion(Ticket ticket)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "modificarSala";
+            cmd.CommandText = "modificarTicket";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@numeroSala", sala.Sla_NroSala);
-            cmd.Parameters.AddWithValue("@descripcion", sala.Sla_Descripcion);
+            cmd.Parameters.AddWithValue("@numero", ticket.Tick_Nro);
+            cmd.Parameters.AddWithValue("@fechaVenta", ticket.Tick_FechaVenta);
+            cmd.Parameters.AddWithValue("@cliDni", ticket.Cli_DNI);
+            cmd.Parameters.AddWithValue("@butacaId", ticket.But_Id);
+            cmd.Parameters.AddWithValue("@proyeccionCodigo", ticket.Proy_Codigo);
+            cmd.Parameters.AddWithValue("@usuId", ticket.Usu_Id);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-
     }
 }

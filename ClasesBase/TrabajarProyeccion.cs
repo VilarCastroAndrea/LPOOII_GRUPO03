@@ -3,21 +3,23 @@ using System.Data.SqlClient;
 
 namespace ClasesBase
 {
-    class TrabajarSala
+    class TrabajarProyeccion
     {
-
         /// <summary>
-        /// Alta Sala con stored procedure
+        /// Alta Proyeccion con stored procedure
         /// </summary>
-        /// <param name="sala"></param>
-        public static void altaSala(Sala sala)
+        /// <param name="proyeccion"></param>
+        public static void altaProyeccion(Proyeccion proyeccion)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "altaSala";
+            cmd.CommandText = "altaProyeccion";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@descripcion", sala.Sla_Descripcion);
+            cmd.Parameters.AddWithValue("@fecha", proyeccion.Proy_Fecha);
+            cmd.Parameters.AddWithValue("@hora", proyeccion.Proy_Hora);
+            cmd.Parameters.AddWithValue("@sala", proyeccion.Sla_NroSala);
+            cmd.Parameters.AddWithValue("@peliCodigo", proyeccion.Peli_Codigo);
             cmd.Parameters.AddWithValue("@disponible", true);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -25,18 +27,18 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Baja de sala logica con stored procedure
+        /// Baja de proyeccion logica con stored procedure
         /// </summary>
-        /// <param name="numeroSala"></param>
+        /// <param name="proyeccionCodigo"></param>
         /// <param name="disponible"></param>
-        public static void bajaSala(int numeroSala, bool disponible)
+        public static void bajaProyeccion(int proyeccionCodigo, bool disponible)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "bajaSala";
+            cmd.CommandText = "bajaProyeccion";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@numeroSala", numeroSala);
+            cmd.Parameters.AddWithValue("@proyeccionCodigo", proyeccionCodigo);
             cmd.Parameters.AddWithValue("@disponible", disponible);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -46,33 +48,32 @@ namespace ClasesBase
 
 
         /// <summary>
-        /// Baja de Sala fisica con stored procedure
+        /// Baja de proyeccion fisica con stored procedure
         /// </summary>
-        /// <param name="numeroSala"></param>
-        public static void bajaSalaFisica(int numeroSala)
+        /// <param name="proyeccionCodigo"></param>
+        public static void bajaProyeccionFisica(int proyeccionCodigo)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "bajaSalaFisica";
+            cmd.CommandText = "bajaProyeccionFisica";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@numeroSala", numeroSala);
+            cmd.Parameters.AddWithValue("@proyeccionCodigo", proyeccionCodigo);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
-
         }
 
 
         /// <summary>
-        /// Lista todos las Salas
+        /// Lista todas las proyecciones
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarSalas()
+        public static DataTable listarProyecciones()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarSalas";
+            cmd.CommandText = "listarProyecciones";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -82,14 +83,14 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Listar Salas disponibles
+        /// Listar Proyecciones disponibles
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarSalasDisponibles()
+        public static DataTable listarProyeccionesDisponibles()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarSalaDisponibles";
+            cmd.CommandText = "listarProyeccionDisponible";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             cmd.Parameters.AddWithValue("@disponible", true);
@@ -100,22 +101,24 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Modificar Sala con stored procedure
+        /// Modificar Proyeccion con stored procedure
         /// </summary>
-        /// <param name="sala"></param>
-        public static void modificarSala(Sala sala)
+        /// <param name="proyeccion"></param>
+        public static void modificarProyeccion(Proyeccion proyeccion)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "modificarSala";
+            cmd.CommandText = "modificarProyeccion";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@numeroSala", sala.Sla_NroSala);
-            cmd.Parameters.AddWithValue("@descripcion", sala.Sla_Descripcion);
+            cmd.Parameters.AddWithValue("@codigo", proyeccion.Proy_Codigo);
+            cmd.Parameters.AddWithValue("@fecha", proyeccion.Proy_Fecha);
+            cmd.Parameters.AddWithValue("@hora", proyeccion.Proy_Hora);
+            cmd.Parameters.AddWithValue("@numeroSala", proyeccion.Sla_NroSala);
+            cmd.Parameters.AddWithValue("@peliCodigo", proyeccion.Peli_Codigo);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
-
     }
 }
