@@ -11,7 +11,7 @@
 
     </Window.Resources>
     <Grid>
-        <Grid Height="490" Width="760" Margin="0,-1,42,0" Name="panelPrincipal">
+        <Grid Height="490" Width="760" Margin="0,-1,42,0" Name="panelPrincipal" x:FieldModifier="public">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0*"/>
