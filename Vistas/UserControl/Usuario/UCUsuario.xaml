@@ -29,6 +29,7 @@
             <Button Name="btnEliminarUsuario">Eliminar</Button>
             <Button Name="btnCancelar" Click="BtnCancelar_Click">Cancelar</Button>
             <Button Name="btnGuardarUsuario" Height="20" VerticalAlignment="Top" Click="BtnGuardarUsuario_Click">Guardar</Button>
+            <Button Name="btnGuardarModificacion" Height="20" VerticalAlignment="Top" Click="BtnGuardarModificacion_Click" >Guardar</Button>
         </StackPanel>
 
         <!-- Botones de Navegacion -->
@@ -61,7 +62,7 @@
                 <Label>Rol</Label>
             </StackPanel>
 
-            <!-- Columna 2 - TextBox -->
+            <!-- Columna 2 - TextBox De la vista-->
             <StackPanel Name="stpContent"
                         Orientation="Vertical"
                         HorizontalAlignment="Left"
@@ -89,6 +90,36 @@
                 <TextBox Name="txtRol"
                          Text="{Binding Rol_Codigo}"></TextBox>
             </StackPanel>
+
+            <!-- Columna 2 - TextBox Del Formulario -->
+            <StackPanel Name="stpFormulario"
+                        Orientation="Vertical"
+                        HorizontalAlignment="Left"
+                        Grid.Column="1" Width="192"
+                        >
+
+                <!-- Padding -->
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Margin" Value="0,7,0,0"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <!-- TextBox -->
+                <!--<TextBox Name="txtCodigoFrm"></TextBox>-->
+                <TextBox Name="txtApellidoFrm"></TextBox>
+                <TextBox Name="txtNombreFrm"></TextBox>
+                <TextBox Name="txtUserNameFrm"></TextBox>
+                <TextBox Name="txtPasswordFrm"></TextBox>
+                <TextBox Name="txtRolFrm"></TextBox>
+            </StackPanel>
+
+            <!-- Boton Modificar Usuario -->
+            <Button Name="btnModificarUsuario"
+                    Grid.Column="1" 
+                    Margin="0,206,117,145" Click="BtnModificarUsuario_Click">
+                Modificar Este Usuario
+            </Button>
         </Grid>
     </Grid>
 </UserControl>
