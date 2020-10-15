@@ -74,6 +74,9 @@
     <Compile Include="UserControl\Proyeccion\WPFProyeccion.xaml.cs">
       <DependentUpon>WPFProyeccion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Usuario\WPFAltaUsuario.xaml.cs">
+      <DependentUpon>WPFAltaUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Usuario\WPFMostrarUsuario.xaml.cs">
       <DependentUpon>WPFMostrarUsuario.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Proyeccion\WPFProyeccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Usuario\WPFAltaUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
