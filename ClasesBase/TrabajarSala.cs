@@ -3,20 +3,21 @@ using System.Data.SqlClient;
 
 namespace ClasesBase
 {
-    class TrabajarRol
+    class TrabajarSala
     {
+
         /// <summary>
-        /// Alta Rol con stored procedure
+        /// Alta Sala con stored procedure
         /// </summary>
-        /// <param name="rol"></param>
-        public static void altaRol(Rol rol)
+        /// <param name="sala"></param>
+        public static void altaSala(Sala sala)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "altaRol";
+            cmd.CommandText = "altaSala";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@descripcion", rol.Rol_Descripcion);
+            cmd.Parameters.AddWithValue("@descripcion", sala.Sla_Descripcion);
             cmd.Parameters.AddWithValue("@disponible", true);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -24,18 +25,18 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Baja de rol logica con stored procedure
+        /// Baja de sala logica con stored procedure
         /// </summary>
-        /// <param name="codigoRol"></param>
+        /// <param name="numeroSala"></param>
         /// <param name="disponible"></param>
-        public static void bajaRol(int codigoRol, bool disponible)
+        public static void bajaSala(int numeroSala, bool disponible)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "bajaRol";
+            cmd.CommandText = "bajaSala";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@codigoRol", codigoRol);
+            cmd.Parameters.AddWithValue("@numeroSala", numeroSala);
             cmd.Parameters.AddWithValue("@disponible", disponible);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -45,17 +46,17 @@ namespace ClasesBase
 
 
         /// <summary>
-        /// Baja de rol fisica con stored procedure
+        /// Baja de Sala fisica con stored procedure
         /// </summary>
-        /// <param name="codigoRol"></param>
-        public static void bajaRolFisica(int codigoRol)
+        /// <param name="numeroSala"></param>
+        public static void bajaSalaFisica(int numeroSala)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "bajaRolFisica";
+            cmd.CommandText = "bajaSalaFisica";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@rolCodigo", codigoRol);
+            cmd.Parameters.AddWithValue("numeroSala", numeroSala);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -64,14 +65,14 @@ namespace ClasesBase
 
 
         /// <summary>
-        /// Lista todos los roles
+        /// Lista todos las Salas
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarRoles()
+        public static DataTable listarSalas()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarRoles";
+            cmd.CommandText = "listarSalas";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -81,14 +82,14 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Listar Roles disponibles
+        /// Listar Salas disponibles
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarRolesDisponibles()
+        public static DataTable listarSalasDisponibles()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarRolDisponnible";
+            cmd.CommandText = "listarSalaDisponibles";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             cmd.Parameters.AddWithValue("@disponible", true);
@@ -99,21 +100,22 @@ namespace ClasesBase
         }
 
         /// <summary>
-        /// Modificar Rol con stored procedure
+        /// Modificar Sala con stored procedure
         /// </summary>
-        /// <param name="rol"></param>
-        public static void modificarRol(Rol rol)
+        /// <param name="sala"></param>
+        public static void modificarSala(Sala sala)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "modificarButaca";
+            cmd.CommandText = "modificarSala";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@codigo", rol.Rol_Codigo);
-            cmd.Parameters.AddWithValue("@descripcion", rol.Rol_Descripcion);
+            cmd.Parameters.AddWithValue("@numeroSala", sala.Sla_NroSala);
+            cmd.Parameters.AddWithValue("@descripcion", sala.Sla_Descripcion);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
+
     }
 }
