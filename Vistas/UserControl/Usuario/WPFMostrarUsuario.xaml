@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Vistas.UserControl.Usuario.WPFMostrarUsuario"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vistas.UserControl.Usuario"
+             mc:Ignorable="d" 
+                    xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+
+             d:DesignHeight="420" d:DesignWidth="715">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF010A0C"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <GroupBox Header="Usuario" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="695" Foreground="White">
+            <Grid>
+                <Label Content="Id" HorizontalAlignment="Left" Margin="154,45,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="Nombre Usuario" HorizontalAlignment="Left" Margin="154,85,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="Password" HorizontalAlignment="Left" Margin="154,129,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="Apellido y Nombre" HorizontalAlignment="Left" Margin="154,164,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="Rol" HorizontalAlignment="Left" Margin="154,210,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <Label Content="Disponible" HorizontalAlignment="Left" Margin="154,250,0,0" VerticalAlignment="Top" Foreground="White"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,49,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,213,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,253,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <Button HorizontalAlignment="Left" Name="btnModificar" Margin="154,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
+                    <fa:ImageAwesome Icon="Edit" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
+                </Button>
+                <Button HorizontalAlignment="Left" Name="btnEliminar" Margin="230,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
+                    <fa:ImageAwesome Icon="Trash" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
+                </Button>
+                <Button HorizontalAlignment="Left" Name="btnPrimera" Margin="300,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
+                    <fa:ImageAwesome Icon="StepBackward" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
+                </Button>
+                <Button HorizontalAlignment="Left" Name="btnAnteriror" Margin="375,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
+                    <fa:ImageAwesome Icon="ChevronCircleLeft" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
+                </Button>
+                <Button HorizontalAlignment="Left" Name="btnSig" Margin="450,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
+                    <fa:ImageAwesome Icon="ChevronCircleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
+                </Button>
+                <Button HorizontalAlignment="Left" Name="btnUltimo" Margin="514,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black">
+                    <fa:ImageAwesome Icon="StepForward" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
+                </Button>
+            </Grid>
+
+        </GroupBox>
+
+    </Grid>
+</UserControl>
