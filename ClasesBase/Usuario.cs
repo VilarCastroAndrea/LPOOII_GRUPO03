@@ -54,41 +54,44 @@ namespace ClasesBase
         /// </summary>
         public int Usu_Id {
             get { return usu_Id;}
-            set { usu_Id = value;}
+            set { usu_Id = value;
+                Notificar("usu_Id");
+            }
         }
         public string Usu_NombreUsuario {
             get {return usu_NombreUsuario; }
             set { usu_NombreUsuario = value;
-                Notificar("NombreUsuario");
+                Notificar("Usu_NombreUsuario");
             }
         }
         public string Usu_Password {
             get { return usu_Password; }
             set { usu_Password = value;
-                Notificar("Password");
+                Notificar("Usu_Password");
             }
         }
         public string Usu_ApellidoNombre {
             get { return usu_ApellidoNombre; }
             set { usu_ApellidoNombre = value;
-                Notificar("ApellidoNombre");
+                Notificar("Usu_ApellidoNombre");
             }
         }
         public int Rol_Codigo {
             get { return rol_Codigo; }
             set { rol_Codigo = value;
-                Notificar("Rol");
+                Notificar("Rol_Codigo");
             }
         }
         public bool Usu_Disponible {
             get { return usu_Disponible; }
             set { usu_Disponible = value;
-                Notificar("Disponible");
+                Notificar("Usu_Disponible");
             }
         }
 
        
 
+        //notificado de cambios
         public event PropertyChangedEventHandler PropertyChanged;
         public void Notificar(string NombrePropiedad)
         {

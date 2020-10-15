@@ -40,7 +40,7 @@
                 <StackPanel Height="162" Margin="0,0,10,0">
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Id :"/>
-                        <TextBox Name="txtId" Text="{Binding Usu_Id}" Height="20" Margin="11,4,128,0" Width="50"/>
+                        <TextBox Name="txtId" IsEnabled="False" Text="{Binding Usu_Id}" Height="20" Margin="11,4,128,0" Width="50"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Usuario :"/>
@@ -77,7 +77,7 @@
         <ListView Grid.Row="1" Name="lstUsuario" ItemsSource="{Binding Source={StaticResource VISTA_USER}}" HorizontalAlignment="Left" Height="378" Margin="342,90,0,0" VerticalAlignment="Top" Width="402">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="20" DisplayMemberBinding="{Binding Usu_Id}"/>
+                    <GridViewColumn Header="Id" Width="30" DisplayMemberBinding="{Binding Usu_Id}"/>
                     <GridViewColumn Header="Usuario" Width="80" DisplayMemberBinding="{Binding Usu_NombreUsuario}"/>
                     <GridViewColumn Header="Apellido y Nombre" Width="120" DisplayMemberBinding="{Binding Usu_ApellidoNombre}"/>
                     <GridViewColumn Header="Password" Width="100" DisplayMemberBinding="{Binding Usu_Password}"/>
@@ -86,8 +86,7 @@
             </ListView.View>
         </ListView>
         <Label Content="Usuario :" HorizontalAlignment="Left" Margin="342,59,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="n" Name="txtBuscarUsuario" HorizontalAlignment="Left" Height="23" Margin="403,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" TextChanged="TxtBuscarUsuario_TextChanged"/>
-        <TextBox Name="txtPrueba" HorizontalAlignment="Left" Height="23" Margin="403,27,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox  Name="txtBuscarUsuario" HorizontalAlignment="Left" Height="23" Margin="403,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" TextChanged="TxtBuscarUsuario_TextChanged"/>
     </Grid>
 
 </UserControl>

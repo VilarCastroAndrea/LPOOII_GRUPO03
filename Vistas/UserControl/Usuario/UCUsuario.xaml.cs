@@ -21,8 +21,8 @@ namespace Vistas.UserControl.Usuario
             cargar_combo_Ro2();
 
             //se accede al recurso de CollectionViewSource
-            vistaColeccionFiltrada = Resources["VISTA_USER"] as CollectionViewSource;
-            
+            //vistaColeccionFiltrada = Resources["VISTA_USER"] as CollectionViewSource;
+            vistaColeccionFiltrada = (CollectionViewSource)(this.Resources["VISTA_USER"]);
 
         }
 
@@ -39,9 +39,12 @@ namespace Vistas.UserControl.Usuario
 
         private void UserControlUsuario_Loaded(object sender, RoutedEventArgs e)
         {
+
+            //object data provide
             ObjectDataProvider odp = (ObjectDataProvider)this.Resources["LIST_USER"];
             listaUsuario = odp.Data as ObservableCollection<ClasesBase.Usuario>;
 
+            //vista por defecto
             vista = (CollectionView)CollectionViewSource.GetDefaultView(canvas_content.DataContext);
 
         }
@@ -103,8 +106,9 @@ namespace Vistas.UserControl.Usuario
             usuario.Usu_Disponible = true;
             usuario.Rol_Codigo = (int)cmbRol.SelectedValue;
 
-            TrabajarUsuario.insertar_usuario(usuario);
+            usuario.Usu_Id = TrabajarUsuario.insertar_usuario(usuario).Usu_Id;
             listaUsuario.Add(usuario);
+
             MessageBox.Show("Usuario Agregado Correctamente");
             vista.MoveCurrentToLast();
 
@@ -174,13 +178,28 @@ namespace Vistas.UserControl.Usuario
 
         private void TxtBuscarUsuario_TextChanged(object sender, TextChangedEventArgs e)
         {
+            /*
             if (vistaColeccionFiltrada != null) {
                 //se invoca al metodo sa medida que vayamos escribiendo
-                vistaColeccionFiltrada.Filter += eventVistaUsuario_Filter;
+               //vistaColeccionFiltrada.Filter += eventVistaUsuario_Filter;
+              
 
                 Console.WriteLine("Cambio");
 
             }
+            */
+            if (vistaColeccionFiltrada != null)
+                vistaColeccionFiltrada.Filter += new FilterEventHandler(filtroL);
+
+        }
+
+        private void filtroL(object sender, FilterEventArgs e)
+        {
+            ClasesBase.Usuario usu = (ClasesBase.Usuario)e.Item;
+            if (usu.Usu_NombreUsuario.StartsWith(txtBuscarUsuario.Text, StringComparison.CurrentCultureIgnoreCase))
+                e.Accepted = true;
+            else
+                e.Accepted = false;
         }
 
         private void eventVistaUsuario_Filter(object sender, FilterEventArgs e)
@@ -188,13 +207,16 @@ namespace Vistas.UserControl.Usuario
             ClasesBase.Usuario usuario = e.Item as ClasesBase.Usuario;
 
             //se realiza la busqueda por nombre de usuario
-            if (usuario.Usu_NombreUsuario.StartsWith(txtPrueba.Text, StringComparison.CurrentCultureIgnoreCase)) {
+            /*
+            if (usuario.Usu_NombreUsuario.StartsWith(txtBuscarUsuario.Text, StringComparison.CurrentCultureIgnoreCase)) {
                 e.Accepted = true;
 
             }
             else {
                 e.Accepted = false; 
             }
+            
+    */
 
         }
 

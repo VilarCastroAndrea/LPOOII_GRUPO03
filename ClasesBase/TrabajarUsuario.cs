@@ -41,18 +41,17 @@ namespace ClasesBase
             }
 
             conn.Close();
-
-            Console.Write("PASOOOOOOOO");
             return listaUsuario;
         }
 
 
-        public static void insertar_usuario(Usuario usuario)
+        public static Usuario insertar_usuario(Usuario usuario)
         {
+            
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "INSERT INTO Usuario(USU_NombreUsuario,USU_Password,USU_ApellidoNombre,ROL_Codigo,USU_Disponible) values(@usu,@contrasena,@nombre,@rol,@disponible)";
+            cmd.CommandText = "INSERT INTO Usuario(USU_NombreUsuario,USU_Password,USU_ApellidoNombre,ROL_Codigo,USU_Disponible) values(@usu,@contrasena,@nombre,@rol,@disponible) SELECT SCOPE_IDENTITY()";
             cmd.CommandType = CommandType.Text;
             cmd.Connection = cnn;
 
@@ -62,9 +61,16 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@rol", usuario.Rol_Codigo);
             cmd.Parameters.AddWithValue("@disponible", usuario.Usu_Disponible);
 
+           
             cnn.Open();
-            cmd.ExecuteNonQuery();
+            //devuelve la clave primaria
+             int primaryKey = Convert.ToInt32(cmd.ExecuteScalar());
+            Console.WriteLine("Primary KEY : "+ primaryKey);
+            usuario.Usu_Id = primaryKey;
+            // cmd.ExecuteNonQuery();
             cnn.Close();
+
+            return usuario;
         }
 
         public static void eliminar_usuario(int id)
