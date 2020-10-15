@@ -57,6 +57,7 @@
     <Compile Include="Rol.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Ticket.cs" />
+    <Compile Include="TrabajarButaca.cs" />
     <Compile Include="TrabajarClientes.cs" />
     <Compile Include="TrabajarPelicula.cs" />
     <Compile Include="TrabajarUsuario.cs" />
