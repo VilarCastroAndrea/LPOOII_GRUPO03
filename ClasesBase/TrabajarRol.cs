@@ -76,6 +76,7 @@ namespace ClasesBase
             cmd.CommandText = "listarRoles";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
+            cnn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
             Rol rol = null;
@@ -89,6 +90,7 @@ namespace ClasesBase
 
                 listaRoles.Add(rol);
             }
+            cnn.Close();
             return listaRoles;
         }
 

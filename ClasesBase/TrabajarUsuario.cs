@@ -130,7 +130,7 @@ namespace ClasesBase
         /// Coleccion de Usuarios
         /// </summary>
         /// <returns></returns>
-        public static ObservableCollection<Usuario> traerUsuario()
+        public static ObservableCollection<Usuario> traerUsuarios()
         {
             ObservableCollection<Usuario> coleccionUsuarios = new ObservableCollection<Usuario>();
             Usuario usuario = null;
@@ -140,6 +140,7 @@ namespace ClasesBase
             cmd.CommandText = "listarUsuarioss";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
+            cnn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -154,7 +155,7 @@ namespace ClasesBase
 
                 coleccionUsuarios.Add(usuario);
             }
-            
+            cnn.Close();
             return coleccionUsuarios;
         }
     }

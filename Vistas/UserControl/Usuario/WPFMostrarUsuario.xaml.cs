@@ -20,13 +20,14 @@ namespace Vistas.UserControl.Usuario
     /// <summary>
     /// Lógica de interacción para WPFMostrarUsuario.xaml
     /// </summary>
-    public partial class WPFMostrarUsuario 
+    public partial class WPFMostrarUsuario
     {
         CollectionView vista;
         ObservableCollection<ClasesBase.Usuario> listaUsuario;
         public WPFMostrarUsuario()
         {
             InitializeComponent();
+            cargarComboRol();
         }
 
         private void UserControlUsuario_Loaded(object sender, RoutedEventArgs e)
