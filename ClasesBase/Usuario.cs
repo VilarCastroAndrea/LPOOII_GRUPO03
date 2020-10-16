@@ -1,6 +1,8 @@
-﻿namespace ClasesBase
+﻿using System.ComponentModel;
+
+namespace ClasesBase
 {
-    public class Usuario
+    public class Usuario : INotifyPropertyChanged
     {
         private int usu_Id;
         private string usu_NombreUsuario;
@@ -55,5 +57,7 @@
         public string Usu_ApellidoNombre { get => usu_ApellidoNombre; set => usu_ApellidoNombre = value; }
         public int Rol_Codigo { get => rol_Codigo; set => rol_Codigo = value; }
         public bool Usu_Disponible { get => usu_Disponible; set => usu_Disponible = value; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

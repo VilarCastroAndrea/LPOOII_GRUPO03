@@ -1,9 +1,11 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
+
 
 namespace ClasesBase
 {
-    class TrabajarRol
+    public class TrabajarRol
     {
         /// <summary>
         /// Alta Rol con stored procedure
@@ -67,17 +69,27 @@ namespace ClasesBase
         /// Lista todos los roles
         /// </summary>
         /// <returns></returns>
-        public static DataTable listarRoles()
+        public static ObservableCollection<Rol> listarRoles()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "listarRoles";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            Rol rol = null;
+            ObservableCollection<Rol> listaRoles = new ObservableCollection<Rol>();
+
+            while (reader.Read())
+            {
+                rol = new Rol();
+                rol.Rol_Codigo = (int)reader["ROL_Codigo"];
+                rol.Rol_Descripcion = (string)reader["Rol_Descripcion"];
+
+                listaRoles.Add(rol);
+            }
+            return listaRoles;
         }
 
         /// <summary>

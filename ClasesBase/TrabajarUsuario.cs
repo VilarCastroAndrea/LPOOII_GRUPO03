@@ -1,10 +1,10 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-
+using System.Collections.ObjectModel;
 
 namespace ClasesBase
 {
-    class TrabajarUsuario
+    public class TrabajarUsuario
     {
         /// <summary>
         /// Alta usuario con stored procedure
@@ -126,6 +126,36 @@ namespace ClasesBase
             return dt;
         }
 
-        
+        /// <summary>
+        /// Coleccion de Usuarios
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<Usuario> traerUsuario()
+        {
+            ObservableCollection<Usuario> coleccionUsuarios = new ObservableCollection<Usuario>();
+            Usuario usuario = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarUsuarioss";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                usuario = new Usuario();
+                usuario.Usu_Id = (int)reader["USU_Id"];
+                usuario.Usu_ApellidoNombre = (string)reader["USU_ApellidoNombre"];
+                usuario.Usu_NombreUsuario = (string)reader["USU_NombreUsuario"];
+                usuario.Usu_Password = (string)reader["USU_Password"];
+                usuario.Rol_Codigo = (int)reader["ROL_Codigo"];
+                usuario.Usu_Disponible = (bool)reader["USU_Disponible"];
+
+                coleccionUsuarios.Add(usuario);
+            }
+            
+            return coleccionUsuarios;
+        }
     }
 }
