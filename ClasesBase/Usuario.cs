@@ -45,7 +45,7 @@ namespace ClasesBase
             this.usu_Password = usu_Password;
             this.usu_ApellidoNombre = usu_ApellidoNombre;
             this.rol_Codigo = rol_Codigo;
-            this.usu_Disponible = usu_Disponible;
+            this.usu_Disponible = usu_Disponible ;
         }
 
         /// <summary>
@@ -59,5 +59,16 @@ namespace ClasesBase
         public bool Usu_Disponible { get => usu_Disponible; set => usu_Disponible = value; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        //NOTIFICADOR DE CAMBIOS EN LA PROPIEDAD
+
+        public void Notificador(string prop)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            }
+        }
+
     }
 }
