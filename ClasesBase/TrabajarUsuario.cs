@@ -136,6 +136,8 @@ namespace ClasesBase
             Usuario usuario = null;
 
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "listarUsuarioss";
             cmd.CommandType = CommandType.StoredProcedure;
@@ -145,16 +147,16 @@ namespace ClasesBase
             while (reader.Read())
             {
                 usuario = new Usuario();
-                usuario.Usu_Id = (int)reader["USU_Id"];
-                usuario.Usu_ApellidoNombre = (string)reader["USU_ApellidoNombre"];
-                usuario.Usu_NombreUsuario = (string)reader["USU_NombreUsuario"];
-                usuario.Usu_Password = (string)reader["USU_Password"];
-                usuario.Rol_Codigo = (int)reader["ROL_Codigo"];
-                usuario.Usu_Disponible = (bool)reader["USU_Disponible"];
+                usuario.Usu_Id = (int)reader["ID"];
+                usuario.Usu_ApellidoNombre = (string)reader["Apellido y Nombre"];
+                usuario.Usu_NombreUsuario = (string)reader["Nombre de Usuario"];
+                usuario.Usu_Password = (string)reader["Password"];
+                usuario.Rol_Codigo = (int)reader["Codigo"];
+                usuario.Usu_Disponible = (bool)reader["Disponible"];
 
                 coleccionUsuarios.Add(usuario);
             }
-            
+            cnn.Close();
             return coleccionUsuarios;
         }
     }

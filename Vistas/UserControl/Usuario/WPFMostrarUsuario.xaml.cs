@@ -27,6 +27,7 @@ namespace Vistas.UserControl.Usuario
         public WPFMostrarUsuario()
         {
             InitializeComponent();
+            cargarComboRol();
         }
 
         private void UserControlUsuario_Loaded(object sender, RoutedEventArgs e)

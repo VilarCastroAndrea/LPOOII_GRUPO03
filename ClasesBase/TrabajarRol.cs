@@ -72,6 +72,7 @@ namespace ClasesBase
         public static ObservableCollection<Rol> listarRoles()
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "listarRoles";
             cmd.CommandType = CommandType.StoredProcedure;
@@ -84,11 +85,12 @@ namespace ClasesBase
             while (reader.Read())
             {
                 rol = new Rol();
-                rol.Rol_Codigo = (int)reader["ROL_Codigo"];
-                rol.Rol_Descripcion = (string)reader["Rol_Descripcion"];
+                rol.Rol_Codigo = (int)reader["Codigo"];
+                rol.Rol_Descripcion = (string)reader["Descripcion"];
 
                 listaRoles.Add(rol);
             }
+            cnn.Close();
             return listaRoles;
         }
 

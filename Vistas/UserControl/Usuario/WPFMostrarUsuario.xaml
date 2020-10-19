@@ -12,7 +12,7 @@
         <ObjectDataProvider
             x:Key="LIST_USER"
             ObjectType="{x:Type svc:TrabajarUsuario}"
-            MethodName="traerUsuarios">
+            MethodName="traerUsuario">
         </ObjectDataProvider>
     </UserControl.Resources>
     <Grid Loaded="Grid_Loaded">
@@ -57,7 +57,7 @@
                     <Button HorizontalAlignment="Left" Name="btnUltimo" Margin="514,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnUltimo_Click">
                         <fa:ImageAwesome Icon="StepForward" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
-                    <CheckBox Content="Si" Name="checkDisponible" HorizontalAlignment="Left" Margin="334,256,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    <CheckBox Content="Si" Name="checkDisponible" IsChecked="{Binding Usu_Disponible}" HorizontalAlignment="Left" Margin="334,256,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <ComboBox Canvas.Left="334" Name="cmbRol" SelectedValue="{Binding Rol_Codigo}" Canvas.Top="214" Width="215" Foreground="Black" BorderBrush="#FF031417" Background="#FF031417"/>
                 </Canvas>
             </Grid>
