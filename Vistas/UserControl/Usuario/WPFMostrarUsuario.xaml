@@ -12,7 +12,7 @@
         <ObjectDataProvider
             x:Key="LIST_USER"
             ObjectType="{x:Type svc:TrabajarUsuario}"
-            MethodName="traerUsuarios">
+            MethodName="traerUsuario">
         </ObjectDataProvider>
     </UserControl.Resources>
     <Grid Loaded="Grid_Loaded">
@@ -35,7 +35,7 @@
                     <Label Content="Apellido y Nombre" HorizontalAlignment="Left" Margin="154,164,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Rol" HorizontalAlignment="Left" Margin="154,210,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Disponible" HorizontalAlignment="Left" Margin="154,250,0,0" VerticalAlignment="Top" Foreground="White"/>
-                    <TextBox HorizontalAlignment="Left" Text="{Binding Usu_Id}" Name="txtId" Height="23" Margin="334,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                    <TextBlock HorizontalAlignment="Left" Text="{Binding Usu_Id}" Name="txtId" Height="23" Margin="334,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Foreground="White"/>
                     <TextBox HorizontalAlignment="Left" Name="txtNombreUsuario" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="{Binding Usu_NombreUsuario}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                     <TextBox HorizontalAlignment="Left" Name="txtPassword" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="{Binding Usu_Password}"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                     <TextBox HorizontalAlignment="Left" Name="txtApellidoNombre" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="{Binding Usu_ApellidoNombre}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
@@ -59,6 +59,8 @@
                     </Button>
                     <CheckBox Content="Si" Name="checkDisponible" HorizontalAlignment="Left" Margin="334,256,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <ComboBox Canvas.Left="334" Name="cmbRol" SelectedValue="{Binding Rol_Codigo}" Canvas.Top="214" Width="215" Foreground="Black" BorderBrush="#FF031417" Background="#FF031417"/>
+                    
+
                 </Canvas>
             </Grid>
 

@@ -133,18 +133,19 @@ namespace ClasesBase
         public static ObservableCollection<Usuario> traerUsuario()
         {
             ObservableCollection<Usuario> coleccionUsuarios = new ObservableCollection<Usuario>();
-            Usuario usuario = null;
+           
 
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "listarUsuarioss";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
+            cnn.Open();
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                usuario = new Usuario();
+                Usuario usuario = new Usuario();
                 usuario.Usu_Id = (int)reader["USU_Id"];
                 usuario.Usu_ApellidoNombre = (string)reader["USU_ApellidoNombre"];
                 usuario.Usu_NombreUsuario = (string)reader["USU_NombreUsuario"];
