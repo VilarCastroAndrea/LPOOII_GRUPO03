@@ -74,17 +74,29 @@ namespace Vistas.UserControl.Usuario
         private void BtnEliminar_Click(object sender, RoutedEventArgs e)
         {
             int id = Convert.ToInt32(txtId.Text);
-            TrabajarUsuario.bajaUsuario(id, false);
-            //recorre la lista buscando el id
-            for (int i = 0; i < listaUsuario.Count; i++)
+            try
             {
-                if (listaUsuario[i].Usu_Id == id)
-                {
-                    //elimina el elemento
-                    listaUsuario.RemoveAt(i);
-                }
+                TrabajarUsuario.bajaUsuarioFisica(id);
+
             }
-            MessageBox.Show("Usuario Eliminado Correctamente");
+            catch
+            {
+                TrabajarUsuario.bajaUsuario(id, false);
+            }
+            finally
+            {
+                //recorre la lista buscando el id
+                for (int i = 0; i < listaUsuario.Count; i++)
+                {
+                    if (listaUsuario[i].Usu_Id == id)
+                    {
+                        //elimina el elemento
+                        listaUsuario.RemoveAt(i);
+                    }
+                }
+                MessageBox.Show("Usuario Eliminado Correctamente");
+            }
+            
         }
 
         private void BtnPrimera_Click(object sender, RoutedEventArgs e)
