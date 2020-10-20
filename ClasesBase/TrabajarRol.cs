@@ -71,12 +71,15 @@ namespace ClasesBase
         /// <returns></returns>
         public static ObservableCollection<Rol> listarRoles()
         {
-            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarRoles";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = cnn;
-            cnn.Open();
+            cmd.CommandText = "SELECT * FROM Rol";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = conn;
+
+            conn.Open();
+
             SqlDataReader reader = cmd.ExecuteReader();
 
             Rol rol = null;
@@ -90,9 +93,13 @@ namespace ClasesBase
 
                 listaRoles.Add(rol);
             }
-            cnn.Close();
+
+            conn.Close();
+
+           
             return listaRoles;
         }
+    
 
         /// <summary>
         /// Listar Roles disponibles
