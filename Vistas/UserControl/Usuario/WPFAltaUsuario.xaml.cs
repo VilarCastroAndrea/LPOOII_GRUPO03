@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClasesBase;
+using System.Collections.ObjectModel;
 
 namespace Vistas.UserControl.Usuario
 {
@@ -20,12 +21,17 @@ namespace Vistas.UserControl.Usuario
     /// Lógica de interacción para WPFAltaUsuario.xaml
     /// </summary>
     public partial class WPFAltaUsuario
+
     {
+       
+
         public WPFAltaUsuario()
         {
             InitializeComponent();
             cargarComboRol();
         }
+
+       
 
         private void BtnAltaUsuario_Click(object sender, RoutedEventArgs e)
         {

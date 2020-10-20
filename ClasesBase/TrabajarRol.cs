@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
-
+using System;
 
 namespace ClasesBase
 {
@@ -91,8 +91,8 @@ namespace ClasesBase
                 listaRoles.Add(rol);
             }
             cnn.Close();
-            
-            
+
+            Console.Write("pasooooo");
             return listaRoles;
         }
     
