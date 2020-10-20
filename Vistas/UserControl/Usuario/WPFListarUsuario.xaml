@@ -3,10 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:coleccionUsuario="clr-namespace:ClasesBase;assembly=ClasesBase"
+             xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              xmlns:local="clr-namespace:Vistas.UserControl.Usuario"
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="715">
     <Grid>
+        <Grid.Resources>
+            <ObjectDataProvider
+                x:Key="LIST_USER"
+                ObjectType="{x:Type coleccionUsuario:TrabajarUsuario}"
+                MethodName="TraerUsuarioRol"
+                />
+        </Grid.Resources>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
