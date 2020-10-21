@@ -7,15 +7,28 @@
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              xmlns:local="clr-namespace:Vistas.UserControl.Usuario"
              mc:Ignorable="d" 
-             d:DesignHeight="420" d:DesignWidth="715">
-    <Grid>
-        <Grid.Resources>
+             d:DesignHeight="420" d:DesignWidth="715"  Loaded="UserControlUsuario_Loaded">
+    
+    <UserControl.Resources>
+       
             <ObjectDataProvider
                 x:Key="LIST_USER"
                 ObjectType="{x:Type coleccionUsuario:TrabajarUsuario}"
-                MethodName="TraerUsuarioRol"
+                MethodName="traerUsuarios"
                 />
-        </Grid.Resources>
+            <CollectionViewSource
+            x:Key="VISTA_USER" 
+            Source="{StaticResource ResourceKey=LIST_USER}" 
+            Filter="eventVistaUsuario_Filter">
+                <CollectionViewSource.SortDescriptions>
+                    <componentModel:SortDescription 
+                    PropertyName="Usu_NombreUsuario" 
+                    Direction="Ascending"/>
+                </CollectionViewSource.SortDescriptions>
+            </CollectionViewSource>
+    </UserControl.Resources>   
+   
+    <Grid>       
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
@@ -24,14 +37,19 @@
         </Grid.Background>
         <GroupBox Header="Usuarios" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="695" Foreground="White">
             <Grid>
-                <ListView HorizontalAlignment="Left" Height="358" Margin="10,10,0,0" VerticalAlignment="Top" Width="663">
+                <ListView Grid.Row="1" Name="lstUsuario" ItemsSource="{Binding Source={StaticResource VISTA_USER}}" HorizontalAlignment="Left" Height="358" Margin="10,10,0,0" VerticalAlignment="Top" Width="663">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn/>
+                            <GridViewColumn Header="Id" Width="30" DisplayMemberBinding="{Binding Usu_Id}"/>
+                            <GridViewColumn Header="Usuario" Width="80" DisplayMemberBinding="{Binding Usu_NombreUsuario}"/>
+                            <GridViewColumn Header="Apellido y Nombre" Width="120" DisplayMemberBinding="{Binding Usu_ApellidoNombre}"/>
+                            <GridViewColumn Header="Password" Width="100" DisplayMemberBinding="{Binding Usu_Password}"/>
+                            <GridViewColumn Header="Disponible" Width="70" DisplayMemberBinding="{Binding Usu_Disponible}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
-
+                <Label Content="Usuario :" HorizontalAlignment="Left" Margin="342,59,0,0" VerticalAlignment="Top"/>
+                <TextBox  Name="txtBuscarUsuario" HorizontalAlignment="Left" Height="23" Margin="403,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="341" TextChanged="TxtBuscarUsuario_TextChanged"/>
             </Grid>
         </GroupBox>
     </Grid>
