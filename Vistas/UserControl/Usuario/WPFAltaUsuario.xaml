@@ -13,18 +13,18 @@
                 <GradientStop Color="#FF021113"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <GroupBox Header="Usuario" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="695" Foreground="White">
+        <GroupBox Header="Usuario"  HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="695" Foreground="White">
             <Grid>
                 <Label Content="Nombre Usuario" HorizontalAlignment="Left" Margin="167,89,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Label Content="Password" HorizontalAlignment="Left" Margin="167,133,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Label Content="Apellido y Nombre" HorizontalAlignment="Left" Margin="167,177,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Label Content="Rol" HorizontalAlignment="Left" Margin="167,223,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,134,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,178,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="334,223,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox x:Name="txtNombreUsuario" HorizontalAlignment="Left" Height="23" Margin="334,89,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="334,134,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox x:Name="txtApellidoNombre" HorizontalAlignment="Left" Height="23"  Margin="334,178,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Height="23" Margin="334,223,0,0" VerticalAlignment="Top" Width="215" Foreground="Black" Background="Black" BorderBrush="#FF191818"/>
                 <Button x:Name="btnAltaUsuario" Content="Agregar" Margin="404,304,0,0"
-                Style="{StaticResource BotonCustom}" />
+                Style="{StaticResource BotonCustom}" Click="BtnAltaUsuario_Click" />
             </Grid>
 
         </GroupBox>
