@@ -20,9 +20,32 @@ namespace Vistas.UserControl.Usuario
     /// </summary>
     public partial class WPFListarUsuario 
     {
+        private CollectionViewSource vistaColeccionFiltrada;
+
         public WPFListarUsuario()
         {
             InitializeComponent();
+            vistaColeccionFiltrada = (CollectionViewSource)(this.Resources["VISTA_USER"]);
+        }
+
+        private void TxtFiltrar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (vistaColeccionFiltrada != null)
+                vistaColeccionFiltrada.Filter += new FilterEventHandler(filtroL);
+        }
+
+        private void filtroL(object sender, FilterEventArgs e)
+        {
+            ClasesBase.Usuario usu = (ClasesBase.Usuario)e.Item;
+            if (usu.Usu_NombreUsuario.StartsWith(txtFiltrar.Text, StringComparison.CurrentCultureIgnoreCase))
+                e.Accepted = true;
+            else
+                e.Accepted = false;
+        }
+
+        private void eventVistaUsuario_Filter(object sender, FilterEventArgs e)
+        {
+            ClasesBase.Usuario usuario = e.Item as ClasesBase.Usuario;
         }
     }
 }
