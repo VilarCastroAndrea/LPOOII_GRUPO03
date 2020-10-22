@@ -39,6 +39,7 @@
                     <TextBox HorizontalAlignment="Left" Name="txtNombreUsuario" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="{Binding Usu_NombreUsuario}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                     <TextBox HorizontalAlignment="Left" Name="txtPassword" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="{Binding Usu_Password}"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                     <TextBox HorizontalAlignment="Left" Name="txtApellidoNombre" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="{Binding Usu_ApellidoNombre}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                    <ComboBox Canvas.Left="334" Name="cmbRol" SelectedValue="{Binding Rol_Codigo}" Canvas.Top="214" Width="215" Foreground="Black" BorderBrush="#FF031417" Background="#FF031417"/>
                     <Button HorizontalAlignment="Left" Name="btnModificar" Margin="154,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnModificar_Click">
                         <fa:ImageAwesome Icon="Edit" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
@@ -58,7 +59,6 @@
                         <fa:ImageAwesome Icon="StepForward" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
                     <CheckBox Content="Si" Name="checkDisponible" HorizontalAlignment="Left" Margin="334,256,0,0" VerticalAlignment="Top" Foreground="White"/>
-                    <ComboBox Canvas.Left="334" Name="cmbRol" SelectedValue="{Binding Rol_Codigo}" Canvas.Top="214" Width="215" Foreground="Black" BorderBrush="#FF031417" Background="#FF031417"/>
                 </Canvas>
             </Grid>
 
