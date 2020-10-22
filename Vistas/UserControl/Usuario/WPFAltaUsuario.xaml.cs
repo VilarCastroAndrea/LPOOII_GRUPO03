@@ -34,7 +34,7 @@ namespace Vistas.UserControl.Usuario
             usuario.Usu_NombreUsuario = txtNombreUsuario.Text;
             usuario.Usu_Password = txtPassword.Text;
             usuario.Usu_Disponible = true;
-            usuario.Rol_Codigo = 1;
+            usuario.Rol_Codigo = int.Parse(cmbRol.SelectedValue.ToString());
 
             TrabajarUsuario.altaUsuario(usuario);         
             MessageBox.Show("Usuario agregado correctamente");
