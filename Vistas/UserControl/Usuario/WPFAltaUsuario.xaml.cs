@@ -36,9 +36,9 @@ namespace Vistas.UserControl.Usuario
             usuario.Usu_Disponible = true;
             usuario.Rol_Codigo = 1;
 
-            TrabajarUsuario.altaUsuario(usuario);
-
+            TrabajarUsuario.altaUsuario(usuario);         
             MessageBox.Show("Usuario agregado correctamente");
+            limpiarCampos();
         }
 
         private void cargarComboRol()
@@ -47,5 +47,13 @@ namespace Vistas.UserControl.Usuario
             cmbRol.SelectedValuePath = "Rol_Codigo";
             cmbRol.DisplayMemberPath = "Rol_Descripcion";
         }
+
+        private void limpiarCampos()
+        {
+            txtApellidoNombre.Text = "";
+            txtNombreUsuario.Text = "";
+            txtPassword.Text = "";
+        }
+
     }
 }

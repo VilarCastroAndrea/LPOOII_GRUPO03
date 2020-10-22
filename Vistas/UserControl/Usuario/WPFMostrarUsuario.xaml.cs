@@ -50,6 +50,7 @@ namespace Vistas.UserControl.Usuario
             usuario.Rol_Codigo = (int)cmbRol.SelectedValue;
 
             TrabajarUsuario.modificarUsuario(usuario);
+            MessageBox.Show("Usuario se modifico correctamente");
 
             for (int i = 0; i < listaUsuario.Count; i++)
             {
