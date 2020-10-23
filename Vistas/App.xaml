@@ -6,12 +6,17 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <!-- Estilos -->
                 <ResourceDictionary Source="styles/RDButacas.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="styles/RDCliente.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="styles/RDPeliculas.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="styles/RDMain.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="styles/RDLabels.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="styles/RDTextBox.xaml"></ResourceDictionary>
+                
+                <!-- Object Data Provider Cliente -->
+                <ResourceDictionary Source="utils/ODPCliente.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="utils/ODPPelicula.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

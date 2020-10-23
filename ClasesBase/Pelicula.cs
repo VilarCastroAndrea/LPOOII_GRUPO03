@@ -1,6 +1,8 @@
-﻿namespace ClasesBase
+﻿using System.ComponentModel;
+
+namespace ClasesBase
 {
-    public class Pelicula
+    public class Pelicula : IDataErrorInfo
     {
         private int peli_Codigo;
         private string peli_Titulo;
@@ -55,6 +57,8 @@
             this.Peli_Imagen = peli_Imagen;
         }
 
+        
+
         /// <summary>
         /// Get & Set
         /// </summary>
@@ -65,5 +69,46 @@
         public string Peli_Imagen { get => peli_Imagen; set => peli_Imagen = value; }
         public string Peli_Genero { get => peli_Genero; set => peli_Genero = value; }
         public string Peli_Clasificacion { get => peli_Clasificacion; set => peli_Clasificacion = value; }
+
+        public string Error
+        {
+            get { throw new System.NotImplementedException(); }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string msg_error = null;
+                switch (columnName)
+                {
+                    case "Peli_Titulo":
+                        msg_error = validar_Titulo();
+                        break;
+                    case "Peli_Duracion":
+                        msg_error = validar_Duracion();
+                        break;
+                }
+                return msg_error;
+            }
+        }
+
+        private string validar_Titulo()
+        {
+            if (string.IsNullOrEmpty(Peli_Titulo))
+            {
+                return "El TITULO es obligatorio.";
+            }
+            return null;
+        }
+
+        private string validar_Duracion()
+        {
+            if (string.IsNullOrEmpty(Peli_Duracion))
+            {
+                return "La DURACION es obligatoria.";
+            }
+            return null;
+        }
     }
 }

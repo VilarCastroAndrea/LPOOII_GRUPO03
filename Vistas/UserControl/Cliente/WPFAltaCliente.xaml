@@ -7,41 +7,6 @@
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
-    <!--
-    <UserControl.Resources>
-        <ObjectDataProvider x:Key="DATA_CLIENT"
-                            ObjectType="{x:Type svc:TrabajarClientes}"
-                            MethodName="TraerCliente"></ObjectDataProvider>
-        <ControlTemplate x:Key="TextBoxErrorTemplate">
-            <DockPanel>
-                <Ellipse DockPanel.Dock="Right" Margin="135,5" Width="10" Height="10">
-                    <Ellipse.Fill>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#11FF1111" Offset="0"/>
-                            <GradientStop Color="#FFFF0000" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Ellipse.Fill>
-                </Ellipse>
-            </DockPanel>
-        </ControlTemplate>
-        
-        <Style x:Key="EstiloError" TargetType="TextBox">
-            <Setter Property="Margin" Value="4,4,10,4"/>
-            <Setter Property="Validation.ErrorTemplate"
-                    Value="{StaticResource TextBoxErrorTemplate}"/>
-            <Style.Triggers>
-                <Trigger Property="Validation.HasError" Value="True">
-                    <Setter Property="ToolTip">
-                        <Setter.Value>
-                            <Binding Path="(Validation.Errors)[0].ErrorContent"
-                                     RelativeSource="{x:Static RelativeSource.Self}"/>
-                        </Setter.Value>
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Resources>
-    -->
     <Grid Name="panelAltaCliente">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

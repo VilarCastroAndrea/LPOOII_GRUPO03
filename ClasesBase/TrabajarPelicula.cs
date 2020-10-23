@@ -169,5 +169,14 @@ namespace ClasesBase
             da.Fill(dt);
             return dt;
         }
+
+        /// <summary>
+        /// Inicializa un objeto pelicula para mostrarlo en la vista
+        /// </summary>
+        /// <returns></returns>
+        public Pelicula IniciarPelicula()
+        {
+            return new Pelicula();
+        }
     }
 }
