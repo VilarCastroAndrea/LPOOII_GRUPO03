@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace ClasesBase
 {
-    class TrabajarProyeccion
+    public class TrabajarProyeccion
     {
         /// <summary>
         /// Alta Proyeccion con stored procedure
@@ -119,6 +119,17 @@ namespace ClasesBase
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
+        }
+
+        /// <summary>
+        /// Inicializa un objeto proyeccion para la validacion del formulario.
+        /// </summary>
+        /// <returns></returns>
+        public Proyeccion IniciarProyeccion()
+        {
+            Proyeccion pro = new Proyeccion();
+            pro.Peli_Codigo = -1;
+            return pro;
         }
     }
 }

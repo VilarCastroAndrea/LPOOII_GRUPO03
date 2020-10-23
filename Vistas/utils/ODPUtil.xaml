@@ -9,7 +9,13 @@
                                 ObjectType="{x:Type svc:TrabajarUsuario}"
                                 MethodName="IniciarUsuario">
     </ObjectDataProvider>
-    
+
+    <!-- Data Provider para PROYECCION -->
+    <ObjectDataProvider x:Key="DATA_PROY"
+                                ObjectType="{x:Type svc:TrabajarProyeccion}"
+                                MethodName="IniciarProyeccion">
+    </ObjectDataProvider>
+
     <!-- Data Provider para PELICULA -->
     <ObjectDataProvider x:Key="DATA_PELI"
                                 ObjectType="{x:Type svc:TrabajarPelicula}"

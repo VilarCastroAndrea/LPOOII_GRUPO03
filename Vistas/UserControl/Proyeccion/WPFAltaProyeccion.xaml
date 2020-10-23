@@ -15,11 +15,40 @@
         </Grid.Background>
         <GroupBox Header="Proyeccion" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>
         <Label Content="Titulo Pelicula" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
-        <ComboBox x:Name="cmbTitulo" HorizontalAlignment="Left" Height="23" Margin="30,70,0,0"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="Black"/>
-        <Label Content="Fecha Proyeccion" HorizontalAlignment="Left" Margin="35,98,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
-        <TextBox x:Name="txtFecha" HorizontalAlignment="Left" Height="23" Margin="30,129,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        <ComboBox x:Name="cmbTitulo" 
+                  HorizontalAlignment="Left" 
+                  Height="23" 
+                  Margin="30,70,0,0"  
+                  VerticalAlignment="Top" 
+                  Width="144" Background="#FF02090A" 
+                  BorderBrush="#FF04191B" 
+                  Foreground="Black"
+                  >
+        </ComboBox>
+            <Label Content="Fecha Proyeccion" HorizontalAlignment="Left" Margin="35,98,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
+        <TextBox x:Name="txtFecha" 
+                 Margin="30,129,0,0" 
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_PROY}">
+            <TextBox.Text>
+                <Binding Path="Proy_Fecha"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+            </TextBox.Text>
+        </TextBox>
         <Label Content="Hora Proyeccion" HorizontalAlignment="Left" Margin="35,157,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
-        <TextBox x:Name="txtHora" HorizontalAlignment="Left" Height="23" Margin="30,188,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        <TextBox x:Name="txtHora" 
+                 Margin="30,188,0,0" 
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_PROY}">
+            <TextBox.Text>
+                <Binding Path="Proy_Hora"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+            </TextBox.Text>
+        </TextBox>
         <Label Content="Sala" HorizontalAlignment="Left" Margin="35,216,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
         <ComboBox x:Name="cmbSala" HorizontalAlignment="Left" Height="23" Margin="30,247,0,0"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="Black"/>
         <Label Content="Cartelera" HorizontalAlignment="Left" Margin="35,275,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>

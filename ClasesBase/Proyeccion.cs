@@ -1,6 +1,9 @@
-﻿namespace ClasesBase
+﻿using System;
+using System.ComponentModel;
+
+namespace ClasesBase
 {
-    public class Proyeccion
+    public class Proyeccion : IDataErrorInfo
     {
         private int proy_Codigo;
         private string proy_Fecha;
@@ -50,6 +53,8 @@
             this.proy_Disponible = proy_Disponible;
         }
 
+       
+
         /// <summary>
         /// Get & Set
         /// </summary>
@@ -59,5 +64,74 @@
         public int Peli_Codigo { get => peli_Codigo; set => peli_Codigo = value; }
         public int Sla_NroSala { get => sla_NroSala; set => sla_NroSala = value; }
         public bool Proy_Disponible { get => proy_Disponible; set => proy_Disponible = value; }
+
+        /// <summary>
+        /// Metodo de la implementacion. No implementado.
+        /// </summary>
+        public string Error
+        {
+            get { throw new System.NotImplementedException(); }
+        }
+
+        /// <summary>
+        /// Metodo de implemntacion que gestiona la validacion.
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
+        public string this[string columnName]
+        {
+            get
+            {
+                string msg_error = null;
+                switch (columnName)
+                {
+                    case "Proy_Fecha":
+                        msg_error = validar_Fecha();
+                        break;
+                    case "Proy_Hora":
+                        msg_error = validar_Hora();
+                        break;
+                    case "Peli_Codigo":
+                        msg_error = validar_PeliCodigo();
+                        break;
+                }
+                return msg_error;
+            }
+        }
+
+        private string validar_PeliCodigo()
+        {
+            if(Peli_Codigo < 0)
+            {
+                return "Debe seleccionar un TITULO";
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Retorna un mensaje de error si la hora no es correcta.
+        /// </summary>
+        /// <returns></returns>
+        private string validar_Hora()
+        {
+            if (string.IsNullOrEmpty(Proy_Hora))
+            {
+                return "Debe Ingresar la HORA de la proyeccion.";
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Retorna un mensaje de error si la fecha no es correcta.
+        /// </summary>
+        /// <returns></returns>
+        private string validar_Fecha()
+        {
+            if (string.IsNullOrEmpty(Proy_Fecha))
+            {
+                return "Debe Ingresar la FECHA de la proyeccion.";
+            }
+            return null;
+        }
     }
 }

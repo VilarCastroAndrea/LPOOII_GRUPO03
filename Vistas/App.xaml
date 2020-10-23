@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="styles/RDMain.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="styles/RDLabels.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="styles/RDTextBox.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="styles/RDComboBox.xaml"></ResourceDictionary>
                 
                 <!-- Object Data Provider Cliente -->
                 <ResourceDictionary Source="utils/ODPUtil.xaml"></ResourceDictionary>
