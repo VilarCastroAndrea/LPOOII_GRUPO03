@@ -159,5 +159,14 @@ namespace ClasesBase
             cnn.Close();
             return coleccionUsuarios;
         }
+
+        /// <summary>
+        /// Inicializa un objeto del tipo usuario para las validaciones del formulario
+        /// </summary>
+        /// <returns></returns>
+        public Usuario IniciarUsuario()
+        {
+            return new Usuario();
+        }
     }
 }

@@ -24,6 +24,8 @@
                      DataContext="{StaticResource DATA_PELI}">
                 <TextBox.Text>
                     <Binding Path="Peli_Titulo"
+                             XPath="titulo/@name"
+                             Mode="TwoWay"
                          UpdateSourceTrigger="PropertyChanged" 
                          ValidatesOnExceptions="True" 
                          ValidatesOnDataErrors="True"/>
@@ -38,6 +40,8 @@
                  DataContext="{StaticResource DATA_PELI}">
             <TextBox.Text>
                 <Binding Path="Peli_Duracion"
+                         XPath="duracion/@name"
+                         Mode="TwoWay"
                          UpdateSourceTrigger="PropertyChanged"
                          ValidatesOnExceptions="True"
                          ValidatesOnDataErrors="True"/>

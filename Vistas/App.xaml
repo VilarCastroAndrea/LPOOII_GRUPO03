@@ -15,8 +15,9 @@
                 <ResourceDictionary Source="styles/RDTextBox.xaml"></ResourceDictionary>
                 
                 <!-- Object Data Provider Cliente -->
-                <ResourceDictionary Source="utils/ODPCliente.xaml"></ResourceDictionary>
-                <ResourceDictionary Source="utils/ODPPelicula.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="utils/ODPUtil.xaml"></ResourceDictionary>
+                <!--<ResourceDictionary Source="utils/ODPCliente.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="utils/ODPPelicula.xaml"></ResourceDictionary>-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

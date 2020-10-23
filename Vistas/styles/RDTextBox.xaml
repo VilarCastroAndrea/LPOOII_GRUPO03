@@ -41,4 +41,44 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <!-- Template que genera el circulo rojo en validacion para ALTA USUARIO-->
+    <ControlTemplate x:Key="TBErrorTemplateAltaUsu">
+        <DockPanel>
+            <Ellipse DockPanel.Dock="Right" Margin="220,5" Width="10" Height="10">
+                <Ellipse.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#11FF1111" Offset="0"/>
+                        <GradientStop Color="#FFFF0000" Offset="1"/>
+                    </LinearGradientBrush>
+                </Ellipse.Fill>
+            </Ellipse>
+        </DockPanel>
+    </ControlTemplate>
+
+    <!-- TextBox CUSTOM -->
+    <Style x:Key="TBCustomAltaUsu" TargetType="TextBox">
+        <Setter Property="Margin" Value="4,4,10,4"/>
+
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Background" Value="#FF02090A"/>
+        <Setter Property="BorderBrush" Value="#FF04191B"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Height" Value="23"/>
+        <Setter Property="Width" Value="215"/>
+        <Setter Property="Validation.ErrorTemplate"
+                    Value="{StaticResource TBErrorTemplateAltaUsu}"/>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip">
+                    <Setter.Value>
+                        <Binding Path="(Validation.Errors)[0].ErrorContent"
+                                     RelativeSource="{x:Static RelativeSource.Self}"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

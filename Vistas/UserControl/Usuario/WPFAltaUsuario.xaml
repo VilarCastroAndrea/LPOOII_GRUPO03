@@ -19,9 +19,42 @@
                 <Label Content="Password" HorizontalAlignment="Left" Margin="167,133,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Label Content="Apellido y Nombre" HorizontalAlignment="Left" Margin="167,177,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Label Content="Rol" HorizontalAlignment="Left" Margin="167,223,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <TextBox x:Name="txtNombreUsuario" HorizontalAlignment="Left" Height="23" Margin="334,89,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="334,134,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                <TextBox x:Name="txtApellidoNombre" HorizontalAlignment="Left" Height="23"  Margin="334,178,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                
+                <TextBox x:Name="txtNombreUsuario" 
+                         Margin="334,89,0,0"  
+                         Style="{StaticResource TBCustomAltaUsu}"
+                         DataContext="{StaticResource DATA_USU}">
+                    <TextBox.Text>
+                        <Binding Path="Usu_NombreUsuario"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+                    </TextBox.Text>
+                </TextBox>
+                
+                <TextBox x:Name="txtPassword"
+                         Margin="334,134,0,0" 
+                         Style="{StaticResource TBCustomAltaUsu}"
+                         DataContext="{StaticResource DATA_USU}">
+                    <TextBox.Text>
+                        <Binding Path="Usu_Password"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+                    </TextBox.Text>
+                </TextBox>
+                
+                <TextBox x:Name="txtApellidoNombre" 
+                             Margin="334,178,0,0" 
+                             Style="{StaticResource TBCustomAltaUsu}"
+                             DataContext="{StaticResource DATA_USU}">
+                    <TextBox.Text>
+                        <Binding Path="Usu_ApellidoNombre"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+                    </TextBox.Text>
+                </TextBox>
                 <ComboBox x:Name="cmbRol" HorizontalAlignment="Left" Height="23" Margin="334,223,0,0" VerticalAlignment="Top" Width="215" Foreground="Black" Background="Black" BorderBrush="#FF191818"/>
                 <Button x:Name="btnAltaUsuario" Content="Agregar" Margin="404,304,0,0"
                 Style="{StaticResource BotonCustom}" Click="BtnAltaUsuario_Click" />
