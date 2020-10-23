@@ -18,11 +18,31 @@
         </Grid.Resources>
         
         <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold">
-            <TextBox x:Name="txtTitulo" HorizontalAlignment="Left" Height="23" Margin="10,40,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+            <TextBox x:Name="txtTitulo" 
+                     Margin="10,40,0,0" 
+                     Style="{StaticResource TextBoxCustom}"
+                     DataContext="{StaticResource DATA_PELI}">
+                <TextBox.Text>
+                    <Binding Path="Peli_Titulo"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
         </GroupBox>
         <Label Content="Titulo" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
         <Label Content="Duracion" HorizontalAlignment="Left" Margin="35,89,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
-        <TextBox x:Name="txtDuracion" HorizontalAlignment="Left" Height="23" Margin="26,115,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
+        <TextBox x:Name="txtDuracion" 
+                 Margin="26,115,0,0" 
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_PELI}">
+            <TextBox.Text>
+                <Binding Path="Peli_Duracion"
+                         UpdateSourceTrigger="PropertyChanged"
+                         ValidatesOnExceptions="True"
+                         ValidatesOnDataErrors="True"/>
+            </TextBox.Text>
+        </TextBox>
         <Label Content="Genero" HorizontalAlignment="Left" Margin="35,138,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
         <ComboBox Name="cmbGenero" ItemsSource="{Binding Source={StaticResource clasif},XPath=genero/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="26,164,0,0"  Background="#FF02090A"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True"></ComboBox>
         <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="35,183,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
