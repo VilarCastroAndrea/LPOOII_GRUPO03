@@ -29,8 +29,7 @@ namespace Vistas.UserControl.Pelicula
             {
                 try
                 {
-                    name = "qweqweqwewewe";
-                    padre.altaPelicula(new ClasesBase.Pelicula(0,txtTitulo.Text,txtDuracion.Text,cmbGenero.Text,cmbClasificacion.Text,txtImagenPeli.Text));
+                    padre.altaPelicula(new ClasesBase.Pelicula(0,txtTitulo.Text,txtDuracion.Text,cmbGenero.Text,cmbClasificacion.Text));
                     MessageBoxResult resultado = MessageBox.Show("Se agrego la pelicula con exito", "Atención");
                     //limpiarCampos();
                 }
@@ -49,7 +48,7 @@ namespace Vistas.UserControl.Pelicula
 
         private bool validarCampos()
         {
-            if (txtTitulo.Text == "" || txtDuracion.Text == "" || txtImagenPeli.Text == "")
+            if (txtTitulo.Text == "" || txtDuracion.Text == "")
             {
                 return false;
             }
@@ -66,13 +65,5 @@ namespace Vistas.UserControl.Pelicula
             txtImagenPeli.Text = "";
         }
 
-        private void ExaminarImg_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.ShowDialog();
-            openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
-            openFileDialog1.DefaultExt = ".jpeg";
-            txtImagenPeli.Text = openFileDialog1.FileName;
-        }
     }
 }

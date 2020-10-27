@@ -15,7 +15,6 @@ namespace Vistas
         {
             InitializeComponent();
             txtDuracion.Text = selectedItem.Peli_Duracion;
-            txtImagenPeli.Text = selectedItem.Peli_Imagen;
             txtTitulo.Text = selectedItem.Peli_Titulo;
             cmbClasificacion.Text = selectedItem.Peli_Clasificacion;
             cmbGenero.Text = selectedItem.Peli_Genero;
@@ -28,7 +27,7 @@ namespace Vistas
             if (validarCampos() == true)
             {
 
-                proyeccionPadre.modificarPelicula(new ClasesBase.Pelicula(peliculaSeleccionada.Peli_Codigo, txtTitulo.Text, txtDuracion.Text, cmbGenero.Text, cmbClasificacion.Text, txtImagenPeli.Text));
+                proyeccionPadre.modificarPelicula(new ClasesBase.Pelicula(peliculaSeleccionada.Peli_Codigo, txtTitulo.Text, txtDuracion.Text, cmbGenero.Text, cmbClasificacion.Text));
                     MessageBoxResult resultado = MessageBox.Show("Se modifico la pelicula con exito", "Atención");
                     limpiarCampos();
             }
@@ -40,7 +39,7 @@ namespace Vistas
 
         private bool validarCampos()
         {
-            if (txtTitulo.Text == "" || txtDuracion.Text == "" || txtImagenPeli.Text == "")
+            if (txtTitulo.Text == "" || txtDuracion.Text == "")
             {
                 return false;
             }
@@ -54,17 +53,6 @@ namespace Vistas
         {
             txtTitulo.Text = "";
             txtDuracion.Text = "";
-            txtImagenPeli.Text = "";
-        }
-
-        private void ExaminarImg_Click(object sender, RoutedEventArgs e)
-        {
-
-                OpenFileDialog openFileDialog1 = new OpenFileDialog();
-                openFileDialog1.ShowDialog();
-                openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
-                openFileDialog1.DefaultExt = ".jpeg";
-                txtImagenPeli.Text = openFileDialog1.FileName;
         }
 
         private void BtnBajaPelicula_Click(object sender, RoutedEventArgs e)

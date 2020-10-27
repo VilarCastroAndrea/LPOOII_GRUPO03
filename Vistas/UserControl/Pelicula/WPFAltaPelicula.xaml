@@ -56,8 +56,5 @@
         </ComboBox>
         
         <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="26,370,0,0" VerticalAlignment="Top" Width="145" Click="BtnAltaPelicula_Click" Style="{StaticResource btnPeliculaEstilo}"/>
-        <Label Content="Imagen" HorizontalAlignment="Left" Margin="26,227,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
-        <TextBox x:Name="txtImagenPeli" HorizontalAlignment="Left" Height="23" Margin="25,255,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="145" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="White"/>
-        <Button Name="ExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="95,230,0,0" VerticalAlignment="Top" Width="75" Click="ExaminarImg_Click" Style="{StaticResource btnPeliculaEstilo}"/>
     </Grid>    
 </UserControl>

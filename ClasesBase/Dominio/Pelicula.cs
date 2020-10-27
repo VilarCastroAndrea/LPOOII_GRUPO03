@@ -10,7 +10,6 @@ namespace ClasesBase
         private string peli_Genero;
         private string peli_Clasificacion;
         private bool peli_Disponible;
-        private string peli_Imagen;
 
         public Pelicula()
         {
@@ -24,8 +23,7 @@ namespace ClasesBase
         /// <param name="peli_Duracion"></param>
         /// <param name="gnr_Id"></param>
         /// <param name="cls_Id"></param>
-        /// <param name="peli_Imagen"></param>
-        public Pelicula(int peli_Codigo, string peli_Titulo, string peli_Duracion, string peli_genero, string peli_clasificacion, string peli_Imagen)
+        public Pelicula(int peli_Codigo, string peli_Titulo, string peli_Duracion, string peli_genero, string peli_clasificacion)
         {
             this.peli_Codigo = peli_Codigo;
             this.peli_Titulo = peli_Titulo;
@@ -33,7 +31,6 @@ namespace ClasesBase
             this.Peli_Genero = peli_genero;
             this.Peli_Clasificacion = peli_clasificacion;
             this.peli_Disponible = true;
-            this.Peli_Imagen = peli_Imagen;
         }
 
         /// <summary>
@@ -45,8 +42,7 @@ namespace ClasesBase
         /// <param name="gnr_Id"></param>
         /// <param name="cls_Id"></param>
         /// <param name="peli_Disponible"></param>
-        /// <param name="peli_Imagen"></param>
-        public Pelicula(int peli_Codigo, string peli_Titulo, string peli_Duracion, string peli_genero, string peli_clasificacion, bool peli_Disponible, string peli_Imagen)
+        public Pelicula(int peli_Codigo, string peli_Titulo, string peli_Duracion, string peli_genero, string peli_clasificacion, bool peli_Disponible)
         {
             this.peli_Codigo = peli_Codigo;
             this.peli_Titulo = peli_Titulo;
@@ -54,7 +50,6 @@ namespace ClasesBase
             this.Peli_Genero = peli_genero;
             this.Peli_Clasificacion = peli_clasificacion;
             this.peli_Disponible = peli_Disponible;
-            this.Peli_Imagen = peli_Imagen;
         }
 
         
@@ -66,7 +61,6 @@ namespace ClasesBase
         public string Peli_Titulo { get => peli_Titulo; set => peli_Titulo = value; }
         public string Peli_Duracion { get => peli_Duracion; set => peli_Duracion = value; }
         public bool Peli_Disponible { get => peli_Disponible; set => peli_Disponible = value; }
-        public string Peli_Imagen { get => peli_Imagen; set => peli_Imagen = value; }
         public string Peli_Genero { get => peli_Genero; set => peli_Genero = value; }
         public string Peli_Clasificacion { get => peli_Clasificacion; set => peli_Clasificacion = value; }
 
