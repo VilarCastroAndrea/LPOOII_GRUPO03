@@ -90,7 +90,7 @@ namespace ClasesBase
                 ticket.Tick_FechaVenta = (DateTime)reader["Fecha de Venta"];
                 ticket.Tick_Nro = (int)reader["Numero"];
                 ticket.Usu_Id = (int)reader["ID Vendedor"];
-                ticket.Proy_Codigo = (int)reader["Codigo de Proyeccion"];
+                ticket.Proy_Codigo = (int)reader["Codigo"];
                 ticket.Cli_DNI = (int)reader["DNI Cliente"];
                 ticket.But_Id = (int)reader["ID de Butaca"];
 
