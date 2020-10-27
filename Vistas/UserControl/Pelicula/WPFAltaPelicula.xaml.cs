@@ -62,7 +62,6 @@ namespace Vistas.UserControl.Pelicula
         {
             txtTitulo.Text = "";
             txtDuracion.Text = "";
-            txtImagenPeli.Text = "";
         }
 
     }
