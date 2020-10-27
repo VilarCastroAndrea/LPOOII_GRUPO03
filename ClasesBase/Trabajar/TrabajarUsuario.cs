@@ -91,40 +91,6 @@ namespace ClasesBase
             cnn.Close();
         }
 
-        /// <summary>
-        /// Lista todos los Usuarios
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable listarUsuarios()
-        {
-            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarUsuarioss";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = cnn;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
-
-        /// <summary>
-        /// Listar Usuarios disponibles
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable listarUsuariosDisponibles()
-        {
-            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarUsuarioDisponible";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@disponible", true);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
 
         /// <summary>
         /// Coleccion de Usuarios
@@ -142,6 +108,42 @@ namespace ClasesBase
             cmd.CommandText = "listarUsuarioss";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                usuario = new Usuario();
+                usuario.Usu_Id = (int)reader["ID"];
+                usuario.Usu_ApellidoNombre = (string)reader["Apellido y Nombre"];
+                usuario.Usu_NombreUsuario = (string)reader["Nombre de Usuario"];
+                usuario.Usu_Password = (string)reader["Password"];
+                usuario.Rol_Codigo = (int)reader["Codigo"];
+                usuario.Usu_Disponible = (bool)reader["Disponible"];
+
+                coleccionUsuarios.Add(usuario);
+            }
+            cnn.Close();
+            return coleccionUsuarios;
+        }
+
+
+        /// <summary>
+        /// Coleccion de Usuarios
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<Usuario> traerUsuarioDisponible()
+        {
+            ObservableCollection<Usuario> coleccionUsuarios = new ObservableCollection<Usuario>();
+            Usuario usuario = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarUsuarioDisponible";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@disponible", true);
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())

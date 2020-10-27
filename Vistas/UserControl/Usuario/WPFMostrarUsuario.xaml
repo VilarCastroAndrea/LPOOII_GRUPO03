@@ -12,7 +12,7 @@
         <ObjectDataProvider
             x:Key="LIST_USER"
             ObjectType="{x:Type svc:TrabajarUsuario}"
-            MethodName="traerUsuario">
+            MethodName="traerUsuarioDisponible">
         </ObjectDataProvider>
     </UserControl.Resources>
     <Grid Loaded="Grid_Loaded">

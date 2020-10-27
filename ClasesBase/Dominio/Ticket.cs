@@ -12,6 +12,10 @@ namespace ClasesBase
         private bool tick_Estado;
         private int usu_Id;
 
+        public Ticket()
+        {
+        }
+
         /// <summary>
         /// Alta
         /// </summary>

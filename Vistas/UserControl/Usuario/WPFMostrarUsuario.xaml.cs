@@ -54,14 +54,24 @@ namespace Vistas.UserControl.Usuario
 
             for (int i = 0; i < listaUsuario.Count; i++)
             {
-                if (listaUsuario[i].Usu_Id == id)
+
+                if (listaUsuario[i].Usu_Disponible == false)
                 {
-                    //reemplaza los valores en la lista
-                    listaUsuario[i].Usu_ApellidoNombre = usuario.Usu_ApellidoNombre;
-                    listaUsuario[i].Usu_Password = usuario.Usu_Password;
-                    listaUsuario[i].Usu_NombreUsuario = usuario.Usu_NombreUsuario;
-                    listaUsuario[i].Rol_Codigo = usuario.Rol_Codigo;
+                    //elimina el elemento
+                    listaUsuario.RemoveAt(i);
                 }
+                else
+                {
+                    if (listaUsuario[i].Usu_Id == id)
+                    {
+                        //reemplaza los valores en la lista
+                        listaUsuario[i].Usu_ApellidoNombre = usuario.Usu_ApellidoNombre;
+                        listaUsuario[i].Usu_Password = usuario.Usu_Password;
+                        listaUsuario[i].Usu_NombreUsuario = usuario.Usu_NombreUsuario;
+                        listaUsuario[i].Rol_Codigo = usuario.Rol_Codigo;
+                    }
+                }
+
             }
         }
 

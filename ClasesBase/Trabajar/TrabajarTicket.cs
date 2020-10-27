@@ -1,5 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
+using System;
 
 namespace ClasesBase
 {
@@ -26,6 +28,78 @@ namespace ClasesBase
             cmd.ExecuteNonQuery();
             cnn.Close();
         }
+
+        /// <summary>
+        /// Coleccion de Tickets
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<Ticket> traerTicket()
+        {
+            ObservableCollection<Ticket> coleccionTicket = new ObservableCollection<Ticket>();
+            Ticket ticket = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarTickets";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ticket = new Ticket();
+                ticket.Tick_Estado = (bool)reader["Estado"];
+                ticket.Tick_FechaVenta = (DateTime)reader["Fecha de Venta"];
+                ticket.Tick_Nro = (int)reader["Numero"];
+                ticket.Usu_Id = (int)reader["ID Vendedor"];
+                ticket.Proy_Codigo = (int)reader["Codigo de Proyeccion"];
+                ticket.Cli_DNI = (int)reader["DNI Cliente"];
+                ticket.But_Id = (int)reader["ID de Butaca"];
+
+                coleccionTicket.Add(ticket);
+            }
+            cnn.Close();
+            return coleccionTicket;
+        }
+
+
+        /// <summary>
+        /// Coleccion de Tickets Disponibles
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<Ticket> traerTicketsDisponibles()
+        {
+            ObservableCollection<Ticket> coleccionTicket = new ObservableCollection<Ticket>();
+            Ticket ticket = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarTicketDisponible";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ticket = new Ticket();
+                ticket.Tick_Estado = (bool)reader["Estado"];
+                ticket.Tick_FechaVenta = (DateTime)reader["Fecha de Venta"];
+                ticket.Tick_Nro = (int)reader["Numero"];
+                ticket.Usu_Id = (int)reader["ID Vendedor"];
+                ticket.Proy_Codigo = (int)reader["Codigo de Proyeccion"];
+                ticket.Cli_DNI = (int)reader["DNI Cliente"];
+                ticket.But_Id = (int)reader["ID de Butaca"];
+
+                coleccionTicket.Add(ticket);
+            }
+            cnn.Close();
+            return coleccionTicket;
+        }
+
 
         /// <summary>
         /// Baja de ticket logica con stored procedure
@@ -65,41 +139,6 @@ namespace ClasesBase
             cnn.Close();
         }
 
-
-        /// <summary>
-        /// Lista todos los tickets
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable listarTickets()
-        {
-            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarTickets";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = cnn;
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
-
-        /// <summary>
-        /// Listar Tickets disponibles
-        /// </summary>
-        /// <returns></returns>
-        public static DataTable listarTicketDisponibles()
-        {
-            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "listarTicketDisponible";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@estado", true);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
-        }
 
         /// <summary>
         /// Modificar Ticket con stored procedure

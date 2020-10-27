@@ -12,7 +12,7 @@
         <ObjectDataProvider
             x:Key="LIST_USER"
             ObjectType="{x:Type svc:TrabajarUsuario}"
-            MethodName="traerUsuario">
+            MethodName="traerUsuarioDisponible">
         </ObjectDataProvider>
         <CollectionViewSource
             x:Key="VISTA_USER" 
