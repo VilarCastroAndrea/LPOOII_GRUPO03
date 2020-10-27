@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Butaca.cs" />
+    <Compile Include="Dominio\Butaca.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Pelicula.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -57,14 +57,14 @@
     <Compile Include="Rol.cs" />
     <Compile Include="Sala.cs" />
     <Compile Include="Ticket.cs" />
-    <Compile Include="TrabajarButaca.cs" />
-    <Compile Include="TrabajarClientes.cs" />
-    <Compile Include="TrabajarPelicula.cs" />
-    <Compile Include="TrabajarProyeccion.cs" />
-    <Compile Include="TrabajarRol.cs" />
-    <Compile Include="TrabajarSala.cs" />
-    <Compile Include="TrabajarTicket.cs" />
-    <Compile Include="TrabajarUsuario.cs" />
+    <Compile Include="Trabajar\TrabajarButaca.cs" />
+    <Compile Include="Trabajar\TrabajarClientes.cs" />
+    <Compile Include="Trabajar\TrabajarPelicula.cs" />
+    <Compile Include="Trabajar\TrabajarProyeccion.cs" />
+    <Compile Include="Trabajar\TrabajarRol.cs" />
+    <Compile Include="Trabajar\TrabajarSala.cs" />
+    <Compile Include="Trabajar\TrabajarTicket.cs" />
+    <Compile Include="Trabajar\TrabajarUsuario.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
