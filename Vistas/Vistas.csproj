@@ -58,6 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="UserControl\ticket\WPFAltaTicket.xaml.cs">
+      <DependentUpon>WPFAltaTicket.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ticket\WPFTicket.xaml.cs">
       <DependentUpon>WPFTicket.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
       <DependentUpon>ValidarCliente.xaml</DependentUpon>
     </Compile>
     <Page Include="styles\RDComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\ticket\WPFAltaTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

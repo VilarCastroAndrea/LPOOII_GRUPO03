@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF042A30"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Grid x:Name="panelTicket" Height="420" Margin="20,40,25,30">
+        <Grid x:Name="panelTicket" Height="420" Margin="20,40,20,30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>

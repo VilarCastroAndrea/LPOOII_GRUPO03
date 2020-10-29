@@ -18,11 +18,13 @@ namespace Vistas.UserControl.ticket
     /// <summary>
     /// Lógica de interacción para WPFTicket.xaml
     /// </summary>
-    public partial class WPFTicket : UserControl
+    public partial class WPFTicket 
     {
         public WPFTicket()
         {
             InitializeComponent();
+            panelTicket.Children.Clear();
+            panelTicket.Children.Add(new WPFAltaTicket());
         }
     }
 }

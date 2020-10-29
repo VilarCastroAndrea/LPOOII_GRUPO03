@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-
+using System.Collections.ObjectModel;
 namespace ClasesBase
 {
     public class TrabajarProyeccion
@@ -80,6 +80,39 @@ namespace ClasesBase
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
+        }
+
+
+        /// <summary>
+        /// Lista todas las proyecciones
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<Proyeccion> traerProyecciones()
+        {
+            ObservableCollection<Proyeccion> coleccionProyecciones = new ObservableCollection<Proyeccion>();
+            Proyeccion proyeccion = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarProyecciones";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                proyeccion = new Proyeccion();
+                proyeccion.Proy_Codigo = (int)reader["Codigo"];
+                proyeccion.Peli_Codigo = (int)reader["Codigo pelicula"];
+                proyeccion.Proy_Fecha = (string)reader["Fecha"];
+                proyeccion.Proy_Hora = (string)reader["Hora"];
+                proyeccion.Sla_NroSala = (int)reader["Codigo Sala"];
+                coleccionProyecciones.Add(proyeccion);
+            }
+            cnn.Close();
+            return coleccionProyecciones;
         }
 
         /// <summary>

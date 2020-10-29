@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace ClasesBase
 {
@@ -29,6 +30,38 @@ namespace ClasesBase
             da.Fill(dt);
 
             return (dt);
+        }
+
+        /// <summary>
+        /// Trae una lista de clientes de la base de datos.
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<Cliente> listarClientes()
+        {
+            ObservableCollection<Cliente> coleccionClientes = new ObservableCollection<Cliente>();
+            Cliente cliente = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarClientes";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                cliente = new Cliente();
+                cliente.Cli_DNI = (int)reader["DNI"];
+                cliente.Cli_Apellido = (string)reader["Apellido"];
+                cliente.Cli_Nombre = (string)reader["Nombre"];
+                cliente.Cli_Telefono = (string)reader["Telefono"];
+                cliente.Cli_Email = (string)reader["Email"];
+                coleccionClientes.Add(cliente);
+            }
+            cnn.Close();
+            return coleccionClientes;
         }
 
         /// <summary>

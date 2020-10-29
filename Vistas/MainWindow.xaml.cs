@@ -2,6 +2,7 @@
 using Vistas.rsc;
 using Vistas.UserControl.Proyeccion;
 using Vistas.UserControl.Usuario;
+using Vistas.UserControl.ticket;
 namespace Vistas
 {
     /// <summary>
@@ -100,6 +101,12 @@ namespace Vistas
         {
             panelPrincipal.Children.Clear();
             panelPrincipal.Children.Add(new WPFUsuario());
+        }
+
+        private void BtnTicket_Click(object sender, RoutedEventArgs e)
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new WPFTicket());
         }
     }
 }
