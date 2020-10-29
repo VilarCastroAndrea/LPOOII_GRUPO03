@@ -170,5 +170,47 @@ namespace ClasesBase
         {
             return new Usuario();
         }
+
+
+        public static bool validarUsuario(string usuario, string contra)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT *FROM Usuario WHERE USU_nombreUsuario=@usu AND USU_password=@contra";
+            cmd.Parameters.AddWithValue("@usu", usuario);
+            cmd.Parameters.AddWithValue("@contra", contra);
+          
+
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = cnn;
+
+            cnn.Open();
+            SqlDataReader reader;
+            reader = cmd.ExecuteReader();
+
+
+            if (reader.HasRows)
+            {
+
+                while (reader.Read())
+                {   //almacena los datos en una clase para mantener la sesion
+                    
+                    UsuarioLogin.usu_Id = reader.GetInt32(0);
+                    UsuarioLogin.usu_NombreUsuario = reader.GetString(1);
+                    UsuarioLogin.usu_Password = reader.GetString(2);
+                    UsuarioLogin.usu_ApellidoNombre = reader.GetString(3);
+                    UsuarioLogin.rol_Codigo = reader.GetInt32(4);
+                }
+                cnn.Close();
+                return true;
+            }
+            else
+            {
+                cnn.Close();
+                return false;
+            }
+        }
+
     }
 }
