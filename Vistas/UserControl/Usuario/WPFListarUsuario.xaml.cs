@@ -18,7 +18,7 @@ namespace Vistas.UserControl.Usuario
     /// <summary>
     /// Lógica de interacción para WPFListarUsuario.xaml
     /// </summary>
-    public partial class WPFListarUsuario 
+    public partial class WPFListarUsuario
     {
         private CollectionViewSource vistaColeccionFiltrada;
 
@@ -46,6 +46,12 @@ namespace Vistas.UserControl.Usuario
         private void eventVistaUsuario_Filter(object sender, FilterEventArgs e)
         {
             ClasesBase.Usuario usuario = e.Item as ClasesBase.Usuario;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WPFVistaPrevia vista = new WPFVistaPrevia();
+
         }
     }
 }

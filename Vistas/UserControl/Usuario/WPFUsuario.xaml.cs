@@ -18,7 +18,7 @@ namespace Vistas.UserControl.Usuario
     /// <summary>
     /// Lógica de interacción para WPFUsuario.xaml
     /// </summary>
-    public partial class WPFUsuario 
+    public partial class WPFUsuario
     {
         public WPFUsuario()
         {
@@ -44,5 +44,12 @@ namespace Vistas.UserControl.Usuario
             panelUsuario.Children.Clear();
             panelUsuario.Children.Add(new WPFListarUsuario());
         }
+
+        private void BtnImprimirUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            panelUsuario.Children.Clear();
+            panelUsuario.Children.Add(new WPFVistaPrevia());
+        }
+
     }
 }
