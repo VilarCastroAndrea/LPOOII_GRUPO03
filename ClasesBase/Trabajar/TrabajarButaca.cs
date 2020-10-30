@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace ClasesBase
 {
@@ -80,6 +81,39 @@ namespace ClasesBase
             DataTable dt = new DataTable();
             da.Fill(dt);
             return dt;
+        }
+
+
+        /// <summary>
+        /// Lista todas las butacas
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<Butaca> traerButacas()
+        {
+            ObservableCollection<Butaca> coleccionButacas = new ObservableCollection<Butaca>();
+            Butaca butaca = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarButacas";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                butaca = new Butaca();
+                butaca.But_Fila = (string)reader["Fila"];
+                butaca.But_Id = (int)reader["ID"];
+                butaca.But_Nro = (int)reader["Numero"];
+                butaca.But_Disponible = (bool)reader["Disponible"];
+                butaca.Sla_NroSala = (int)reader["Codigo Sala"];
+                coleccionButacas.Add(butaca);
+            }
+            cnn.Close();
+            return coleccionButacas;
         }
 
         /// <summary>

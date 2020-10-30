@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace ClasesBase
 {
@@ -41,6 +42,39 @@ namespace ClasesBase
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
+        }
+
+
+
+
+        /// <summary>
+        /// Lista todas las Salas
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<Sala> traerSalas()
+        {
+            ObservableCollection<Sala> coleccionSalas = new ObservableCollection<Sala>();
+            Sala sala = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarSalas";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                sala = new Sala();
+                sala.Sla_Descripcion = (string)reader["Descripcion"];
+                sala.Sla_NroSala = (int)reader["Numero de Sala"];
+                sala.Sla_Disponible = (bool)reader["Disponible"];
+                coleccionSalas.Add(sala);
+            }
+            cnn.Close();
+            return coleccionSalas;
         }
 
 
