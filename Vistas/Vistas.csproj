@@ -61,6 +61,9 @@
     <Compile Include="UserControl\ticket\WPFAltaTicket.xaml.cs">
       <DependentUpon>WPFAltaTicket.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\ticket\WPFImpresionTicket.xaml.cs">
+      <DependentUpon>WPFImpresionTicket.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ticket\WPFTicket.xaml.cs">
       <DependentUpon>WPFTicket.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\ticket\WPFAltaTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\ticket\WPFImpresionTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

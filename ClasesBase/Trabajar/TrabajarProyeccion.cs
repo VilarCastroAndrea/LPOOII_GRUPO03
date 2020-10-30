@@ -105,10 +105,10 @@ namespace ClasesBase
             {
                 proyeccion = new Proyeccion();
                 proyeccion.Proy_Codigo = (int)reader["Codigo"];
-                proyeccion.Peli_Codigo = (int)reader["Codigo pelicula"];
+                proyeccion.Peli_Codigo = (int)reader["Codigo de Pelicula"];
                 proyeccion.Proy_Fecha = (string)reader["Fecha"];
                 proyeccion.Proy_Hora = (string)reader["Hora"];
-                proyeccion.Sla_NroSala = (int)reader["Codigo Sala"];
+                proyeccion.Sla_NroSala = (int)reader["Numero de Sala"];
                 coleccionProyecciones.Add(proyeccion);
             }
             cnn.Close();
