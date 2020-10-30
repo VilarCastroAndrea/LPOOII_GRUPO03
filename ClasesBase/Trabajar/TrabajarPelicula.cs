@@ -164,14 +164,12 @@ namespace ClasesBase
 
 
         /// <summary>
-        /// Busca Pelicula por titulo y clasificacion
+        /// Busca Pelicula por id
         /// </summary>
-        /// <param name="sPattern"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public static ObservableCollection<Pelicula> buscarPelicula(string sPattern)
+        public static Pelicula buscarPelicula(string id)
         {
-
-            ObservableCollection<Pelicula> coleccionDePelicula = new ObservableCollection<Pelicula>();
             Pelicula pelicula = null;
 
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
@@ -181,7 +179,7 @@ namespace ClasesBase
             cmd.CommandText = "buscarPelicula";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@id", sPattern);
+            cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader reader = cmd.ExecuteReader();
 
             while (reader.Read())
@@ -193,10 +191,9 @@ namespace ClasesBase
                 pelicula.Peli_Duracion = (string)reader["Duracion"];
                 pelicula.Peli_Genero = (string)reader["Genero"];
                 pelicula.Peli_Titulo = (string)reader["Titulo"];
-                coleccionDePelicula.Add(pelicula);
             }
             cnn.Close();
-            return coleccionDePelicula;
+            return pelicula;
 
 
         }

@@ -31,7 +31,7 @@ namespace ClasesBase
         /// </summary>
         /// <param name="butId"></param>
         /// <param name="disponible"></param>
-        public static void bajaUsuario(int butId, bool disponible)
+        public static void bajaButaca(int butId, bool disponible)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -51,7 +51,7 @@ namespace ClasesBase
         /// Baja de butaca fisica con stored procedure
         /// </summary>
         /// <param name="butId"></param>
-        public static void bajaUsuarioFisica(int butId)
+        public static void bajaButacaFisica(int butId)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -82,6 +82,38 @@ namespace ClasesBase
             da.Fill(dt);
             return dt;
         }
+
+
+        /// Busca butaca por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static Butaca buscarButaca(string id)
+        {
+            Butaca butaca = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarButaca";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                butaca = new Butaca();
+                butaca.But_Id = (int)reader["ID"];
+                butaca.But_Disponible = (bool)reader["Disponible"];
+                butaca.But_Fila = (string)reader["Fila"];
+                butaca.But_Nro = (int)reader["Numero"];
+            }
+            cnn.Close();
+            return butaca;
+        }
+
 
 
         /// <summary>

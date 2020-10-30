@@ -25,6 +25,37 @@ namespace ClasesBase
             cnn.Close();
         }
 
+
+        /// Busca sala por id
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
+        public static Sala buscarSala(string numero)
+        {
+            Sala sala = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarSala";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@numero", numero);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                sala = new Sala();
+                sala.Sla_NroSala = (int)reader["Numero de Sala"];
+                sala.Sla_Disponible = (bool)reader["Disponible"];
+                sala.Sla_Descripcion = (string)reader["Descripcion"];
+            }
+            cnn.Close();
+            return sala;
+        }
+
+
         /// <summary>
         /// Baja de sala logica con stored procedure
         /// </summary>

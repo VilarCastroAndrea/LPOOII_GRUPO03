@@ -25,6 +25,38 @@ namespace ClasesBase
             cnn.Close();
         }
 
+
+        /// Busca rol por id
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <returns></returns>
+        public static Rol buscarButaca(string codigo)
+        {
+            Rol rol = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarRol";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                rol = new Rol();
+                rol.Rol_Codigo = (int)reader["Codigo"];
+                rol.Rol_Disponible = (bool)reader["Disponible"];
+                rol.Rol_Descripcion = (string)reader["Descripcion"];
+            }
+            cnn.Close();
+            return rol;
+        }
+
+
+
         /// <summary>
         /// Baja de rol logica con stored procedure
         /// </summary>

@@ -33,6 +33,41 @@ namespace ClasesBase
         }
 
         /// <summary>
+        /// Busca cliente por dni
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns></returns>
+        public static Cliente buscarClientePorDni(string dni)
+        {
+            Cliente cliente = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarClientePorDni";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@dni", dni);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                cliente = new Cliente();
+                cliente.Cli_Apellido = (string)reader["Apellido"];
+                cliente.Cli_DNI = (int)reader["DNI"];
+                cliente.Cli_Disponible = (bool)reader["Disponible"];
+                cliente.Cli_Email = (string)reader["Email"];
+                cliente.Cli_Nombre = (string)reader["Nombre"];
+                cliente.Cli_Telefono = (string)reader["Telefono"];
+            }
+            cnn.Close();
+            return cliente;
+
+
+        }
+
+        /// <summary>
         /// Trae una lista de clientes de la base de datos.
         /// </summary>
         /// <returns></returns>

@@ -27,6 +27,39 @@ namespace ClasesBase
             cnn.Close();
         }
 
+
+        /// Busca usuario por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static Usuario buscarUsuario(string id)
+        {
+            Usuario usuario = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarUsuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                usuario = new Usuario();
+                usuario.Rol_Codigo = (int)reader["Codigo"];
+                usuario.Usu_Disponible = (bool)reader["Disponible"];
+                usuario.Usu_ApellidoNombre = (string)reader["Apellido y Nombre"];
+                usuario.Usu_Id = (int)reader["ID"];
+                usuario.Usu_NombreUsuario = (string)reader["Nombre de Usuario"];
+                usuario.Usu_Password = (string)reader["Password"];
+            }
+            cnn.Close();
+            return usuario;
+        }
+
         /// <summary>
         /// Baja de usuario logica con stored procedure
         /// </summary>
