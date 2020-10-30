@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClasesBase;
 
 namespace Vistas.UserControl.ticket
 {
@@ -20,9 +21,16 @@ namespace Vistas.UserControl.ticket
     /// </summary>
     public partial class WPFImpresionTicket 
     {
-        public WPFImpresionTicket()
+        Ticket ticket1 = new Ticket();
+        public WPFImpresionTicket(Ticket ticket)
         {
             InitializeComponent();
+            ticket1 = ticket;
+            //lblFecha.ToString = ticket.Tick_FechaVenta;
+            //lblDNI = ticket.Cli_DNI;
+            
         }
+
+
     }
 }

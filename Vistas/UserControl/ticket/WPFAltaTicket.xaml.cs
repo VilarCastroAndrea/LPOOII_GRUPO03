@@ -21,6 +21,7 @@ namespace Vistas.UserControl.ticket
     /// </summary>
     public partial class WPFAltaTicket 
     {
+        Ticket ticket = new Ticket();
         public WPFAltaTicket()
         {
             InitializeComponent();
@@ -52,8 +53,15 @@ namespace Vistas.UserControl.ticket
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ticket.Proy_Codigo = int.Parse(cmbProyecciones.SelectedValue.ToString());
+            ticket.Cli_DNI = int.Parse(cmbClientes.SelectedValue.ToString());
+            ticket.But_Id = int.Parse(cmbButaca.SelectedValue.ToString());
+            ticket.Tick_FechaVenta = DateTime.Now;
+            ticket.Tick_Estado = true;
+            ticket.Usu_Id = 2;
+
             panelButacas.Children.Clear();
-            panelButacas.Children.Add(new WPFImpresionTicket());
+            panelButacas.Children.Add(new WPFImpresionTicket(ticket));
         }
     }
 }
