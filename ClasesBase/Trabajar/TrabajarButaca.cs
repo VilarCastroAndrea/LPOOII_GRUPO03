@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace ClasesBase
 {
-    class TrabajarButaca
+    public class TrabajarButaca
     {
         /// <summary>
         /// Alta butaca con stored procedure
@@ -109,7 +109,7 @@ namespace ClasesBase
                 butaca.But_Id = (int)reader["ID"];
                 butaca.But_Nro = (int)reader["Numero"];
                 butaca.But_Disponible = (bool)reader["Disponible"];
-                butaca.Sla_NroSala = (int)reader["Codigo Sala"];
+                butaca.Sla_NroSala = (int)reader["Numero de Sala"];
                 coleccionButacas.Add(butaca);
             }
             cnn.Close();

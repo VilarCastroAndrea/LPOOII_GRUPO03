@@ -25,6 +25,8 @@ namespace Vistas.UserControl.ticket
         {
             InitializeComponent();
             cargarComboClientes();
+            cargarComboButaca();
+            cargarComboProyecciones();
         }
 
         private void cargarComboClientes()
@@ -36,9 +38,22 @@ namespace Vistas.UserControl.ticket
 
         private void cargarComboProyecciones()
         {
-            cmbClientes.ItemsSource = TrabajarProyeccion.traerProyecciones();
-            cmbClientes.SelectedValuePath = "Pro_Codigo";
-            cmbClientes.DisplayMemberPath = "Peli_Codigo";
+            cmbProyecciones.ItemsSource = TrabajarProyeccion.traerProyecciones();
+            cmbProyecciones.SelectedValuePath = "Pro_Codigo";
+            cmbProyecciones.DisplayMemberPath = "Peli_Codigo";
+        }
+
+        private void cargarComboButaca()
+        {
+            cmbButaca.ItemsSource = TrabajarButaca.traerButacas();
+            cmbButaca.SelectedValuePath = "But_Id";
+            cmbButaca.DisplayMemberPath = "But_Id";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            panelButacas.Children.Clear();
+            panelButacas.Children.Add(new WPFImpresionTicket());
         }
     }
 }
