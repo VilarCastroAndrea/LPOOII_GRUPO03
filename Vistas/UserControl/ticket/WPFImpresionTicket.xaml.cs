@@ -22,14 +22,36 @@ namespace Vistas.UserControl.ticket
     public partial class WPFImpresionTicket 
     {
         Ticket ticket1 = new Ticket();
+        ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
+        ClasesBase.Proyeccion proyeccion = new ClasesBase.Proyeccion();
+        ClasesBase.Cliente cliente = new ClasesBase.Cliente();
+        ClasesBase.Butaca butaca = new ClasesBase.Butaca();
+
         public WPFImpresionTicket(Ticket ticket)
         {
             InitializeComponent();
             ticket1 = ticket;
-            //lblFecha.ToString = ticket.Tick_FechaVenta;
-            //lblDNI = ticket.Cli_DNI;
+            proyeccion = TrabajarProyeccion.buscarProyeccion(ticket.Proy_Codigo.ToString());
+            pelicula = TrabajarPelicula.buscarPelicula(proyeccion.Peli_Codigo.ToString());
+            cliente = TrabajarClientes.buscarClientePorDni(ticket.Cli_DNI.ToString());
+            butaca = TrabajarButaca.buscarButaca(ticket.But_Id.ToString());
+            asignarVlores();
+        }
+
+        public void asignarVlores()
+        {
+            txtNroTicket.Text = ticket1.Tick_Nro.ToString();
+            txtFechaTicket.Text = DateTime.Now.ToString();
+            txtnombrePelicula.Text = pelicula.Peli_Titulo;
+            txtFecha.Text = proyeccion.Proy_Fecha;
+            txtHora.Text = proyeccion.Proy_Hora;
+            txtButaca.Text = butaca.But_Fila + butaca.But_Nro;
+            txtApeliidoCliente.Text = cliente.Cli_Apellido;
+            txtNombreCliente.Text = cliente.Cli_Nombre;
+            txtDNICliente.Text = cliente.Cli_DNI.ToString();
             
         }
+
 
 
     }

@@ -40,8 +40,8 @@ namespace Vistas.UserControl.ticket
         private void cargarComboProyecciones()
         {
             cmbProyecciones.ItemsSource = TrabajarProyeccion.traerProyecciones();
-            cmbProyecciones.SelectedValuePath = "Pro_Codigo";
-            cmbProyecciones.DisplayMemberPath = "Peli_Codigo";
+            cmbProyecciones.SelectedValuePath = "Proy_Codigo";
+            cmbProyecciones.DisplayMemberPath = "Proy_Codigo";
         }
 
         private void cargarComboButaca()
@@ -62,6 +62,11 @@ namespace Vistas.UserControl.ticket
 
             panelButacas.Children.Clear();
             panelButacas.Children.Add(new WPFImpresionTicket(ticket));
+        }
+
+        private void GroupBox_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
