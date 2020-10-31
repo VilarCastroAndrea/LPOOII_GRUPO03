@@ -1,0 +1,49 @@
+﻿<Window x:Class="Vistas.WPFVistaPreviaImpresion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+        xmlns:local="clr-namespace:Vistas"
+        mc:Ignorable="d"
+        Title="WPFVistaPreviaImpresion" Height="450" Width="617.418">
+    <Window.Resources>
+        <CollectionViewSource
+            x:Key="VISTA_USER" 
+            Source="{StaticResource ResourceKey=DATA_USU}" 
+            Filter="eventVistaUsuario_Filter">
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription 
+                    PropertyName="Usu_NombreUsuario" 
+                    Direction="Ascending"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </Window.Resources>
+
+    <Grid>
+        <StackPanel>
+            <FlowDocumentReader Canvas.Left="12" Canvas.Top="28" Height="398">
+                <FlowDocument Name="DocMain">
+                    <Paragraph>Listado de Usuarios</Paragraph>
+                    <BlockUIContainer>
+                        <ListView ItemsSource="{Binding Source={StaticResource VISTA_USER}}">
+                            <ListView.View>
+                                <GridView>
+                                    <GridView.Columns>
+                                        <GridViewColumn Header="Codigo" DisplayMemberBinding="{Binding Path=Usu_ID}" Width="100"/>
+                                        <GridViewColumn Header="Apellido y Nombre" DisplayMemberBinding="{Binding Path=Usu_ApellidoNombre}" Width="200"/>
+                                        <GridViewColumn Header="Usuario" DisplayMemberBinding="{Binding Path=Usu_NombreUsuario}" Width="100"/>
+                                        <GridViewColumn Header="Contraseña" DisplayMemberBinding="{Binding Path=Usu_Password}" Width="100"/>
+                                        <GridViewColumn Header="Rol" DisplayMemberBinding="{Binding Path=Rol_Codigo}" Width="100"/>
+                                    </GridView.Columns>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </BlockUIContainer>
+                </FlowDocument>
+            </FlowDocumentReader>
+            <Button x:Name="btnImprimir" Content="Imprimir" Height="19" Margin="99,0,137,0" Click="BtnImprimir_Click"/>
+        </StackPanel>
+    </Grid>
+
+</Window>

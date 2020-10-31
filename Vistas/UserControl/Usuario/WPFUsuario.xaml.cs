@@ -44,5 +44,10 @@ namespace Vistas.UserControl.Usuario
             panelUsuario.Children.Clear();
             panelUsuario.Children.Add(new WPFListarUsuario());
         }
+
+        private void BtnImprimirLista_Click(object sender, RoutedEventArgs e)
+        {
+            WPFVistaPreviaImpresion vistaImpresion = new WPFVistaPreviaImpresion();
+        }
     }
 }
