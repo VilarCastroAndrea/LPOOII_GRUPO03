@@ -7,13 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
     <Grid Height="420" Width="200">
+        <!--Fondo de la ventana-->
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
                 <GradientStop Color="#FF021113"/>
             </LinearGradientBrush>
         </Grid.Background>
+        
         <GroupBox Header="Proyeccion" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>
+        
+        <!--ComboBox de Titulo de Pelicula-->
         <Label Content="Titulo Pelicula" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
         <ComboBox x:Name="txtTitulo" 
                   HorizontalAlignment="Left" 
@@ -25,11 +29,15 @@
                   BorderBrush="#FF04191B" 
                   Foreground="Black"
                   />
+        
+        <!--TextBox de Fecha de Proyeccion y sus propiedades-->
         <Label Content="Fecha Proyeccion" HorizontalAlignment="Left" Margin="35,98,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
         <TextBox x:Name="txtFecha" 
                  Margin="30,129,0,0" 
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PROY}">
+
+            <!--Enlace con Proy_Fecha-->
             <TextBox.Text>
                 <Binding Path="Proy_Fecha"
                          UpdateSourceTrigger="PropertyChanged" 
@@ -37,11 +45,14 @@
                          ValidatesOnDataErrors="True"/>
             </TextBox.Text>
         </TextBox>
+
+        <!--TextBox de Hora de Proyeccion y sus propiedades-->
         <Label Content="Hora Proyeccion" HorizontalAlignment="Left" Margin="35,157,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
         <TextBox x:Name="txtHora" 
                  Margin="30,188,0,0" 
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PROY}">
+            <!--Enlace con Proy_Hora-->
             <TextBox.Text>
                 <Binding Path="Proy_Hora"
                          UpdateSourceTrigger="PropertyChanged" 
@@ -49,10 +60,18 @@
                          ValidatesOnDataErrors="True"/>
             </TextBox.Text>
         </TextBox>
+        
+        <!--ComboBox de Sala-->
         <Label Content="Sala" HorizontalAlignment="Left" Margin="35,216,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
         <ComboBox x:Name="txtSala" HorizontalAlignment="Left" Height="23" Margin="30,247,0,0"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="Black"/>
+
+        <!--ComboBox de Cartelera-->
         <Label Content="Cartelera" HorizontalAlignment="Left" Margin="35,275,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
+
+        <!--Boton Modificar-->
         <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="29,350,0,0" Click="BtnModificar_Click"/>
+
+        <!--Boton Borrar-->
         <Button x:Name="btnBoja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="29,375,0,0" Click="BtnBoja_Click"/>
     </Grid>
 </UserControl>

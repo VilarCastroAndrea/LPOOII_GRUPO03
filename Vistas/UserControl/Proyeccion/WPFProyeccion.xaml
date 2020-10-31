@@ -7,20 +7,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="490" d:DesignWidth="760">
     <Grid Height="490" Width="760">
+        <!--Fondo de la ventana-->
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
                 <GradientStop Color="#FF042A30"/>
             </LinearGradientBrush>
         </Grid.Background>
+        <!--Panel de Proyeccion-->
         <Grid Name="panelProyeccion" Height="420" Width="200" Margin="20,40,540,30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
+
+        <!--Listar Proyecciones-->
         <DataGrid Name="dgvListaDeProyecciones" HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="Black" IsReadOnly="True"  SelectionChanged="DgvListaDeProyecciones_SelectionChanged"/>
+
+        <!--Boton Modificar Cliente-->
         <Button Name="btnModificarCliente" Style="{StaticResource BotonModificar}" Click="BtnModificarCliente_Click" />
+        
+        <!--Boton Alta Cliente-->
         <Button Name="btnAltaCliente" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaCliente_Click"/>
+
+        <!--GroupBox de Buscar Cliente-->
         <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>
     </Grid>
 </UserControl>

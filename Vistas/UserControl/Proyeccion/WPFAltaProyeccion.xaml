@@ -15,6 +15,8 @@
         </Grid.Background>
         <GroupBox Header="Proyeccion" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>
         <Label Content="Titulo Pelicula" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
+        
+        <!--ComboBox de Titulo de Pelicula-->
         <ComboBox x:Name="cmbTitulo" 
                   HorizontalAlignment="Left" 
                   Height="23" 
@@ -25,11 +27,13 @@
                   Foreground="Black"
                   >
         </ComboBox>
+        <!--Fecha de Proyeccion-->
             <Label Content="Fecha Proyeccion" HorizontalAlignment="Left" Margin="35,98,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
         <TextBox x:Name="txtFecha" 
                  Margin="30,129,0,0" 
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PROY}">
+            <!--Enlace con Proy_Fecha-->
             <TextBox.Text>
                 <Binding Path="Proy_Fecha"
                          UpdateSourceTrigger="PropertyChanged" 
@@ -37,11 +41,14 @@
                          ValidatesOnDataErrors="True"/>
             </TextBox.Text>
         </TextBox>
+        
+        <!--Hora de Proyeccion-->
         <Label Content="Hora Proyeccion" HorizontalAlignment="Left" Margin="35,157,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
         <TextBox x:Name="txtHora" 
                  Margin="30,188,0,0" 
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PROY}">
+            <!--Enlace con Proy_Hora-->
             <TextBox.Text>
                 <Binding Path="Proy_Hora"
                          UpdateSourceTrigger="PropertyChanged" 
@@ -49,9 +56,15 @@
                          ValidatesOnDataErrors="True"/>
             </TextBox.Text>
         </TextBox>
+        
+        <!--Sala-->
         <Label Content="Sala" HorizontalAlignment="Left" Margin="35,216,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
         <ComboBox x:Name="cmbSala" HorizontalAlignment="Left" Height="23" Margin="30,247,0,0"  VerticalAlignment="Top" Width="144" Background="#FF02090A" BorderBrush="#FF04191B" Foreground="Black"/>
+        
+        <!--Cartelera-->
         <Label Content="Cartelera" HorizontalAlignment="Left" Margin="35,275,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
+        
+        <!--Agregar-->
         <Button x:Name="btnAlta" Content="Agregar" Style="{StaticResource BotonCustom}"  Margin="29,360,0,0" Click="BtnAlta_Click"/>
     </Grid>
 </UserControl>

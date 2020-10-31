@@ -8,6 +8,7 @@
              xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              d:DesignHeight="420" d:DesignWidth="715" Loaded="UserControlUsuario_Loaded">
+    <!--Coleccion de Usuario-->
     <UserControl.Resources>
         <ObjectDataProvider
             x:Key="LIST_USER"
@@ -15,6 +16,8 @@
             MethodName="traerUsuarioDisponible">
         </ObjectDataProvider>
     </UserControl.Resources>
+    
+    <!--Fondo de ventana-->
     <Grid Loaded="Grid_Loaded">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -28,17 +31,24 @@
                     <ColumnDefinition Width="94*"/>
                     <ColumnDefinition Width="589*"/>
                 </Grid.ColumnDefinitions>
+                
                 <Canvas Name="canvasContent" DataContext="{Binding Source={StaticResource ResourceKey=LIST_USER}}" Grid.ColumnSpan="2" >
+                    
+                    <!--Labels-->
                     <Label Content="Id" HorizontalAlignment="Left" Margin="154,45,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Nombre Usuario" HorizontalAlignment="Left" Margin="154,85,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Password" HorizontalAlignment="Left" Margin="154,129,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Apellido y Nombre" HorizontalAlignment="Left" Margin="154,164,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Rol" HorizontalAlignment="Left" Margin="154,210,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Disponible" HorizontalAlignment="Left" Margin="154,250,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    
+                    <!--Textbox enlazados-->
                     <TextBox HorizontalAlignment="Left" Text="{Binding Usu_Id}" Name="txtId" Height="23" Margin="334,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                     <TextBox HorizontalAlignment="Left" Name="txtNombreUsuario" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="{Binding Usu_NombreUsuario}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                     <TextBox HorizontalAlignment="Left" Name="txtPassword" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="{Binding Usu_Password}"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                     <TextBox HorizontalAlignment="Left" Name="txtApellidoNombre" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="{Binding Usu_ApellidoNombre}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                    
+                    <!--Botones navegacion y edicion de usuarios-->
                     <Button HorizontalAlignment="Left" Name="btnModificar" Margin="154,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnModificar_Click">
                         <fa:ImageAwesome Icon="Edit" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
@@ -57,7 +67,11 @@
                     <Button HorizontalAlignment="Left" Name="btnUltimo" Margin="514,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnUltimo_Click">
                         <fa:ImageAwesome Icon="StepForward" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
+                    
+                    <!--CheckBox enlazado-->
                     <CheckBox Content="Si" Name="checkDisponible" IsChecked="{Binding Usu_Disponible}" HorizontalAlignment="Left" Margin="334,256,0,0" VerticalAlignment="Top" Foreground="White"/>
+                    
+                    <!--Combobox enlazado-->
                     <ComboBox Canvas.Left="334" Name="cmbRol" SelectedValue="{Binding Rol_Codigo}" Canvas.Top="214" Width="215" Foreground="Black" BorderBrush="#FF031417" Background="#FF031417"/>
                 </Canvas>
             </Grid>

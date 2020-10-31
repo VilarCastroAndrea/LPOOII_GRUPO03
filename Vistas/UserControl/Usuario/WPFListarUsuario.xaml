@@ -8,16 +8,19 @@
              xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="715">
+    <!--Coleccion de Usuarios-->
     <UserControl.Resources>
         <ObjectDataProvider
             x:Key="LIST_USER"
             ObjectType="{x:Type svc:TrabajarUsuario}"
             MethodName="traerUsuarioDisponible">
         </ObjectDataProvider>
+        <!--Filtrado-->
         <CollectionViewSource
             x:Key="VISTA_USER" 
             Source="{StaticResource ResourceKey=LIST_USER}" 
             Filter="eventVistaUsuario_Filter">
+            <!--Ordenar por Nombre de Usuario en forma ascendente-->
             <CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription 
                     PropertyName="Usu_NombreUsuario" 

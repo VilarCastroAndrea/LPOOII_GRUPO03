@@ -15,6 +15,7 @@
         </RadialGradientBrush>
     </Window.Background>
     <Grid>
+        <!--Imagen de fondo y sus propiedades-->
         <Image x:Name="imgLogin" Height="359" VerticalAlignment="Top" Source="img/login.png" Margin="29,8,37,-19" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -26,8 +27,10 @@
             </Image.RenderTransform>
         </Image>
 
+        <!--User Control Login-->
         <UC:UCLogin x:Name="login" HorizontalAlignment="left" />
 
+        <!--Label de Tiempo Actual-->
         <Label Content="{Binding Source={x:Static sys:DateTime.Now}}" HorizontalAlignment="Left" Height="29" Margin="45,267,0,0"  VerticalAlignment="Top" Width="138" RenderTransformOrigin="0.5,0.5" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="16">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -39,6 +42,7 @@
             </Label.RenderTransform>
         </Label>
 
+        <!--Boton Ingresar-->
         <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="255,299,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FF063037" BorderBrush="#FF063037" Foreground="White" Click="Button_Click">
             <Button.RenderTransform>
                 <TransformGroup>

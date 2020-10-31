@@ -7,13 +7,18 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--Fondo de la ventana-->
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
                 <GradientStop Color="#FF042A30"/>
             </LinearGradientBrush>
         </Grid.Background>
+
+        <!--Marca de la posicion de las butacas-->
         <Image HorizontalAlignment="Left" Height="357" Margin="125,10,0,0" VerticalAlignment="Top" Width="506" Source="../img/pro.png"/>
+        
+        <!--Referencias de las de butacas-->
         <Rectangle Fill="#FF031F24" HorizontalAlignment="Left" Height="16" Margin="10,40,0,0" Stroke="White" VerticalAlignment="Top" Width="36"/>
         <Rectangle Fill="#FF4CC91E" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="10,71,0,0"/>
         <Rectangle Fill="#FFF03030" HorizontalAlignment="Left" Height="16" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="10,101,0,0"/>
@@ -23,6 +28,8 @@
         <Grid Name="grid" HorizontalAlignment="Left" Height="224" Margin="125,129,0,0" VerticalAlignment="Top" Width="506">
 
         </Grid>
+        
+        <!--Boton Reservar-->
         <Button Content="Reservar" HorizontalAlignment="Left" Margin="556,387,0,0" VerticalAlignment="Top" Width="75" Click="BtnGuardar_Click" Background="#FF04292F" BorderBrush="#FF033740" Foreground="White"/>
     </Grid>
 </UserControl>
