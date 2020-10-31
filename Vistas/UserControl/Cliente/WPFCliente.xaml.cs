@@ -49,11 +49,11 @@ namespace Vistas
         private Cliente ConvertirDRVaCliente(DataRowView row)
         {
             Cliente c = new Cliente();
-            c.Cli_DNI = int.Parse(row["CLI_DNI"].ToString());
-            c.Cli_Apellido = row["CLI_Apellido"].ToString();
-            c.Cli_Nombre = row["CLI_Nombre"].ToString();
-            c.Cli_Telefono = row["CLI_Telefono"].ToString();
-            c.Cli_Email = row["CLI_Email"].ToString();
+            c.Cli_DNI = int.Parse(row["DNI"].ToString());
+            c.Cli_Apellido = row["Apellido"].ToString();
+            c.Cli_Nombre = row["Nombre"].ToString();
+            c.Cli_Telefono = row["Telefono"].ToString();
+            c.Cli_Email = row["Email"].ToString();
             return c;
         }
 
