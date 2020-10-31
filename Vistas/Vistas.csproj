@@ -67,7 +67,6 @@
     <Compile Include="UserControl\UCLogin.xaml.cs">
       <DependentUpon>UCLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="rsc\UsuarioLogin.cs" />
     <Compile Include="UserControl\Pelicula\WPFAltaPelicula.xaml.cs">
       <DependentUpon>WPFAltaPelicula.xaml</DependentUpon>
     </Compile>

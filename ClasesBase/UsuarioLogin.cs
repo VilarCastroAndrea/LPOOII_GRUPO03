@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Vistas.rsc
+namespace ClasesBase
 {
     public static class UsuarioLogin
     {
@@ -13,6 +13,5 @@ namespace Vistas.rsc
         public static string usu_Password { get; set; }
         public static string usu_ApellidoNombre { get; set; }
         public static int rol_Codigo { get; set; }
-        public static bool usu_Disponible { get; set; }
     }
 }

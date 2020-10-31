@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using Vistas.rsc;
+﻿using ClasesBase;
+using System.Windows;
 using Vistas.UserControl.Proyeccion;
 using Vistas.UserControl.Usuario;
 using Vistas.UserControl.ticket;
@@ -85,7 +85,6 @@ namespace Vistas
         {
             UsuarioLogin.rol_Codigo = -1;
             UsuarioLogin.usu_ApellidoNombre = null;
-            UsuarioLogin.usu_Disponible = false;
             UsuarioLogin.usu_Id = -1;
             UsuarioLogin.usu_NombreUsuario = null;
             UsuarioLogin.usu_Password = null;

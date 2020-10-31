@@ -66,6 +66,7 @@
     <Compile Include="Trabajar\TrabajarTicket.cs" />
     <Compile Include="Trabajar\TrabajarUsuario.cs" />
     <Compile Include="Dominio\Usuario.cs" />
+    <Compile Include="UsuarioLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
