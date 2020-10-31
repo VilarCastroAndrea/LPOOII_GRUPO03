@@ -50,8 +50,8 @@ namespace Vistas.UserControl.Usuario
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            WPFVistaPrevia vista = new WPFVistaPrevia();
-
+            WinVistaPrevia winVistaPrevia = new WinVistaPrevia(this.lstUsuario);
+            winVistaPrevia.Show();
         }
     }
 }

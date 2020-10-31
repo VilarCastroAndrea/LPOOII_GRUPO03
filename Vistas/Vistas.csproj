@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -73,6 +70,9 @@
     </Compile>
     <Compile Include="UserControl\Proyeccion\WPFProyeccion.xaml.cs">
       <DependentUpon>WPFProyeccion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Usuario\WinVistaPrevia.xaml.cs">
+      <DependentUpon>WinVistaPrevia.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Usuario\WPFAltaUsuario.xaml.cs">
       <DependentUpon>WPFAltaUsuario.xaml</DependentUpon>
@@ -174,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Proyeccion\WPFProyeccion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Usuario\WinVistaPrevia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
