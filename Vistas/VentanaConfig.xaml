@@ -1,0 +1,29 @@
+﻿<Window x:Class="Vistas.VentanaConfig"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+        xmlns:local="clr-namespace:Vistas"
+        mc:Ignorable="d"
+        Title="VentanaConfig" Height="450" Width="409.017">
+    <Grid>
+        <Label Content="Opciones de sonido"/>
+        <CheckBox x:Name="chkSonarInicio" Content="Sonido al iniciar aplicación." HorizontalAlignment="Left" Margin="46,42,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblCancion" Content="Sonido:" Margin="37,123,30,209"></Label>
+        <Button Margin="37,215,0,176" Content="Cargar Sonido" Name="btnLoad" HorizontalAlignment="Left" Width="101" Click="BtnLoad_Click"></Button>
+        <Button Margin="255,264,105,122" Name="btnPause" Click="BtnPause_Click" Background="Transparent">
+            <fa:ImageAwesome Icon="Pause" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"  />
+        </Button>
+        <Button Margin="332,265,30,122" Name="btnStop" Click="BtnStop_Click" Background="Transparent">
+            <fa:ImageAwesome Icon="Stop" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red"  />
+        </Button>
+        <Button Margin="169,265,192,122" Name="btnPlay" Click="BtnPlay_Click" Background="Transparent">
+            <fa:ImageAwesome Icon="Play" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Green"  />
+        </Button>
+        <MediaElement x:Name="media" HorizontalAlignment="Left" Height="35" Margin="18,265,0,0" VerticalAlignment="Top" Width="134"/>
+        <Button Margin="169,355,192,32" Name="btnGuardar" Background="Transparent" Click="BtnGuardar_Click">
+            <fa:ImageAwesome Icon="Save" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Blue"/>
+        </Button>
+    </Grid>
+</Window>

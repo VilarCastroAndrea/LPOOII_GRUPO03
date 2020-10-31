@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
+        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:UC="clr-namespace:Vistas.UserControl"
         Title="Login" Height="371" Width="415.5" >
@@ -52,6 +53,10 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>
+        </Button>
+        <MediaElement x:Name="mediaElement" HorizontalAlignment="Left" Height="52" Margin="10,0,0,0" VerticalAlignment="Top" Width="65" UnloadedBehavior="Stop"/>
+        <Button x:Name="btnConfiguracion" Margin="372,0,0,0" VerticalAlignment="Top" Height="27" Background="Transparent" Click="BtnConfiguracion_Click">
+            <fa:ImageAwesome Icon="Gear" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
         </Button>
 
     </Grid>
