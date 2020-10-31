@@ -7,6 +7,8 @@
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              mc:Ignorable="d" 
              d:DesignHeight="490" d:DesignWidth="760">
+
+    <!--Coleccion de Peliculas-->
     <UserControl.Resources>
         <ObjectDataProvider
             x:Key="listar_Peliculas"
@@ -15,6 +17,7 @@
             />
     </UserControl.Resources>
     <Grid Name="grdPrincipal" Height="490" Width="760">
+        <!--Fondo de la ventana-->
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
@@ -26,10 +29,13 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
+
+        <!--Listar Peliculas-->
         <Grid HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" RenderTransformOrigin="0.528,0.906">
             <ListView Name="listPeliculas" ItemsSource="{Binding Source={StaticResource listar_Peliculas}}" SelectionChanged="Peliculas_SelectionChanged" IsSynchronizedWithCurrentItem="True">
                 <ListView.View>
                     <GridView>
+                        <!--Enlace de Codigo, Titulo, Duracion, Genero y Clasificacion a las Columnas-->
                         <GridViewColumn Width="100" Header="Codigo" DisplayMemberBinding="{Binding Path=Codigo}"/>
                         <GridViewColumn Width="100" Header="Titulo" DisplayMemberBinding="{Binding Path=Titulo}"/>
                         <GridViewColumn Width="100" Header="Duracion" DisplayMemberBinding="{Binding Path=Duracion}"/>
@@ -39,8 +45,14 @@
                 </ListView.View>
             </ListView>
         </Grid>
+        
+        <!--Boton Modificar-->
         <Button Name="btnModificarPelicula" Style="{StaticResource BotonModificar}" Click="BtnModificarPelicula_Click" />
+
+        <!--Boton Alta Pelicula-->
         <Button Name="btnAltaPelicula" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaPelicula_Click" />
+
+        <!--GroupBox de Buscar-->
         <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>
         <!--
         <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="145" Foreground="White" Background="#FF040303" BorderBrush="#FF04191B" Click="BtnAltaPelicula_Click"/>

@@ -8,6 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
     <Grid Name="panelAltaCliente">
+        <!--Fondo del Panel-->
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
@@ -29,6 +30,7 @@
                  DataContext="{StaticResource DATA_CLIENT}"
                  >
             <TextBox.Text>
+                <!--Enlace con Cli_DNI-->
                 <Binding Path="Cli_DNI" 
                          UpdateSourceTrigger="PropertyChanged" 
                          ValidatesOnExceptions="True" 
@@ -44,6 +46,7 @@
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_CLIENT}">
             <TextBox.Text>
+                <!--Enlace con Cli_Nombre-->
                 <Binding Path="Cli_Nombre"
                          UpdateSourceTrigger="PropertyChanged" 
                          ValidatesOnExceptions="True" 
@@ -58,6 +61,7 @@
                  Style="{StaticResource TextBoxCustom}" 
                  DataContext="{StaticResource DATA_CLIENT}">
             <TextBox.Text>
+                <!--Enlace con Cli_Apellido-->
                 <Binding Path="Cli_Apellido" 
                          UpdateSourceTrigger="PropertyChanged" 
                          ValidatesOnExceptions="True" 
@@ -73,6 +77,7 @@
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_CLIENT}">
             <TextBox.Text>
+                <!--Enlace con Telefono-->
                 <Binding Path="Cli_Telefono" 
                          UpdateSourceTrigger="PropertyChanged" 
                          ValidatesOnDataErrors="True" 

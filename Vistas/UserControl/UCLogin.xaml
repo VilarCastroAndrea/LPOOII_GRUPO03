@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:Vistas.UserControl"
              mc:Ignorable="d" 
              d:DesignHeight="371" d:DesignWidth="415.15">
+    
     <Grid>
+        <!--Label Usuario y sus propiedades-->
         <Label x:Name="lblUsuario" Content="Usuario" HorizontalAlignment="Left" Margin="39,208,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="14" Background="#00000000" Foreground="White" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -17,6 +19,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <!--TextBox Usuario y sus propiedades-->
         <TextBox x:Name="txtbUsuario" HorizontalAlignment="Left" Height="20" Margin="47,231,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130" Background="#FF353630" BorderBrush="#FF2E2F29" Foreground="White" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
@@ -27,6 +30,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
+        <!--Label Contraseña y sus propiedades-->
         <Label x:Name="lblContraseña" Content="Contraseña" HorizontalAlignment="Left" Margin="202,200,0,0" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" FontSize="14" Background="#00000000" Foreground="White" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -37,6 +41,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <!--Password Box de Contraseña y sus propiedades-->
         <PasswordBox x:Name="txtbContraseña" HorizontalAlignment="Left"  Height="20" Margin="210,225,0,0"   VerticalAlignment="Top" Width="130" Background="#FF353630" BorderBrush="#FF2E2F29" Foreground="White" FontSize="16" RenderTransformOrigin="0.491,1.223">
             <PasswordBox.RenderTransform>
                 <TransformGroup>

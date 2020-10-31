@@ -7,21 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
     <Grid Name="panelMostrarPelicula">
+        <!--Fondo de la ventana-->
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
                 <GradientStop Color="#FF010A0C"/>
             </LinearGradientBrush>
         </Grid.Background>
+
+        <!--Cargar los ComboBox-->
         <Grid.Resources>
             <XmlDataProvider x:Key="clasif" Source="/DatosComboBox.xml" XPath="/datos"/>
         </Grid.Resources>
         
         <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold">
+
+            <!--TextBox de Titulo y sus propiedes-->
             <TextBox x:Name="txtTitulo" 
                      Margin="10,40,0,0" 
                      Style="{StaticResource TextBoxCustom}"
                      DataContext="{StaticResource DATA_PELI}">
+                
+                <!--Enlace con Peli_Titulo-->
                 <TextBox.Text>
                     <Binding Path="Peli_Titulo"
                              XPath="titulo/@name"
@@ -33,11 +40,15 @@
             </TextBox>
         </GroupBox>
         <Label Content="Titulo" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
+
+        <!--TextBox de Duracion y sus propiedades-->
         <Label Content="Duracion" HorizontalAlignment="Left" Margin="35,89,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
         <TextBox x:Name="txtDuracion" 
                  Margin="26,115,0,0" 
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PELI}">
+
+            <!--Enlace con Peli_Duracion-->
             <TextBox.Text>
                 <Binding Path="Peli_Duracion"
                          XPath="duracion/@name"
@@ -47,11 +58,19 @@
                          ValidatesOnDataErrors="True"/>
             </TextBox.Text>
         </TextBox>
+
+        <!--ComboBox de Genero-->
         <Label Content="Genero" HorizontalAlignment="Left" Margin="35,138,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
         <ComboBox Name="cmbGenero" ItemsSource="{Binding Source={StaticResource clasif},XPath=genero/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="26,164,0,0"  Background="#FF02090A"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True"></ComboBox>
+
+        <!--ComboBox de Clasificacion-->
         <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="35,183,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
         <ComboBox Name="cmbClasificacion" ItemsSource="{Binding Source={StaticResource clasif},XPath=tipo/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="21" Margin="26,209,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True"></ComboBox>
+
+        <!--Boton Modificar-->
         <Button x:Name="btnModificarPelicula" Content="Modificar" HorizontalAlignment="Left" Margin="26,350,0,0" VerticalAlignment="Top" Width="145"  Style="{StaticResource btnPeliculaEstilo}" Click="BtnModificarPelicula_Click"/>
+
+        <!--Boton Borrar-->
         <Button x:Name="btnBajaPelicula" Content="Borrar" HorizontalAlignment="Left" Margin="26,375,0,0" VerticalAlignment="Top" Width="145"  Style="{StaticResource btnPeliculaEstilo}" Click="BtnBajaPelicula_Click"/>
 
     </Grid>
