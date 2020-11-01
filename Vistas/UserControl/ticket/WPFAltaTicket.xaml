@@ -20,10 +20,10 @@
                 <ComboBox x:Name="cmbClientes" HorizontalAlignment="Left" Margin="139,55,0,0" VerticalAlignment="Top" Width="140" Height="19"/>
                 <Label Content="Proyecciones" HorizontalAlignment="Left" Margin="40,98,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <ComboBox x:Name="cmbProyecciones" HorizontalAlignment="Left" Margin="139,105,0,0" VerticalAlignment="Top" Width="140" Height="19"/>
-                <Grid Name="panelButacas" Height="358" Margin="409,10,10,0" VerticalAlignment="Top"/>
+                <Grid Name="panelButacas" Height="358" Margin="364,10,55,0" VerticalAlignment="Top"/>
                 <Label Content="Butaca" HorizontalAlignment="Left" Margin="40,148,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <ComboBox x:Name="cmbButaca" HorizontalAlignment="Left" Margin="139,155,0,0" VerticalAlignment="Top" Width="140" Height="19"/>
-                <Button Content="Ticket" HorizontalAlignment="Left" Margin="204,319,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+                <Button Content="Ticket"  Style="{StaticResource BotonCustom}"  HorizontalAlignment="Left" Margin="139,224,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click"/>
             </Grid>
         </GroupBox>
     </Grid>

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace ClasesBase
 {
-    class TrabajarSala
+    public class TrabajarSala
     {
 
         /// <summary>

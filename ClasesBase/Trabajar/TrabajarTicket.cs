@@ -5,7 +5,7 @@ using System;
 
 namespace ClasesBase
 {
-    class TrabajarTicket
+    public class TrabajarTicket
     {
         /// <summary>
         /// Alta Ticket con stored procedure

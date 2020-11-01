@@ -26,6 +26,7 @@ namespace Vistas.UserControl.ticket
         ClasesBase.Proyeccion proyeccion = new ClasesBase.Proyeccion();
         ClasesBase.Cliente cliente = new ClasesBase.Cliente();
         ClasesBase.Butaca butaca = new ClasesBase.Butaca();
+        ClasesBase.Sala sala = new ClasesBase.Sala();
 
         public WPFImpresionTicket(Ticket ticket)
         {
@@ -35,11 +36,14 @@ namespace Vistas.UserControl.ticket
             pelicula = TrabajarPelicula.buscarPelicula(proyeccion.Peli_Codigo.ToString());
             cliente = TrabajarClientes.buscarClientePorDni(ticket.Cli_DNI.ToString());
             butaca = TrabajarButaca.buscarButaca(ticket.But_Id.ToString());
+            sala = TrabajarSala.buscarSala(proyeccion.Sla_NroSala.ToString());
             asignarVlores();
+
         }
 
         public void asignarVlores()
         {
+            TrabajarTicket.altaTicket(ticket1);
             txtNroTicket.Text = ticket1.Tick_Nro.ToString();
             txtFechaTicket.Text = DateTime.Now.ToString();
             txtnombrePelicula.Text = pelicula.Peli_Titulo;
@@ -49,6 +53,7 @@ namespace Vistas.UserControl.ticket
             txtApeliidoCliente.Text = cliente.Cli_Apellido;
             txtNombreCliente.Text = cliente.Cli_Nombre;
             txtDNICliente.Text = cliente.Cli_DNI.ToString();
+            txtSala.Text = sala.Sla_Descripcion;
             
         }
 
