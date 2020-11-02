@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.Configuration;
 using System.Collections.Specialized;
+using System.Windows.Media.Animation;
 
 namespace Vistas
 {
@@ -27,7 +28,6 @@ namespace Vistas
         public VentanaConfig()
         {
             InitializeComponent();
-            Console.WriteLine("TRUUUUEEEEE "+true.ToString());
             CargarConfiguracion();
         }
 
@@ -36,11 +36,11 @@ namespace Vistas
         /// </summary>
         private void CargarConfiguracion()
         {
-            string chkValor = ConfigurationManager.AppSettings.Get("reproducirSonidos");
-            string urlSonido = ConfigurationManager.AppSettings.Get("URLSonidoInicial");
+            //Se prepara la url
+            string urlSonido = Properties.UserConfig.Default.urlSonido;
 
             //Carga el checkbox
-            chkSonarInicio.IsChecked = chkValor.Equals(true.ToString());
+            chkSonarInicio.IsChecked = Properties.UserConfig.Default.iniciarSonido;
 
             //Carga la url del la cancion.
             Uri uriAux;
@@ -71,7 +71,8 @@ namespace Vistas
                 string pathMp3 = fileMp3.FileName;
 
                 //Guardar en app.config
-                ConfigurationManager.AppSettings.Set("URLSonidoInicial", pathMp3);
+                //ConfigurationManager.AppSettings.Set("URLSonidoInicial", pathMp3);
+                Properties.UserConfig.Default.urlSonido = pathMp3;
 
                 //Carga el MediaElement
                 CargarMedia(pathMp3);
@@ -126,8 +127,25 @@ namespace Vistas
         /// <param name="e"></param>
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            string chkValor = chkSonarInicio.IsChecked.Value.ToString();
-            ConfigurationManager.AppSettings.Set("reproducirSonidos", chkValor);
+            Properties.UserConfig.Default.iniciarSonido = chkSonarInicio.IsChecked.Value;
+            Properties.UserConfig.Default.Save();
+            //Label lbl = lblMsjGuardado;
+            
+            ActivarAnimacionMsjGuardado();
+        }
+
+        /// <summary>
+        /// Animacion del label de mensaje guardado.
+        /// </summary>
+        private async void ActivarAnimacionMsjGuardado()
+        {
+            Label lbl = lblMsjGuardado;
+            lbl.Visibility = Visibility.Visible;
+            //DoubleAnimation animation = new DoubleAnimation(0, TimeSpan.FromSeconds(2));
+            //lbl.BeginAnimation(Label.OpacityProperty, animation);
+            await Task.Delay(2000);
+            lbl.Visibility = Visibility.Hidden;
+            //lbl.Opacity = 1;
         }
     }
 }

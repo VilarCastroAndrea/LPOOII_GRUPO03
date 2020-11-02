@@ -8,22 +8,103 @@
         mc:Ignorable="d"
         Title="VentanaConfig" Height="450" Width="409.017">
     <Grid>
-        <Label Content="Opciones de sonido"/>
-        <CheckBox x:Name="chkSonarInicio" Content="Sonido al iniciar aplicación." HorizontalAlignment="Left" Margin="46,42,0,0" VerticalAlignment="Top"/>
-        <Label Name="lblCancion" Content="Sonido:" Margin="37,123,30,209"></Label>
-        <Button Margin="37,215,0,176" Content="Cargar Sonido" Name="btnLoad" HorizontalAlignment="Left" Width="101" Click="BtnLoad_Click"></Button>
-        <Button Margin="255,264,105,122" Name="btnPause" Click="BtnPause_Click" Background="Transparent">
-            <fa:ImageAwesome Icon="Pause" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"  />
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF021113"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <GroupBox Header="Configuración" HorizontalAlignment="Left" Margin="10,10,0,0"
+                  Height="400"  Width="381" 
+                  Foreground="White"  VerticalAlignment="Top" FontWeight="Bold"/>
+        
+        <!-- CHECKBOX -->
+        <CheckBox x:Name="chkSonarInicio" 
+                  Content="Sonido al iniciar aplicación." 
+                  HorizontalAlignment="Left" 
+                  Margin="37,70,0,0" 
+                  VerticalAlignment="Top"
+                  Background="White"
+                  Foreground="White"/>
+
+        <!-- URL -->
+        <Label Name="lblCancion" 
+               Content="URL:" 
+               Margin="37,123,30,209"
+               Style="{StaticResource LabelCustom}"/>
+        
+        <!-- BOTON PARA CARGAR UN MP3-->
+        <Button Margin="37,215,0,176" 
+                Content="Cargar Sonido" 
+                Name="btnLoad" 
+                HorizontalAlignment="Left" 
+                Width="101" 
+                Click="BtnLoad_Click"
+                Style="{StaticResource BotonCustom}">
+            
         </Button>
-        <Button Margin="332,265,30,122" Name="btnStop" Click="BtnStop_Click" Background="Transparent">
-            <fa:ImageAwesome Icon="Stop" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red"  />
+        
+        <!-- BOTON PAUSE -->
+        <Button Margin="255,264,105,122" 
+                Name="btnPause" 
+                Click="BtnPause_Click" 
+                Background="Transparent">
+            <fa:ImageAwesome 
+                Icon="Pause" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center" 
+                Foreground="White"/>
         </Button>
-        <Button Margin="169,265,192,122" Name="btnPlay" Click="BtnPlay_Click" Background="Transparent">
-            <fa:ImageAwesome Icon="Play" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Green"  />
+        
+        <!-- BOTON STOP -->
+        <Button Margin="325,265,37,122" 
+                Name="btnStop" 
+                Click="BtnStop_Click" 
+                Background="Transparent">
+            <fa:ImageAwesome 
+                Icon="Stop" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center" 
+                Foreground="Red"/>
         </Button>
-        <MediaElement x:Name="media" HorizontalAlignment="Left" Height="35" Margin="18,265,0,0" VerticalAlignment="Top" Width="134"/>
-        <Button Margin="169,355,192,32" Name="btnGuardar" Background="Transparent" Click="BtnGuardar_Click">
-            <fa:ImageAwesome Icon="Save" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Blue"/>
+        
+        <!-- BOTON PLAY -->
+        <Button Margin="190,265,171,122" 
+                Name="btnPlay" 
+                Click="BtnPlay_Click" 
+                Background="Transparent">
+            <fa:ImageAwesome 
+                Icon="Play"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Foreground="Green"  />
         </Button>
+        
+        <!-- MEDIA ELEMENT -->
+        <MediaElement x:Name="media" 
+                      HorizontalAlignment="Left" 
+                      Height="35" Margin="18,265,0,0" 
+                      VerticalAlignment="Top" 
+                      Width="134"/>
+        
+        <!-- BOTON GUARDAR -->
+        <Button Margin="169,355,192,32" 
+                Name="btnGuardar" 
+                Background="Transparent" 
+                Click="BtnGuardar_Click">
+            <fa:ImageAwesome 
+                Icon="Save" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center" 
+                Foreground="White"/>
+        </Button>
+        
+        <!-- MENSAJE DE GUARDADO -->
+        <Label Name="lblMsjGuardado"
+               Content="Se guardó la configuración."
+               Foreground="GreenYellow" 
+               Margin="113,318,128,64"
+               Visibility="Hidden"/>
     </Grid>
 </Window>
