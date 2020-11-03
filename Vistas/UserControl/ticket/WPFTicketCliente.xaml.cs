@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace Vistas.UserControl.ticket
 {
     /// <summary>
-    /// Lógica de interacción para WPFTicket.xaml
+    /// Lógica de interacción para WPFTicketCliente.xaml
     /// </summary>
-    public partial class WPFTicket 
+    public partial class WPFTicketCliente : UserControl
     {
-        public WPFTicket()
+        public WPFTicketCliente()
         {
             InitializeComponent();
-            panelTicket.Children.Clear();
-            panelTicket.Children.Add(new WPFTicketProyeccion());
         }
     }
 }

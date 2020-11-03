@@ -147,6 +147,34 @@ namespace ClasesBase
             return proyeccion;
         }
 
+        public static Proyeccion buscarProyeccionPelicula(string codigo)
+        {
+            Proyeccion proyeccion = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarProyeccionPelicula";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@codigo", codigo);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                proyeccion = new Proyeccion();
+                proyeccion.Proy_Codigo = (int)reader["Codigo"];
+                proyeccion.Proy_Disponible = (bool)reader["Disponible"];
+                proyeccion.Proy_Fecha = (string)reader["Fecha"];
+                proyeccion.Proy_Hora = (string)reader["Hora"];
+                proyeccion.Sla_NroSala = (int)reader["Numero de Sala"];
+                proyeccion.Peli_Codigo = (int)reader["Codigo de Pelicula"];
+            }
+            cnn.Close();
+            return proyeccion;
+        }
+
 
 
         /// <summary>

@@ -18,5 +18,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
+        <Button Content="Proyeccion" Style="{StaticResource BotonModificar}" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Cliente" Style="{StaticResource BotonAlta}" HorizontalAlignment="Left" Margin="95,20,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Butaca" Style="{StaticResource BotonModificar}" HorizontalAlignment="Left" Margin="170,20,0,0" VerticalAlignment="Top" Width="75" Background="#FF03181D" BorderBrush="#FF03181D"/>
     </Grid>
 </UserControl>
