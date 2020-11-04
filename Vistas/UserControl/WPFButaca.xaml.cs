@@ -69,7 +69,7 @@ namespace Vistas
                 char c = (char)(abc + i);
                 for (int j = 0; j < columnas; j++)
                 {
-                    //TODO acientos libres/ocupados
+                    //TODO metodo que determine acientos libres/ocupados
                     seleccionAsientos[i, j] = 0;
                     //creacion de botones dinamicos dentro del bucle for
                     Button butaca = new Button();
