@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace ClasesBase
 {
@@ -112,6 +113,43 @@ namespace ClasesBase
             }
             cnn.Close();
             return butaca;
+        }
+
+
+        /// <summary>
+        /// Lista todas las butacas y luego las filtra por sala
+        /// </summary>
+        /// <returns></returns>
+        public static List<Butaca> obtenerButacasPorSala(int numeroSala)
+        {
+            List<Butaca> coleccionButacas = new List<Butaca>();
+            Butaca butaca = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarButacas";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                if (numeroSala == (int)reader["Numero de Sala"])
+                {
+                    butaca = new Butaca();
+                    butaca.But_Fila = (string)reader["Fila"];
+                    butaca.But_Id = (int)reader["ID"];
+                    butaca.But_Nro = (int)reader["Numero"];
+                    butaca.But_Disponible = (bool)reader["Disponible"];
+                    butaca.Sla_NroSala = (int)reader["Numero de Sala"];
+                    coleccionButacas.Add(butaca);
+                }
+
+            }
+            cnn.Close();
+            return coleccionButacas;
         }
 
 

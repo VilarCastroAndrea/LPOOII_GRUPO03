@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using ClasesBase;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -12,21 +14,38 @@ namespace Vistas
         Style appButtonStyle = (Style)Application.Current.Resources["ButtonButaca"];
 
         //Matriz utilizada como bd ficticia
-        private int[,] baseDeDatosFicticia;
+        private int[,] seleccionAsientos;
+        private List<Butaca> listaDeButacas = new List<Butaca>();
 
         public WPFButaca()
         {
             InitializeComponent();
-            butacas();
+            generarButacas();
         }
 
-        private void butacas()
+        private void generarButacas()
         {
+            //Determina la cantidad de filas y columnas que posee la sala
+            int columnas = 0;
+            int filas = 0;
+            listaDeButacas = TrabajarButaca.obtenerButacasPorSala(1);
+            foreach(Butaca butaca in listaDeButacas)
+            {
+                if (butaca.But_Fila.Contains("a"))
+                {
+                    filas = filas + 1;
+                }
+                if (butaca.But_Nro > columnas)
+                {
+                    columnas = butaca.But_Nro;
+                }
+            }
 
-            int columnas = 15;
-            int filas = 6;
-            //inicializacion de la base de datos
-            baseDeDatosFicticia = new int[filas, columnas];
+
+
+            //inicializacion de 
+            seleccionAsientos = new int[filas, columnas];
+
             //codigo ascci de letra A
             int abc = 65;
 
@@ -50,8 +69,8 @@ namespace Vistas
                 char c = (char)(abc + i);
                 for (int j = 0; j < columnas; j++)
                 {
-                    //inicializa los acientos como disponibles (0)
-                    baseDeDatosFicticia[i, j] = 0;
+                    //TODO acientos libres/ocupados
+                    seleccionAsientos[i, j] = 0;
                     //creacion de botones dinamicos dentro del bucle for
                     Button butaca = new Button();
                     butaca.Content = c + "," + (j + 1);
@@ -82,13 +101,13 @@ namespace Vistas
                 //Debido a que la informacion (fila y columna) se encuentra en el boton, tomo dicho 
                 //boton y lo utilizo para consultar en la matriz su disponiibilidad 
                 //(0 Disponible, 1 Seleccionado y 2 Ocupado) y le pone un color en funcion de la misma
-                if (baseDeDatosFicticia[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 0)
+                if (seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 0)
                 {
                     ((Button)item).Background = null;
                 }
                 else
                 {
-                    if (baseDeDatosFicticia[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
+                    if (seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
                     {
                         ((Button)item).Background = Brushes.Green;
                     }
@@ -136,17 +155,17 @@ namespace Vistas
         /// <param name="e"></param>
         private void Butaca_Click(object sender, RoutedEventArgs e)
         {
-            if (baseDeDatosFicticia[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 2)
+            if (seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 2)
                 MessageBox.Show("Asiento Ocupado");
             else
             {
-                if (baseDeDatosFicticia[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 1)
+                if (seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 1)
                 {
-                    baseDeDatosFicticia[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 0;
+                    seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 0;
                 }
                 else
                 {
-                    baseDeDatosFicticia[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 1;
+                    seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 1;
                 }
             }
             validarAsientos();
@@ -163,9 +182,9 @@ namespace Vistas
             foreach (var item in grid.Children)
             {
 
-                if (baseDeDatosFicticia[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
+                if (seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
                 {
-                    baseDeDatosFicticia[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
+                    seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
                 }
 
 
