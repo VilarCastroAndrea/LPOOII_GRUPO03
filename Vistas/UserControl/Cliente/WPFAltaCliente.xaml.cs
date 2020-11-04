@@ -45,8 +45,8 @@ namespace Vistas
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnAlta_Click(object sender, System.Windows.RoutedEventArgs e)
-        {  
-            
+        {
+
             if (validarCampos())
             {
                 MessageBoxResult resultado = MessageBox.Show("Los siguientes datos son correctos? " + txtDni.Text + ", " + txtNombre.Text + ", " +
@@ -57,15 +57,15 @@ namespace Vistas
                     cliente.Cli_Disponible = true;
                     TrabajarClientes.Insert_Cliente(cliente);
                     MessageBox.Show("Cliente Guardado con exito");
-                    oPadre.ActualizarDataGrid();
                 }
+                oPadre.ActualizarDataGrid();
                 limpiarCampos();
             }
             else
             {
                 MessageBoxResult resultado = MessageBox.Show("Formulario incompleto ", "Atención");
             }
-            
+
         }
 
         /// <summary>
