@@ -14,10 +14,6 @@ namespace Vistas
         /// </summary>
         private WPFCliente oPadre;
 
-        public WPFAltaCliente()
-        {
-            InitializeComponent();
-        }
 
         public WPFAltaCliente(WPFCliente padre)
         {

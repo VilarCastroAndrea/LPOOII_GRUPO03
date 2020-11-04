@@ -15,7 +15,7 @@ namespace Vistas
         {
             InitializeComponent();
             panelCliente.Children.Clear();
-            panelCliente.Children.Add(new WPFAltaCliente());
+            panelCliente.Children.Add(new WPFAltaCliente(this));
             ventana = main;
         }
 
