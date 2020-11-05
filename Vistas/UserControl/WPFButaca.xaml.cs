@@ -247,7 +247,7 @@ namespace Vistas
         /// <returns></returns>
         public char devolverLetra(int num)
         {
-            char letra = ' '; ;
+            char letra = ' ';
             if (num >= 0 && num <= 26)
             {
                 num = num - 1;
