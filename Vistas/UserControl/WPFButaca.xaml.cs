@@ -13,14 +13,16 @@ namespace Vistas
     {
         Style appButtonStyle = (Style)Application.Current.Resources["ButtonButaca"];
 
-        //Matriz utilizada como bd ficticia
         private int[,] seleccionAsientos;
         private List<Butaca> listaDeButacas = new List<Butaca>();
+        private int numeroDeSala;
 
-        public WPFButaca()
+        public WPFButaca(int numeroSala)
         {
             InitializeComponent();
             generarButacas();
+            numeroDeSala = numeroSala;
+
         }
 
         private void generarButacas()
@@ -31,13 +33,10 @@ namespace Vistas
             listaDeButacas = TrabajarButaca.obtenerButacasPorSala(1);
             foreach(Butaca butaca in listaDeButacas)
             {
-                if (butaca.But_Fila.Contains("a"))
-                {
-                    filas = filas + 1;
-                }
-                if (butaca.But_Nro > columnas)
+                if (butaca.But_Nro == 1)
                 {
                     columnas = butaca.But_Nro;
+                    filas = filas + 1;
                 }
             }
 
@@ -63,14 +62,20 @@ namespace Vistas
                 grid.RowDefinitions.Add(gridRow);
             }
 
+
+
+            //TODO metodo que cargue acientos libres/ocupados
+            //seleccionAsientos[i, j] = 0;
+            inicializarSeleccionAsientos(seleccionAsientos, filas, columnas);
+            //CAMBIAR PROYECCION!!!
+            cargarAsientos(seleccionAsientos, new Proyeccion());
+
             //agrega  los botones a la fila y columna correspondiente
             for (int i = 0; i < filas; i++)
             {
                 char c = (char)(abc + i);
                 for (int j = 0; j < columnas; j++)
                 {
-                    //TODO metodo que determine acientos libres/ocupados
-                    seleccionAsientos[i, j] = 0;
                     //creacion de botones dinamicos dentro del bucle for
                     Button butaca = new Button();
                     butaca.Content = c + "," + (j + 1);
@@ -84,6 +89,37 @@ namespace Vistas
                     grid.Children.Add(butaca);
                 }
                 validarAsientos();
+            }
+
+        }
+
+        private void inicializarSeleccionAsientos(int[,] seleccionAsientos, int filas, int columnas)
+        {
+            for (int i = 0; i < filas; i++)
+            {
+                for (int j = 0; j < columnas; j++)
+                {
+                    seleccionAsientos[i, j] = 0;
+                }
+            }
+        }
+
+        private void cargarAsientos(int[,] seleccionAsientos,Proyeccion proyeccion)
+        {
+            List<Ticket> listaDeTicketsVendidos = new List<Ticket>();
+            int fila = 0;
+            int columna = 1;
+            //listaDeTicketsVendidos = trabajarTicket.obtenerTicketDeProyeccion(idProyeccion)
+            foreach (Butaca butaca in listaDeButacas)
+            {   
+                foreach (Ticket ticket in listaDeTicketsVendidos)
+                {
+                    if (butaca.But_Id == ticket.But_Id && seleccionAsientos[fila, columna]!=2)
+                    {
+                        seleccionAsientos[fila, columna] = 2;
+
+                    }
+                }
             }
 
         }
@@ -186,9 +222,9 @@ namespace Vistas
                 {
                     seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
                 }
-
-
             }
+
+
             validarAsientos();
         }
 

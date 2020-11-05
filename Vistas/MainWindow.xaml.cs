@@ -60,7 +60,7 @@ namespace Vistas
         private void BtnButaca_Click(object sender, RoutedEventArgs e)
         {
             panelPrincipal.Children.Clear();
-            panelPrincipal.Children.Add(new WPFButaca());
+            panelPrincipal.Children.Add(new WPFButaca(1));
         }
 
 
