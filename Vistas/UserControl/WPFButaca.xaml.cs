@@ -35,7 +35,7 @@ namespace Vistas
             //TODO OBTENER BUTACA POR SALA DE PROYECCION:SALA
             //listaDeButacas = TrabajarButaca.obtenerButacasPorSala(proyeccionSeleccionada.Sla_NroSala);
             listaDeButacas = TrabajarButaca.obtenerButacasPorSala(1);
-            foreach(Butaca butaca in listaDeButacas)
+            foreach (Butaca butaca in listaDeButacas)
             {
                 if (butaca.But_Nro == 1)
                 {
@@ -121,14 +121,14 @@ namespace Vistas
             foreach (Butaca butaca in listaDeButacas)
             {
                 columna++;
-                if (columna>columnasMax)
+                if (columna > columnasMax)
                 {
                     columna = 0;
                     fila++;
                 }
                 foreach (Ticket ticket in listaDeTicketsVendidos)
                 {
-                    if (butaca.But_Id == ticket.But_Id && seleccionAsientos[fila, columna]!=2)
+                    if (butaca.But_Id == ticket.But_Id && seleccionAsientos[fila, columna] != 2)
                     {
                         seleccionAsientos[fila, columna] = 2;
 
@@ -237,11 +237,29 @@ namespace Vistas
                     seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
                 }
             }
-
-
             validarAsientos();
         }
 
+        /// <summary>
+        /// Devuelve una letra segun el numero que recibe por parametro
+        /// </summary>
+        /// <param name="numero">numero</param>
+        /// <returns></returns>
+        public char devolverLetra(int num)
+        {
+            char letra = ' '; ;
+            if (num >= 0 && num <= 26)
+            {
+                num = num - 1;
+                letra = (char)(num + 65);
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar un numero entre 1 y 26");
+            }
+            return letra;
+
+        }
 
     }
 }
