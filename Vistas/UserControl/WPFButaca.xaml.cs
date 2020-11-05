@@ -15,48 +15,57 @@ namespace Vistas
 
         private int[,] seleccionAsientos;
         private List<Butaca> listaDeButacas = new List<Butaca>();
-        private int numeroDeSala;
+        private Proyeccion proyeccionSeleccionada;
+        private int filasMax;
+        private int columnasMax;
 
-        public WPFButaca(int numeroSala)
+        public WPFButaca(Proyeccion proyeccion)
         {
             InitializeComponent();
             generarButacas();
-            numeroDeSala = numeroSala;
+            proyeccionSeleccionada = proyeccion;
 
         }
 
         private void generarButacas()
         {
             //Determina la cantidad de filas y columnas que posee la sala
-            int columnas = 0;
-            int filas = 0;
+            columnasMax = 0;
+            filasMax = 0;
+            //TODO OBTENER BUTACA POR SALA DE PROYECCION:SALA
+            //listaDeButacas = TrabajarButaca.obtenerButacasPorSala(proyeccionSeleccionada.Sla_NroSala);
             listaDeButacas = TrabajarButaca.obtenerButacasPorSala(1);
             foreach(Butaca butaca in listaDeButacas)
             {
                 if (butaca.But_Nro == 1)
                 {
-                    columnas = butaca.But_Nro;
-                    filas = filas + 1;
+                    filasMax = filasMax + 1;
                 }
+                if (butaca.But_Nro > columnasMax)
+                {
+                    columnasMax = butaca.But_Nro;
+                }
+
+
             }
 
 
 
             //inicializacion de 
-            seleccionAsientos = new int[filas, columnas];
+            seleccionAsientos = new int[filasMax, columnasMax];
 
             //codigo ascci de letra A
             int abc = 65;
 
             //crea las columnas en el grid
-            for (int i = 0; i < columnas; i++)
+            for (int i = 0; i < columnasMax; i++)
             {
                 ColumnDefinition gridCol = new ColumnDefinition();
                 grid.ColumnDefinitions.Add(gridCol);
             }
 
             //crea las filas en el grid
-            for (int i = 0; i < filas; i++)
+            for (int i = 0; i < filasMax; i++)
             {
                 RowDefinition gridRow = new RowDefinition();
                 grid.RowDefinitions.Add(gridRow);
@@ -64,17 +73,15 @@ namespace Vistas
 
 
 
-            //TODO metodo que cargue acientos libres/ocupados
-            //seleccionAsientos[i, j] = 0;
-            inicializarSeleccionAsientos(seleccionAsientos, filas, columnas);
-            //CAMBIAR PROYECCION!!!
-            cargarAsientos(seleccionAsientos, new Proyeccion());
+
+            inicializarSeleccionAsientos(seleccionAsientos, filasMax, columnasMax);
+            cargarAsientos(seleccionAsientos);
 
             //agrega  los botones a la fila y columna correspondiente
-            for (int i = 0; i < filas; i++)
+            for (int i = 0; i < filasMax; i++)
             {
                 char c = (char)(abc + i);
-                for (int j = 0; j < columnas; j++)
+                for (int j = 0; j < columnasMax; j++)
                 {
                     //creacion de botones dinamicos dentro del bucle for
                     Button butaca = new Button();
@@ -104,14 +111,21 @@ namespace Vistas
             }
         }
 
-        private void cargarAsientos(int[,] seleccionAsientos,Proyeccion proyeccion)
+        private void cargarAsientos(int[,] seleccionAsientos)
         {
             List<Ticket> listaDeTicketsVendidos = new List<Ticket>();
             int fila = 0;
-            int columna = 1;
-            //listaDeTicketsVendidos = trabajarTicket.obtenerTicketDeProyeccion(idProyeccion)
+            int columna = -1;
+            //listaDeTicketsVendidos = TrabajarTicket.traerTicketPorProyeccion(proyeccionSeleccionada.Proy_Codigo);
+            listaDeTicketsVendidos = TrabajarTicket.traerTicketPorProyeccion(1);
             foreach (Butaca butaca in listaDeButacas)
-            {   
+            {
+                columna++;
+                if (columna>columnasMax)
+                {
+                    columna = 0;
+                    fila++;
+                }
                 foreach (Ticket ticket in listaDeTicketsVendidos)
                 {
                     if (butaca.But_Id == ticket.But_Id && seleccionAsientos[fila, columna]!=2)

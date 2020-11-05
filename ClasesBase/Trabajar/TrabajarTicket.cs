@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
 using System;
+using System.Collections.Generic;
 
 namespace ClasesBase
 {
@@ -162,18 +163,38 @@ namespace ClasesBase
             cnn.Close();
         }
 
-        public static DataTable traerTicketPorProyeccion(int proyCodigo)
+        public static List<Ticket> traerTicketPorProyeccion(int proyCodigo)
         {
+            List<Ticket> listaDeTickets = new List<Ticket>();
+            Ticket ticket = null;
             SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            conn.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "listarTicketsPorProyeccion";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = conn;
-            cmd.Parameters.AddWithValue("@codigo", proyCodigo);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
+            cmd.Parameters.AddWithValue("@proy_Codigo", proyCodigo);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ticket = new Ticket();
+                ticket.Tick_Estado = (bool)reader["Estado"];
+                ticket.Tick_FechaVenta = (DateTime)reader["Fecha de Venta"];
+                ticket.Tick_Nro = (int)reader["Numero"];
+                ticket.Usu_Id = (int)reader["ID Vendedor"];
+                ticket.Proy_Codigo = (int)reader["Codigo"];
+                ticket.Cli_DNI = (int)reader["DNI Cliente"];
+                ticket.But_Id = (int)reader["ID de Butaca"];
+
+                listaDeTickets.Add(ticket);
+            }
+            conn.Close();
+            return listaDeTickets;
+
+
+
         }
     }
 }
