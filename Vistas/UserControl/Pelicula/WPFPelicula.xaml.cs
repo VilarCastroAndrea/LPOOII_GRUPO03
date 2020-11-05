@@ -38,8 +38,9 @@ namespace Vistas
                 pelicula.Peli_Clasificacion = Convert.ToString(item["Clasificacion"]);
                 pelicula.Peli_Duracion = Convert.ToString(item["Duracion"]);
                 pelicula.Peli_Genero = Convert.ToString(item["Genero"]);
-                //         pelicula.Peli_Imagen = Convert.ToString(item["Imagen"]);
                 pelicula.Peli_Titulo = Convert.ToString(item["Titulo"]);
+                pelicula.Peli_Imagen = Convert.ToString(item["Imagen"]);
+                pelicula.Peli_Avance = Convert.ToString(item["Video"]);
 
                 panelPelicula.Children.Add(new WPFMostrarPelicula(pelicula, this));
             }

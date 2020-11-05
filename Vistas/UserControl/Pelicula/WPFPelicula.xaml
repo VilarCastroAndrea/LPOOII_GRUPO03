@@ -36,11 +36,13 @@
                 <ListView.View>
                     <GridView>
                         <!--Enlace de Codigo, Titulo, Duracion, Genero y Clasificacion a las Columnas-->
-                        <GridViewColumn Width="100" Header="Codigo" DisplayMemberBinding="{Binding Path=Codigo}"/>
+                        <GridViewColumn Width="30" Header="Codigo" DisplayMemberBinding="{Binding Path=Codigo}"/>
                         <GridViewColumn Width="100" Header="Titulo" DisplayMemberBinding="{Binding Path=Titulo}"/>
-                        <GridViewColumn Width="100" Header="Duracion" DisplayMemberBinding="{Binding Path=Duracion}"/>
+                        <GridViewColumn Width="50" Header="Duracion" DisplayMemberBinding="{Binding Path=Duracion}"/>
                         <GridViewColumn Width="102" Header="Genero" DisplayMemberBinding="{Binding Path=Genero}"/>
-                        <GridViewColumn Width="100" Header="Clasificacion" DisplayMemberBinding="{Binding Path=Clasificacion}"/>
+                        <GridViewColumn Width="70" Header="Clasificacion" DisplayMemberBinding="{Binding Path=Clasificacion}"/>
+                        <GridViewColumn Width="100" Header="Imagen" DisplayMemberBinding="{Binding Path=Imagen}"/>
+                        <GridViewColumn Width="100" Header="Video" DisplayMemberBinding="{Binding Path=Video}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

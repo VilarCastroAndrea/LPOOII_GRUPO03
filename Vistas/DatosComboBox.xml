@@ -8,7 +8,7 @@
   <tipo name="SAM 16 c/r"/>
   <tipo name="SAM 18"/>
   
-  <genero name="DRAMA"/>
+  <genero name="DRAMA" />
   <genero name="COMEDIA"/>
   <genero name="ACCION"/>
   <genero name="BELICA"/>

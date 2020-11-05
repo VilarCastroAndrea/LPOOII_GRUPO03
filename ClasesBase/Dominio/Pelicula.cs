@@ -10,6 +10,9 @@ namespace ClasesBase
         private string peli_Genero;
         private string peli_Clasificacion;
         private bool peli_Disponible;
+        private string peli_Imagen;
+        private string peli_Avance;
+
 
         public Pelicula()
         {
@@ -63,6 +66,9 @@ namespace ClasesBase
         public bool Peli_Disponible { get => peli_Disponible; set => peli_Disponible = value; }
         public string Peli_Genero { get => peli_Genero; set => peli_Genero = value; }
         public string Peli_Clasificacion { get => peli_Clasificacion; set => peli_Clasificacion = value; }
+        public string Peli_Imagen { get => peli_Imagen; set => peli_Imagen = value; }
+        public string Peli_Avance { get => peli_Avance; set => peli_Avance = value; }
+
 
         public string Error
         {
