@@ -10,6 +10,9 @@ namespace ClasesBase
         private string peli_Genero;
         private string peli_Clasificacion;
         private bool peli_Disponible;
+        private string peli_Imagen;
+        private string peli_Avance;
+
 
         public Pelicula()
         {
@@ -42,7 +45,7 @@ namespace ClasesBase
         /// <param name="gnr_Id"></param>
         /// <param name="cls_Id"></param>
         /// <param name="peli_Disponible"></param>
-        public Pelicula(int peli_Codigo, string peli_Titulo, string peli_Duracion, string peli_genero, string peli_clasificacion, bool peli_Disponible)
+        public Pelicula(int peli_Codigo, string peli_Titulo, string peli_Duracion, string peli_genero, string peli_clasificacion, bool peli_Disponible,string peli_Imagen, string peli_Avance)
         {
             this.peli_Codigo = peli_Codigo;
             this.peli_Titulo = peli_Titulo;
@@ -50,6 +53,9 @@ namespace ClasesBase
             this.Peli_Genero = peli_genero;
             this.Peli_Clasificacion = peli_clasificacion;
             this.peli_Disponible = peli_Disponible;
+            this.peli_Imagen = peli_Imagen;
+            this.peli_Avance = peli_Avance;
+
         }
 
         
@@ -63,6 +69,8 @@ namespace ClasesBase
         public bool Peli_Disponible { get => peli_Disponible; set => peli_Disponible = value; }
         public string Peli_Genero { get => peli_Genero; set => peli_Genero = value; }
         public string Peli_Clasificacion { get => peli_Clasificacion; set => peli_Clasificacion = value; }
+        public string Peli_Imagen { get => peli_Imagen; set => peli_Imagen = value; }
+        public string Peli_Avance { get => peli_Avance; set => peli_Avance = value; }
 
         public string Error
         {
