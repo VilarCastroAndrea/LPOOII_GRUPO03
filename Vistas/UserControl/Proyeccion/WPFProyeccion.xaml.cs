@@ -36,7 +36,7 @@ namespace Vistas.UserControl.Proyeccion
         {
             listaDeProyecciones.Add(nuevaProyeccion);
             dgvListaDeProyecciones.ItemsSource = null;
-            dgvListaDeProyecciones.ItemsSource = listaDeProyecciones; ;
+            dgvListaDeProyecciones.ItemsSource = listaDeProyecciones;
 
         }
 
