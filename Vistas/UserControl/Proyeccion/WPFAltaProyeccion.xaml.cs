@@ -49,6 +49,7 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarSalas()
         {
+            //Traer un 
             //listaSalas.Add(new ClasesBase.Sala(1, 15, "Prueba 1"));
             //listaSalas.Add(new ClasesBase.Sala(2, 20, "Prueba 2"));
             //listaSalas.Add(new ClasesBase.Sala(3, 30, "Prueba 3"));
