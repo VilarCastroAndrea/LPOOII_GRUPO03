@@ -1,52 +1,71 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.Windows;
 
 namespace Vistas.UserControl.Proyeccion
 
 {
+    using ClasesBase;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Windows.Controls;
+
     /// <summary>
     /// Lógica de interacción para WPFAltaProyeccion.xaml
     /// </summary>
     public partial class WPFMostrarProyeccion
     {
-        List<ClasesBase.Pelicula> listaPeliculas = new List<ClasesBase.Pelicula>();
-        List<ClasesBase.Sala> listaSalas = new List<ClasesBase.Sala>();
-        ClasesBase.Proyeccion proyeccionMostrar;
+        ObservableCollection<Pelicula> listaPeliculas = new ObservableCollection<Pelicula>();
+        ObservableCollection<Sala> listaSalas = new ObservableCollection<Sala>();
+        Proyeccion proyeccionMostrar;
         WPFProyeccion proyeccionPadre;
         /// <summary>
         /// constructor con clase para modificar y clase padre para llamar a sus acciones
         /// </summary>
         /// <param name="verProyeccion"></param>
         /// <param name="proyeccion"></param>
-        public WPFMostrarProyeccion(ClasesBase.Proyeccion verProyeccion, WPFProyeccion proyeccion)
+        public WPFMostrarProyeccion(Proyeccion verProyeccion, WPFProyeccion proyeccion)
         {
-            proyeccionMostrar = verProyeccion;
             InitializeComponent();
-            cargarPeliculas();
-            cargarSalas();
+            proyeccionPadre = proyeccion;
+            proyeccionMostrar = verProyeccion;
             cargarComboPeliculas();
             cargarComboSalas();
+            cargarFormulario();
+
+        }
+
+        /// <summary>
+        /// Carga el formulario con una proyeccion seleccionada
+        /// </summary>
+        private void cargarFormulario()
+        {
             if (proyeccionMostrar != null)
             {
                 txtFecha.Text = proyeccionMostrar.Proy_Fecha;
                 txtHora.Text = proyeccionMostrar.Proy_Hora;
-                txtSala.SelectedItem = proyeccionMostrar.Sla_NroSala.ToString();
-                txtTitulo.SelectedItem = proyeccionMostrar.Peli_Codigo.ToString();
-                proyeccionPadre = proyeccion;
+
+                //Seleccionar el cmb de SALAS
+                Sala auxSala = listaSalas.First(s => s.Sla_NroSala == proyeccionMostrar.Sla_NroSala);
+                cmbSala.SelectedIndex = listaSalas.IndexOf(auxSala);
+
+                //Seleccionar el cmb de PELICULAS
+                Pelicula auxPeli = listaPeliculas.First(p => p.Peli_Codigo == proyeccionMostrar.Peli_Codigo);
+                cmbTitulo.SelectedIndex = listaPeliculas.IndexOf(auxPeli);
             }
-
-
         }
+
 
         /// <summary>
         /// carga el combobox de peliculas
         /// </summary>
         private void cargarComboPeliculas()
         {
-            txtTitulo.ItemsSource = listaPeliculas;
-            txtTitulo.DisplayMemberPath = "Peli_Titulo";
-            txtTitulo.SelectedValue = "Peli_Codigo";
-            txtTitulo.SelectedIndex = 0;
+            listaPeliculas = TrabajarPelicula.traerPeliculas();
+            cmbTitulo.ItemsSource = listaPeliculas;
+            cmbTitulo.DisplayMemberPath = "Peli_Titulo";
+            cmbTitulo.SelectedValue = "Peli_Codigo";
+            cmbTitulo.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -54,32 +73,11 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarComboSalas()
         {
-            txtSala.ItemsSource = listaSalas;
-            txtSala.DisplayMemberPath = "Sla_Descripcion";
-            txtSala.SelectedValue = "Sla_NroSala";
-            txtSala.SelectedIndex = 0;
-        }
-
-
-
-        /// <summary>
-        /// genera salas estaticas
-        /// </summary>
-        private void cargarSalas()
-        {
-            //listaSalas.Add(new ClasesBase.Sala(1, 15, "Prueba 1"));
-            //listaSalas.Add(new ClasesBase.Sala(2, 20, "Prueba 2"));
-            //listaSalas.Add(new ClasesBase.Sala(3, 30, "Prueba 3"));
-        }
-
-        /// <summary>
-        /// genera peliculas al de forma estatica
-        /// </summary>
-        private void cargarPeliculas()
-        {
-            //listaPeliculas.Add(new ClasesBase.Pelicula(1, "Shreck", "12:00", 1, 1, ""));
-            //listaPeliculas.Add(new ClasesBase.Pelicula(2, "La Mascara", "12:00", 1, 1, ""));
-            //listaPeliculas.Add(new ClasesBase.Pelicula(3, "Mulan", "12:00", 1, 1, ""));
+            listaSalas = TrabajarSala.traerSalas();
+            cmbSala.ItemsSource = listaSalas;
+            cmbSala.DisplayMemberPath = "Sla_Descripcion";
+            cmbSala.SelectedValue = "Sla_NroSala";
+            cmbSala.SelectedIndex = 0;
         }
 
 
@@ -90,16 +88,39 @@ namespace Vistas.UserControl.Proyeccion
         /// <param name="e"></param>
         private void BtnModificar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            //            MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea Modificar esta proyeccion?" + txtFecha.Text + ", " + txtHora.Text + ", " +
-            //txtSala.Text + ", " + txtTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            //            if (resultado == MessageBoxResult.Yes)
-            //            {
-            //                MessageBox.Show("Proyeccion Modificada con exito");
-            //                //ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text));
-            //                proyeccionPadre.modificarProyeccion(new ClasesBase.Proyeccion(proyeccionMostrar.Proy_Codigo, txtFecha.Text
-            //                    , txtHora.Text, int.Parse(txtSala.SelectedIndex.ToString()), int.Parse(txtTitulo.SelectedIndex.ToString()), true));
-            //            }
+            MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea Modificar esta proyeccion?" + txtFecha.Text + ", " + txtHora.Text + ", " +
+            cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (resultado == MessageBoxResult.Yes)
+            {
+                Proyeccion nuevaProyeccion = new Proyeccion();
+                nuevaProyeccion.Proy_Codigo = proyeccionMostrar.Proy_Codigo;
+                nuevaProyeccion.Peli_Codigo = ((Pelicula)cmbTitulo.SelectedItem).Peli_Codigo;
+                nuevaProyeccion.Proy_Disponible = proyeccionMostrar.Proy_Disponible;
+                nuevaProyeccion.Proy_Fecha = txtFecha.Text;
+                nuevaProyeccion.Proy_Hora = txtHora.Text;
+                nuevaProyeccion.Sla_NroSala = ((Sala)cmbSala.SelectedItem).Sla_NroSala;
+
+                TrabajarProyeccion.modificarProyeccion(nuevaProyeccion);
+                
+                proyeccionPadre.refrescarDataGrid();
+                //proyeccionPadre.modificarProyeccion(nuevaProyeccion);
+                LimpiarFormulario();
+                MessageBox.Show("Proyeccion Modificada con exito");
+            }
         }
+
+        /// <summary>
+        /// Limpia los campos del formulario y reinicia la instancia de proyeccionMostrar
+        /// </summary>
+        private void LimpiarFormulario()
+        {
+            proyeccionMostrar = new Proyeccion();
+            cmbTitulo.SelectedIndex = 0;
+            txtFecha.Text = "";
+            txtHora.Text = "";
+            cmbSala.SelectedIndex = 0;
+        }
+
         /// <summary>
         /// elimina una proyeccion
         /// </summary>
@@ -108,14 +129,13 @@ namespace Vistas.UserControl.Proyeccion
         private void BtnBoja_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea borrar esta proyeccion?" + txtFecha.Text + ", " + txtHora.Text + ", " +
-         txtSala.Text + ", " + txtTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+         cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (resultado == MessageBoxResult.Yes)
             {
-
+                TrabajarProyeccion.bajaProyeccionFisica(proyeccionMostrar.Proy_Codigo);
+                proyeccionPadre.refrescarDataGrid();
+                LimpiarFormulario();
                 MessageBox.Show("Proyeccion Eliminada con exito");
-                //ClasesBase.Proyeccion nuevaProyeccion = new ClasesBase.Proyeccion(0, txtFecha.Text, txtHora.Text, int.Parse(txtSala.Text), int.Parse(txtTitulo.Text));
-                proyeccionPadre.borrarProyeccion(new ClasesBase.Proyeccion(proyeccionMostrar.Proy_Codigo, txtFecha.Text
-                    , txtHora.Text, int.Parse(txtSala.SelectedIndex.ToString()), int.Parse(txtTitulo.SelectedIndex.ToString()), true));
             }
         }
     }

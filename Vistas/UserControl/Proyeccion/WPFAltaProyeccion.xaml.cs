@@ -64,7 +64,7 @@ namespace Vistas.UserControl.Proyeccion
                     TrabajarProyeccion.altaProyeccion(nuevaProyeccion);
 
                     //Agrega en el data grid
-                    proyeccionPadre.agregarProyeccion(nuevaProyeccion);
+                    proyeccionPadre.refrescarDataGrid();
                     limpiarCampos();
                 }
             }
