@@ -26,10 +26,12 @@ namespace Vistas
 
             if (TrabajarUsuario.validarUsuario(login.Usuario,login.Contraseña) == true)
             {
-                
-                MainWindow menu = new MainWindow();
+
+               MainWindow menu = new MainWindow();
                 menu.Show();
                 Close();
+
+               // MessageBox.Show("usuario " + UsuarioLogin.usu_Disponible);
             }
             else
             {
