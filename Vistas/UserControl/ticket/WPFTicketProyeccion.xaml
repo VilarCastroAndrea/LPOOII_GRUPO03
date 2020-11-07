@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Vistas.UserControl.ticket.WPFTicketProyeccion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vistas.UserControl.ticket"
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+             mc:Ignorable="d" 
+             d:DesignHeight="420" d:DesignWidth="720">
+
+    <UserControl.Resources>
+        <ObjectDataProvider
+            x:Name="odpProyeccion"
+            x:Key="LIST_PROYECCION"
+            ObjectType="{x:Type svc:TrabajarProyeccion}"
+            MethodName="listarProyecciones"
+            />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF010A0C"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <!--Listar Proyecciones-->
+        <Grid Name="dgvListaDeProyecciones" HorizontalAlignment="Left" Height="290" Margin="260,70,0,0" VerticalAlignment="Top" Width="440" Background="Black" >
+            <ListView Name="listaProyeccion" ItemsSource="{Binding Source={StaticResource LIST_PROYECCION},UpdateSourceTrigger=Explicit}" SelectionChanged="ListView_SelectionChanged" Margin="0,0,0,-35">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Codigo}" Header="Codigo"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path='Titulo de la Pelicula'}" Header="Pelicula"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Disponible}" Header="Disponible"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Fecha}" Header="Fecha"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Hora}" Header="Hora"></GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path='Descripcion de Sala'}" Header="Sala"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+
+        <GroupBox Header="Filtrar" HorizontalAlignment="Left" Height="45" Margin="260,10,0,0" VerticalAlignment="Top" Width="440" Background="Black" Foreground="White">
+            <Grid>
+                <Label Content="Pelicula" HorizontalAlignment="Left" Margin="10,0,0,-2" VerticalAlignment="Top" Foreground="White"/>
+                <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" Margin="65,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+            </Grid>
+        </GroupBox>
+        <TextBlock x:Name="txtNombrePelicula"  HorizontalAlignment="Left" Margin="26,31,0,0" TextWrapping="Wrap" Text="Pelicula" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
+        <TextBlock x:Name="txtHora" HorizontalAlignment="Left" Margin="91,133,0,0" TextWrapping="Wrap" Text="Horario" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label Content="Horario" HorizontalAlignment="Left" Margin="25,132,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Sala" HorizontalAlignment="Left" Margin="25,163,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="txtSala" HorizontalAlignment="Left" Margin="91,164,0,0" TextWrapping="Wrap" Text="Sala" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <TextBlock x:Name="txtFecha" HorizontalAlignment="Left" Margin="91,102,0,0" TextWrapping="Wrap" Text="Horario" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="25,102,0,0" VerticalAlignment="Top" Foreground="White"/>
+    </Grid>
+</UserControl>

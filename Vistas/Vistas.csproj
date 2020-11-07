@@ -67,6 +67,18 @@
     <Compile Include="UserControl\ticket\WPFTicket.xaml.cs">
       <DependentUpon>WPFTicket.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\ticket\WPFTicketButaca.xaml.cs">
+      <DependentUpon>WPFTicketButaca.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ticket\WPFTicketCliente.xaml.cs">
+      <DependentUpon>WPFTicketCliente.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ticket\WPFTicketImpresion.xaml.cs">
+      <DependentUpon>WPFTicketImpresion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\ticket\WPFTicketProyeccion.xaml.cs">
+      <DependentUpon>WPFTicketProyeccion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UCLogin.xaml.cs">
       <DependentUpon>UCLogin.xaml</DependentUpon>
     </Compile>
@@ -131,6 +143,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\ticket\WPFTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\ticket\WPFTicketButaca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\ticket\WPFTicketCliente.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\ticket\WPFTicketImpresion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\ticket\WPFTicketProyeccion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

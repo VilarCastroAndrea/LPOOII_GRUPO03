@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vistas.UserControl.ticket"
              mc:Ignorable="d" 
-             d:DesignHeight="490" d:DesignWidth="760">
+            d:DesignHeight="490" d:DesignWidth="760">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -18,5 +18,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
         </Grid>
-    </Grid>
+        <Button Content="Proyeccion" Style="{StaticResource BotonModificar}" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Name="btnCLiente" Content="Cliente" Style="{StaticResource BotonAlta}" HorizontalAlignment="Left" Margin="95,20,0,0" VerticalAlignment="Top" Width="75" Click="BtnCLiente_Click"/>
+        <Button Name="btnButaca" Content="Butaca" Style="{StaticResource BotonModificar}" HorizontalAlignment="Left" Margin="170,20,0,0" VerticalAlignment="Top" Width="75" Background="#FF03181D" BorderBrush="#FF03181D" Click="BtnButaca_Click"/>
+        </Grid>
 </UserControl>
