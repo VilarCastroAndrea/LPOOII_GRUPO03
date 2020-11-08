@@ -25,8 +25,6 @@ namespace Vistas.UserControl.ticket
         {
             InitializeComponent();
             ticket1 = ticket;
-            txtProyeccion.Text = Convert.ToString(ticket.Proy_Codigo);
-            txtCliente.Text = Convert.ToString(ticket.Cli_DNI);
         }
 
         private void BtnConfirmar_Click(object sender, RoutedEventArgs e)

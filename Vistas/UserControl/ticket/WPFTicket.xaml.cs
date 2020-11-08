@@ -27,19 +27,19 @@ namespace Vistas.UserControl.ticket
         {
             InitializeComponent();
             panelTicket.Children.Clear();
-            panelTicket.Children.Add(new WPFTicketProyeccion());
+            panelTicket.Children.Add(new WPFTicketProyeccion(this));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             panelTicket.Children.Clear();
-            panelTicket.Children.Add(new WPFTicketProyeccion());
+            panelTicket.Children.Add(new WPFTicketProyeccion(this));
         }
 
         private void BtnCLiente_Click(object sender, RoutedEventArgs e)
         {
             panelTicket.Children.Clear();
-            panelTicket.Children.Add(new WPFTicketCliente());
+            panelTicket.Children.Add(new WPFTicketCliente(this));
         }
 
         private void BtnButaca_Click(object sender, RoutedEventArgs e)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas.UserControl.ticket"
         mc:Ignorable="d"
-        Title="WPFTicketImpresion" d:DesignWidth="300" Height="402">
+        Title="WPFTicketImpresion" d:DesignWidth="300" Height="402" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <!--<FixedDocument>
         <PageContent>
             <FixedPage>-->
@@ -31,7 +31,6 @@
         <TextBlock x:Name="txtNroTicket" HorizontalAlignment="Left" Margin="220,25,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock x:Name="txtFechaTicket" HorizontalAlignment="Left" Margin="83,84,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock x:Name="txtSala" HorizontalAlignment="Left" Margin="30,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
-
     </Grid>
     <!--</FixedPage>
         </PageContent>
