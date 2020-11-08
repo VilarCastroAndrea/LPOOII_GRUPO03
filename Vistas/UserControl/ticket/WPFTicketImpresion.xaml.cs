@@ -52,7 +52,6 @@ namespace Vistas.UserControl.ticket
             txtNombreCliente.Text = cliente.Cli_Nombre;
             txtDNICliente.Text = cliente.Cli_DNI.ToString();
             txtSala.Text = sala.Sla_Descripcion;
-
         }
     }
 }

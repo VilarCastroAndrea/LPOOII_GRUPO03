@@ -14,8 +14,6 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Button Content="Confirmar" Name="btnConfirmar" HorizontalAlignment="Left" Margin="605,365,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource BotonCustom}" Click="BtnConfirmar_Click" />
-        <TextBlock Name="txtProyeccion" HorizontalAlignment="Left" Margin="300,180,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFFFF7F7"/>
-        <TextBlock Name="txtCliente" HorizontalAlignment="Left" Margin="300,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFFFF7F7"/>
 
     </Grid>
 </UserControl>
