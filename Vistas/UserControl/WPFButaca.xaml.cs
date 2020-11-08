@@ -240,12 +240,18 @@ namespace Vistas
             validarAsientos();
         }
 
+
+
+
+
+
+
         /// <summary>
         /// Devuelve una letra segun el numero que recibe por parametro
         /// </summary>
         /// <param name="numero">numero</param>
         /// <returns></returns>
-        public char devolverLetra(int num)
+        public string devolverLetra(int num)
         {
             char letra = ' ';
             if (num >= 0 && num <= 26)
@@ -257,7 +263,7 @@ namespace Vistas
             {
                 MessageBox.Show("Debe ingresar un numero entre 1 y 26");
             }
-            return letra;
+            return letra.ToString();
 
         }
 
