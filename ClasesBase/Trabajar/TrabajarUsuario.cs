@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
+using System;
 
 namespace ClasesBase
 {
@@ -207,22 +208,20 @@ namespace ClasesBase
 
         public static bool validarUsuario(string usuario, string contra)
         {
+
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
 
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "SELECT *FROM Usuario WHERE USU_nombreUsuario=@usu AND USU_password=@contra";
-            cmd.Parameters.AddWithValue("@usu", usuario);
-            cmd.Parameters.AddWithValue("@contra", contra);
-          
-
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "loginUsuario";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-
-            cnn.Open();
+            cmd.Parameters.AddWithValue("@nombre",usuario);
+            cmd.Parameters.AddWithValue("@password", contra);
+       
             SqlDataReader reader;
             reader = cmd.ExecuteReader();
-
-
+          
             if (reader.HasRows)
             {
 
@@ -234,6 +233,7 @@ namespace ClasesBase
                     UsuarioLogin.usu_Password = reader.GetString(2);
                     UsuarioLogin.usu_ApellidoNombre = reader.GetString(3);
                     UsuarioLogin.rol_Codigo = reader.GetInt32(4);
+                    UsuarioLogin.usu_Disponible = reader.GetBoolean(5);
                 }
                 cnn.Close();
                 return true;

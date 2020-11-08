@@ -29,8 +29,20 @@ namespace Vistas.UserControl.Pelicula
             {
                 try
                 {
-                    padre.altaPelicula(new ClasesBase.Pelicula(0,txtTitulo.Text,txtDuracion.Text,cmbGenero.Text,cmbClasificacion.Text));
-                    MessageBoxResult resultado = MessageBox.Show("Se agrego la pelicula con exito", "Atención");
+                    ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
+
+                  // pelicula.Peli_Codigo = peliculaSeleccionada.Peli_Codigo; ;
+                    pelicula.Peli_Titulo = txtTitulo.Text;
+                    pelicula.Peli_Duracion = txtDuracion.Text;
+                    pelicula.Peli_Genero = cmbGenero.Text;
+                    pelicula.Peli_Clasificacion = cmbClasificacion.Text;
+                    pelicula.Peli_Imagen = txtImagen.Text;
+                    pelicula.Peli_Avance = txtVideo.Text;
+                    pelicula.Peli_Disponible = true;
+
+
+                    padre.altaPelicula(pelicula);
+                    MessageBoxResult resultado = MessageBox.Show(cmbGenero.SelectedIndex.ToString() + "Se agrego la pelicula con exito", "Atención");
                     //limpiarCampos();
                 }
                 catch(Exception error)
@@ -64,5 +76,30 @@ namespace Vistas.UserControl.Pelicula
             txtDuracion.Text = "";
         }
 
+        private void BtnExaminarImg_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.ShowDialog();
+
+            openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
+
+            openFileDialog1.DefaultExt = ".jpeg";
+
+            txtImagen.Text = openFileDialog1.FileName;
+        }
+
+        private void BtnExaminarVideo_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.ShowDialog();
+
+            openFileDialog.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
+
+            openFileDialog.DefaultExt = ".jpeg";
+
+            txtVideo.Text = openFileDialog.FileName;
+        }
     }
 }

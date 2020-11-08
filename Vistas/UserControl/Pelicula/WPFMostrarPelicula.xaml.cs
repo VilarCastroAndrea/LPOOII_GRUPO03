@@ -16,9 +16,12 @@ namespace Vistas
             InitializeComponent();
             txtDuracion.Text = selectedItem.Peli_Duracion;
             txtTitulo.Text = selectedItem.Peli_Titulo;
-            cmbClasificacion.Text = selectedItem.Peli_Clasificacion;
-            cmbGenero.Text = selectedItem.Peli_Genero;
+            cmbClasificacion.SelectedValue = selectedItem.Peli_Clasificacion;
+            cmbGenero.SelectedValue = selectedItem.Peli_Genero;
             peliculaSeleccionada = selectedItem;
+            txtImagen.Text = selectedItem.Peli_Imagen;
+            txtVideo.Text = selectedItem.Peli_Avance;
+                  
             proyeccionPadre = padre;
         }
 
@@ -27,7 +30,18 @@ namespace Vistas
             if (validarCampos() == true)
             {
 
-                proyeccionPadre.modificarPelicula(new ClasesBase.Pelicula(peliculaSeleccionada.Peli_Codigo, txtTitulo.Text, txtDuracion.Text, cmbGenero.Text, cmbClasificacion.Text));
+                ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
+
+                pelicula.Peli_Codigo = peliculaSeleccionada.Peli_Codigo; ;
+                pelicula.Peli_Titulo = txtTitulo.Text;
+                pelicula.Peli_Duracion = txtDuracion.Text;
+                pelicula.Peli_Genero = cmbGenero.Text;
+                pelicula.Peli_Clasificacion = cmbClasificacion.Text;
+                pelicula.Peli_Imagen = txtImagen.Text;
+                pelicula.Peli_Avance = txtVideo.Text;
+                pelicula.Peli_Disponible = true;
+
+                proyeccionPadre.modificarPelicula(pelicula);
                     MessageBoxResult resultado = MessageBox.Show("Se modifico la pelicula con exito", "Atención");
                     limpiarCampos();
             }
@@ -58,6 +72,33 @@ namespace Vistas
         private void BtnBajaPelicula_Click(object sender, RoutedEventArgs e)
         {
             proyeccionPadre.eliminarPelicula(peliculaSeleccionada);
+        }
+
+        private void BtnExaminarImg_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.ShowDialog();
+
+            openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
+
+            openFileDialog1.DefaultExt = ".jpeg";
+
+            txtImagen.Text = openFileDialog1.FileName;
+        }
+
+        private void BtnExaminarVideo_Click(object sender, RoutedEventArgs e)
+        {
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.ShowDialog();
+
+            openFileDialog.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
+
+            openFileDialog.DefaultExt = ".jpeg";
+
+            txtVideo.Text = openFileDialog.FileName;
         }
     }
 }

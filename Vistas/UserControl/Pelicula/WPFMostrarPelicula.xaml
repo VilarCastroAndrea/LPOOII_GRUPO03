@@ -25,6 +25,7 @@
             <!--TextBox de Titulo y sus propiedes-->
             <TextBox x:Name="txtTitulo" 
                      Margin="10,40,0,0" 
+                     TextWrapping="NoWrap"
                      Style="{StaticResource TextBoxCustom}"
                      DataContext="{StaticResource DATA_PELI}">
                 
@@ -45,6 +46,7 @@
         <Label Content="Duracion" HorizontalAlignment="Left" Margin="35,89,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
         <TextBox x:Name="txtDuracion" 
                  Margin="26,115,0,0" 
+                 TextWrapping="NoWrap"
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PELI}">
 
@@ -61,12 +63,28 @@
 
         <!--ComboBox de Genero-->
         <Label Content="Genero" HorizontalAlignment="Left" Margin="35,138,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
-        <ComboBox Name="cmbGenero" ItemsSource="{Binding Source={StaticResource clasif},XPath=genero/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="26,164,0,0"  Background="#FF02090A"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True"></ComboBox>
+        <ComboBox Name="cmbGenero" 
+                  ItemsSource="{Binding Source={StaticResource clasif},XPath=genero/@name}"
+                
+                  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="19" Margin="26,164,0,0"  Background="#FF02090A"  ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True"></ComboBox>
 
         <!--ComboBox de Clasificacion-->
         <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="35,183,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
         <ComboBox Name="cmbClasificacion" ItemsSource="{Binding Source={StaticResource clasif},XPath=tipo/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="21" Margin="26,209,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True"></ComboBox>
 
+         <!--imagen -->
+        <Label Content="Imagen" HorizontalAlignment="Left" Margin="35,230,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
+        <TextBox Name="txtImagen" HorizontalAlignment="Left" Height="23" Margin="26,254,0,0"  TextWrapping="NoWrap"   VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}"/>
+        <Button Name="btnExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="113,254,0,0" VerticalAlignment="Top" Width="64" Height="23" Style="{StaticResource btnPeliculaEstilo}" Click="BtnExaminarImg_Click"/>
+        <!--video -->
+        <Label Content="Video" HorizontalAlignment="Left" Margin="35,282,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
+        <TextBox Name="txtVideo"  HorizontalAlignment="Left" Height="23" Margin="26,308,0,0"  TextWrapping="NoWrap"   VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}"/>
+        <Button  Name="btnExaminarVideo" Content="Examinar" HorizontalAlignment="Left" Margin="113,308,0,0" VerticalAlignment="Top" Width="64" Height="23" Style="{StaticResource btnPeliculaEstilo}" Click="BtnExaminarVideo_Click"/>
+
+        
+        
+        
+        
         <!--Boton Modificar-->
         <Button x:Name="btnModificarPelicula" Content="Modificar" HorizontalAlignment="Left" Margin="26,350,0,0" VerticalAlignment="Top" Width="145"  Style="{StaticResource btnPeliculaEstilo}" Click="BtnModificarPelicula_Click"/>
 

@@ -26,6 +26,7 @@
             <!--TextBox de Titulo y sus propiedades-->
             <TextBox x:Name="txtTitulo" 
                   Margin="10,40,0,0" 
+                  TextWrapping="NoWrap"
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PELI}">
 
@@ -45,6 +46,7 @@
         <TextBox   
                  Name="txtDuracion" 
                  Margin="26,115,0,0"
+                 TextWrapping="NoWrap"
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PELI}">
             
@@ -68,7 +70,20 @@
         <ComboBox Name="cmbClasificacion" ItemsSource="{Binding Source={StaticResource clasif},XPath=tipo/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="21" Margin="26,209,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True">
         </ComboBox>
 
+        <!--imagen -->
+        <Label Content="Imagen" HorizontalAlignment="Left" Margin="35,230,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
+        <TextBox Name="txtImagen"  HorizontalAlignment="Left" Height="23" Margin="26,254,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}"/>
+        <Button Name="btnExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="113,254,0,0" VerticalAlignment="Top" Width="64" Height="23" Style="{StaticResource btnPeliculaEstilo}" Click="BtnExaminarImg_Click"/>
+        <!--video -->
+        <Label Content="Video" HorizontalAlignment="Left" Margin="35,282,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
+        <TextBox Name="txtVideo"  HorizontalAlignment="Left" Height="23" Margin="26,308,0,0"  TextWrapping="NoWrap"   VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}"/>
+        <Button  Name="btnExaminarVideo" Content="Examinar" HorizontalAlignment="Left" Margin="113,308,0,0" VerticalAlignment="Top" Width="64" Height="23" Style="{StaticResource btnPeliculaEstilo}" Click="BtnExaminarVideo_Click"/>
+
+
+
         <!--Boton Agregar-->
         <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="26,370,0,0" VerticalAlignment="Top" Width="145" Click="BtnAltaPelicula_Click" Style="{StaticResource btnPeliculaEstilo}"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="80,127,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image HorizontalAlignment="Left" Height="100" Margin="265,191,-165,0" VerticalAlignment="Top" Width="100"/>
     </Grid>    
 </UserControl>

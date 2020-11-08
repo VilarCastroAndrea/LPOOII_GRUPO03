@@ -67,6 +67,7 @@
     <Compile Include="Trabajar\TrabajarUsuario.cs" />
     <Compile Include="Dominio\Usuario.cs" />
     <Compile Include="UsuarioLogin.cs" />
+    <Compile Include="Util\Encryp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
