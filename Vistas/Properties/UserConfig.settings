@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Vistas.Properties" GeneratedClassName="UserConfig">
+  <Profiles />
+  <Settings>
+    <Setting Name="iniciarSonido" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="urlSonido" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D:\Mis Documentos\Documents\Github\LPOOII_GRUPO03\Vistas\utils\Efectos\EfectoSonido1.mp3</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
