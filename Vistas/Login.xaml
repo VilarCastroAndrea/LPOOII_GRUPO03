@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:UC="clr-namespace:Vistas.UserControl"
-        Title="Login" Height="371" Width="415.5" >
+        Title="Login" Height="371" Width="415.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
     <Window.Background>
         <RadialGradientBrush>
             <GradientStop Color="Black" Offset="1"/>

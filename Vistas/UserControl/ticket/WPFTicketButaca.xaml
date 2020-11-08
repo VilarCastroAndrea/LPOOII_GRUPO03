@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Vistas.UserControl.ticket.WPFTicketButaca"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vistas.UserControl.ticket"
+             mc:Ignorable="d" 
+             d:DesignHeight="420" d:DesignWidth="720">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="#FF010A0C"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button Content="Confirmar" Name="btnConfirmar" HorizontalAlignment="Left" Margin="605,365,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource BotonCustom}" Click="BtnConfirmar_Click" />
+        <TextBlock Name="txtProyeccion" HorizontalAlignment="Left" Margin="300,180,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFFFF7F7"/>
+        <TextBlock Name="txtCliente" HorizontalAlignment="Left" Margin="300,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="#FFFFF7F7"/>
+
+    </Grid>
+</UserControl>

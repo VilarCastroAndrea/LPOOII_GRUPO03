@@ -6,7 +6,7 @@
        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="520" Width="810">
+        Title="MainWindow" Height="520" Width="810" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
     </Window.Resources>

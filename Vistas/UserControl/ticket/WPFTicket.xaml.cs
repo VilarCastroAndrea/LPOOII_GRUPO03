@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClasesBase;
 
 namespace Vistas.UserControl.ticket
 {
@@ -20,11 +21,41 @@ namespace Vistas.UserControl.ticket
     /// </summary>
     public partial class WPFTicket 
     {
+        Ticket ticket = new Ticket();
+        
         public WPFTicket()
         {
             InitializeComponent();
             panelTicket.Children.Clear();
-            panelTicket.Children.Add(new WPFAltaTicket());
+            panelTicket.Children.Add(new WPFTicketProyeccion());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            panelTicket.Children.Clear();
+            panelTicket.Children.Add(new WPFTicketProyeccion());
+        }
+
+        private void BtnCLiente_Click(object sender, RoutedEventArgs e)
+        {
+            panelTicket.Children.Clear();
+            panelTicket.Children.Add(new WPFTicketCliente());
+        }
+
+        private void BtnButaca_Click(object sender, RoutedEventArgs e)
+        {
+            panelTicket.Children.Clear();
+            panelTicket.Children.Add(new WPFTicketButaca(ticket));
+        }
+
+        public void cargarProyeccion(int ticketProyeccion)
+        {
+            ticket.Proy_Codigo = ticketProyeccion;
+        }
+
+        public void cargarCliente(int DNI)
+        {
+            ticket.Cli_DNI = DNI;
         }
     }
 }
