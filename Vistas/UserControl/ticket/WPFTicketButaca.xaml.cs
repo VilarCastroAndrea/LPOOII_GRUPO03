@@ -25,21 +25,28 @@ namespace Vistas.UserControl.ticket
 
         private int[,] seleccionAsientos;
         private List<Butaca> listaDeButacas = new List<Butaca>();
+        private List<Butaca> listaDeButacasSeleccionadas = new List<Butaca>();
         private ClasesBase.Proyeccion proyeccionSeleccionada;
         private int filasMax;
         private int columnasMax;
-        public WPFTicketButaca(Ticket ticket, ClasesBase.Proyeccion proyeccion)
+
+
+        public WPFTicketButaca(Ticket ticket)
         {
             InitializeComponent();
             ticket1 = ticket;
             generarButacas();
-            proyeccionSeleccionada = proyeccion;
+            proyeccionSeleccionada = TrabajarProyeccion.buscarProyeccion(ticket.Proy_Codigo);
         }
 
         private void BtnConfirmar_Click(object sender, RoutedEventArgs e)
         {
-            WPFTicketImpresion impresion = new WPFTicketImpresion(ticket1);
-            impresion.Show();
+            foreach(Butaca butaca in listaDeButacasSeleccionadas)
+            {
+                ticket1.But_Id = butaca.But_Id;
+                WPFTicketImpresion impresion = new WPFTicketImpresion(ticket1);
+                impresion.Show();
+            }
         }
 
         private void generarButacas()
@@ -48,8 +55,7 @@ namespace Vistas.UserControl.ticket
             columnasMax = 0;
             filasMax = 0;
             //TODO OBTENER BUTACA POR SALA DE PROYECCION:SALA
-            //listaDeButacas = TrabajarButaca.obtenerButacasPorSala(proyeccionSeleccionada.Sla_NroSala);
-            listaDeButacas = TrabajarButaca.obtenerButacasPorSala(1);
+            listaDeButacas = TrabajarButaca.obtenerButacasPorSala(proyeccionSeleccionada.Sla_NroSala);
             foreach (Butaca butaca in listaDeButacas)
             {
                 if (butaca.But_Nro == 1)
@@ -76,14 +82,14 @@ namespace Vistas.UserControl.ticket
             for (int i = 0; i < columnasMax; i++)
             {
                 ColumnDefinition gridCol = new ColumnDefinition();
-                grid.ColumnDefinitions.Add(gridCol);
+                grdButacas.ColumnDefinitions.Add(gridCol);
             }
 
             //crea las filas en el grid
             for (int i = 0; i < filasMax; i++)
             {
                 RowDefinition gridRow = new RowDefinition();
-                grid.RowDefinitions.Add(gridRow);
+                grdButacas.RowDefinitions.Add(gridRow);
             }
 
 
@@ -108,7 +114,7 @@ namespace Vistas.UserControl.ticket
                     butaca.Click += Butaca_Click;
                     Grid.SetRow(butaca, i);
                     Grid.SetColumn(butaca, j);
-                    grid.Children.Add(butaca);
+                    grdButacas.Children.Add(butaca);
                 }
                 validarAsientos();
             }
@@ -131,8 +137,7 @@ namespace Vistas.UserControl.ticket
             List<Ticket> listaDeTicketsVendidos = new List<Ticket>();
             int fila = 0;
             int columna = -1;
-            //listaDeTicketsVendidos = TrabajarTicket.traerTicketPorProyeccion(proyeccionSeleccionada.Proy_Codigo);
-            listaDeTicketsVendidos = TrabajarTicket.traerTicketPorProyeccion(1);
+            listaDeTicketsVendidos = TrabajarTicket.traerTicketPorProyeccion(proyeccionSeleccionada.Proy_Codigo);
             foreach (Butaca butaca in listaDeButacas)
             {
                 columna++;
@@ -159,7 +164,7 @@ namespace Vistas.UserControl.ticket
         private void validarAsientos()
         {
 
-            foreach (var item in grid.Children)
+            foreach (var item in grdButacas.Children)
             {
                 //Si el aciento no esta ocupado el boton obtendra un estilo que muestre su disponibilidad
 
@@ -243,37 +248,24 @@ namespace Vistas.UserControl.ticket
         /// <param name="e"></param>
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in grid.Children)
+            foreach (var item in grdButacas.Children)
             {
 
                 if (seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
                 {
                     seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
+                    foreach(Butaca butaca in listaDeButacas)
+                    {
+                        if (((Button)item).Content.ToString().Contains(butaca.But_Fila) && ((Button)item).Content.ToString().Contains(butaca.But_Nro.ToString()))
+                        {
+                            listaDeButacasSeleccionadas.Add(butaca);
+                        }
+                    }
+                    
                 }
             }
             validarAsientos();
         }
         
-
-        /// <summary>
-        /// Devuelve una letra segun el numero que recibe por parametro
-        /// </summary>
-        /// <param name="numero">numero</param>
-        /// <returns></returns>
-        public string devolverLetra(int num)
-        {
-            char letra = ' ';
-            if (num >= 0 && num <= 26)
-            {
-                num = num - 1;
-                letra = (char)(num + 65);
-            }
-            else
-            {
-                MessageBox.Show("Debe ingresar un numero entre 1 y 26");
-            }
-            return letra.ToString();
-
-        }
     }
 }

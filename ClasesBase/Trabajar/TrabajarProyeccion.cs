@@ -119,7 +119,7 @@ namespace ClasesBase
         /// </summary>
         /// <param name="codigo"></param>
         /// <returns></returns>
-        public static Proyeccion buscarProyeccion(string codigo)
+        public static Proyeccion buscarProyeccion(int codigo)
         {
             Proyeccion proyeccion = null;
 
