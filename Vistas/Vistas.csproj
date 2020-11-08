@@ -58,6 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Properties\UserConfig.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>UserConfig.settings</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Ticket\WPFAltaTicket.xaml.cs">
       <DependentUpon>WPFAltaTicket.xaml</DependentUpon>
     </Compile>
@@ -320,7 +325,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Properties\UserConfig.settings" />
+    <None Include="Properties\UserConfig.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>UserConfig.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
