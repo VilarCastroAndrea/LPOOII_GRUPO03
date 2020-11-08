@@ -21,9 +21,11 @@ namespace Vistas.UserControl.ticket
     /// </summary>
     public partial class WPFTicketCliente 
     {
-        public WPFTicketCliente()
+        WPFTicket ticketPadre;
+        public WPFTicketCliente(WPFTicket padre)
         {
             InitializeComponent();
+            ticketPadre = padre;
         }
 
         private void Clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -33,7 +35,6 @@ namespace Vistas.UserControl.ticket
             txtDNI.Text = Convert.ToString(item["DNI"]);
             txtApellido.Text = Convert.ToString(item["Apellido"]);
             txtNombre.Text = Convert.ToString(item["Nombre"]);
-            WPFTicket ticketPadre = new WPFTicket();
             ticketPadre.cargarCliente(Convert.ToInt32(item["DNI"]));
         }
     }
