@@ -31,10 +31,12 @@ namespace Vistas.UserControl.ticket
         {
             InitializeComponent();
             ticket1 = ticket;
-            proyeccion = TrabajarProyeccion.buscarProyeccion(ticket.Proy_Codigo.ToString());
+            ticket1.Tick_FechaVenta = DateTime.Now;
+            ticket1.Usu_Id = 5;
+            proyeccion = TrabajarProyeccion.buscarProyeccion(ticket.Proy_Codigo);
             pelicula = TrabajarPelicula.buscarPelicula(proyeccion.Peli_Codigo.ToString());
             cliente = TrabajarClientes.buscarClientePorDni(ticket.Cli_DNI.ToString());
-            butaca = TrabajarButaca.buscarButaca(ticket.But_Id.ToString());
+            butaca = TrabajarButaca.buscarButaca(ticket.But_Id);
             sala = TrabajarSala.buscarSala(proyeccion.Sla_NroSala.ToString());
             asignarVlores();
         }

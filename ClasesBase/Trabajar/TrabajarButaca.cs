@@ -89,7 +89,7 @@ namespace ClasesBase
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static Butaca buscarButaca(string id)
+        public static Butaca buscarButaca(int id)
         {
             Butaca butaca = null;
 

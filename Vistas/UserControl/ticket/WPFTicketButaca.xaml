@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="720">
     <Grid>
-        <Button Content="Confirmar" Name="btnConfirmar" HorizontalAlignment="Left" Margin="605,365,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource BotonCustom}" Click="BtnConfirmar_Click" />
+        
 
         <!--Fondo de la ventana-->
         <Grid.Background>
@@ -16,7 +16,7 @@
                 <GradientStop Color="#FF042A30"/>
             </LinearGradientBrush>
         </Grid.Background>
-
+        <Button Content="Confirmar" Name="btnConfirmar" HorizontalAlignment="Left" Margin="605,365,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource BotonCustom}" Click="BtnConfirmar_Click" />
         <!--Marca de la posicion de las butacas-->
         <Image HorizontalAlignment="Left" Height="357" Margin="125,10,0,0" VerticalAlignment="Top" Width="506" Source="../../img/pro.png"/>
 
@@ -31,7 +31,6 @@
 
         </Grid>
 
-        <!--Boton Reservar-->
-        <Button Content="Reservar" HorizontalAlignment="Left" Margin="556,387,0,0" VerticalAlignment="Top" Width="75" Click="BtnGuardar_Click" Background="#FF04292F" BorderBrush="#FF033740" Foreground="White"/>
+     
     </Grid>
 </UserControl>

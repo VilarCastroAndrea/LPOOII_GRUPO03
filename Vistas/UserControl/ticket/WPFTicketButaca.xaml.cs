@@ -35,13 +35,31 @@ namespace Vistas.UserControl.ticket
         {
             InitializeComponent();
             ticket1 = ticket;
-            generarButacas();
             proyeccionSeleccionada = TrabajarProyeccion.buscarProyeccion(ticket.Proy_Codigo);
+            generarButacas();
         }
 
         private void BtnConfirmar_Click(object sender, RoutedEventArgs e)
         {
-            foreach(Butaca butaca in listaDeButacasSeleccionadas)
+            foreach (var item in grdButacas.Children)
+            {
+
+                if (seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
+                {
+                    seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
+                    foreach (Butaca butaca in listaDeButacas)
+                    {
+                        if (((Button)item).Content.ToString().Contains(butaca.But_Fila) && ((Button)item).Content.ToString().Contains(butaca.But_Nro.ToString()))
+                        {
+                            listaDeButacasSeleccionadas.Add(butaca);
+                        }
+                    }
+
+                }
+            }
+            validarAsientos();
+
+            foreach (Butaca butaca in listaDeButacasSeleccionadas)
             {
                 ticket1.But_Id = butaca.But_Id;
                 WPFTicketImpresion impresion = new WPFTicketImpresion(ticket1);
@@ -240,32 +258,7 @@ namespace Vistas.UserControl.ticket
             validarAsientos();
         }
 
-        /// <summary>
-        /// guarda los botones que fueron seleccionados y pasa su disponibilidad a ocupado
-        /// una vez realizado eso vuellve a validar los asientos comparandolos con la bd ficticia
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void BtnGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            foreach (var item in grdButacas.Children)
-            {
 
-                if (seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
-                {
-                    seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
-                    foreach(Butaca butaca in listaDeButacas)
-                    {
-                        if (((Button)item).Content.ToString().Contains(butaca.But_Fila) && ((Button)item).Content.ToString().Contains(butaca.But_Nro.ToString()))
-                        {
-                            listaDeButacasSeleccionadas.Add(butaca);
-                        }
-                    }
-                    
-                }
-            }
-            validarAsientos();
-        }
         
     }
 }
