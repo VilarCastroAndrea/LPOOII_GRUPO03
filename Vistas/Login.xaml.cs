@@ -73,8 +73,6 @@ namespace Vistas
                MainWindow menu = new MainWindow();
                 menu.Show();
                 Close();
-
-               // MessageBox.Show("usuario " + UsuarioLogin.usu_Disponible);
             }
             else
             {
