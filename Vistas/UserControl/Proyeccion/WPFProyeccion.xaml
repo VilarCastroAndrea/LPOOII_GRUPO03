@@ -23,8 +23,8 @@
 
         <!--Listar Proyecciones-->
         <DataGrid Name="dgvListaDeProyecciones" 
-                  HorizontalAlignment="Left" Height="405" 
-                  Margin="238,55,0,0" 
+                  HorizontalAlignment="Left" Height="375" 
+                  Margin="238,85,0,0" 
                   VerticalAlignment="Top" 
                   Width="502" Background="Black" 
                   BorderBrush="#FF04272D" 
@@ -44,11 +44,13 @@
 
         <!--Boton Modificar Cliente-->
         <Button Name="btnModificarCliente" Style="{StaticResource BotonModificar}" Click="BtnModificarCliente_Click" />
-        
+
         <!--Boton Alta Cliente-->
         <Button Name="btnAltaCliente" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaCliente_Click"/>
 
         <!--GroupBox de Buscar Cliente-->
-        <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>
+        <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="47" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White">
+            <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+        </GroupBox>
     </Grid>
 </UserControl>
