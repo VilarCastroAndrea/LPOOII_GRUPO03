@@ -32,7 +32,7 @@ namespace Vistas.UserControl.ticket
             InitializeComponent();
             ticket1 = ticket;
             ticket1.Tick_FechaVenta = DateTime.Now;
-            ticket1.Usu_Id = 5;
+            ticket1.Usu_Id = UsuarioLogin.usu_Id;
             proyeccion = TrabajarProyeccion.buscarProyeccion(ticket.Proy_Codigo);
             pelicula = TrabajarPelicula.buscarPelicula(proyeccion.Peli_Codigo.ToString());
             cliente = TrabajarClientes.buscarClientePorDni(ticket.Cli_DNI.ToString());
@@ -43,8 +43,8 @@ namespace Vistas.UserControl.ticket
 
         public void asignarVlores()
         {
-            TrabajarTicket.altaTicket(ticket1);
-            txtNroTicket.Text = ticket1.Tick_Nro.ToString();
+            txtNroTicket.Text = (TrabajarTicket.altaTicket(ticket1)).ToString();
+
             txtFechaTicket.Text = DateTime.Now.ToString();
             txtnombrePelicula.Text = pelicula.Peli_Titulo;
             txtFecha.Text = proyeccion.Proy_Fecha;

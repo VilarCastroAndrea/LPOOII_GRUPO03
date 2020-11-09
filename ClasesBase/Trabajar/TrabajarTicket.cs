@@ -12,7 +12,7 @@ namespace ClasesBase
         /// Alta Ticket con stored procedure
         /// </summary>
         /// <param name="ticket"></param>
-        public static void altaTicket(Ticket ticket)
+        public static int altaTicket(Ticket ticket)
         {
             SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
             SqlCommand cmd = new SqlCommand();
@@ -26,8 +26,9 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@usuId", ticket.Usu_Id);
             cmd.Parameters.AddWithValue("@estado", true);
             cnn.Open();
-            cmd.ExecuteNonQuery();
+            int numeroDeTicket = cmd.ExecuteNonQuery();
             cnn.Close();
+            return numeroDeTicket;
         }
 
         /// <summary>

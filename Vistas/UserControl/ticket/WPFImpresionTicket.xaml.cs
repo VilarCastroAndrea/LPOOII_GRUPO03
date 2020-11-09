@@ -21,7 +21,7 @@ namespace Vistas.UserControl.ticket
     /// </summary>
     public partial class WPFImpresionTicket 
     {
-        Ticket ticket1 = new Ticket();
+        Ticket ticket1;
         ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
         ClasesBase.Proyeccion proyeccion = new ClasesBase.Proyeccion();
         ClasesBase.Cliente cliente = new ClasesBase.Cliente();
