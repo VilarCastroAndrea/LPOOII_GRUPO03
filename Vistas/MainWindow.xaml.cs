@@ -21,6 +21,12 @@ namespace Vistas
 
         }
 
+        public void refrescarCliente()
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new WPFCliente(this));
+        }
+
         public void refrescarPelicula()
         {
             panelPrincipal.Children.Clear();
@@ -48,7 +54,7 @@ namespace Vistas
         private void BtnCliente_Click(object sender, RoutedEventArgs e)
         {
             panelPrincipal.Children.Clear();
-            panelPrincipal.Children.Add(new WPFCliente());
+            panelPrincipal.Children.Add(new WPFCliente(this));
         }
 
         private void BtnPelicula_Click(object sender, RoutedEventArgs e)

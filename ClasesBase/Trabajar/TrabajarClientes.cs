@@ -167,7 +167,21 @@ namespace ClasesBase
             cmd.Connection = cnn;
 
             cmd.Parameters.AddWithValue("@dni", cliente.Cli_DNI);
+            cmd.Parameters.AddWithValue("@disponible", cliente.Cli_Disponible);
 
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
+        }
+
+        public static void eliminarClienteFisico(int dni)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "bajaClienteFisica";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@dni", dni);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();

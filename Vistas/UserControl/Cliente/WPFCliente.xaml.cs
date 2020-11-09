@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
+using System.Windows;
 using System.Windows.Controls;
 using ClasesBase;
 namespace Vistas
@@ -8,12 +10,13 @@ namespace Vistas
     /// </summary>
     public partial class WPFCliente
     {
-        public WPFCliente()
+        MainWindow ventana;
+        public WPFCliente(MainWindow main)
         {
             InitializeComponent();
             panelCliente.Children.Clear();
-            panelCliente.Children.Add(new WPFMostrarCliente());
-            
+            panelCliente.Children.Add(new WPFAltaCliente(this));
+            ventana = main;
         }
 
         private void BtnModificarCliente_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -30,9 +33,9 @@ namespace Vistas
 
         private void DgClientes_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            DataGrid dg = (DataGrid) sender;
+            DataGrid dg = (DataGrid)sender;
             DataRowView row_selected = dg.SelectedItem as DataRowView;
-            if(row_selected != null)
+            if (row_selected != null)
             {
                 Cliente clienteSeleccionado = ConvertirDRVaCliente(row_selected);
                 panelCliente.Children.Clear();
@@ -62,7 +65,29 @@ namespace Vistas
         /// </summary>
         public void ActualizarDataGrid()
         {
-            //Como actualizar?
+            ventana.refrescarCliente();
+        }
+
+        private void Clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                panelCliente.Children.Clear();
+
+                DataRowView item = (DataRowView)Clientes.SelectedItem;
+                ClasesBase.Cliente cliente = new ClasesBase.Cliente();
+                cliente.Cli_DNI = Convert.ToInt32(item["DNI"]);
+                cliente.Cli_Apellido = Convert.ToString(item["Apellido"]);
+                cliente.Cli_Nombre = Convert.ToString(item["Nombre"]);
+                cliente.Cli_Telefono = Convert.ToString(item["Telefono"]);
+                cliente.Cli_Email = Convert.ToString(item["Email"]);
+                panelCliente.Children.Add(new WPFMostrarCliente(cliente, this));
+
+            }
+            catch
+            {
+                MessageBoxResult resultado = MessageBox.Show("Debe seleccionar un cliente para modificarla", "Atención");
+            }
         }
     }
 }

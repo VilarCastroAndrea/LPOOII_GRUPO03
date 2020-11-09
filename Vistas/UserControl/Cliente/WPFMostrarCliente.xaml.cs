@@ -23,6 +23,7 @@ namespace Vistas
         {
             cliente = new Cliente();
             InitializeComponent();
+
         }
 
         public WPFMostrarCliente(Cliente verCliente, WPFCliente padre)
@@ -62,10 +63,12 @@ namespace Vistas
             cli.Cli_Disponible = true;
 
             TrabajarClientes.ActualizarCliente(cli);
-            
+
             MessageBox.Show("Se modifico el registro");
+            //Se debe mostrar el formulario de alta cliente para que se actualize el grid en caso contrario sale error
+            oPadre.ActualizarDataGrid();
             limpiarcampos();
-            
+
         }
 
         private void BtnBaja_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -80,18 +83,24 @@ namespace Vistas
                 cli.Cli_Nombre = txtNombre.Text;
                 cli.Cli_Telefono = txtTelefono.Text;
                 cli.Cli_Email = txtEmail.Text;
-                cli.Cli_Disponible = true;
+                cli.Cli_Disponible = false;
 
-                TrabajarClientes.EliminarCliente(cli);
-
+                try
+                {
+                    TrabajarClientes.eliminarClienteFisico(cli.Cli_DNI);
+                }
+                catch
+                {
+                    TrabajarClientes.EliminarCliente(cli);
+                }
+                oPadre.ActualizarDataGrid();
                 limpiarcampos();
             }
-            
-
         }
 
 
-        private void limpiarcampos() {
+        private void limpiarcampos()
+        {
             txtDni.Text = null;
             txtApellido.Text = null;
             txtNombre.Text = null;
