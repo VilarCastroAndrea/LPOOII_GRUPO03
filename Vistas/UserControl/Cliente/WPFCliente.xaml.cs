@@ -89,5 +89,7 @@ namespace Vistas
                 MessageBoxResult resultado = MessageBox.Show("Debe seleccionar un cliente para modificarla", "Atención");
             }
         }
+
+ 
     }
 }

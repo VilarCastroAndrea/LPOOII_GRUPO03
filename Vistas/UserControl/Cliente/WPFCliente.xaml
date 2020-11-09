@@ -46,7 +46,7 @@
                 <ColumnDefinition Width="77*"/>
                 <ColumnDefinition Width="174*"/>
             </Grid.ColumnDefinitions>
-            <ListView  Name="Clientes"  ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}, UpdateSourceTrigger=Explicit}" Grid.ColumnSpan="2">
+            <ListView  Name="Clientes"  ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}, UpdateSourceTrigger=Explicit}" Grid.ColumnSpan="2" SelectionChanged="Clientes_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <!--Enlace de DNI, Nombre, Apellido, Telefono y Email a las columnas-->
