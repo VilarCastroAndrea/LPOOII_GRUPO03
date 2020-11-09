@@ -31,8 +31,7 @@ namespace Vistas.UserControl.ticket
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
+        {   
             DataRowView item = (DataRowView)listaProyeccion.SelectedItem;
             ClasesBase.Proyeccion proyeccion = new ClasesBase.Proyeccion();
             ticketPadre.cargarProyeccion(Convert.ToInt32(item["Codigo"]));
@@ -41,6 +40,5 @@ namespace Vistas.UserControl.ticket
             txtHora.Text = Convert.ToString(item["Hora"]);
             txtSala.Text = Convert.ToString(item["Descripcion de Sala"]);
         }
-        
     }
 }

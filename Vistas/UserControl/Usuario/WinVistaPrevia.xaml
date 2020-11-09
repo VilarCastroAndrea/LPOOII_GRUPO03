@@ -19,14 +19,21 @@
                     <FlowDocument Name="DocMain">
                         <Paragraph FontFamily="Segoe UI">Listado de Usuarios</Paragraph>
                         <BlockUIContainer>
-                            <ListView Name="lstUsuarios" FontFamily="Segoe UI">
+                            <ListView Name="lstUsuarios" FontFamily="Segoe UI" BorderBrush="#FF858585" Foreground="White" VerticalAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center">
+                                <ListView.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FF3226A6" Offset="1"/>
+                                        <GradientStop Color="#FE09071F" Offset="0.606"/>
+                                    </LinearGradientBrush>
+                                </ListView.Background>
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Header="Id" Width="40" DisplayMemberBinding="{Binding Usu_Id}"/>
                                         <GridViewColumn Header="Usuario" Width="140" DisplayMemberBinding="{Binding Usu_NombreUsuario}"/>
                                         <GridViewColumn Header="Apellido y Nombre" Width="200" DisplayMemberBinding="{Binding Usu_ApellidoNombre}"/>
                                         <GridViewColumn Header="Password" Width="150" DisplayMemberBinding="{Binding Usu_Password}"/>
-                                        <GridViewColumn Header="Disponible" Width="111" DisplayMemberBinding="{Binding Usu_Disponible}"/>
+                                        <GridViewColumn Header="Disponible" Width="100" DisplayMemberBinding="{Binding Usu_Disponible}"/>
                                     </GridView>
                                 </ListView.View>
                             </ListView>

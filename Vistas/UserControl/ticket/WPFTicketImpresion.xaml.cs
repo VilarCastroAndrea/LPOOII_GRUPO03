@@ -44,7 +44,6 @@ namespace Vistas.UserControl.ticket
         public void asignarVlores()
         {
             txtNroTicket.Text = (TrabajarTicket.altaTicket(ticket1)).ToString();
-
             txtFechaTicket.Text = DateTime.Now.ToString();
             txtnombrePelicula.Text = pelicula.Peli_Titulo;
             txtFecha.Text = proyeccion.Proy_Fecha;
