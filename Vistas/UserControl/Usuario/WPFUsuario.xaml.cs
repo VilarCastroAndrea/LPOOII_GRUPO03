@@ -20,12 +20,23 @@ namespace Vistas.UserControl.Usuario
     /// </summary>
     public partial class WPFUsuario
     {
-        public WPFUsuario()
+
+        MainWindow ventana;
+
+        public WPFUsuario(MainWindow main)
         {
             InitializeComponent();
             panelUsuario.Children.Clear();
-            panelUsuario.Children.Add(new WPFMostrarUsuario());
+            panelUsuario.Children.Add(new WPFAltaUsuario(this));
+            ventana = main;
         }
+        
+        //public WPFUsuario()
+        //{
+        //    InitializeComponent();
+        //    panelUsuario.Children.Clear();
+        //    panelUsuario.Children.Add(new WPFMostrarUsuario());
+        //}
 
         private void BtnMostrarUsuario_Click(object sender, RoutedEventArgs e)
         {
@@ -33,10 +44,10 @@ namespace Vistas.UserControl.Usuario
             panelUsuario.Children.Add(new WPFMostrarUsuario());
         }
 
-        private void BtnAltaAltaUsuario_Click(object sender, RoutedEventArgs e)
+        public void altaUsuario(ClasesBase.Usuario usuarioNuevo)
         {
-            panelUsuario.Children.Clear();
-            panelUsuario.Children.Add(new WPFAltaUsuario());
+            ClasesBase.TrabajarUsuario.altaUsuario(usuarioNuevo);
+            ventana.refrescarUsuario();
         }
 
         private void BtnListarUsuario_Click(object sender, RoutedEventArgs e)
@@ -44,6 +55,11 @@ namespace Vistas.UserControl.Usuario
             panelUsuario.Children.Clear();
             panelUsuario.Children.Add(new WPFListarUsuario());
         }
+        private void BtnAltaAltaUsuario_Click(object sender, RoutedEventArgs e)
+        {
 
+            panelUsuario.Children.Clear();
+            panelUsuario.Children.Add(new WPFAltaUsuario(this));
+        }
     }
 }
