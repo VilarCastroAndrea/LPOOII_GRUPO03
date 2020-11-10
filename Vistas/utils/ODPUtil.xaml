@@ -15,6 +15,12 @@
                                 ObjectType="{x:Type svc:TrabajarProyeccion}"
                                 MethodName="IniciarProyeccion">
     </ObjectDataProvider>
+    
+    <!-- Listar proyecciones para el datagrid -->
+    <ObjectDataProvider x:Key="LIST_PROY"
+                                ObjectType="{x:Type svc:TrabajarProyeccion}"
+                                MethodName="listarProyeccionesDisponibles">
+    </ObjectDataProvider>
 
     <!-- Data Provider para PELICULA -->
     <ObjectDataProvider x:Key="DATA_PELI"

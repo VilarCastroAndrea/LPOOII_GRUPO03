@@ -5,6 +5,9 @@ using System.Windows;
 
 namespace Vistas.UserControl.Proyeccion
 {
+    using ClasesBase;
+    using System.Data;
+
     /// <summary>
     /// Lógica de interacción para WPFProyeccion.xaml
     /// </summary>
@@ -16,6 +19,7 @@ namespace Vistas.UserControl.Proyeccion
         //private List<ClasesBase.Proyeccion> listaDeProyecciones;
         //private bool selecciono = false;
         public int index = 0;
+        
         /// <summary>
         /// al iniciar se inicializara una lista de proyecciones y se cargara en el data grid view
         /// </summary>
@@ -25,7 +29,9 @@ namespace Vistas.UserControl.Proyeccion
             panelProyeccion.Children.Clear();
             panelProyeccion.Children.Add(new WPFAltaProyeccion(this));
             //listaDeProyecciones = new List<ClasesBase.Proyeccion>();
-            dgvListaDeProyecciones.ItemsSource = TrabajarProyeccion.traerProyecciones();
+
+            //NO FUNCIONA - Solo funcionó bindear
+            //dgvListaDeProyecciones.DataContext = TrabajarProyeccion.listarProyeccionesDisponibles();
         }
 
 
@@ -78,7 +84,22 @@ namespace Vistas.UserControl.Proyeccion
         private void DgvListaDeProyecciones_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             panelProyeccion.Children.Clear();
-            panelProyeccion.Children.Add(new WPFMostrarProyeccion((ClasesBase.Proyeccion)dgvListaDeProyecciones.SelectedItem, this));
+
+            panelProyeccion.Children.Add(new WPFMostrarProyeccion(GenerarProyeccion(), this));
+        }
+
+        private Proyeccion GenerarProyeccion()
+        {
+            Proyeccion p = new Proyeccion();
+            DataRowView drv = (DataRowView)dgvListaDeProyecciones.SelectedItem;
+            p.Peli_Codigo = int.Parse(drv["Codigo de Pelicula"].ToString());
+            p.Proy_Codigo = int.Parse(drv["Codigo"].ToString());
+            p.Proy_Disponible = bool.Parse(drv["Disponible"].ToString());
+            p.Proy_Fecha = drv["Fecha"].ToString();
+            p.Proy_Hora = drv["Hora"].ToString();
+            p.Sla_NroSala = int.Parse(drv["Numero de Sala"].ToString());
+            return p;
+
         }
     }
 }

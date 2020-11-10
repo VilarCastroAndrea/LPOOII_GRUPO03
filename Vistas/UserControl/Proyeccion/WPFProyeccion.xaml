@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:Vistas.UserControl.Proyeccion"
              mc:Ignorable="d" 
              d:DesignHeight="490" d:DesignWidth="760">
+    
     <Grid Height="490" Width="760">
         <!--Fondo de la ventana-->
         <Grid.Background>
@@ -31,15 +32,15 @@
                   Foreground="Black" 
                   IsReadOnly="True"  
                   SelectionChanged="DgvListaDeProyecciones_SelectionChanged"
-                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding Source={StaticResource LIST_PROY}}"
                   >
-            <DataGrid.Columns>
+            <!--<DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Proy_Codigo}" Header="Código" Width="50"/>
                 <DataGridTextColumn Binding="{Binding Peli_Codigo}" Header="Película" Width="80"/>
                 <DataGridTextColumn Binding="{Binding Sla_NroSala}" Header="NroSala" Width="70"/>
                 <DataGridTextColumn Binding="{Binding Proy_Fecha}" Header="Fecha" Width="70"/>
                 <DataGridTextColumn Binding="{Binding Proy_Hora}" Header="Hora" Width="70"/>
-            </DataGrid.Columns>
+            </DataGrid.Columns>-->
         </DataGrid>
 
         <!--Boton Modificar Cliente-->

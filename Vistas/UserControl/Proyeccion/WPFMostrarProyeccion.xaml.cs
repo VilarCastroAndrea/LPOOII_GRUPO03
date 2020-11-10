@@ -19,6 +19,7 @@ namespace Vistas.UserControl.Proyeccion
         ObservableCollection<Sala> listaSalas = new ObservableCollection<Sala>();
         Proyeccion proyeccionMostrar;
         WPFProyeccion proyeccionPadre;
+
         /// <summary>
         /// constructor con clase para modificar y clase padre para llamar a sus acciones
         /// </summary>
@@ -40,7 +41,7 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarFormulario()
         {
-            if (proyeccionMostrar != null)
+            try
             {
                 txtFecha.Text = proyeccionMostrar.Proy_Fecha;
                 txtHora.Text = proyeccionMostrar.Proy_Hora;
@@ -49,9 +50,14 @@ namespace Vistas.UserControl.Proyeccion
                 Sala auxSala = listaSalas.First(s => s.Sla_NroSala == proyeccionMostrar.Sla_NroSala);
                 cmbSala.SelectedIndex = listaSalas.IndexOf(auxSala);
 
+
                 //Seleccionar el cmb de PELICULAS
                 Pelicula auxPeli = listaPeliculas.First(p => p.Peli_Codigo == proyeccionMostrar.Peli_Codigo);
                 cmbTitulo.SelectedIndex = listaPeliculas.IndexOf(auxPeli);
+            }
+            catch
+            {
+                System.Console.WriteLine("Error en Cargar formulario - modificar proyeccion");
             }
         }
 
