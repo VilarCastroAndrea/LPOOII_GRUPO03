@@ -21,24 +21,61 @@ namespace Vistas.UserControl.Usuario
     /// </summary>
     public partial class WPFAltaUsuario 
     {
+
+        WPFUsuario padre;
+
+        public WPFAltaUsuario(WPFUsuario formularioPadre)
+        {
+            InitializeComponent();
+            padre = formularioPadre;
+            cargarComboRol();
+
+        }
+
+
+
         public WPFAltaUsuario()
         {
             InitializeComponent();
             cargarComboRol();
         }
 
+        //private void BtnAltaUsuario_Click(object sender, RoutedEventArgs e)
+        //{
+        //    ClasesBase.Usuario usuario = new ClasesBase.Usuario();
+        //    usuario.Usu_ApellidoNombre = txtApellidoNombre.Text;
+        //    usuario.Usu_NombreUsuario = txtNombreUsuario.Text;
+        //    usuario.Usu_Password = txtPassword.Text;
+        //    usuario.Usu_Disponible = true;
+        //    usuario.Rol_Codigo = int.Parse(cmbRol.SelectedValue.ToString());
+
+        //    TrabajarUsuario.altaUsuario(usuario);         
+        //    MessageBox.Show("Usuario agregado correctamente");
+        //    limpiarCampos();
+        //}
+
         private void BtnAltaUsuario_Click(object sender, RoutedEventArgs e)
         {
-            ClasesBase.Usuario usuario = new ClasesBase.Usuario();
-            usuario.Usu_ApellidoNombre = txtApellidoNombre.Text;
-            usuario.Usu_NombreUsuario = txtNombreUsuario.Text;
-            usuario.Usu_Password = txtPassword.Text;
-            usuario.Usu_Disponible = true;
-            usuario.Rol_Codigo = int.Parse(cmbRol.SelectedValue.ToString());
+            if (validarCampos() == true)
+            {
+                try
+                {
+                    padre.altaUsuario(new ClasesBase.Usuario(txtNombreUsuario.Text,txtPassword.Text,txtApellidoNombre.Text,1));
+                   
+                    MessageBoxResult resultado = MessageBox.Show("Se agrego usuario con exito", "Atención");
+                    //limpiarCampos();
+                }
+                catch (Exception error)
+                {
+                    MessageBoxResult resultado = MessageBox.Show("Error al realizar alta de Usuario ", "Atención");
+                }
 
-            TrabajarUsuario.altaUsuario(usuario);         
-            MessageBox.Show("Usuario agregado correctamente");
-            limpiarCampos();
+            }
+            else
+            {
+                MessageBoxResult resultado = MessageBox.Show("Formulario incompleto ", "Atención");
+            }
+
         }
 
         private void cargarComboRol()
@@ -54,6 +91,18 @@ namespace Vistas.UserControl.Usuario
             txtNombreUsuario.Text = "";
             txtPassword.Text = "";
         }
+        private bool validarCampos()
+        {
+            if (txtApellidoNombre.Text == "" || txtNombreUsuario.Text == "" || txtPassword.Text =="")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
 
     }
 }
