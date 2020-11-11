@@ -5,39 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas.UserControl.ticket"
         mc:Ignorable="d"
-        Title="WPFTicketImpresion" Height="636.614" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Width="417.993">
+        Title="WPFTicketImpresion" Height="520.904" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Width="372.996">
     <!--<FixedDocument>
         <PageContent>
             <FixedPage>-->
-    <StackPanel>
-        <Button x:Name="btnPrint" Content="Imprimir" Click="btnPrint_Click"/>
+    <StackPanel Background="Black" Margin="0,0,0,-4">
 
-        <FlowDocumentReader  Canvas.Top="28" Margin="0,0,0,97" Height="538">
+        <FlowDocumentReader  Canvas.Top="28" Margin="0,0,0,97" Height="435" Foreground="White">
             <FlowDocument Name="DocMain">
                 <BlockUIContainer>
-                    <Grid Background="Black" Height="467">
+                    <Grid Background="Black" Height="380" Width="300">
 
-                        <Label Content="TICKET" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
-                        <Label Content="Av. Exodo 346 - San Salvador de Jujuy" HorizontalAlignment="Left" Margin="25,61,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10"/>
-                        <Label Content="Nº" HorizontalAlignment="Left" Margin="165,22,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10"/>
-                        <Label Content="Fecha" HorizontalAlignment="Left" Margin="28,81,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10"/>
-                        <Label Content="Fecha" HorizontalAlignment="Left" Margin="25,142,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385"/>
-                        <Label Content="Hora" HorizontalAlignment="Left" Margin="25,173,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385"/>
-                        <Label Content="Butaca" HorizontalAlignment="Left" Margin="80,205,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385"/>
-                        <Label Content="Apellido" HorizontalAlignment="Left" Margin="25,267,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385"/>
-                        <Label Content="Nombre" HorizontalAlignment="Left" Margin="25,298,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385"/>
-                        <Label Content="DNI" HorizontalAlignment="Left" Margin="25,329,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385"/>
-                        <TextBlock x:Name="txtnombrePelicula" HorizontalAlignment="Left" Margin="83,109,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="Black" Foreground="White" FontSize="20"/>
-                        <TextBlock x:Name="txtFecha" HorizontalAlignment="Left" Margin="83,147,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
-                        <TextBlock x:Name="txtHora" HorizontalAlignment="Left" Margin="83,178,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
-                        <TextBlock x:Name="txtButaca" HorizontalAlignment="Left" Margin="138,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
-                        <Label Content="Cliente" HorizontalAlignment="Left" Margin="25,231,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
-                        <TextBlock x:Name="txtApeliidoCliente" HorizontalAlignment="Left" Margin="95,272,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
-                        <TextBlock x:Name="txtNombreCliente" HorizontalAlignment="Left" Margin="95,303,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
-                        <TextBlock x:Name="txtDNICliente" HorizontalAlignment="Left" Margin="95,334,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
-                        <TextBlock x:Name="txtNroTicket" HorizontalAlignment="Left" Margin="220,25,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
-                        <TextBlock x:Name="txtFechaTicket" HorizontalAlignment="Left" Margin="83,84,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
-                        <TextBlock x:Name="txtSala" HorizontalAlignment="Left" Margin="30,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
+                        <Label Content="TICKET" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Segoe UI"/>
+                        <Label Content="Av. Exodo 346 - San Salvador de Jujuy" HorizontalAlignment="Left" Margin="25,61,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10" FontFamily="Segoe UI"/>
+                        <Label Content="Nº" HorizontalAlignment="Left" Margin="165,22,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10" FontFamily="Segoe UI"/>
+                        <Label Content="Fecha" HorizontalAlignment="Left" Margin="28,81,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10" FontFamily="Segoe UI"/>
+                        <Label Content="Fecha" HorizontalAlignment="Left" Margin="25,142,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="Hora" HorizontalAlignment="Left" Margin="25,173,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="Butaca" HorizontalAlignment="Left" Margin="80,205,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="Apellido" HorizontalAlignment="Left" Margin="25,267,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="Nombre" HorizontalAlignment="Left" Margin="25,298,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="DNI" HorizontalAlignment="Left" Margin="25,329,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtnombrePelicula" HorizontalAlignment="Left" Margin="25,99,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="Black" Foreground="White" FontSize="36" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtFecha" HorizontalAlignment="Left" Margin="83,147,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtHora" HorizontalAlignment="Left" Margin="83,178,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtButaca" HorizontalAlignment="Left" Margin="138,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <Label Content="Cliente" HorizontalAlignment="Left" Margin="25,231,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtApeliidoCliente" HorizontalAlignment="Left" Margin="95,272,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtNombreCliente" HorizontalAlignment="Left" Margin="95,303,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtDNICliente" HorizontalAlignment="Left" Margin="95,334,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtNroTicket" HorizontalAlignment="Left" Margin="208,21,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtFechaTicket" HorizontalAlignment="Left" Margin="83,84,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtSala" HorizontalAlignment="Left" Margin="30,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
                     </Grid>
 
                 </BlockUIContainer>
@@ -45,6 +44,10 @@
 
             </FlowDocument>
         </FlowDocumentReader>
+        <Grid>
+            <Button x:Name="btnPrint" Style="{StaticResource BotonCustom}" Content="Imprimir" Click="btnPrint_Click" Margin="210,-92,0,0"/>
+
+        </Grid>
 
     </StackPanel>
     <!--</FixedPage>

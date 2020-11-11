@@ -6,22 +6,16 @@
              xmlns:local="clr-namespace:Vistas.UserControl.ticket"
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="720">
-    <Grid>
-        
+    <Grid Background="#FF03181D">
+
 
         <!--Fondo de la ventana-->
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF042A30"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Button Content="Confirmar" Name="btnConfirmar" HorizontalAlignment="Left" Margin="605,365,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource BotonCustom}" Click="BtnConfirmar_Click" />
+        <Button Content="Confirmar" Name="btnConfirmar" HorizontalAlignment="Left" Margin="605,365,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource BotonCustom}" Click="BtnConfirmar_Click" Background="Black" BorderBrush="#FF04090A" />
         <!--Marca de la posicion de las butacas-->
         <Image HorizontalAlignment="Left" Height="357" Margin="125,10,0,0" VerticalAlignment="Top" Width="506" Source="../../img/pro.png"/>
 
         <!--Referencias de las de butacas-->
-        <Rectangle Fill="#FF031F24" HorizontalAlignment="Left" Height="16" Margin="10,40,0,0" Stroke="White" VerticalAlignment="Top" Width="36"/>
+        <Rectangle Fill="#FF03181D" HorizontalAlignment="Left" Height="16" Margin="10,40,0,0" Stroke="White" VerticalAlignment="Top" Width="36"/>
         <Rectangle Fill="#FF4CC91E" HorizontalAlignment="Left" Height="15" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="10,71,0,0"/>
         <Rectangle Fill="#FFF03030" HorizontalAlignment="Left" Height="16" Stroke="Black" VerticalAlignment="Top" Width="36" Margin="10,101,0,0"/>
         <Label Content="Disponible" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Height="26" Margin="51,38,0,0" Foreground="White" FontFamily="Arial Black"/>
@@ -31,6 +25,6 @@
 
         </Grid>
 
-     
+
     </Grid>
 </UserControl>
