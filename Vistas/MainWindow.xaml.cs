@@ -44,7 +44,6 @@ namespace Vistas
             }
             else
             {
-                btnButaca.Visibility = Visibility.Hidden;
                 btnUsuario.Visibility = Visibility.Hidden;
                 btnProyeccion.Visibility = Visibility.Hidden;
                 btnPelicula.Visibility = Visibility.Hidden;
@@ -63,11 +62,7 @@ namespace Vistas
             panelPrincipal.Children.Add(new WPFPelicula(this));
         }
 
-        private void BtnButaca_Click(object sender, RoutedEventArgs e)
-        {
-            panelPrincipal.Children.Clear();
-            panelPrincipal.Children.Add(new WPFButaca(new Proyeccion()));
-        }
+
 
 
         /// <summary>
@@ -111,7 +106,13 @@ namespace Vistas
         private void BtnTicket_Click(object sender, RoutedEventArgs e)
         {
             panelPrincipal.Children.Clear();
-            panelPrincipal.Children.Add(new WPFTicket());
+            panelPrincipal.Children.Add(new WPFTicket(this));
+        }
+
+        public void refrescarTicket()
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new WPFTicket(this));
         }
     }
 }

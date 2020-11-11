@@ -63,12 +63,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>UserConfig.settings</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Ticket\WPFAltaTicket.xaml.cs">
-      <DependentUpon>WPFAltaTicket.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\Ticket\WPFImpresionTicket.xaml.cs">
-      <DependentUpon>WPFImpresionTicket.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControl\Ticket\WPFTicket.xaml.cs">
       <DependentUpon>WPFTicket.xaml</DependentUpon>
     </Compile>
@@ -114,9 +108,6 @@
     <Compile Include="UserControl\Usuario\WPFUsuario.xaml.cs">
       <DependentUpon>WPFUsuario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\WPFButaca.xaml.cs">
-      <DependentUpon>WPFButaca.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControl\Cliente\WPFCliente.xaml.cs">
       <DependentUpon>WPFCliente.xaml</DependentUpon>
     </Compile>
@@ -139,14 +130,6 @@
       <DependentUpon>VentanaConfig.xaml</DependentUpon>
     </Compile>
     <Page Include="styles\RDComboBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControl\Ticket\WPFAltaTicket.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControl\Ticket\WPFImpresionTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,10 +233,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Usuario\WPFUsuario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControl\WPFButaca.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

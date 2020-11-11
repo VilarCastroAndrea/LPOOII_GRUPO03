@@ -61,6 +61,7 @@ namespace Vistas.UserControl.ticket
             if (pdlg.ShowDialog() == true)
             {
                 pdlg.PrintDocument(((IDocumentPaginatorSource)DocMain).DocumentPaginator, "Imprimir");
+                this.Close();
             }
         }
     }

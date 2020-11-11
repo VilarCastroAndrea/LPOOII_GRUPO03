@@ -29,14 +29,16 @@ namespace Vistas.UserControl.ticket
         private ClasesBase.Proyeccion proyeccionSeleccionada;
         private int filasMax;
         private int columnasMax;
+        private MainWindow ventanaPadre;
 
 
-        public WPFTicketButaca(Ticket ticket)
+        public WPFTicketButaca(Ticket ticket, MainWindow padre)
         {
             InitializeComponent();
             ticket1 = ticket;
             proyeccionSeleccionada = TrabajarProyeccion.buscarProyeccion(ticket.Proy_Codigo);
             generarButacas();
+            ventanaPadre = padre;
         }
 
         private void BtnConfirmar_Click(object sender, RoutedEventArgs e)
@@ -65,6 +67,9 @@ namespace Vistas.UserControl.ticket
                 WPFTicketImpresion impresion = new WPFTicketImpresion(ticket1);
                 impresion.Show();
             }
+
+            ventanaPadre.refrescarTicket();
+
         }
 
         private void generarButacas()
