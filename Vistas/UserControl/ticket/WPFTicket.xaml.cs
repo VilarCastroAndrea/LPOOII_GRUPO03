@@ -21,15 +21,17 @@ namespace Vistas.UserControl.ticket
     /// </summary>
     public partial class WPFTicket 
     {
+        MainWindow ventanaPadre;
         Ticket ticket = new Ticket();
         
-        public WPFTicket()
+        public WPFTicket(MainWindow padre)
         {
             InitializeComponent();
             panelTicket.Children.Clear();
             panelTicket.Children.Add(new WPFTicketProyeccion(this));
             btnCLiente.Visibility = Visibility.Hidden;
             btnButaca.Visibility = Visibility.Hidden;
+            ventanaPadre = padre;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -47,7 +49,7 @@ namespace Vistas.UserControl.ticket
         private void BtnButaca_Click(object sender, RoutedEventArgs e)
         {
             panelTicket.Children.Clear();
-            panelTicket.Children.Add(new WPFTicketButaca(ticket));
+            panelTicket.Children.Add(new WPFTicketButaca(ticket,ventanaPadre));
         }
 
         public void cargarProyeccion(int ticketProyeccion)
