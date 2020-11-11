@@ -26,7 +26,15 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@usuId", ticket.Usu_Id);
             cmd.Parameters.AddWithValue("@estado", true);
             cnn.Open();
-            int numeroDeTicket = cmd.ExecuteNonQuery();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            int numeroDeTicket = 0;
+            while (reader.Read())
+            {
+                numeroDeTicket = (int)reader["UltimoAgregado"];
+            }
+
             cnn.Close();
             return numeroDeTicket;
         }
