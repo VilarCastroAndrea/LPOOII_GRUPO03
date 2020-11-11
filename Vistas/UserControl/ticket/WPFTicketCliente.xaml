@@ -47,7 +47,7 @@
                 <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" Margin="65,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
             </Grid>
         </GroupBox>
-        <TextBlock x:Name="txtDNI"  HorizontalAlignment="Left" Margin="26,31,0,0" TextWrapping="Wrap" Text="Pelicula" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
+        <TextBlock x:Name="txtDNI"  HorizontalAlignment="Left" Margin="26,31,0,0" TextWrapping="Wrap" Text="Cliente" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
         <TextBlock x:Name="txtNombre" HorizontalAlignment="Left" Margin="91,133,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="25,132,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock x:Name="txtApellido" HorizontalAlignment="Left" Margin="91,102,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="White" FontSize="16"/>
