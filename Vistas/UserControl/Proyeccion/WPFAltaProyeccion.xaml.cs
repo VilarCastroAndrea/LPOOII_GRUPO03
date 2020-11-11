@@ -49,9 +49,6 @@ namespace Vistas.UserControl.Proyeccion
              cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (resultado == MessageBoxResult.Yes)
                 {
-
-                    MessageBox.Show("Proyeccion Guardada con exito");
-                    
                     //Carga los inputs
                     Proyeccion nuevaProyeccion = new Proyeccion();
                     nuevaProyeccion.Peli_Codigo = ((Pelicula)cmbTitulo.SelectedValue).Peli_Codigo;
@@ -62,6 +59,8 @@ namespace Vistas.UserControl.Proyeccion
 
                     //Agrega a la base de datos
                     TrabajarProyeccion.altaProyeccion(nuevaProyeccion);
+
+                    MessageBox.Show("Proyeccion Guardada con exito");
 
                     //Agrega en el data grid
                     proyeccionPadre.refrescarDataGrid();

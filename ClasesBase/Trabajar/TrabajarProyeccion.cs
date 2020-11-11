@@ -1,6 +1,8 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
+using ClasesBase.DTO;
+
 namespace ClasesBase
 {
     public class TrabajarProyeccion
@@ -197,6 +199,49 @@ namespace ClasesBase
             Proyeccion pro = new Proyeccion();
             pro.Peli_Codigo = -1;
             return pro;
+        }
+
+
+        /// <summary>
+        /// Lista todas las proyecciones
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<DTOProyeccion> traerDTOProyecciones()
+        {
+            ObservableCollection<DTOProyeccion> coleccionDTOProyecciones = new ObservableCollection<DTOProyeccion>();
+            DTOProyeccion dtoProyeccion = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarProyecciones";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                dtoProyeccion = new DTOProyeccion();
+
+                dtoProyeccion.Proy_Codigo = (int)reader["Codigo"];
+                dtoProyeccion.Proy_Fecha = (string)reader["Fecha"];
+                dtoProyeccion.Proy_Hora = (string)reader["Hora"];
+                dtoProyeccion.Proy_Disponible = (bool)reader["Disponible"];
+
+                dtoProyeccion.Peli_Codigo = (int)reader["Codigo de Pelicula"];
+                dtoProyeccion.Peli_Titulo = (string)reader["Titulo de la Pelicula"];
+                dtoProyeccion.Peli_Genero = (string)reader["Genero de Pelicula"];
+                dtoProyeccion.Peli_Duracion = (string)reader["Duracion de Pelicula"];
+                dtoProyeccion.Peli_Clasificacion = (string)reader["Clasificacion de Pelicula"];
+
+                dtoProyeccion.Sla_NroSala = (int)reader["Numero de Sala"];
+                dtoProyeccion.Sla_Descripcion = (string)reader["Descripcion de Sala"];
+
+                coleccionDTOProyecciones.Add(dtoProyeccion);
+            }
+            cnn.Close();
+            return coleccionDTOProyecciones;
         }
     }
 }

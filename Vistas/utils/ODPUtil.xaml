@@ -17,9 +17,9 @@
     </ObjectDataProvider>
     
     <!-- Listar proyecciones para el datagrid -->
-    <ObjectDataProvider x:Key="LIST_PROY"
+    <ObjectDataProvider x:Key="LIST_DTOPROY"
                                 ObjectType="{x:Type svc:TrabajarProyeccion}"
-                                MethodName="listarProyeccionesDisponibles">
+                                MethodName="traerDTOProyecciones">
     </ObjectDataProvider>
 
     <!-- Data Provider para PELICULA -->
