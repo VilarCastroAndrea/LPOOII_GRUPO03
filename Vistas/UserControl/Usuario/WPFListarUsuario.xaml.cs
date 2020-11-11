@@ -48,7 +48,7 @@ namespace Vistas.UserControl.Usuario
             ClasesBase.Usuario usuario = e.Item as ClasesBase.Usuario;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnModificar_Click(object sender, RoutedEventArgs e)
         {
             WinVistaPrevia winVistaPrevia = new WinVistaPrevia(this.lstUsuario);
             winVistaPrevia.Show();

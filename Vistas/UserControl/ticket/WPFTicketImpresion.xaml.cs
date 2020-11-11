@@ -54,5 +54,14 @@ namespace Vistas.UserControl.ticket
             txtDNICliente.Text = cliente.Cli_DNI.ToString();
             txtSala.Text = sala.Sla_Descripcion;
         }
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog pdlg = new PrintDialog();
+            if (pdlg.ShowDialog() == true)
+            {
+                pdlg.PrintDocument(((IDocumentPaginatorSource)DocMain).DocumentPaginator, "Imprimir");
+            }
+        }
     }
 }
