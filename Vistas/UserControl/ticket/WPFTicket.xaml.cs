@@ -28,6 +28,8 @@ namespace Vistas.UserControl.ticket
             InitializeComponent();
             panelTicket.Children.Clear();
             panelTicket.Children.Add(new WPFTicketProyeccion(this));
+            btnCLiente.Visibility = Visibility.Hidden;
+            btnButaca.Visibility = Visibility.Hidden;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -51,11 +53,13 @@ namespace Vistas.UserControl.ticket
         public void cargarProyeccion(int ticketProyeccion)
         {
             ticket.Proy_Codigo = ticketProyeccion;
+            btnCLiente.Visibility = Visibility.Visible;
         }
 
         public void cargarCliente(int DNI)
         {
             ticket.Cli_DNI = DNI;
+            btnButaca.Visibility = Visibility.Visible;
         }
     }
 }
