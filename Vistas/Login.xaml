@@ -54,7 +54,14 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <MediaElement x:Name="mediaElement" HorizontalAlignment="Left" Height="52" Margin="10,0,0,0" VerticalAlignment="Top" Width="65" UnloadedBehavior="Stop"/>
+        <!-- Efecto de sonido -->
+        <MediaElement x:Name="mediaElement" 
+                      HorizontalAlignment="Left" 
+                      Height="52" Margin="10,0,0,0" 
+                      VerticalAlignment="Top" Width="65"
+                      LoadedBehavior="Manual"
+                      />
+        
         <Button x:Name="btnConfiguracion" Margin="372,0,0,0" VerticalAlignment="Top" Height="27" Background="Transparent" Click="BtnConfiguracion_Click">
             <fa:ImageAwesome Icon="Gear" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
         </Button>

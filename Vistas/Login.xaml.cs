@@ -18,35 +18,40 @@ namespace Vistas
         public Login()
         {
             InitializeComponent();
-            ReproducirEfectoSonido();
+            
+            ReproducirEfectoSonidoRelativo();
         }
+
+        /// <summary>
+        /// Reproduce un audio en mp3 mediante url relativa
+        /// </summary>
+        private void ReproducirEfectoSonidoRelativo()
+        {
+            bool reproducirSonido = Properties.UserConfig.Default.iniciarSonido;
+            if (reproducirSonido)
+            {
+                string path = "utils/Efectos/EfectoSonido1.mp3";
+                Uri uriSonido;
+                if (Uri.TryCreate(path, UriKind.Relative, out uriSonido))
+                {
+                    mediaElement.Source = uriSonido;
+                    mediaElement.Play();
+                }
+            }
+        }
+
 
         /// <summary>
         /// Reproduce un sonido al iniciar la aplicacion.
         /// </summary>
         private void ReproducirEfectoSonido()
         {
-            //Obtiene el valor del app.config
-            //string reproducirSonido = ConfigurationManager.AppSettings.Get("reproducirSonidos");
-            //if (reproducirSonido.Equals(true.ToString()))
-            //{
-            //    string path = ConfigurationManager.AppSettings.Get("URLSonidoInicial");
-            //    //Verificar su la url existe
-            //    Uri uriSonido;
-            //    if(Uri.TryCreate(path, UriKind.Absolute, out uriSonido))
-            //    {
-            //        //Se cambia la carga a manual sino da error.
-            //        mediaElement.LoadedBehavior = System.Windows.Controls.MediaState.Manual;
-            //        mediaElement.Source = uriSonido;
-            //        mediaElement.Play();
-            //    }
-            //}
-
             //Obtiene valor de configuracion de UserConfig.settings
             bool reproducirSonido = Properties.UserConfig.Default.iniciarSonido;
             if (reproducirSonido)
             {
                 string path = Properties.UserConfig.Default.urlSonido;
+                //string path = "utils\Efectos\EfectoSonido1.mp3";
                 //Verificar si la url existe
                 Uri uriSonido;
                 if (Uri.TryCreate(path, UriKind.Absolute, out uriSonido))

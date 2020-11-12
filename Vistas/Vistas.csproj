@@ -329,8 +329,11 @@
   <ItemGroup>
     <Resource Include="DatosComboBox.xml" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="utils\Efectos\" />
+    <Content Include="utils\Efectos\EfectoSonido1.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
