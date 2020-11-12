@@ -129,7 +129,7 @@
     <Compile Include="VentanaConfig.xaml.cs">
       <DependentUpon>VentanaConfig.xaml</DependentUpon>
     </Compile>
-    <Page Include="styles\RDComboBox.xaml">
+    <Page Include="Styles\RDComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,27 +176,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="styles\RDButacas.xaml">
+    <Page Include="Styles\RDButacas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\RDCliente.xaml">
+    <Page Include="Styles\RDCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\RDLabels.xaml">
+    <Page Include="Styles\RDLabels.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="styles\RDMain.xaml">
+    <Page Include="Styles\RDMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\RDPeliculas.xaml">
+    <Page Include="Styles\RDPeliculas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="styles\RDTextBox.xaml">
+    <Page Include="Styles\RDTextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -256,19 +256,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="utils\ODPCliente.xaml">
+    <Page Include="Utils\ODPCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="utils\ODPPelicula.xaml">
+    <Page Include="Utils\ODPPelicula.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="utils\ODPUtil.xaml">
+    <Page Include="Utils\ODPUtil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="validaciones\RDValidarCliente.xaml">
+    <Page Include="Validaciones\RDValidarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -319,19 +319,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\login.png" />
+    <Resource Include="Img\login.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\log.png" />
+    <Resource Include="Img\log.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\logo.png" />
+    <Resource Include="Img\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\pro.png" />
+    <Resource Include="Img\pro.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\fondoPrincipal.png" />
+    <Resource Include="Img\fondoPrincipal.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DatosComboBox.xml" />
