@@ -18,11 +18,12 @@ namespace Vistas.UserControl.ticket
     /// <summary>
     /// Lógica de interacción para WPFTicketButaca.xaml
     /// </summary>
-    public partial class WPFTicketButaca 
+    public partial class WPFTicketButaca
     {
         Ticket ticket1 = new Ticket();
         Style appButtonStyle = (Style)Application.Current.Resources["ButtonButaca"];
 
+        private List<Ticket> listaDeTicketsVendidos = new List<Ticket>();
         private int[,] seleccionAsientos;
         private List<Butaca> listaDeButacas = new List<Butaca>();
         private List<Butaca> listaDeButacasSeleccionadas = new List<Butaca>();
@@ -43,33 +44,37 @@ namespace Vistas.UserControl.ticket
 
         private void BtnConfirmar_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var item in grdButacas.Children)
-            {
 
-                if (seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
+            MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea adquirir estas butacas?", "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (resultado == MessageBoxResult.Yes)
+            {
+                foreach (var item in grdButacas.Children)
                 {
-                    seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
-                    foreach (Butaca butaca in listaDeButacas)
+
+                    if (seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] == 1)
                     {
-                        if (((Button)item).Content.ToString().Contains(butaca.But_Fila) && ((Button)item).Content.ToString().Contains(butaca.But_Nro.ToString()))
+                        seleccionAsientos[obtenerFilaBoton(((Button)item).Content.ToString()), obtenerColumnaBoton(((Button)item).Content.ToString())] = 2;
+                        foreach (Butaca butaca in listaDeButacas)
                         {
-                            listaDeButacasSeleccionadas.Add(butaca);
+                            if (((Button)item).Content.ToString().Contains(butaca.But_Fila) && ((Button)item).Content.ToString().Contains(butaca.But_Nro.ToString()))
+                            {
+                                listaDeButacasSeleccionadas.Add(butaca);
+                            }
                         }
+
                     }
-
                 }
+                validarAsientos();
+
+                foreach (Butaca butaca in listaDeButacasSeleccionadas)
+                {
+                    ticket1.But_Id = butaca.But_Id;
+                    WPFTicketImpresion impresion = new WPFTicketImpresion(ticket1);
+                    impresion.Show();
+                }
+
+                ventanaPadre.refrescarTicket();
             }
-            validarAsientos();
-
-            foreach (Butaca butaca in listaDeButacasSeleccionadas)
-            {
-                ticket1.But_Id = butaca.But_Id;
-                WPFTicketImpresion impresion = new WPFTicketImpresion(ticket1);
-                impresion.Show();
-            }
-
-            ventanaPadre.refrescarTicket();
-
         }
 
         private void generarButacas()
@@ -157,7 +162,7 @@ namespace Vistas.UserControl.ticket
 
         private void cargarAsientos(int[,] seleccionAsientos)
         {
-            List<Ticket> listaDeTicketsVendidos = new List<Ticket>();
+
             int fila = 0;
             int columna = -1;
             listaDeTicketsVendidos = TrabajarTicket.traerTicketPorProyeccion(proyeccionSeleccionada.Proy_Codigo);
@@ -173,8 +178,7 @@ namespace Vistas.UserControl.ticket
                 {
                     if (butaca.But_Id == ticket.But_Id && seleccionAsientos[fila, columna] != 2)
                     {
-                        seleccionAsientos[fila, columna] = 2;
-
+                        seleccionAsientos[obtenerFilaBoton(butaca.But_Fila), butaca.But_Nro-1] = 2;
                     }
                 }
             }
@@ -235,7 +239,7 @@ namespace Vistas.UserControl.ticket
             string[] valores = botonFilaColumna.Split(',');
             return int.Parse(valores[1]) - 1;
         }
-        
+
 
         /// <summary>
         /// al hacer click en algun boton que representa las butacas
@@ -248,7 +252,23 @@ namespace Vistas.UserControl.ticket
         private void Butaca_Click(object sender, RoutedEventArgs e)
         {
             if (seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 2)
+            {
                 MessageBox.Show("Asiento Ocupado");
+                MessageBoxResult resultado = MessageBox.Show("¿Desea liberar este aciento que ya fue vendido?", "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    foreach (Ticket ticketVendido in listaDeTicketsVendidos)
+                    {
+                        Butaca butacaVendida = TrabajarButaca.buscarButaca(ticketVendido.But_Id);
+
+                        if (((Button)sender).Content.ToString().Contains(butacaVendida.But_Fila) && ((Button)sender).Content.ToString().Contains(butacaVendida.But_Nro.ToString()))
+                        {
+                            TrabajarTicket.bajaTicketFisica(ticketVendido.Tick_Nro);
+                        }
+                    }
+                    seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 0;
+                }
+            }
             else
             {
                 if (seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 1)
@@ -260,10 +280,10 @@ namespace Vistas.UserControl.ticket
                     seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 1;
                 }
             }
-            validarAsientos();
+                validarAsientos();
         }
 
 
-        
+
+        }
     }
-}
