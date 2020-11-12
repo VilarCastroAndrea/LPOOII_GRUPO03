@@ -29,10 +29,10 @@
         </ComboBox>
         <!--Fecha de Proyeccion-->
             <Label Content="Fecha Proyeccion" HorizontalAlignment="Left" Margin="35,98,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
-        <TextBox x:Name="txtFecha" 
+        <TextBox x:Name="txtFechaAlta" 
                  Margin="30,129,0,0" 
                  Style="{StaticResource TextBoxCustom}"
-                 DataContext="{StaticResource DATA_PROY}">
+                 >
             <!--Enlace con Proy_Fecha-->
             <TextBox.Text>
                 <Binding Path="Proy_Fecha"
@@ -44,10 +44,10 @@
         
         <!--Hora de Proyeccion-->
         <Label Content="Hora Proyeccion" HorizontalAlignment="Left" Margin="35,157,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
-        <TextBox x:Name="txtHora" 
+        <TextBox x:Name="txtHoraAlta" 
                  Margin="30,188,0,0" 
                  Style="{StaticResource TextBoxCustom}"
-                 DataContext="{StaticResource DATA_PROY}">
+                 >
             <!--Enlace con Proy_Hora-->
             <TextBox.Text>
                 <Binding Path="Proy_Hora"

@@ -45,7 +45,7 @@ namespace Vistas.UserControl.Proyeccion
         {
             if (validarCamposVacios() != true)
             {
-                MessageBoxResult resultado = MessageBox.Show("Los siguientes datos son correctos? " + txtFecha.Text + ", " + txtHora.Text + ", " +
+                MessageBoxResult resultado = MessageBox.Show("Los siguientes datos son correctos? " + txtFechaAlta.Text + ", " + txtHoraAlta.Text + ", " +
              cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (resultado == MessageBoxResult.Yes)
                 {
@@ -53,8 +53,8 @@ namespace Vistas.UserControl.Proyeccion
                     Proyeccion nuevaProyeccion = new Proyeccion();
                     nuevaProyeccion.Peli_Codigo = ((Pelicula)cmbTitulo.SelectedValue).Peli_Codigo;
                     nuevaProyeccion.Proy_Disponible = true;
-                    nuevaProyeccion.Proy_Fecha = txtFecha.Text;
-                    nuevaProyeccion.Proy_Hora = txtHora.Text;
+                    nuevaProyeccion.Proy_Fecha = txtFechaAlta.Text;
+                    nuevaProyeccion.Proy_Hora = txtHoraAlta.Text;
                     nuevaProyeccion.Sla_NroSala = ((Sala)cmbSala.SelectedValue).Sla_NroSala;
 
                     //Agrega a la base de datos
@@ -74,8 +74,8 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void limpiarCampos()
         {
-            txtFecha.Text = "";
-            txtHora.Text = "";
+            txtFechaAlta.Text = "";
+            txtHoraAlta.Text = "";
             cmbSala.Text = "";
             cmbTitulo.Text = "";
         }
@@ -83,7 +83,7 @@ namespace Vistas.UserControl.Proyeccion
 
         private bool validarCamposVacios()
         {
-            if (txtFecha.Text == "" && txtHora.Text == "" && cmbSala.Text == "" && cmbTitulo.Text == "")
+            if (txtFechaAlta.Text == "" && txtHoraAlta.Text == "" && cmbSala.Text == "" && cmbTitulo.Text == "")
             {
                 return true;
             }
