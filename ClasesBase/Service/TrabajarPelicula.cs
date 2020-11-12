@@ -195,6 +195,8 @@ namespace ClasesBase
                 pelicula.Peli_Duracion = (string)reader["Duracion"];
                 pelicula.Peli_Genero = (string)reader["Genero"];
                 pelicula.Peli_Titulo = (string)reader["Titulo"];
+                pelicula.Peli_Imagen = (string)reader["Imagen"];
+                pelicula.Peli_Avance = (string)reader["Video"];
             }
             cnn.Close();
             return pelicula;

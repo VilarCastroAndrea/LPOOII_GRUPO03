@@ -24,21 +24,29 @@ namespace Vistas.UserControl.ticket
     {
 
         WPFTicket ticketPadre;
+        ClasesBase.Proyeccion proyeccion = new ClasesBase.Proyeccion();
         public WPFTicketProyeccion(WPFTicket padre)
         {
             InitializeComponent();
             ticketPadre = padre;
+            
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {   
             DataRowView item = (DataRowView)listaProyeccion.SelectedItem;
-            ClasesBase.Proyeccion proyeccion = new ClasesBase.Proyeccion();
             ticketPadre.cargarProyeccion(Convert.ToInt32(item["Codigo"]));
             txtNombrePelicula.Text = Convert.ToString(item["Titulo de la Pelicula"]);
             txtFecha.Text = Convert.ToString(item["Fecha"]);
             txtHora.Text = Convert.ToString(item["Hora"]);
             txtSala.Text = Convert.ToString(item["Descripcion de Sala"]);
+            proyeccion = TrabajarProyeccion.buscarProyeccion(Convert.ToInt32(item["Codigo"]));
+        }
+
+        private void BtnMasInfo_Click(object sender, RoutedEventArgs e)
+        {
+            UserControl.Proyeccion.WPFMasInformacion masInfo = new UserControl.Proyeccion.WPFMasInformacion(proyeccion);
+            masInfo.Show();
         }
     }
 }

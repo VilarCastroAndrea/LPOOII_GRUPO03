@@ -63,6 +63,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>UserConfig.settings</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Proyeccion\WPFMasInformacion.xaml.cs">
+      <DependentUpon>WPFMasInformacion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Ticket\WPFTicket.xaml.cs">
       <DependentUpon>WPFTicket.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <DependentUpon>VentanaConfig.xaml</DependentUpon>
     </Compile>
     <Page Include="Styles\RDComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Proyeccion\WPFMasInformacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
