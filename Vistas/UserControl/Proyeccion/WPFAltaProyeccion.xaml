@@ -26,7 +26,7 @@
         <TextBox x:Name="txtFecha" 
                  Margin="30,129,0,0" 
                  Style="{StaticResource TextBoxCustom}"
-                 DataContext="{StaticResource DATA_PROY}">
+                 >
             <!--Enlace con Proy_Fecha-->
             <TextBox.Text>
                 <Binding Path="Proy_Fecha"
@@ -41,7 +41,7 @@
         <TextBox x:Name="txtHora" 
                  Margin="30,188,0,0" 
                  Style="{StaticResource TextBoxCustom}"
-                 DataContext="{StaticResource DATA_PROY}">
+                >
             <!--Enlace con Proy_Hora-->
             <TextBox.Text>
                 <Binding Path="Proy_Hora"
