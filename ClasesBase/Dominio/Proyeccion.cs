@@ -70,7 +70,7 @@ namespace ClasesBase
         /// </summary>
         public string Error
         {
-            get { throw new System.NotImplementedException(); }
+            get { Console.WriteLine("Ocurrio un error desconocido"); return null; }
         }
 
         /// <summary>

@@ -4,8 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vistas.UserControl.Proyeccion"
+             xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
+             xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
              mc:Ignorable="d" 
              d:DesignHeight="490" d:DesignWidth="760">
+    <UserControl.Resources>
+        <!--Filtrado-->
+        <CollectionViewSource
+            x:Key="VISTA_PROY" 
+            Source="{StaticResource ResourceKey=LIST_DTOPROY}" 
+            Filter="eventVistaProyeccion_Filter">
+            <!--Ordenar por Nombre de Usuario en forma ascendente-->
+            <CollectionViewSource.SortDescriptions>
+                <componentModel:SortDescription 
+                    PropertyName="Proy_Fecha" 
+                    Direction="Ascending"/>
+            </CollectionViewSource.SortDescriptions>
+        </CollectionViewSource>
+    </UserControl.Resources>
     <Grid Height="490" Width="760">
         <!--Fondo de la ventana-->
         <Grid.Background>
@@ -22,15 +38,39 @@
         </Grid>
 
         <!--Listar Proyecciones-->
-        <DataGrid Name="dgvListaDeProyecciones" HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" BorderBrush="#FF04272D" Foreground="Black" IsReadOnly="True"  SelectionChanged="DgvListaDeProyecciones_SelectionChanged"/>
+        <DataGrid Name="dgvListaDeProyecciones" 
+                  HorizontalAlignment="Left" Height="375" 
+                  Margin="238,85,0,0" 
+                  VerticalAlignment="Top" 
+                  Width="502" Background="Black" 
+                  BorderBrush="#FF04272D" 
+                  Foreground="Black" 
+                  IsReadOnly="True"  
+                  SelectionChanged="DgvListaDeProyecciones_SelectionChanged"
+                  ItemsSource="{Binding Source={StaticResource VISTA_PROY}}"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Proy_Codigo}" Header="Código" Width="50"/>
+                <DataGridTextColumn Binding="{Binding Proy_Fecha}" Header="Fecha" Width="70"/>
+                <DataGridTextColumn Binding="{Binding Proy_Hora}" Header="Hora" Width="40"/>
+                <DataGridTextColumn Binding="{Binding Sla_Descripcion}" Header="Sala" Width="35"/>
+                <DataGridTextColumn Binding="{Binding Peli_Titulo}" Header="Película" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Peli_Duracion}" Header="Duración" Width="60"/>
+                <DataGridTextColumn Binding="{Binding Peli_Clasificacion}" Header="Clasificación" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Peli_Genero}" Header="Género" Width="80"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
 
         <!--Boton Modificar Cliente-->
         <Button Name="btnModificarCliente" Style="{StaticResource BotonModificar}" Click="BtnModificarCliente_Click" />
-        
+
         <!--Boton Alta Cliente-->
         <Button Name="btnAltaCliente" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaCliente_Click"/>
 
         <!--GroupBox de Buscar Cliente-->
-        <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>
+        <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="47" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White">
+            <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Foreground="White" Background="Black" BorderBrush="#FF191818" TextChanged="TxtFiltrar_TextChanged"/>
+        </GroupBox>
     </Grid>
 </UserControl>
