@@ -18,7 +18,7 @@
 
         <!--Carga de los ComboBox-->
         <Grid.Resources>
-           <XmlDataProvider x:Key="clasif" Source="/DatosComboBox.xml" XPath="/datos"/>               
+           <XmlDataProvider x:Key="clasif" Source="/UserControl/Pelicula/DatosComboBox.xml" XPath="/datos"/>               
         </Grid.Resources>
         
         <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold">
