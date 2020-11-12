@@ -17,7 +17,7 @@
     </Window.Background>
     <Grid>
         <!--Imagen de fondo y sus propiedades-->
-        <Image x:Name="imgLogin" Height="359" VerticalAlignment="Top" Source="img/login.png" Margin="29,8,37,-19" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="imgLogin" Height="359" VerticalAlignment="Top" Source="../img/login.png" Margin="29,8,37,-19" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

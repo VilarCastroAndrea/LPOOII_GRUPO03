@@ -20,7 +20,7 @@
 
             <!--Imagen de Fondo-->
             <Grid.Background>
-                <ImageBrush ImageSource="img/fondoPrincipal.png"/>
+                <ImageBrush ImageSource="../img/fondoPrincipal.png"/>
             </Grid.Background>
         </Grid>
 
