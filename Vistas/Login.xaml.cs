@@ -24,7 +24,7 @@ namespace Vistas
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            if (TrabajarUsuario.validarUsuario(login.Usuario,login.Contraseña) == true)
+            if (TrabajarUsuario.validarUsuario(login.Usuario,Encryp.Encriptar(login.Contraseña)) == true)
             {
 
                MainWindow menu = new MainWindow();

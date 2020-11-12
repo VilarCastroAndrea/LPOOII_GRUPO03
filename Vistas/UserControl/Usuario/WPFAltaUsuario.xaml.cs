@@ -32,7 +32,7 @@ namespace Vistas.UserControl.Usuario
             ClasesBase.Usuario usuario = new ClasesBase.Usuario();
             usuario.Usu_ApellidoNombre = txtApellidoNombre.Text;
             usuario.Usu_NombreUsuario = txtNombreUsuario.Text;
-            usuario.Usu_Password = txtPassword.Text;
+            usuario.Usu_Password = Encryp.Encriptar(txtPassword.Text);
             usuario.Usu_Disponible = true;
             usuario.Rol_Codigo = int.Parse(cmbRol.SelectedValue.ToString());
 
