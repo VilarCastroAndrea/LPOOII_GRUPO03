@@ -6,7 +6,7 @@
        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="520" Width="810" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Inicio" Height="520" Width="810" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
     </Window.Resources>
@@ -50,7 +50,7 @@
 
 
             <!--Boton Proyeccion-->
-            <Button HorizontalAlignment="Left" Name="btnProyeccion" Margin="3,282,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnProyeccion_Click">
+            <Button HorizontalAlignment="Left" Name="btnProyeccion" Margin="3,245,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnProyeccion_Click">
                 <fa:ImageAwesome Icon="FileMovieOutline" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
 
