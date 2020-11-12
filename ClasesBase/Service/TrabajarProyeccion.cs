@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Collections.ObjectModel;
 using ClasesBase.DTO;
+using System;
 
 namespace ClasesBase
 {
@@ -78,6 +79,8 @@ namespace ClasesBase
             cmd.CommandText = "listarProyecciones";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
+            //cmd.Parameters.AddWithValue("@fechaInicio", DateTime.Now.ToString());
+            //cmd.Parameters.AddWithValue("@fechaFinal", DateTime.Now.AddDays(7).ToString());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -216,6 +219,8 @@ namespace ClasesBase
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = "listarProyecciones";
+            //cmd.Parameters.AddWithValue("@fechaInicio", DateTime.Now);
+            //cmd.Parameters.AddWithValue("@fechaFinal", DateTime.Now.AddDays(7));
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
             SqlDataReader reader = cmd.ExecuteReader();
