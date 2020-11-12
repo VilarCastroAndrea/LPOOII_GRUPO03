@@ -53,5 +53,7 @@
         <TextBlock x:Name="txtSala" HorizontalAlignment="Left" Margin="91,164,0,0" TextWrapping="Wrap" Text="Sala" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <TextBlock x:Name="txtFecha" HorizontalAlignment="Left" Margin="91,102,0,0" TextWrapping="Wrap" Text="Horario" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Label Content="Fecha" HorizontalAlignment="Left" Margin="25,102,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button x:Name="btnMasInfo" Content="Mas Informacion" Style="{StaticResource BotonCustom}" Margin="26,215,0,0"  BorderBrush="Black" Width="134" Click="BtnMasInfo_Click"   />
+
     </Grid>
 </UserControl>

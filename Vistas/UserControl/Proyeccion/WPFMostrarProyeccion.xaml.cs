@@ -144,5 +144,16 @@ namespace Vistas.UserControl.Proyeccion
                 MessageBox.Show("Proyeccion Eliminada con exito");
             }
         }
+
+        /// <summary>
+        /// Muestra informacion de la pelicula
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnMasInfo_Click(object sender, RoutedEventArgs e)
+        {
+            WPFMasInformacion masInfo = new WPFMasInformacion(proyeccionMostrar);
+            masInfo.Show();
+        }
     }
 }
