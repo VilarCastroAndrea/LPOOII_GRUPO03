@@ -14,7 +14,7 @@
         <ObjectDataProvider
             x:Key="LIST_USER"
             ObjectType="{x:Type svc:TrabajarUsuario}"
-            MethodName="traerUsuarioDisponible">
+            MethodName="traerUsuarioDisponibleListView">
         </ObjectDataProvider>
         <!--Filtrado-->
         <CollectionViewSource

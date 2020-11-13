@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -55,28 +58,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Properties\UserConfig.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>UserConfig.settings</DependentUpon>
+    <Compile Include="UserControl\ticket\WPFAltaTicket.xaml.cs">
+      <DependentUpon>WPFAltaTicket.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Proyeccion\WPFMasInformacion.xaml.cs">
-      <DependentUpon>WPFMasInformacion.xaml</DependentUpon>
+    <Compile Include="UserControl\ticket\WPFImpresionTicket.xaml.cs">
+      <DependentUpon>WPFImpresionTicket.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Ticket\WPFTicket.xaml.cs">
+    <Compile Include="UserControl\ticket\WPFTicket.xaml.cs">
       <DependentUpon>WPFTicket.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\Ticket\WPFTicketButaca.xaml.cs">
-      <DependentUpon>WPFTicketButaca.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\Ticket\WPFTicketCliente.xaml.cs">
-      <DependentUpon>WPFTicketCliente.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\Ticket\WPFTicketImpresion.xaml.cs">
-      <DependentUpon>WPFTicketImpresion.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControl\Ticket\WPFTicketProyeccion.xaml.cs">
-      <DependentUpon>WPFTicketProyeccion.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\UCLogin.xaml.cs">
       <DependentUpon>UCLogin.xaml</DependentUpon>
@@ -108,6 +97,9 @@
     <Compile Include="UserControl\Usuario\WPFUsuario.xaml.cs">
       <DependentUpon>WPFUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\WPFButaca.xaml.cs">
+      <DependentUpon>WPFButaca.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Cliente\WPFCliente.xaml.cs">
       <DependentUpon>WPFCliente.xaml</DependentUpon>
     </Compile>
@@ -123,34 +115,22 @@
     <Compile Include="UserControl\Pelicula\WPFPelicula.xaml.cs">
       <DependentUpon>WPFPelicula.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\VentanaConfig.xaml.cs">
-      <DependentUpon>VentanaConfig.xaml</DependentUpon>
+    <Compile Include="ValidarCliente.xaml.cs">
+      <DependentUpon>ValidarCliente.xaml</DependentUpon>
     </Compile>
-    <Page Include="Styles\RDComboBox.xaml">
+    <Page Include="styles\RDComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Proyeccion\WPFMasInformacion.xaml">
+    <Page Include="UserControl\ticket\WPFAltaTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Ticket\WPFTicket.xaml">
+    <Page Include="UserControl\ticket\WPFImpresionTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Ticket\WPFTicketButaca.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControl\Ticket\WPFTicketCliente.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControl\Ticket\WPFTicketImpresion.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControl\Ticket\WPFTicketProyeccion.xaml">
+    <Page Include="UserControl\ticket\WPFTicket.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,11 +138,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ventanas\Login.xaml">
+    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ventanas\MainWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -170,34 +150,34 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ventanas\Login.xaml.cs">
+    <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\MainWindow.xaml.cs">
+    <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Styles\RDButacas.xaml">
+    <Page Include="styles\RDButacas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\RDCliente.xaml">
+    <Page Include="styles\RDCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\RDLabels.xaml">
+    <Page Include="styles\RDLabels.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Styles\RDMain.xaml">
+    <Page Include="styles\RDMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\RDPeliculas.xaml">
+    <Page Include="styles\RDPeliculas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\RDTextBox.xaml">
+    <Page Include="styles\RDTextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -237,6 +217,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\WPFButaca.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Cliente\WPFCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -257,25 +241,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Utils\ODPCliente.xaml">
+    <Page Include="utils\ODPCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Utils\ODPPelicula.xaml">
+    <Page Include="utils\ODPPelicula.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Utils\ODPUtil.xaml">
+    <Page Include="utils\ODPUtil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Validaciones\RDValidarCliente.xaml">
+    <Page Include="validaciones\RDValidarCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ventanas\VentanaConfig.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="ValidarCliente.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -301,10 +285,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Properties\UserConfig.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>UserConfig.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -316,32 +296,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\login.png" />
+    <Resource Include="img\login.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\log.png" />
+    <Resource Include="img\log.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\logo.png" />
+    <Resource Include="img\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\pro.png" />
+    <Resource Include="img\pro.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\fondoPrincipal.png" />
+    <Resource Include="img\fondoPrincipal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="utils\Efectos\big_music_logo.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="utils\Efectos\EfectoSonido1.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="utils\Efectos\XPStartUp.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="DatosComboBox.xml" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="img\noimage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="video\novideo.mp4" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
