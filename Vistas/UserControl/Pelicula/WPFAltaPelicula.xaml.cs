@@ -36,8 +36,18 @@ namespace Vistas.UserControl.Pelicula
                     pelicula.Peli_Duracion = txtDuracion.Text;
                     pelicula.Peli_Genero = cmbGenero.Text;
                     pelicula.Peli_Clasificacion = cmbClasificacion.Text;
-                    pelicula.Peli_Imagen = txtImagen.Text;
+
+                    if (txtImagen.Text == "")
+                    {
+                        pelicula.Peli_Imagen = "img/noimage.jpg";
+                    }
+                    else {
+                        pelicula.Peli_Imagen = txtImagen.Text;
+                    }
+                
                     pelicula.Peli_Avance = txtVideo.Text;
+
+
                     pelicula.Peli_Disponible = true;
 
 
