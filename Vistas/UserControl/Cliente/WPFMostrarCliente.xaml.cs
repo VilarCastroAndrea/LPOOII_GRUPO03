@@ -10,7 +10,7 @@ namespace Vistas
     public partial class WPFMostrarCliente
     {
         
-        WPFCliente proyeccionPadre;
+       
         /// <summary>
         /// Cliente para realizar el alta
         /// </summary>
@@ -25,8 +25,7 @@ namespace Vistas
         {
             InitializeComponent();
             cliente = new Cliente();
-           // proyeccionPadre = padre;
-       
+         
 
         }
 
