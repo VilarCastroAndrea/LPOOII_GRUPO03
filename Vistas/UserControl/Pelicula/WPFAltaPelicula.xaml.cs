@@ -44,15 +44,22 @@ namespace Vistas.UserControl.Pelicula
                     else {
                         pelicula.Peli_Imagen = txtImagen.Text;
                     }
-                
-                    pelicula.Peli_Avance = txtVideo.Text;
+
+                    if (txtVideo.Text == "")
+                    {
+                        pelicula.Peli_Avance = "video/novideo.mp4";
+                    }
+                    else {
+                        pelicula.Peli_Avance = txtVideo.Text;
+                    }
+                 
 
 
                     pelicula.Peli_Disponible = true;
 
 
                     padre.altaPelicula(pelicula);
-                    MessageBoxResult resultado = MessageBox.Show(cmbGenero.SelectedIndex.ToString() + "Se agrego la pelicula con exito", "Atención");
+                    MessageBoxResult resultado = MessageBox.Show(pelicula.Peli_Imagen.ToString()+ "Se agrego la pelicula con exito", "Atención");
                     //limpiarCampos();
                 }
                 catch(Exception error)

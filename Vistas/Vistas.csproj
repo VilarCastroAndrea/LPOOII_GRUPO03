@@ -316,5 +316,8 @@
   <ItemGroup>
     <Resource Include="img\noimage.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="video\novideo.mp4" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
