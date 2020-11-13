@@ -59,10 +59,29 @@
         <GridViewColumn Width="80" Header="Apellido" DisplayMemberBinding="{Binding Path=Apellido}"/>
         <GridViewColumn Width="100" Header="Telefono" DisplayMemberBinding="{Binding Path=Telefono}"/>
         <GridViewColumn Width="130" Header="Email" DisplayMemberBinding="{Binding Path=Email}"/>
+                        
+                        <!--Columna Disponible - Se Genera SI o NO -->
         <GridViewColumn Width="130" Header="Disponible">
             <GridViewColumn.CellTemplate>
                 <DataTemplate>
-                    <CheckBox IsChecked="{Binding Path=Disponible}" IsEnabled="False"/>
+                    <Grid>
+                        <Label>
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=Disponible}" Value="True">
+                                            <Setter Property="Content" Value="SI"/>
+                                            <Setter Property="Foreground" Value="Green"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Path=Disponible}" Value="False">
+                                            <Setter Property="Content" Value="NO"/>
+                                            <Setter Property="Foreground" Value="Red"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+                    </Grid>
                 </DataTemplate>
             </GridViewColumn.CellTemplate>
         </GridViewColumn>
