@@ -3,6 +3,7 @@
 namespace Vistas.UserControl.Proyeccion
 {
     using ClasesBase;
+    using System;
     using System.Windows;
 
     /// <summary>
@@ -49,24 +50,47 @@ namespace Vistas.UserControl.Proyeccion
              cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (resultado == MessageBoxResult.Yes)
                 {
-                    //Carga los inputs
-                    Proyeccion nuevaProyeccion = new Proyeccion();
-                    nuevaProyeccion.Peli_Codigo = ((Pelicula)cmbTitulo.SelectedValue).Peli_Codigo;
-                    nuevaProyeccion.Proy_Disponible = true;
-                    nuevaProyeccion.Proy_Fecha = txtFecha.Text;
-                    nuevaProyeccion.Proy_Hora = txtHora.Text;
-                    nuevaProyeccion.Sla_NroSala = ((Sala)cmbSala.SelectedValue).Sla_NroSala;
+                    DateTime date = ConvertToDateTime(txtFecha.Text);
+                    if (date.CompareTo(DateTime.Today) >= 0)
+                    {
+                        //Carga los inputs
+                        Proyeccion nuevaProyeccion = new Proyeccion();
+                        nuevaProyeccion.Peli_Codigo = ((Pelicula)cmbTitulo.SelectedValue).Peli_Codigo;
+                        nuevaProyeccion.Proy_Disponible = true;
+                        nuevaProyeccion.Proy_Fecha = txtFecha.Text;
+                        nuevaProyeccion.Proy_Hora = txtHora.Text;
+                        nuevaProyeccion.Sla_NroSala = ((Sala)cmbSala.SelectedValue).Sla_NroSala;
 
-                    //Agrega a la base de datos
-                    TrabajarProyeccion.altaProyeccion(nuevaProyeccion);
+                        //Agrega a la base de datos
+                        TrabajarProyeccion.altaProyeccion(nuevaProyeccion);
 
-                    MessageBox.Show("Proyeccion Guardada con exito");
+                        MessageBox.Show("Proyeccion Guardada con exito");
 
-                    //Agrega en el data grid
-                    proyeccionPadre.refrescarDataGrid();
-                    limpiarCampos();
+                        //Agrega en el data grid
+                        proyeccionPadre.refrescarDataGrid();
+                        limpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("La fecha no debe ser menor al dia de hoy");
+                    }
                 }
             }
+        }
+
+        //Convierte Fecha String a DateTime
+        private DateTime ConvertToDateTime(string value)
+        {
+            DateTime convertedDate = new DateTime();
+            try
+            {
+                convertedDate = Convert.ToDateTime(value);
+            }
+            catch
+            {
+                MessageBox.Show("Fecha Invalida");
+            }
+            return convertedDate;
         }
 
         /// <summary>
