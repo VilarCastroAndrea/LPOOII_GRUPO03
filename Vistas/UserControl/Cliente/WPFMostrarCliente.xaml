@@ -18,7 +18,7 @@
         <!--DNI-->
         <Label Content="DNI" Margin="35,45,0,0"  Style="{StaticResource LabelCustom}"/>
         <TextBox x:Name="txtDni" Margin="30,70,0,0"  
-                 Style="{StaticResource TextBoxCustom}"
+                 Style="{StaticResource TextBoxCustom}" IsEnabled="False"
                  >
             <TextBox.Text>
                 <Binding Source="{StaticResource DATA_CLIENT_MOD}"

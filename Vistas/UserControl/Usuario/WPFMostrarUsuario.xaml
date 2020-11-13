@@ -43,7 +43,7 @@
                     <Label Content="Disponible" HorizontalAlignment="Left" Margin="154,250,0,0" VerticalAlignment="Top" Foreground="White"/>
                     
                     <!--Textbox enlazados-->
-                    <TextBox HorizontalAlignment="Left" Text="{Binding Usu_Id}" Name="txtId" Height="23" Margin="334,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                    <TextBox HorizontalAlignment="Left" Text="{Binding Usu_Id}" Name="txtId" Height="23" Margin="334,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818" IsEnabled="False"/>
                     <TextBox HorizontalAlignment="Left" Name="txtNombreUsuario" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="{Binding Usu_NombreUsuario}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                     <TextBox HorizontalAlignment="Left" Name="txtPassword" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="{Binding Usu_Password}"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
                     <TextBox HorizontalAlignment="Left" Name="txtApellidoNombre" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="{Binding Usu_ApellidoNombre}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>

@@ -46,5 +46,17 @@ namespace Vistas.Properties {
                 this["urlRelativa"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\sonidos\\la gracia.mp3")]
+        public string urlSonido {
+            get {
+                return ((string)(this["urlSonido"]));
+            }
+            set {
+                this["urlSonido"] = value;
+            }
+        }
     }
 }
