@@ -32,6 +32,13 @@ namespace Vistas
             panelPrincipal.Children.Clear();
             panelPrincipal.Children.Add(new WPFPelicula(this));
         }
+
+        public void refrescarUsuario()
+        {
+            panelPrincipal.Children.Clear();
+            panelPrincipal.Children.Add(new WPFUsuario(this));
+        }
+
         /// <summary>
         /// Muestra los botones segun el usuario que se encuentra logeado
         /// </summary>
@@ -100,7 +107,7 @@ namespace Vistas
         private void BtnUsuario_Click(object sender, RoutedEventArgs e)
         {
             panelPrincipal.Children.Clear();
-            panelPrincipal.Children.Add(new WPFUsuario());
+            panelPrincipal.Children.Add(new WPFUsuario(this));
         }
 
         private void BtnTicket_Click(object sender, RoutedEventArgs e)

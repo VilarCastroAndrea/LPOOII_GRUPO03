@@ -32,7 +32,7 @@ namespace Vistas
 
                 ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
 
-                pelicula.Peli_Codigo = peliculaSeleccionada.Peli_Codigo; ;
+                pelicula.Peli_Codigo = peliculaSeleccionada.Peli_Codigo; 
                 pelicula.Peli_Titulo = txtTitulo.Text;
                 pelicula.Peli_Duracion = txtDuracion.Text;
                 pelicula.Peli_Genero = cmbGenero.Text;
