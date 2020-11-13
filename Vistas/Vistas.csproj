@@ -335,15 +335,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="utils\Efectos\big_music_logo.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="utils\Efectos\EfectoSonido1.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="utils\Efectos\XPStartUp.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="utils\Efectos\" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
