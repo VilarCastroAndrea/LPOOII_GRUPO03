@@ -9,8 +9,8 @@ namespace Vistas
     /// </summary>
     public partial class WPFMostrarCliente
     {
-        
-       
+
+
         /// <summary>
         /// Cliente para realizar el alta
         /// </summary>
@@ -25,7 +25,7 @@ namespace Vistas
         {
             InitializeComponent();
             cliente = new Cliente();
-         
+
 
         }
 
@@ -73,7 +73,7 @@ namespace Vistas
                 cli.Cli_Email = txtEmail.Text;
                 cli.Cli_Disponible = true;
                 oPadre.modificarCliente(cli);
-                MessageBoxResult resultado = MessageBox.Show("Se modifico la pelicula con exito", "Atención");
+                MessageBoxResult resultado = MessageBox.Show("Se modifico la cliente con exito", "Atención");
                 oPadre.ActualizarDataGrid();
                 limpiarcampos();
             }
@@ -117,19 +117,19 @@ namespace Vistas
             }
         }
 
-            private bool validarCampos()
+        private bool validarCampos()
+        {
+            if (txtDni.Text == "" || txtApellido.Text == "" || txtNombre.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
             {
-                if (txtDni.Text == "" || txtApellido.Text == "" || txtNombre.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return false;
             }
+            else
+            {
+                return true;
+            }
+        }
 
-            private void limpiarcampos()
+        private void limpiarcampos()
         {
             txtDni.Text = null;
             txtApellido.Text = null;

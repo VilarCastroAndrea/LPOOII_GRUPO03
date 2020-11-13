@@ -22,7 +22,7 @@ namespace Vistas
         private void BtnModificarCliente_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             panelCliente.Children.Clear();
-            panelCliente.Children.Add(new WPFMostrarCliente());
+            panelCliente.Children.Add(new WPFMostrarCliente(this));
         }
 
         private void BtnAltaCliente_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -89,6 +89,13 @@ namespace Vistas
                 MessageBoxResult resultado = MessageBox.Show("Debe seleccionar un cliente para modificarla", "Atención");
             }
         }
-       
+
+
+        public void modificarCliente(ClasesBase.Cliente cliente)
+        {
+            ClasesBase.TrabajarClientes.ActualizarCliente(cliente);
+            ventana.refrescarCliente();
+        }
+
     }
 }

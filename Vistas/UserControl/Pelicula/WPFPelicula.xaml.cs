@@ -70,7 +70,7 @@ namespace Vistas
             }
             catch
             {
-                ClasesBase.TrabajarPelicula.bajaPelicula(pelicula.Peli_Codigo, true);
+                ClasesBase.TrabajarPelicula.bajaPelicula(pelicula.Peli_Codigo, false);
             }
             finally
             {
