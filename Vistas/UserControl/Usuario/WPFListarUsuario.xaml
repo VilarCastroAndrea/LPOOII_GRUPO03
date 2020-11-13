@@ -45,7 +45,13 @@
                             <GridViewColumn Header="Usuario" Width="80" DisplayMemberBinding="{Binding Usu_NombreUsuario}"/>
                             <GridViewColumn Header="Apellido y Nombre" Width="120" DisplayMemberBinding="{Binding Usu_ApellidoNombre}"/>
                             <GridViewColumn Header="Password" Width="100" DisplayMemberBinding="{Binding Usu_Password}"/>
-                            <GridViewColumn Header="Disponible" Width="70" DisplayMemberBinding="{Binding Usu_Disponible}"/>
+                            <GridViewColumn Header="Disponible" Width="70">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Path=Usu_Disponible}" IsEnabled="False"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

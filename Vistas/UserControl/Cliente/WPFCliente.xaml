@@ -55,6 +55,13 @@
         <GridViewColumn Width="80" Header="Apellido" DisplayMemberBinding="{Binding Path=Apellido}"/>
         <GridViewColumn Width="100" Header="Telefono" DisplayMemberBinding="{Binding Path=Telefono}"/>
         <GridViewColumn Width="130" Header="Email" DisplayMemberBinding="{Binding Path=Email}"/>
+        <GridViewColumn Width="130" Header="Disponible">
+            <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                    <CheckBox IsChecked="{Binding Path=Disponible}" IsEnabled="False"/>
+                </DataTemplate>
+            </GridViewColumn.CellTemplate>
+        </GridViewColumn>
         </GridView>
         </ListView.View>
         </ListView>

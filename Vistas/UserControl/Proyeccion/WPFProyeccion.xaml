@@ -59,7 +59,13 @@
                 <DataGridTextColumn Binding="{Binding Peli_Duracion}" Header="Duración" Width="60"/>
                 <DataGridTextColumn Binding="{Binding Peli_Clasificacion}" Header="Clasificación" Width="80"/>
                 <DataGridTextColumn Binding="{Binding Peli_Genero}" Header="Género" Width="80"/>
-
+                <DataGridTemplateColumn Header="Disponible">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Proy_Disponible}" IsEnabled="False"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

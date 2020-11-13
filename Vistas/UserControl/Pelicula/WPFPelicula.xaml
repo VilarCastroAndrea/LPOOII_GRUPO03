@@ -43,6 +43,13 @@
                         <GridViewColumn Width="70" Header="Clasificacion" DisplayMemberBinding="{Binding Path=Clasificacion}"/>
                         <GridViewColumn Width="100" Header="Imagen" DisplayMemberBinding="{Binding Path=Imagen}"/>
                         <GridViewColumn Width="100" Header="Video" DisplayMemberBinding="{Binding Path=Video}"/>
+                        <GridViewColumn Width="100" Header="Disponible">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding Path=Disponible}" IsEnabled="False"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
