@@ -5,8 +5,8 @@
     <Setting Name="iniciarSonido" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="urlSonido" Type="System.String" Scope="User">
-      <Value Profile="(Default)">D:\Mis Documentos\Documents\Github\LPOOII_GRUPO03\Vistas\utils\Efectos\EfectoSonido1.mp3</Value>
+    <Setting Name="urlRelativa" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

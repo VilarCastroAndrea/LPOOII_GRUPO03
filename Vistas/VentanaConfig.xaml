@@ -30,21 +30,19 @@
 
         <!-- URL -->
         <Label Name="lblCancion" 
-               Content="URL:" 
+               Content="Sonidos" 
                Margin="37,123,30,209"
                Style="{StaticResource LabelCustom}"/>
-        
-        <!-- BOTON PARA CARGAR UN MP3-->
-        <Button Margin="37,215,0,176" 
-                Content="Cargar Sonido" 
-                Name="btnLoad" 
-                HorizontalAlignment="Left" 
-                Width="101" 
-                Click="BtnLoad_Click"
-                Style="{StaticResource BotonCustom}">
-            
-        </Button>
-        
+
+        <!-- Combobox de sonidos relativos -->
+        <ComboBox Name="cmbSonidos" 
+                  Margin="142,123,37,263" 
+                  Style="{StaticResource CBCustom}" SelectionChanged="CmbSonidos_SelectionChanged">
+            <ComboBoxItem Content="Credo"/>
+            <ComboBoxItem Content="Windows XP"/>
+            <ComboBoxItem Content="Big Music Logo"/>
+        </ComboBox>
+
         <!-- BOTON PAUSE -->
         <Button Margin="255,264,105,122" 
                 Name="btnPause" 
@@ -86,7 +84,8 @@
                       HorizontalAlignment="Left" 
                       Height="35" Margin="18,265,0,0" 
                       VerticalAlignment="Top" 
-                      Width="134"/>
+                      Width="134"
+                      LoadedBehavior="Manual"/>
         
         <!-- BOTON GUARDAR -->
         <Button Margin="169,355,192,32" 
