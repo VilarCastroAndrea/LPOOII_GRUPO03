@@ -36,23 +36,45 @@ namespace Vistas
         /// </summary>
         private void CargarConfiguracion()
         {
-            //Se prepara la url
-            string urlSonido = Properties.UserConfig.Default.urlSonido;
+            //Carga la url relativa
+            CargarConfigRelativa();
+
 
             //Carga el checkbox
             chkSonarInicio.IsChecked = Properties.UserConfig.Default.iniciarSonido;
+        }
 
-            //Carga la url del la cancion.
-            Uri uriAux;
-            if(Uri.TryCreate(urlSonido, UriKind.Absolute, out uriAux))
+        /// <summary>
+        /// Carga el media elemente con una url relativa
+        /// </summary>
+        private void CargarConfigRelativa()
+        {
+            int op = Properties.UserConfig.Default.urlRelativa;
+            cmbSonidos.SelectedIndex = op;
+            CargarURLRelativa(op);
+        }
+
+        private void CargarURLRelativa(int op)
+        {
+            string path = "";
+            switch (op)
             {
-                string pathMp3 = uriAux.AbsolutePath;
-                lblCancion.Content = "Sonido: " + pathMp3;
-                CargarMedia(pathMp3);
+                case 0:
+                    path = "utils/Efectos/EfectoSonido1.mp3";
+                    break;
+                case 1:
+                    path = "utils/Efectos/XPStartUp.mp3";
+                    break;
+                case 2:
+                    path = "utils/Efectos/big_music_logo.mp3";
+                    break;
             }
-            else
+            System.Console.WriteLine("PAAAATHHH: " + path);
+            Uri uriSonido;
+            if (Uri.TryCreate(path, UriKind.Relative, out uriSonido))
             {
-                lblCancion.Content = "Sonido:";
+                media.LoadedBehavior = MediaState.Manual;
+                media.Source = uriSonido;
             }
         }
 
@@ -127,10 +149,12 @@ namespace Vistas
         /// <param name="e"></param>
         private void BtnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Properties.UserConfig.Default.iniciarSonido = chkSonarInicio.IsChecked.Value;
+            //Guarda el indice del combobox
+            Properties.UserConfig.Default.urlRelativa = cmbSonidos.SelectedIndex;
+
+            //Guarda las configuraciones
             Properties.UserConfig.Default.Save();
-            //Label lbl = lblMsjGuardado;
-            
+
             ActivarAnimacionMsjGuardado();
         }
 
@@ -141,11 +165,14 @@ namespace Vistas
         {
             Label lbl = lblMsjGuardado;
             lbl.Visibility = Visibility.Visible;
-            //DoubleAnimation animation = new DoubleAnimation(0, TimeSpan.FromSeconds(2));
-            //lbl.BeginAnimation(Label.OpacityProperty, animation);
             await Task.Delay(2000);
             lbl.Visibility = Visibility.Hidden;
-            //lbl.Opacity = 1;
+        }
+
+        private void CmbSonidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            media.Stop();
+            CargarURLRelativa(cmbSonidos.SelectedIndex);
         }
     }
 }

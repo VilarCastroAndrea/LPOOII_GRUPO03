@@ -37,13 +37,13 @@ namespace Vistas.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\sonidos\\la gracia.mp3")]
-        public string urlSonido {
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int urlRelativa {
             get {
-                return ((string)(this["urlSonido"]));
+                return ((int)(this["urlRelativa"]));
             }
             set {
-                this["urlSonido"] = value;
+                this["urlRelativa"] = value;
             }
         }
     }

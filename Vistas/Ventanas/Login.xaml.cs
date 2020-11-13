@@ -18,46 +18,41 @@ namespace Vistas
         public Login()
         {
             InitializeComponent();
-            ReproducirEfectoSonido();
+            
+            ReproducirEfectoSonidoRelativo();
         }
 
         /// <summary>
-        /// Reproduce un sonido al iniciar la aplicacion.
+        /// Reproduce un audio en mp3 mediante url relativa
         /// </summary>
-        private void ReproducirEfectoSonido()
+        private void ReproducirEfectoSonidoRelativo()
         {
-            //Obtiene el valor del app.config
-            //string reproducirSonido = ConfigurationManager.AppSettings.Get("reproducirSonidos");
-            //if (reproducirSonido.Equals(true.ToString()))
-            //{
-            //    string path = ConfigurationManager.AppSettings.Get("URLSonidoInicial");
-            //    //Verificar su la url existe
-            //    Uri uriSonido;
-            //    if(Uri.TryCreate(path, UriKind.Absolute, out uriSonido))
-            //    {
-            //        //Se cambia la carga a manual sino da error.
-            //        mediaElement.LoadedBehavior = System.Windows.Controls.MediaState.Manual;
-            //        mediaElement.Source = uriSonido;
-            //        mediaElement.Play();
-            //    }
-            //}
-
-            //Obtiene valor de configuracion de UserConfig.settings
             bool reproducirSonido = Properties.UserConfig.Default.iniciarSonido;
             if (reproducirSonido)
             {
-                string path = Properties.UserConfig.Default.urlSonido;
-                //Verificar si la url existe
-                Uri uriSonido;
-                if (Uri.TryCreate(path, UriKind.Absolute, out uriSonido))
+                string path = "";
+                int op = Properties.UserConfig.Default.urlRelativa;
+                switch (op)
                 {
-                    //Se cambia la carga a manual sino da error.
-                    mediaElement.LoadedBehavior = System.Windows.Controls.MediaState.Manual;
+                    case 0:
+                        path = "utils/Efectos/EfectoSonido1.mp3";
+                        break;
+                    case 1:
+                        path = "utils/Efectos/XPStartUp.mp3";
+                        break;
+                    case 2:
+                        path = "utils/Efectos/big_music_logo.mp3";
+                        break;
+                }
+                Uri uriSonido;
+                if (Uri.TryCreate(path, UriKind.Relative, out uriSonido))
+                {
                     mediaElement.Source = uriSonido;
                     mediaElement.Play();
                 }
             }
         }
+
 
         /// <summary>
         /// Compara los datos ingresados en el login y si son correctos guarda el usuario que ingreso y 
