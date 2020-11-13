@@ -79,12 +79,37 @@ namespace ClasesBase
             cmd.CommandText = "listarProyecciones";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            //cmd.Parameters.AddWithValue("@fechaInicio", DateTime.Now.ToString());
-            //cmd.Parameters.AddWithValue("@fechaFinal", DateTime.Now.AddDays(7).ToString());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            return dt;
+            DataTable dtFiltrada = dt.Clone();
+            DateTime date;
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                date = ConvertToDateTime(dt.Rows[i]["Fecha"].ToString());
+                if (date.CompareTo(DateTime.Today) >= 0 && date.CompareTo(DateTime.Today.AddDays(7)) <= 0)
+                {
+                    dtFiltrada.ImportRow(dt.Rows[i]);
+                }
+            }
+
+            return dtFiltrada;
+        }
+
+        //Convierte Fecha String a DateTime
+        private static DateTime ConvertToDateTime(string value)
+        {
+            DateTime convertedDate = new DateTime();
+            try
+            {
+                convertedDate = Convert.ToDateTime(value);
+            }
+            catch
+            {
+
+            }
+            return convertedDate;
         }
 
 
