@@ -18,7 +18,6 @@ namespace Vistas.UserControl.Pelicula
         {
             InitializeComponent();
             padre = formularioPadre;
-
         }
         
 
@@ -30,7 +29,6 @@ namespace Vistas.UserControl.Pelicula
                 try
                 {
                     ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
-
                   // pelicula.Peli_Codigo = peliculaSeleccionada.Peli_Codigo; ;
                     pelicula.Peli_Titulo = txtTitulo.Text;
                     pelicula.Peli_Duracion = txtDuracion.Text;
@@ -42,20 +40,18 @@ namespace Vistas.UserControl.Pelicula
 
 
                     padre.altaPelicula(pelicula);
-                    MessageBoxResult resultado = MessageBox.Show(cmbGenero.SelectedIndex.ToString() + "Se agrego la pelicula con exito", "Atención");
+                    MessageBoxResult resultado = MessageBox.Show("Se agrego la pelicula con exito", "Atención");
                     //limpiarCampos();
                 }
                 catch(Exception error)
                 {
                     MessageBoxResult resultado = MessageBox.Show("Error al realizar el alta de Pelicula ", "Atención");
                 }
-
             }
             else
             {
                 MessageBoxResult resultado = MessageBox.Show("Formulario incompleto ", "Atención");
             }
-
         }
 
         private bool validarCampos()

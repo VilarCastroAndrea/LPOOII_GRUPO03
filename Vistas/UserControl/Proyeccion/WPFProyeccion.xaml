@@ -38,7 +38,8 @@
         </Grid>
 
         <!--Listar Proyecciones-->
-        <DataGrid Name="dgvListaDeProyecciones" 
+        <DataGrid Name="dgvListaDeProyecciones"
+                  AutoGenerateColumns="False"
                   HorizontalAlignment="Left" Height="375" 
                   Margin="238,85,0,0" 
                   VerticalAlignment="Top" 
