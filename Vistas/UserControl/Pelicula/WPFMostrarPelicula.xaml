@@ -19,7 +19,7 @@
         <Grid.Resources>
             <XmlDataProvider x:Key="clasif" Source="/UserControl/Pelicula/DatosComboBox.xml" XPath="/datos"/>
         </Grid.Resources>
-        
+
         <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold">
 
             <!--TextBox de Titulo y sus propiedes-->
@@ -28,7 +28,7 @@
                      TextWrapping="NoWrap"
                      Style="{StaticResource TextBoxCustom}"
                      DataContext="{StaticResource DATA_PELI}">
-                
+
                 <!--Enlace con Peli_Titulo-->
                 <TextBox.Text>
                     <Binding Path="Peli_Titulo"
@@ -72,7 +72,7 @@
         <Label Content="Clasificacion" HorizontalAlignment="Left" Margin="35,183,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
         <ComboBox Name="cmbClasificacion" ItemsSource="{Binding Source={StaticResource clasif},XPath=tipo/@name}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="144" Height="21" Margin="26,209,0,0" ScrollViewer.VerticalScrollBarVisibility="Visible" IsSynchronizedWithCurrentItem="True"></ComboBox>
 
-         <!--imagen -->
+        <!--imagen -->
         <Label Content="Imagen" HorizontalAlignment="Left" Margin="35,230,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
         <TextBox Name="txtImagen" HorizontalAlignment="Left" Height="23" Margin="26,254,0,0"  TextWrapping="NoWrap"   VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}"/>
         <Button Name="btnExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="113,254,0,0" VerticalAlignment="Top" Width="64" Height="23" Style="{StaticResource btnPeliculaEstilo}" Click="BtnExaminarImg_Click"/>
@@ -81,15 +81,14 @@
         <TextBox Name="txtVideo"  HorizontalAlignment="Left" Height="23" Margin="26,308,0,0"  TextWrapping="NoWrap"   VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}"/>
         <Button  Name="btnExaminarVideo" Content="Examinar" HorizontalAlignment="Left" Margin="113,308,0,0" VerticalAlignment="Top" Width="64" Height="23" Style="{StaticResource btnPeliculaEstilo}" Click="BtnExaminarVideo_Click"/>
 
-        
-        
-        
-        
+
+
+
+
         <!--Boton Modificar-->
         <Button x:Name="btnModificarPelicula" Content="Modificar" HorizontalAlignment="Left" Margin="26,350,0,0" VerticalAlignment="Top" Width="145"  Style="{StaticResource btnPeliculaEstilo}" Click="BtnModificarPelicula_Click"/>
 
         <!--Boton Borrar-->
         <Button x:Name="btnBajaPelicula" Content="Borrar" HorizontalAlignment="Left" Margin="26,375,0,0" VerticalAlignment="Top" Width="145"  Style="{StaticResource btnPeliculaEstilo}" Click="BtnBajaPelicula_Click"/>
-
     </Grid>
 </UserControl>
