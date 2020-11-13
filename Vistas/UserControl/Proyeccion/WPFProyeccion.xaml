@@ -48,6 +48,7 @@
                   Foreground="Black" 
                   IsReadOnly="True"  
                   SelectionChanged="DgvListaDeProyecciones_SelectionChanged"
+                  IsSynchronizedWithCurrentItem="True"
                   ItemsSource="{Binding Source={StaticResource VISTA_PROY}}"
                   >
             <DataGrid.Columns>

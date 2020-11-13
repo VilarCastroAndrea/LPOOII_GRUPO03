@@ -61,10 +61,17 @@ namespace Vistas.UserControl.Proyeccion
         /// <param name="e"></param>
         private void BtnModificarCliente_Click(object sender, RoutedEventArgs e)
         {
-            DTOProyeccion dto = (DTOProyeccion)dgvListaDeProyecciones.SelectedItem;
-            Proyeccion p = GenerarProyeccion(dto);
-            panelProyeccion.Children.Clear();
-            panelProyeccion.Children.Add(new WPFMostrarProyeccion(p, this));
+            try
+            {
+                DTOProyeccion dto = (DTOProyeccion)dgvListaDeProyecciones.SelectedItem;
+                Proyeccion p = GenerarProyeccion(dto);
+                panelProyeccion.Children.Clear();
+                panelProyeccion.Children.Add(new WPFMostrarProyeccion(p, this));
+            }
+            catch
+            {
+                MessageBoxResult resultado = MessageBox.Show("Debe seleccionar una PROYECCION para modificar.", "Atención");
+            }
         }
 
         /// <summary>
