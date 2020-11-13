@@ -48,6 +48,7 @@
                   IsReadOnly="True"  
                   SelectionChanged="DgvListaDeProyecciones_SelectionChanged"
                   ItemsSource="{Binding Source={StaticResource VISTA_PROY}}"
+                  AutoGenerateColumns="False"
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Proy_Codigo}" Header="Código" Width="50"/>
@@ -58,6 +59,13 @@
                 <DataGridTextColumn Binding="{Binding Peli_Duracion}" Header="Duración" Width="60"/>
                 <DataGridTextColumn Binding="{Binding Peli_Clasificacion}" Header="Clasificación" Width="80"/>
                 <DataGridTextColumn Binding="{Binding Peli_Genero}" Header="Género" Width="80"/>
+                <DataGridTemplateColumn Header="Disponible">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Proy_Disponible, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 
             </DataGrid.Columns>
         </DataGrid>
