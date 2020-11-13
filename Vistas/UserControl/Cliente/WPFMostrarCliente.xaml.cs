@@ -9,6 +9,7 @@ namespace Vistas
     /// </summary>
     public partial class WPFMostrarCliente
     {
+        
         WPFCliente proyeccionPadre;
         /// <summary>
         /// Cliente para realizar el alta
@@ -24,7 +25,9 @@ namespace Vistas
         {
             InitializeComponent();
             cliente = new Cliente();
-            proyeccionPadre = padre;
+           // proyeccionPadre = padre;
+       
+
         }
 
         public WPFMostrarCliente(Cliente verCliente, WPFCliente padre)
@@ -58,18 +61,21 @@ namespace Vistas
             if (validarCampos() == true)
             {
 
-                ClasesBase.Cliente cliente = new ClasesBase.Cliente();
+                ClasesBase.Cliente cli = new ClasesBase.Cliente();
 
 
-                Cliente cli = new Cliente();
-                cli.Cli_DNI = int.Parse(txtDni.Text);
+                // Cliente cli = new Cliente();
+                //pelicula.Peli_Codigo = clienteSeleccionada.Cli_DNI;
+                //cli.Cli_DNI = int.Parse(txtDni.Text);
+                cli.Cli_DNI = cliente.Cli_DNI;
                 cli.Cli_Apellido = txtApellido.Text;
                 cli.Cli_Nombre = txtNombre.Text;
                 cli.Cli_Telefono = txtTelefono.Text;
                 cli.Cli_Email = txtEmail.Text;
                 cli.Cli_Disponible = true;
-                proyeccionPadre.modificarCliente(cliente);
+                oPadre.modificarCliente(cli);
                 MessageBoxResult resultado = MessageBox.Show("Se modifico la pelicula con exito", "Atención");
+                oPadre.ActualizarDataGrid();
                 limpiarcampos();
             }
             else
