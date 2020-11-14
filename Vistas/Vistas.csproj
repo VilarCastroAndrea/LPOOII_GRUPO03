@@ -334,6 +334,7 @@
     <Resource Include="Img\fondoPrincipal.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="UserControl\Pelicula\DatosComboBox.xml" />
     <Content Include="utils\Efectos\big_music_logo.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
