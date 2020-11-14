@@ -89,13 +89,13 @@ namespace ClasesBase
 
         private string validar_ApellidoNombre()
         {
-            if (string.IsNullOrEmpty(Usu_ApellidoNombre))
+             if (string.IsNullOrEmpty(Usu_ApellidoNombre))
             {
                 return "El APELLIDO Y NOMBRE es obligatorio.";
             }
-            else if (Usu_ApellidoNombre.Length > 50)
+            else if (Usu_ApellidoNombre.Length > 50 || Usu_ApellidoNombre.Length < 5)
             {
-                return "El Apellido y nombre no debe superar los 50 caracteres.";
+                return "El Apellido y nombre es incorrecto";
             }
             return null;
         }
@@ -123,9 +123,9 @@ namespace ClasesBase
             {
                 return "El NOMBRE DE USUARIO es obligatorio.";
             }
-            else if (Usu_NombreUsuario.Length > 50)
+            else if (Usu_NombreUsuario.Length > 50 || Usu_NombreUsuario.Length < 5)
             {
-                return "El NOMBRE DE USUARIO no debe superar los 50 caracteres.";
+                return "El NOMBRE DE USUARIO es incorrecto";
             }
             return null;
         }

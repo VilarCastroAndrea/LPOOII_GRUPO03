@@ -61,7 +61,7 @@ namespace Vistas.UserControl.Usuario
                     padre.altaUsuario(new ClasesBase.Usuario(txtNombreUsuario.Text, txtPassword.Text, txtApellidoNombre.Text, int.Parse(cmbRol.SelectedValue.ToString()),true));
 
                     MessageBoxResult resultado = MessageBox.Show("Se agrego usuario con exito", "Atención");
-                    //limpiarCampos();
+                    limpiarCampos();
                 }
                 catch (Exception error)
                 {
