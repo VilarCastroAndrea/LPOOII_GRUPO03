@@ -4,7 +4,7 @@
 
     <!-- Template botones Form Cliente -->
     <ControlTemplate x:Key="btnClientePlantilla" TargetType="{x:Type Button}">
-        <Border x:Name="btn_size_2" BorderBrush="#FFDDDDDD" BorderThickness="1" CornerRadius="5" Background="#FF011316">
+        <Border x:Name="btn_size_2" BorderBrush="#FFDDDDDD" BorderThickness="1" CornerRadius="5" Background="#FF031227">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>

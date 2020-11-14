@@ -23,8 +23,8 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
-        <Setter Property="Background" Value="#FF02090A"/>
-        <Setter Property="BorderBrush" Value="#FF04191B"/>
+        <Setter Property="Background" Value="#FF021127"/>
+        <Setter Property="BorderBrush" Value="#FF021127"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Height" Value="23"/>
         <Setter Property="Width" Value="132"/>
@@ -63,8 +63,8 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
-        <Setter Property="Background" Value="#FF02090A"/>
-        <Setter Property="BorderBrush" Value="#FF04191B"/>
+        <Setter Property="Background" Value="#FF021127"/>
+        <Setter Property="BorderBrush" Value="#FF021127"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Height" Value="23"/>
         <Setter Property="Width" Value="215"/>

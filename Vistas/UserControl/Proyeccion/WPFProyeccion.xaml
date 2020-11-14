@@ -22,14 +22,8 @@
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
     </UserControl.Resources>
-    <Grid Height="490" Width="760">
+    <Grid Height="490" Width="760" Background="#FF04457B">
         <!--Fondo de la ventana-->
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF042A30"/>
-            </LinearGradientBrush>
-        </Grid.Background>
         <!--Panel de Proyeccion-->
         <Grid Name="panelProyeccion" Height="420" Width="200" Margin="20,40,540,30">
             <Grid.ColumnDefinitions>
@@ -43,7 +37,7 @@
                   HorizontalAlignment="Left" Height="375" 
                   Margin="238,85,0,0" 
                   VerticalAlignment="Top" 
-                  Width="502" Background="Black" 
+                  Width="502" Background="White" 
                   BorderBrush="#FF04272D" 
                   Foreground="Black" 
                   IsReadOnly="True"  
@@ -51,14 +45,14 @@
                   ItemsSource="{Binding Source={StaticResource VISTA_PROY}}"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Proy_Codigo}" Header="Código" Width="50"/>
+                <DataGridTextColumn Binding="{Binding Proy_Codigo}" Header="Código" Width="48"/>
                 <DataGridTextColumn Binding="{Binding Proy_Fecha}" Header="Fecha" Width="70"/>
                 <DataGridTextColumn Binding="{Binding Proy_Hora}" Header="Hora" Width="40"/>
-                <DataGridTextColumn Binding="{Binding Sla_Descripcion}" Header="Sala" Width="35"/>
+                <DataGridTextColumn Binding="{Binding Sla_Descripcion}" Header="Sala" Width="46"/>
                 <DataGridTextColumn Binding="{Binding Peli_Titulo}" Header="Película" Width="80"/>
                 <DataGridTextColumn Binding="{Binding Peli_Duracion}" Header="Duración" Width="60"/>
                 <DataGridTextColumn Binding="{Binding Peli_Clasificacion}" Header="Clasificación" Width="80"/>
-                <DataGridTextColumn Binding="{Binding Peli_Genero}" Header="Género" Width="80"/>
+                <DataGridTextColumn Binding="{Binding Peli_Genero}" Header="Género" Width="70"/>
 
             </DataGrid.Columns>
         </DataGrid>
@@ -71,7 +65,7 @@
 
         <!--GroupBox de Buscar Cliente-->
         <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="47" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White">
-            <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" Foreground="White" Background="Black" BorderBrush="#FF191818" TextChanged="TxtFiltrar_TextChanged"/>
+            <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="465" Foreground="White" Background="#FF021127" BorderBrush="#FF021127" TextChanged="TxtFiltrar_TextChanged" Margin="10,0,0,0"/>
         </GroupBox>
     </Grid>
 </UserControl>

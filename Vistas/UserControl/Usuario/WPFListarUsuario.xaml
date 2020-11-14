@@ -29,13 +29,7 @@
             </CollectionViewSource.SortDescriptions>
         </CollectionViewSource>
     </UserControl.Resources>
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF041F23"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid Background="#FF028ABE">
         <GroupBox Header="Usuarios" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="695" Foreground="White">
             <Grid>
                 <ListView Name="lstUsuario" Grid.Row="1" HorizontalAlignment="Left" ItemsSource="{Binding Source={StaticResource VISTA_USER}}" Height="339" Margin="10,29,0,0" VerticalAlignment="Top" Width="663">
@@ -50,8 +44,8 @@
                     </ListView.View>
                 </ListView>
                 <Label Content="Buscar Usuario" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Foreground="White"/>
-                <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" Margin="103,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Foreground="White" Background="Black" BorderBrush="#FF191818" TextChanged="TxtFiltrar_TextChanged"/>
-                <Button HorizontalAlignment="Left" Name="btnModificar" Margin="370,0,0,0" VerticalAlignment="Top" Width="30" Height="24" Background="Black" BorderBrush="Black" Click="BtnModificar_Click" >
+                <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" Margin="103,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Foreground="White" Background="#FF04445D" BorderBrush="{x:Null}" TextChanged="TxtFiltrar_TextChanged"/>
+                <Button HorizontalAlignment="Left" Name="btnModificar" Margin="309,3,0,0" VerticalAlignment="Top" Width="30" Height="24" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnModificar_Click" >
                     <fa:ImageAwesome Icon="Print" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                 </Button>
 

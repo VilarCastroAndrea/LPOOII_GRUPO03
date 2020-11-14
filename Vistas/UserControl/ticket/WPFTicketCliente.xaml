@@ -18,13 +18,7 @@
     </UserControl.Resources>
 
 
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF010A0C"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid Background="#FF042B70">
         <!--Listar Proyecciones-->
         <Grid  HorizontalAlignment="Left" Height="290" Margin="260,70,0,0" VerticalAlignment="Top" Width="440" Background="Black" >
             <ListView  Name="listaClienteTicket"  ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}, UpdateSourceTrigger=Explicit}" SelectionChanged="Clientes_SelectionChanged" Margin="0,0,0,-35">
@@ -41,10 +35,9 @@
             </ListView>
         </Grid>
 
-        <GroupBox Header="Filtrar" HorizontalAlignment="Left" Height="45" Margin="260,10,0,0" VerticalAlignment="Top" Width="440" Background="Black" Foreground="White">
+        <GroupBox Header="Filtrar" HorizontalAlignment="Left" Height="45" Margin="260,10,0,0" VerticalAlignment="Top" Width="440" Foreground="White" BorderBrush="{x:Null}">
             <Grid>
-                <Label Content="Pelicula" HorizontalAlignment="Left" Margin="10,0,0,-2" VerticalAlignment="Top" Foreground="White"/>
-                <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" Margin="65,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
+                <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="408" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
             </Grid>
         </GroupBox>
         <TextBlock x:Name="txtDNI"  HorizontalAlignment="Left" Margin="26,31,0,0" TextWrapping="Wrap" Text="Cliente" VerticalAlignment="Top" Foreground="White" FontSize="36"/>

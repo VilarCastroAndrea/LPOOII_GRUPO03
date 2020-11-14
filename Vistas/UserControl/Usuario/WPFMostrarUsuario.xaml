@@ -13,27 +13,21 @@
         <ObjectDataProvider
             x:Key="LIST_USER"
             ObjectType="{x:Type svc:TrabajarUsuario}"
-            MethodName="traerUsuarioDisponible">
+            MethodName="traerUsuarioDisponibleNoEncrypt">
         </ObjectDataProvider>
     </UserControl.Resources>
-    
+
     <!--Fondo de ventana-->
-    <Grid Loaded="Grid_Loaded">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF010A0C"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid Loaded="Grid_Loaded" Background="#FF011C4B">
         <GroupBox Header="Usuario" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="695" Foreground="White">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="94*"/>
                     <ColumnDefinition Width="589*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <Canvas Name="canvasContent" DataContext="{Binding Source={StaticResource ResourceKey=LIST_USER}}" Grid.ColumnSpan="2" >
-                    
+
                     <!--Labels-->
                     <Label Content="Id" HorizontalAlignment="Left" Margin="154,45,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Nombre Usuario" HorizontalAlignment="Left" Margin="154,85,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -41,36 +35,36 @@
                     <Label Content="Apellido y Nombre" HorizontalAlignment="Left" Margin="154,164,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Rol" HorizontalAlignment="Left" Margin="154,210,0,0" VerticalAlignment="Top" Foreground="White"/>
                     <Label Content="Disponible" HorizontalAlignment="Left" Margin="154,250,0,0" VerticalAlignment="Top" Foreground="White"/>
-                    
+
                     <!--Textbox enlazados-->
                     <TextBox HorizontalAlignment="Left" Text="{Binding Usu_Id}" Name="txtId" Height="23" Margin="334,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818" IsEnabled="False"/>
-                    <TextBox HorizontalAlignment="Left" Name="txtNombreUsuario" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="{Binding Usu_NombreUsuario}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                    <TextBox HorizontalAlignment="Left" Name="txtPassword" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="{Binding Usu_Password}"  VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                    <TextBox HorizontalAlignment="Left" Name="txtApellidoNombre" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="{Binding Usu_ApellidoNombre}" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818"/>
-                    
+                    <TextBox HorizontalAlignment="Left" Name="txtNombreUsuario" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="{Binding Usu_NombreUsuario}" VerticalAlignment="Top" Width="215" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
+                    <TextBox HorizontalAlignment="Left" Name="txtPassword" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="{Binding Usu_Password}"  VerticalAlignment="Top" Width="215" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
+                    <TextBox HorizontalAlignment="Left" Name="txtApellidoNombre" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="{Binding Usu_ApellidoNombre}" VerticalAlignment="Top" Width="215" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
+
                     <!--Botones navegacion y edicion de usuarios-->
-                    <Button HorizontalAlignment="Left" Name="btnModificar" Margin="154,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnModificar_Click">
+                    <Button HorizontalAlignment="Left" Name="btnModificar" Margin="154,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnModificar_Click">
                         <fa:ImageAwesome Icon="Edit" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
-                    <Button HorizontalAlignment="Left" Name="btnEliminar" Margin="230,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnEliminar_Click">
+                    <Button HorizontalAlignment="Left" Name="btnEliminar" Margin="230,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnEliminar_Click">
                         <fa:ImageAwesome Icon="Trash" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
-                    <Button HorizontalAlignment="Left" Name="btnPrimera" Margin="300,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnPrimera_Click">
+                    <Button HorizontalAlignment="Left" Name="btnPrimera" Margin="300,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnPrimera_Click">
                         <fa:ImageAwesome Icon="StepBackward" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
-                    <Button HorizontalAlignment="Left" Name="btnAnteriror" Margin="375,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnAnteriror_Click">
+                    <Button HorizontalAlignment="Left" Name="btnAnteriror" Margin="375,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnAnteriror_Click" Foreground="{x:Null}">
                         <fa:ImageAwesome Icon="ChevronCircleLeft" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
-                    <Button HorizontalAlignment="Left" Name="btnSig" Margin="450,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnSig_Click">
+                    <Button HorizontalAlignment="Left" Name="btnSig" Margin="450,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnSig_Click">
                         <fa:ImageAwesome Icon="ChevronCircleRight" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
-                    <Button HorizontalAlignment="Left" Name="btnUltimo" Margin="514,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnUltimo_Click">
+                    <Button HorizontalAlignment="Left" Name="btnUltimo" Margin="514,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnUltimo_Click" Foreground="{x:Null}">
                         <fa:ImageAwesome Icon="StepForward" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
                     </Button>
-                    
+
                     <!--CheckBox enlazado-->
                     <CheckBox Content="Si" Name="checkDisponible" IsChecked="{Binding Usu_Disponible}" HorizontalAlignment="Left" Margin="334,256,0,0" VerticalAlignment="Top" Foreground="White"/>
-                    
+
                     <!--Combobox enlazado-->
                     <ComboBox Canvas.Left="334" Name="cmbRol" SelectedValue="{Binding Rol_Codigo}" Canvas.Top="214" Width="215" Foreground="Black" BorderBrush="#FF031417" Background="#FF031417"/>
                 </Canvas>

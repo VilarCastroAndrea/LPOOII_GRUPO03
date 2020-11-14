@@ -19,14 +19,8 @@
             />
     </UserControl.Resources>
 
-    <Grid Height="490" Width="760">
+    <Grid Height="490" Width="760" Background="#FF04457B">
         <!--Fondo de la ventana-->
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF042A30"/>
-            </LinearGradientBrush>
-        </Grid.Background>
 
         <!--Panel de Clientes-->
         <Grid Name="panelCliente" Height="420" Width="200" Margin="20,40,540,30">
@@ -41,7 +35,7 @@
         -->
 
         <!---->
-        <Grid  HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black">
+        <Grid  HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="487" Background="Black">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="77*"/>
                 <ColumnDefinition Width="174*"/>
@@ -51,23 +45,23 @@
                     <GridView>
                         <!--Enlace de DNI, Nombre, Apellido, Telefono y Email a las columnas-->
         <GridViewColumn Width="80" Header="Dni" DisplayMemberBinding="{Binding Path=DNI}"/>
-        <GridViewColumn Width="100" Header="Nombre" DisplayMemberBinding="{Binding Path=Nombre}"/>
+        <GridViewColumn Width="95" Header="Nombre" DisplayMemberBinding="{Binding Path=Nombre}"/>
         <GridViewColumn Width="80" Header="Apellido" DisplayMemberBinding="{Binding Path=Apellido}"/>
-        <GridViewColumn Width="100" Header="Telefono" DisplayMemberBinding="{Binding Path=Telefono}"/>
-        <GridViewColumn Width="130" Header="Email" DisplayMemberBinding="{Binding Path=Email}"/>
+        <GridViewColumn Width="95" Header="Telefono" DisplayMemberBinding="{Binding Path=Telefono}"/>
+        <GridViewColumn Width="125" Header="Email" DisplayMemberBinding="{Binding Path=Email}"/>
         </GridView>
         </ListView.View>
         </ListView>
     </Grid>
 
     <!--Boton Modificar-->
-    <Button Name="btnModificarCliente" Style="{StaticResource BotonModificar}" Click="BtnModificarCliente_Click"/>
+    <Button Name="btnModificarCliente" Style="{StaticResource BotonModificar}" Click="BtnModificarCliente_Click" />
 
     <!--Boton Agregar-->
     <Button Name="btnAltaCliente" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaCliente_Click"/>
 
     <!--GroupBox Buscar Clientes-->
-    <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>
+    <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="485" Foreground="White"/>
 
     </Grid>
 </UserControl>

@@ -6,21 +6,15 @@
              xmlns:local="clr-namespace:Vistas.UserControl.Pelicula"          
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
-            
-    <Grid Name="panelAltaPelicula">
+
+    <Grid Name="panelAltaPelicula" Background="#FF042B70">
         <!--Fondo de la ventana-->
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF021113"/>
-            </LinearGradientBrush>
-        </Grid.Background>
 
         <!--Carga de los ComboBox-->
         <Grid.Resources>
-           <XmlDataProvider x:Key="clasif" Source="/UserControl/Pelicula/DatosComboBox.xml" XPath="/datos"/>               
+            <XmlDataProvider x:Key="clasif" Source="/UserControl/Pelicula/DatosComboBox.xml" XPath="/datos"/>
         </Grid.Resources>
-        
+
         <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold">
 
             <!--TextBox de Titulo y sus propiedades-->
@@ -49,7 +43,7 @@
                  TextWrapping="NoWrap"
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PELI}">
-            
+
             <!--Enlace con Peli_Duracion-->
             <TextBox.Text>
                 <Binding Path="Peli_Duracion"
@@ -85,5 +79,5 @@
         <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="26,370,0,0" VerticalAlignment="Top" Width="145" Click="BtnAltaPelicula_Click" Style="{StaticResource btnPeliculaEstilo}"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="80,127,0,0" VerticalAlignment="Top" Width="100"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="265,191,-165,0" VerticalAlignment="Top" Width="100"/>
-    </Grid>    
+    </Grid>
 </UserControl>

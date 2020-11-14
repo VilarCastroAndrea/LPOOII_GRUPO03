@@ -48,12 +48,17 @@ namespace Vistas
             {
                 btnCliente.Visibility = Visibility.Hidden;
                 btnTicket.Visibility = Visibility.Hidden;
+                lblCliente.Visibility = Visibility.Hidden;
+                lblTicket.Visibility = Visibility.Hidden;
             }
             else
             {
                 btnUsuario.Visibility = Visibility.Hidden;
                 btnProyeccion.Visibility = Visibility.Hidden;
                 btnPelicula.Visibility = Visibility.Hidden;
+                lblUsuario.Visibility = Visibility.Hidden;
+                lblProyeccion.Visibility = Visibility.Hidden;
+                lblPelicula.Visibility = Visibility.Hidden;
             }
         }
 

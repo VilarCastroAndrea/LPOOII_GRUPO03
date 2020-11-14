@@ -12,7 +12,7 @@
     <Window.Background>
         <RadialGradientBrush>
             <GradientStop Color="Black" Offset="1"/>
-            <GradientStop Color="#FF0D6472"/>
+            <GradientStop Color="#FF028ABE"/>
         </RadialGradientBrush>
     </Window.Background>
     <Grid>
@@ -32,7 +32,7 @@
         <UC:UCLogin x:Name="login" HorizontalAlignment="left" />
 
         <!--Label de Tiempo Actual-->
-        <Label Content="{Binding Source={x:Static sys:DateTime.Now}}" HorizontalAlignment="Left" Height="29" Margin="45,267,0,0"  VerticalAlignment="Top" Width="138" RenderTransformOrigin="0.5,0.5" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="16">
+        <Label Content="{Binding Source={x:Static sys:DateTime.Now}}" HorizontalAlignment="Left" Height="29" Margin="45,265,0,0"  VerticalAlignment="Top" Width="215" RenderTransformOrigin="0.5,0.5" Foreground="White" FontFamily="Arial Rounded MT Bold" FontSize="16">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -44,7 +44,7 @@
         </Label>
 
         <!--Boton Ingresar-->
-        <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="255,299,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FF063037" BorderBrush="#FF063037" Foreground="White" Click="Button_Click">
+        <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="255,299,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.5,0.5" Background="#FF04457B" BorderBrush="#FF04457B" Foreground="White" Click="Button_Click">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -61,8 +61,8 @@
                       VerticalAlignment="Top" Width="65"
                       LoadedBehavior="Manual"
                       />
-        
-        <Button x:Name="btnConfiguracion" Margin="372,0,0,0" VerticalAlignment="Top" Height="27" Background="Transparent" Click="BtnConfiguracion_Click">
+
+        <Button x:Name="btnConfiguracion" Margin="320,130,52,0" VerticalAlignment="Top" Height="27" Background="Transparent" Click="BtnConfiguracion_Click" BorderBrush="{x:Null}">
             <fa:ImageAwesome Icon="Gear" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"  />
         </Button>
 

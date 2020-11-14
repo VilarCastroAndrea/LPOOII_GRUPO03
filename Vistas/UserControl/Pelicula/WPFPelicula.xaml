@@ -16,14 +16,8 @@
             MethodName="ListaPeliculaDisponible"
             />
     </UserControl.Resources>
-    <Grid Name="grdPrincipal" Height="490" Width="760">
+    <Grid Name="grdPrincipal" Height="490" Width="760" Background="#FF04457B">
         <!--Fondo de la ventana-->
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF042A30"/>
-            </LinearGradientBrush>
-        </Grid.Background>
         <Grid Name="panelPelicula" Height="420" Width="200" Margin="20,40,540,30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -39,15 +33,15 @@
                         <GridViewColumn Width="30" Header="Codigo" DisplayMemberBinding="{Binding Path=Codigo}"/>
                         <GridViewColumn Width="100" Header="Titulo" DisplayMemberBinding="{Binding Path=Titulo}"/>
                         <GridViewColumn Width="50" Header="Duracion" DisplayMemberBinding="{Binding Path=Duracion}"/>
-                        <GridViewColumn Width="102" Header="Genero" DisplayMemberBinding="{Binding Path=Genero}"/>
+                        <GridViewColumn Width="80" Header="Genero" DisplayMemberBinding="{Binding Path=Genero}"/>
                         <GridViewColumn Width="70" Header="Clasificacion" DisplayMemberBinding="{Binding Path=Clasificacion}"/>
-                        <GridViewColumn Width="100" Header="Imagen" DisplayMemberBinding="{Binding Path=Imagen}"/>
-                        <GridViewColumn Width="100" Header="Video" DisplayMemberBinding="{Binding Path=Video}"/>
+                        <GridViewColumn Width="80" Header="Imagen" DisplayMemberBinding="{Binding Path=Imagen}"/>
+                        <GridViewColumn Width="80" Header="Video" DisplayMemberBinding="{Binding Path=Video}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
         </Grid>
-        
+
         <!--Boton Modificar-->
         <Button Name="btnModificarPelicula" Style="{StaticResource BotonModificar}" Click="BtnModificarPelicula_Click" />
 

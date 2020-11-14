@@ -6,15 +6,9 @@
              xmlns:local="clr-namespace:Vistas.UserControl.Usuario"
              mc:Ignorable="d" 
              d:DesignHeight="420" d:DesignWidth="715">
-    
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF021113"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        
+
+    <Grid Background="#FF042B70">
+
         <!--Cabecera y Labels-->
         <GroupBox Header="Usuario"  HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="695" Foreground="White">
             <Grid>
@@ -22,7 +16,7 @@
                 <Label Content="Password" HorizontalAlignment="Left" Margin="167,133,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Label Content="Apellido y Nombre" HorizontalAlignment="Left" Margin="167,177,0,0" VerticalAlignment="Top" Foreground="White"/>
                 <Label Content="Rol" HorizontalAlignment="Left" Margin="167,223,0,0" VerticalAlignment="Top" Foreground="White"/>
-                
+
                 <!--TextBox Nombre Usuario-->
                 <TextBox x:Name="txtNombreUsuario" 
                          Margin="334,89,0,0"  
@@ -56,7 +50,7 @@
                              Margin="334,178,0,0" 
                              Style="{StaticResource TBCustomAltaUsu}"
                              DataContext="{StaticResource DATA_USU}">
-                    
+
                     <!--Enlace con la propiedad Usu_ApellidoNombre-->
                     <TextBox.Text>
                         <Binding Path="Usu_ApellidoNombre"

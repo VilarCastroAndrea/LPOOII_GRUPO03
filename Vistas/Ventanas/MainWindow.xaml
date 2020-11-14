@@ -6,12 +6,38 @@
        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="Inicio" Height="520" Width="810" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Inicio" Height="520" Width="828" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}">
     <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Background" Value="DarkBlue" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}"
+                       CornerRadius="10,0,10,0" x:Name="bd">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                       Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                      RecognizesAccessKey="True" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bd" Property="Background" Value="#FF031027"/>
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="Cursor" Value="Hand" />
+                            </Trigger>
 
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
-        <Grid Height="490" Width="760" Margin="0,-1,42,0" Name="panelPrincipal" x:FieldModifier="public">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Margin="0,0,57,0" Name="panelPrincipal" x:FieldModifier="public">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0*"/>
@@ -25,39 +51,49 @@
         </Grid>
 
         <!--Botones de Navegacion-->
-        <Grid Height="490" Width="50"  Margin="752,-1,0,0" Background="Black" RenderTransformOrigin="0.5,0.826">
+        <Grid  Margin="750,0,0,0" Background="#FF011C4B" RenderTransformOrigin="0.5,0.826">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="56*"/>
+                <ColumnDefinition Width="12*"/>
+            </Grid.ColumnDefinitions>
 
             <!--Boton Clientes-->
-            <Button HorizontalAlignment="Left" Name="btnCliente" Margin="3,87,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnCliente_Click">
+            <Button HorizontalAlignment="Left" Name="btnCliente" Margin="1,9,0,0" VerticalAlignment="Top" Width="50" Height="58" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnCliente_Click" Foreground="{x:Null}" Grid.Column="1">
                 <fa:ImageAwesome Icon="StreetView" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
 
             <!--Boton Tickets-->
-            <Button HorizontalAlignment="Left" Name="btnTicket" Margin="3,127,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnTicket_Click">
+            <Button HorizontalAlignment="Left" Name="btnTicket" Margin="1,72,0,0" VerticalAlignment="Top" Width="52" Height="58" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnTicket_Click" Foreground="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2">
                 <fa:ImageAwesome Icon="Ticket" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
 
             <!--Boton Usuarios-->
-            <Button HorizontalAlignment="Left" Name="btnUsuario" Margin="3,167,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnUsuario_Click">
+            <Button HorizontalAlignment="Left" Name="btnUsuario" Margin="1,135,0,0" VerticalAlignment="Top" Width="52" Height="58" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnUsuario_Click" Foreground="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2">
                 <fa:ImageAwesome Icon="User" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
 
 
             <!--Boton Peliculas-->
-            <Button HorizontalAlignment="Left" Name="btnPelicula" Margin="3,207,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnPelicula_Click">
+            <Button HorizontalAlignment="Left" Name="btnPelicula" Margin="1,198,0,0" VerticalAlignment="Top" Width="50" Height="58" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnPelicula_Click" Foreground="{x:Null}" Grid.Column="1">
                 <fa:ImageAwesome Icon="Film" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
 
 
             <!--Boton Proyeccion-->
-            <Button HorizontalAlignment="Left" Name="btnProyeccion" Margin="3,245,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="Black" BorderBrush="Black" Click="BtnProyeccion_Click">
+            <Button HorizontalAlignment="Left" Name="btnProyeccion" Margin="1,261,0,0" VerticalAlignment="Top" Width="52" Height="58" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnProyeccion_Click" Foreground="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2">
                 <fa:ImageAwesome Icon="FileMovieOutline" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
 
             <!--Boton Salir-->
-            <Button Name="btnSalir" Margin="0,445,9,0" VerticalAlignment="Top" Height="35" Width="35" Background="Black" BorderBrush="Black" Click="BtnSalir_Click">
+            <Button Name="btnSalir" Margin="1,423,10,0" VerticalAlignment="Top" Height="52" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnSalir_Click" Foreground="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2">
                 <fa:ImageAwesome Icon="Openid" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
+            <Label Content="Cliente" Name="lblCliente" Grid.Column="1" HorizontalAlignment="Left" Margin="5,46,0,0" VerticalAlignment="Top" Foreground="White" Width="42" Height="21" FontSize="10"/>
+            <Label Content="Ticket" Name="lblTicket" Grid.Column="1" HorizontalAlignment="Left" Margin="8,109,0,0" VerticalAlignment="Top" Foreground="White" Width="38" Height="26" FontSize="10"/>
+            <Label Content="Usuario" Name="lblUsuario" Grid.Column="1" HorizontalAlignment="Left" Margin="5,172,0,0" VerticalAlignment="Top" Foreground="White" Width="43" Height="26" FontSize="10"/>
+            <Label Content="Pelicula" Name="lblPelicula" Grid.Column="1" HorizontalAlignment="Center" Margin="10,235,6,0" VerticalAlignment="Top" Foreground="White" Width="47" Height="26" FontSize="10"/>
+            <Label Content="Proyeccion" Name="lblProyeccion" Grid.Column="1" HorizontalAlignment="Left" Margin="1,299,0,0" VerticalAlignment="Top" Foreground="White" Width="59" Height="26" FontSize="10"/>
         </Grid>
     </Grid>
 </Window>
