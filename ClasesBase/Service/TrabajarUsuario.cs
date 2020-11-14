@@ -196,6 +196,37 @@ namespace ClasesBase
             return coleccionUsuarios;
         }
 
+        public static ObservableCollection<Usuario> traerUsuarioDisponibleNoEncrypt()
+        {
+            ObservableCollection<Usuario> coleccionUsuarios = new ObservableCollection<Usuario>();
+            Usuario usuario = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarUsuarioDisponible";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@disponible", true);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                usuario = new Usuario();
+                usuario.Usu_Id = (int)reader["ID"];
+                usuario.Usu_ApellidoNombre = (string)reader["Apellido y Nombre"];
+                usuario.Usu_NombreUsuario = (string)reader["Nombre de Usuario"];
+                usuario.Usu_Password = Encryp.DesEncriptar((string)reader["Password"]);
+                usuario.Rol_Codigo = (int)reader["Codigo"];
+                usuario.Usu_Disponible = (bool)reader["Disponible"];
+
+                coleccionUsuarios.Add(usuario);
+            }
+            cnn.Close();
+            return coleccionUsuarios;
+        }
+
         /// <summary>
         /// Inicializa un objeto del tipo usuario para las validaciones del formulario
         /// </summary>

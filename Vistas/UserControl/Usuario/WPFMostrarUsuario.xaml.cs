@@ -45,7 +45,7 @@ namespace Vistas.UserControl.Usuario
             usuario.Usu_Id = id;
             usuario.Usu_ApellidoNombre = txtApellidoNombre.Text;
             usuario.Usu_NombreUsuario = txtNombreUsuario.Text;
-            usuario.Usu_Password = txtPassword.Text;
+            usuario.Usu_Password = Encryp.Encriptar(txtPassword.Text);
             usuario.Usu_Disponible = true;
             usuario.Rol_Codigo = (int)cmbRol.SelectedValue;
 
