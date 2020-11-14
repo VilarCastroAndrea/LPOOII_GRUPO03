@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Vistas.UserControl.Proyeccion"
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
-    <Grid Height="420" Width="200" Background="Black">
+    <Grid Height="420" Width="200" Background="#FF011C4B">
         <!--Fondo de la ventana-->
 
         <GroupBox Header="Proyeccion" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>

@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:Vistas.UserControl.Proyeccion"
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
-    <Grid Height="420" Width="200" Background="#FF021113">
-        <GroupBox Header="Proyeccion" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold" Background="Black"/>
+    <Grid Height="420" Width="200" Background="#FF042B70">
+        <GroupBox Header="Proyeccion" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold"/>
         <Label Content="Titulo Pelicula" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="115"/>
 
         <!--ComboBox de Titulo de Pelicula-->

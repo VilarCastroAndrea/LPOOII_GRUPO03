@@ -7,24 +7,22 @@
              xmlns:svc="clr-namespace:ClasesBase;assembly=ClasesBase"
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
-    <Grid Name="panelAltaCliente">
+    <Grid Name="panelAltaCliente" Background="#FF042B70">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
         <!--Fondo del Panel-->
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF021113"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        
+
         <GroupBox Header="Cliente" HorizontalAlignment="Left" Margin="10,10,0,0"
                   Height="400"  Width="180" 
-                  Foreground="White"  VerticalAlignment="Top" FontWeight="Bold"/>
-        
+                  Foreground="White"  VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
         <!-- DNI -->
         <Label Content="DNI" Margin="35,45,0,0"  
-               Style="{StaticResource LabelCustom}"/>
-        
-        <TextBox x:Name="txtDni" Margin="30,70,42,331"  
+               Style="{StaticResource LabelCustom}" Height="26" Width="31"/>
+
+        <TextBox x:Name="txtDni" Margin="30,70,0,0"  
                  PreviewTextInput="TextBox_PreviewTextInput" 
                  Style="{StaticResource TextBoxCustom}" 
                  DataContext="{StaticResource DATA_CLIENT}"
@@ -37,12 +35,12 @@
                          ValidatesOnDataErrors="True"/>
             </TextBox.Text>
         </TextBox>
-        
+
         <!-- Nombre -->
         <Label Content="Nombre" Margin="35,94,0,0"
-               Style="{StaticResource LabelCustom}"/>
-        
-        <TextBox x:Name="txtNombre" Margin="30,120,42,281"  PreviewTextInput="PreviewTextInputOnlyLetters"
+               Style="{StaticResource LabelCustom}" Height="26" Width="54"/>
+
+        <TextBox x:Name="txtNombre" Margin="30,120,0,0"  PreviewTextInput="PreviewTextInputOnlyLetters"
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_CLIENT}">
             <TextBox.Text>
@@ -53,10 +51,10 @@
                          ValidatesOnDataErrors="True"/>
             </TextBox.Text>
         </TextBox>
-        
+
         <!-- Apellido -->
         <Label Content="Apellido" Margin="36,144,0,0" 
-               Style="{StaticResource LabelCustom}"/>
+               Style="{StaticResource LabelCustom}" Height="26" Width="54"/>
         <TextBox x:Name="txtApellido" Margin="30,172,0,0" PreviewTextInput="PreviewTextInputOnlyLetters" 
                  Style="{StaticResource TextBoxCustom}" 
                  DataContext="{StaticResource DATA_CLIENT}">
@@ -68,11 +66,11 @@
                          ValidatesOnDataErrors="True"/>
             </TextBox.Text>
         </TextBox>
-        
+
         <!-- Telefono -->
         <Label Content="Telefono" Margin="35,195,0,0" RenderTransformOrigin="0.873,0.5"
-               Style="{StaticResource LabelCustom}" />
-        
+               Style="{StaticResource LabelCustom}" Height="26" Width="55" />
+
         <TextBox x:Name="txtTelefono" Margin="30,220,0,0" PreviewTextInput="TextBox_PreviewTextInput" 
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_CLIENT}">
@@ -84,16 +82,16 @@
                          ValidatesOnExceptions="True"/>
             </TextBox.Text>
         </TextBox>
-        
+
         <!-- Email -->
-        <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
-        
+        <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}" Height="26" Width="38"/>
+
         <TextBox x:Name="txtEmail" Margin="30,270,0,0" 
                  Style="{StaticResource TextBoxCustom}"/>
 
         <!-- Boton Agregar -->
         <Button x:Name="btnAlta" Content="Agregar" Margin="30,320,0,0"
                 Style="{StaticResource BotonCustom}" 
-                Click="BtnAlta_Click" />
+                Click="BtnAlta_Click" Grid.ColumnSpan="2" />
     </Grid>
 </UserControl>

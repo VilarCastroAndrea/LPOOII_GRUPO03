@@ -11,8 +11,8 @@
         <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="#FF010A0C"/>
-        <Setter Property="BorderBrush" Value="#FF010A0C"/>
+        <Setter Property="Background" Value="#FF011C4B"/>
+        <Setter Property="BorderBrush" Value="#FF011C4B"/>
         <Setter Property="Margin" Value="20,20,0,0"/>
     </Style>
 
@@ -25,8 +25,8 @@
         <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="#FF021113"/>
-        <Setter Property="BorderBrush" Value="#FF021113"/>
+        <Setter Property="Background" Value="#FF042B70"/>
+        <Setter Property="BorderBrush" Value="#FF042B70"/>
         <Setter Property="Margin" Value="125,20,0,0"/>
     </Style>
 
