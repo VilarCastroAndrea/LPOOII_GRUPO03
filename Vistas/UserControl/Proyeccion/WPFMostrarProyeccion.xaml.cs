@@ -17,9 +17,25 @@ namespace Vistas.UserControl.Proyeccion
     /// </summary>
     public partial class WPFMostrarProyeccion
     {
+
+        /// <summary>
+        /// Lista de Peliculas DISPONIBLES
+        /// </summary>
         ObservableCollection<Pelicula> listaPeliculas = new ObservableCollection<Pelicula>();
+
+        /// <summary>
+        /// Lista de Salas
+        /// </summary>
         ObservableCollection<Sala> listaSalas = new ObservableCollection<Sala>();
+
+        /// <summary>
+        /// Proyeccion que se muestra en el formulario. Se carga al inicio.
+        /// </summary>
         Proyeccion proyeccionMostrar;
+
+        /// <summary>
+        /// Referencia al UserControl Padre.
+        /// </summary>
         WPFProyeccion proyeccionPadre;
 
         /// <summary>
@@ -69,7 +85,7 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarComboPeliculas()
         {
-            listaPeliculas = TrabajarPelicula.traerPeliculas();
+            listaPeliculas = TrabajarPelicula.TraerPeliculasDisponibles();
             cmbTitulo.ItemsSource = listaPeliculas;
             cmbTitulo.DisplayMemberPath = "Peli_Titulo";
             cmbTitulo.SelectedValue = "Peli_Codigo";
@@ -132,7 +148,11 @@ namespace Vistas.UserControl.Proyeccion
             }
         }
 
-        //Convierte Fecha String a DateTime
+        /// <summary>
+        /// Convierte una FECHA en formato String a DateTime.
+        /// </summary>
+        /// <param name="value">Fecha en formato string</param>
+        /// <returns></returns>
         private DateTime ConvertToDateTime(string value)
         {
             DateTime convertedDate = new DateTime();
@@ -188,6 +208,10 @@ namespace Vistas.UserControl.Proyeccion
             masInfo.Show();
         }
 
+        /// <summary>
+        /// Valida que el formulario no tenga campos vacios.
+        /// </summary>
+        /// <returns>True si alguno de los campos esta vacio. De lo contrario False</returns>
         private bool validarCamposVacios()
         {
             if (txtFecha.Text == "" || txtHora.Text == "" || cmbSala.Text == "" || cmbTitulo.Text == "")

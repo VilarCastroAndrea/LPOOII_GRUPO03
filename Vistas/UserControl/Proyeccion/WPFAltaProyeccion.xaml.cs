@@ -11,12 +11,16 @@ namespace Vistas.UserControl.Proyeccion
     /// </summary>
     public partial class WPFAltaProyeccion
     {
+        /// <summary>
+        /// Referencia al UserControl Padre.
+        /// </summary>
         private WPFProyeccion proyeccionPadre;
 
         public WPFAltaProyeccion(WPFProyeccion proyeccion)
         {
             proyeccionPadre = proyeccion;
             InitializeComponent();
+            limpiarCampos();
             cargarComboPeliculas();
             cargarComboSalas();
         }
@@ -25,7 +29,7 @@ namespace Vistas.UserControl.Proyeccion
         /// </summary>
         private void cargarComboPeliculas()
         {
-            cmbTitulo.ItemsSource = TrabajarPelicula.traerPeliculas();
+            cmbTitulo.ItemsSource = TrabajarPelicula.TraerPeliculasDisponibles();
             cmbTitulo.DisplayMemberPath = "Peli_Titulo";
             cmbTitulo.SelectedValue = "Peli_Codigo";
             cmbTitulo.SelectedIndex = 0;
@@ -42,6 +46,12 @@ namespace Vistas.UserControl.Proyeccion
             cmbSala.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Boton Alta, Genera un mensaje de confirmacion para agregar una PROYECCION
+        /// De aceptar se guardaran los datos formularios en la base de datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAlta_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (validarCamposVacios() != true)
@@ -82,7 +92,11 @@ namespace Vistas.UserControl.Proyeccion
             }
         }
 
-        //Convierte Fecha String a DateTime
+        /// <summary>
+        /// Convierte una fecha en formato STRING a DATETIME
+        /// </summary>
+        /// <param name="value">Fecha en formato string</param>
+        /// <returns></returns>
         private DateTime ConvertToDateTime(string value)
         {
             DateTime convertedDate = new DateTime();
@@ -98,7 +112,7 @@ namespace Vistas.UserControl.Proyeccion
         }
 
         /// <summary>
-        /// Limpia los campos
+        /// Limpia los campos del formulario
         /// </summary>
         private void limpiarCampos()
         {
@@ -108,7 +122,10 @@ namespace Vistas.UserControl.Proyeccion
             cmbTitulo.Text = "";
         }
 
-
+        /// <summary>
+        /// Verifica que los campos no  esten vacios.
+        /// </summary>
+        /// <returns></returns>
         private bool validarCamposVacios()
         {
             if (txtFecha.Text == "" || txtHora.Text == "" || cmbSala.Text == "" || cmbTitulo.Text == "")
