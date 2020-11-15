@@ -76,6 +76,10 @@ namespace Vistas.UserControl.Proyeccion
                     }
                 }
             }
+            else
+            {
+             MessageBox.Show("Formulario Incompleto");
+            }
         }
 
         //Convierte Fecha String a DateTime
@@ -107,7 +111,7 @@ namespace Vistas.UserControl.Proyeccion
 
         private bool validarCamposVacios()
         {
-            if (txtFecha.Text == "" && txtHora.Text == "" && cmbSala.Text == "" && cmbTitulo.Text == "")
+            if (txtFecha.Text == "" || txtHora.Text == "" || cmbSala.Text == "" || cmbTitulo.Text == "")
             {
                 return true;
             }

@@ -77,17 +77,32 @@
                          />
             </TextBox.Text>
         </TextBox>
-        
+
         <!-- Email -->
+        <Label Content="Email" Margin="35,244,0,0" RenderTransformOrigin="0.873,0.5"
+               Style="{StaticResource LabelCustom}" />
+
+        <TextBox x:Name="txtEmail" Margin="30,270,0,0" 
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_CLIENT}">
+            <TextBox.Text>
+                <!--Enlace con Email-->
+                <Binding Path="Cli_Email" 
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnDataErrors="True" 
+                         ValidatesOnExceptions="True"/>
+            </TextBox.Text>
+        </TextBox>
+        <!-- Email --><!--
         <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
         <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}">
             <TextBox.Text>
-                <!--Enlace con Cli_Email-->
+                --><!--Enlace con Cli_Email--><!--
                 <Binding Source="{StaticResource DATA_CLIENT_MOD}"
                          Path="Cli_Email"
                          />
             </TextBox.Text>
-        </TextBox>
+        </TextBox>-->
         
         <!-- Botones Modificar/Borrar -->
         <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="30,320,0,0" Click="BtnModificar_Click"/>

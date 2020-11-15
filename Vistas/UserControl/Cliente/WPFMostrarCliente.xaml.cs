@@ -119,7 +119,7 @@ namespace Vistas
 
         private bool validarCampos()
         {
-            if (txtDni.Text == "" || txtApellido.Text == "" || txtNombre.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
+            if (txtDni.Text == "" || txtApellido.Text == "" || txtNombre.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "" || int.Parse(txtDni.Text) < 10000000 || int.Parse(txtDni.Text) > 99999999)
             {
                 return false;
             }

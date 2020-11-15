@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Vistas"
+             xmlns:local="clr-namespace:Vistas.UserControl.Pelicula"      
              mc:Ignorable="d" 
              d:DesignHeight="420" Width="200">
     <Grid Name="panelMostrarPelicula">
@@ -11,7 +11,7 @@
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="#FF010A0C"/>
+                <GradientStop Color="#FF021113"/>
             </LinearGradientBrush>
         </Grid.Background>
 
@@ -22,14 +22,29 @@
 
         <GroupBox Header="Pelicula" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="180" Foreground="White" FontWeight="Bold">
 
-            <!--TextBox de Titulo y sus propiedes-->
+            <!--TextBox de Titulo y sus propiedades-->
+            <TextBox x:Name="txtTitulo" 
+                  Margin="10,40,0,0" 
+                  TextWrapping="NoWrap"
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_PELI}">
+
+                <!--Enlace con Peli_Titulo-->
+                <TextBox.Text>
+                    <Binding Path="Peli_Titulo"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+                </TextBox.Text>
+            </TextBox>
+            <!--TextBox de Titulo y sus propiedes--><!--
             <TextBox x:Name="txtTitulo" 
                      Margin="10,40,0,0" 
                      TextWrapping="NoWrap"
                      Style="{StaticResource TextBoxCustom}"
                      DataContext="{StaticResource DATA_PELI}">
 
-                <!--Enlace con Peli_Titulo-->
+                --><!--Enlace con Peli_Titulo--><!--
                 <TextBox.Text>
                     <Binding Path="Peli_Titulo"
                              XPath="titulo/@name"
@@ -38,11 +53,28 @@
                          ValidatesOnExceptions="True" 
                          ValidatesOnDataErrors="True"/>
                 </TextBox.Text>
-            </TextBox>
+            </TextBox>-->
         </GroupBox>
         <Label Content="Titulo" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>
 
-        <!--TextBox de Duracion y sus propiedades-->
+        <!--TextBox de Duracion y sus propiedes-->
+        <Label Content="Duracion" HorizontalAlignment="Left" Margin="35,89,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
+        <TextBox   
+                 Name="txtDuracion" 
+                 Margin="26,115,0,0"
+                 TextWrapping="NoWrap"
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_PELI}">
+
+            <!--Enlace con Peli_Duracion-->
+            <TextBox.Text>
+                <Binding Path="Peli_Duracion"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+            </TextBox.Text>
+        </TextBox>
+        <!--TextBox de Duracion y sus propiedades--><!--
         <Label Content="Duracion" HorizontalAlignment="Left" Margin="35,89,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="66"/>
         <TextBox x:Name="txtDuracion" 
                  Margin="26,115,0,0" 
@@ -50,7 +82,7 @@
                  Style="{StaticResource TextBoxCustom}"
                  DataContext="{StaticResource DATA_PELI}">
 
-            <!--Enlace con Peli_Duracion-->
+            --><!--Enlace con Peli_Duracion--><!--
             <TextBox.Text>
                 <Binding Path="Peli_Duracion"
                          XPath="duracion/@name"
@@ -59,7 +91,7 @@
                          ValidatesOnExceptions="True"
                          ValidatesOnDataErrors="True"/>
             </TextBox.Text>
-        </TextBox>
+        </TextBox>-->
 
         <!--ComboBox de Genero-->
         <Label Content="Genero" HorizontalAlignment="Left" Margin="35,138,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="54"/>

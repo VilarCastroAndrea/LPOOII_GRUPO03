@@ -56,7 +56,7 @@ namespace Vistas.UserControl.Pelicula
 
         private bool validarCampos()
         {
-            if (txtTitulo.Text == "" || txtDuracion.Text == "")
+            if (txtTitulo.Text == "" || txtTitulo.Text.Length < 5 || txtDuracion.Text == "" || txtDuracion.Text.Length < 5 || txtImagen.Text == "" || txtImagen.Text.Length < 5 || txtVideo.Text == "" || txtVideo.Text.Length < 5)
             {
                 return false;
             }

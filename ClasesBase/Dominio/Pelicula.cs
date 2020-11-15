@@ -95,7 +95,7 @@ namespace ClasesBase
 
         private string validar_Titulo()
         {
-            if (string.IsNullOrEmpty(Peli_Titulo))
+            if (string.IsNullOrEmpty(Peli_Titulo) || Peli_Titulo.Length < 5)
             {
                 return "El TITULO es obligatorio.";
             }
@@ -104,7 +104,7 @@ namespace ClasesBase
 
         private string validar_Duracion()
         {
-            if (string.IsNullOrEmpty(Peli_Duracion))
+            if (string.IsNullOrEmpty(Peli_Duracion) || Peli_Duracion.Length < 5)
             {
                 return "La DURACION es obligatoria.";
             }

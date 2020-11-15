@@ -91,7 +91,7 @@ namespace Vistas.UserControl.Usuario
         }
         private bool validarCampos()
         {
-            if (txtApellidoNombre.Text == "" || txtNombreUsuario.Text == "" || txtPassword.Text == "")
+            if (txtApellidoNombre.Text == "" || txtApellidoNombre.Text.Length <5 || txtNombreUsuario.Text == "" || txtNombreUsuario.Text.Length < 5 || txtPassword.Text == "" || txtPassword.Text.Length < 5)
             {
                 return false;
             }
