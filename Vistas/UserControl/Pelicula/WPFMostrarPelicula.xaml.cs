@@ -86,11 +86,14 @@ namespace Vistas
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
+            // openFileDialog1.ShowDialog();
+
+            // openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
+
+            // openFileDialog1.DefaultExt = ".jpeg";
+
+            openFileDialog1.Filter = "Jpg Files |*.jpg; *.png;";
             openFileDialog1.ShowDialog();
-
-            openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
-
-            openFileDialog1.DefaultExt = ".jpeg";
 
             txtImagen.Text = openFileDialog1.FileName;
         }
@@ -100,11 +103,14 @@ namespace Vistas
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
+            //openFileDialog.ShowDialog();
+
+            // openFileDialog.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
+
+            // openFileDialog.DefaultExt = ".jpeg";
+
+            openFileDialog.Filter = "Mp4 Files|*.mp4";
             openFileDialog.ShowDialog();
-
-            openFileDialog.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
-
-            openFileDialog.DefaultExt = ".jpeg";
 
             txtVideo.Text = openFileDialog.FileName;
         }
