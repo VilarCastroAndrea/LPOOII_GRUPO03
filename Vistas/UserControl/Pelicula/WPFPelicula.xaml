@@ -26,7 +26,7 @@
 
         <!--Listar Peliculas-->
         <Grid HorizontalAlignment="Left" Height="405" Margin="238,55,0,0" VerticalAlignment="Top" Width="502" Background="Black" RenderTransformOrigin="0.528,0.906">
-            <ListView Name="listPeliculas" ItemsSource="{Binding Source={StaticResource listar_Peliculas}}" SelectionChanged="Peliculas_SelectionChanged" IsSynchronizedWithCurrentItem="True">
+            <ListView Name="listPeliculas" ItemsSource="{Binding Source={StaticResource listar_Peliculas}}" SelectionChanged="Peliculas_SelectionChanged" IsSynchronizedWithCurrentItem="True" Margin="0,-35,0,0">
                 <ListView.View>
                     <GridView>
                         <!--Enlace de Codigo, Titulo, Duracion, Genero y Clasificacion a las Columnas-->
@@ -49,7 +49,6 @@
         <Button Name="btnAltaPelicula" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaPelicula_Click" />
 
         <!--GroupBox de Buscar-->
-        <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="500" Foreground="White"/>
         <!--
         <Button Name="btnAltaPelicula" Content="Agregar" HorizontalAlignment="Left" Margin="28,353,0,0" VerticalAlignment="Top" Width="145" Foreground="White" Background="#FF040303" BorderBrush="#FF04191B" Click="BtnAltaPelicula_Click"/>
         -->
