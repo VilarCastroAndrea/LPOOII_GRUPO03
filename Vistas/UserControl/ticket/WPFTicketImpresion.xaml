@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas.UserControl.ticket"
         mc:Ignorable="d"
-        Title="Imprimir" Height="520.904" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Width="372.996">
+        Title="Imprimir" Height="520.904" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Width="372.996" Icon="/Vistas;component/Img/logo.png">
     <!--<FixedDocument>
         <PageContent>
             <FixedPage>-->
-    <StackPanel Background="Black" Margin="0,0,0,-4">
+    <StackPanel Background="#FF01102B" Margin="0,0,0,-4">
 
         <FlowDocumentReader  Canvas.Top="28" Margin="0,0,0,97" Height="435" Foreground="White">
             <FlowDocument Name="DocMain">
                 <BlockUIContainer>
-                    <Grid Background="Black" Height="380" Width="300">
+                    <Grid Background="#FF01102B" Height="380" Width="300">
 
                         <Label Content="TICKET" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Segoe UI"/>
                         <Label Content="Av. Exodo 346 - San Salvador de Jujuy" HorizontalAlignment="Left" Margin="25,61,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10" FontFamily="Segoe UI"/>
@@ -26,7 +26,7 @@
                         <Label Content="Apellido" HorizontalAlignment="Left" Margin="25,267,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
                         <Label Content="Nombre" HorizontalAlignment="Left" Margin="25,298,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
                         <Label Content="DNI" HorizontalAlignment="Left" Margin="25,329,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtnombrePelicula" HorizontalAlignment="Left" Margin="25,99,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="Black" Foreground="White" FontSize="36" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtnombrePelicula" HorizontalAlignment="Left" Margin="25,99,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Segoe UI"/>
                         <TextBlock x:Name="txtFecha" HorizontalAlignment="Left" Margin="83,147,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
                         <TextBlock x:Name="txtHora" HorizontalAlignment="Left" Margin="83,178,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
                         <TextBlock x:Name="txtButaca" HorizontalAlignment="Left" Margin="138,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>

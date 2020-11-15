@@ -6,7 +6,7 @@
        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="Inicio" Height="520" Width="828" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}">
+        Title="Inicio" Height="520" Width="828" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}" Icon="/Vistas;component/Img/logo.png">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="SnapsToDevicePixels" Value="True" />

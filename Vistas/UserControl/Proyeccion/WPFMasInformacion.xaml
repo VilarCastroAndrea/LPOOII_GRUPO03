@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vistas.UserControl.Proyeccion"
         mc:Ignorable="d"
-        Title="WPFMasInformacion" Height="461" Width="333" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="WPFMasInformacion" Height="461" Width="333" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Vistas;component/Img/logo.png">
     <Grid Background="#FF01102B" Margin="0,0,-6,-5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
