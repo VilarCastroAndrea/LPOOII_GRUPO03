@@ -331,9 +331,11 @@
     <Resource Include="Img\pro.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Img\fondoPrincipal.png" />
+    <Content Include="Img\noimage.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Img\fondoMain.png" />
+    <Resource Include="Img\cinePOP.png" />
     <Content Include="utils\Efectos\big_music_logo.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
