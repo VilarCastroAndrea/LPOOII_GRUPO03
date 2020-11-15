@@ -26,9 +26,9 @@
         </Grid>
 
         <Label Content="PRECIO" Foreground="White" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <TextBox Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="10,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="95"/>
+        <TextBox Style="{StaticResource TextBoxCustom}"  PreviewTextInput="TextBox_PreviewTextInput" Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="10,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
 
-        <TextBlock x:Name="lblTotal" Foreground="White" HorizontalAlignment="Left" Margin="16,352,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="lblTotal" Foreground="White" HorizontalAlignment="Left" Margin="16,352,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"/>
         <Label Content="TOTAL" Foreground="White" HorizontalAlignment="Left" Margin="16,311,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
 
 

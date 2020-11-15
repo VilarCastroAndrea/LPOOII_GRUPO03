@@ -248,6 +248,19 @@ namespace Vistas.UserControl.ticket
         }
         int cantButaca = 0;
 
+
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int result;
+
+            if (!(int.TryParse(e.Text, out result) || e.Text == ","))
+            {
+                e.Handled = true;
+            }
+        }
+
+
         /// <summary>
         /// al hacer click en algun boton que representa las butacas
         /// verifica si el mismo esta oocupado, disponible y seleccionado para
@@ -258,42 +271,50 @@ namespace Vistas.UserControl.ticket
         /// <param name="e"></param>
         private void Butaca_Click(object sender, RoutedEventArgs e)
         {
-            if (seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 2)
+            if (txtTotal.Text=="")
             {
-                MessageBox.Show("Asiento Ocupado");
-                MessageBoxResult resultado = MessageBox.Show("¿Desea liberar este aciento que ya fue vendido?", "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (resultado == MessageBoxResult.Yes)
-                {
-                    foreach (Ticket ticketVendido in listaDeTicketsVendidos)
-                    {
-                        Butaca butacaVendida = TrabajarButaca.buscarButaca(ticketVendido.But_Id);
-
-                        if (((Button)sender).Content.ToString().Contains(butacaVendida.But_Fila) && ((Button)sender).Content.ToString().Contains(butacaVendida.But_Nro.ToString()))
-                        {
-                            TrabajarTicket.bajaTicketFisica(ticketVendido.Tick_Nro);
-                        }
-                    }
-                    seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 0;
-                }
+                MessageBox.Show("DEBE COMPLETAR PRECIO", "Atención", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                if (seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 1)
+                if (seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 2)
                 {
-                    seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 0;
-                    cantButaca--;
+                    MessageBox.Show("Asiento Ocupado");
+                    MessageBoxResult resultado = MessageBox.Show("¿Desea liberar este aciento que ya fue vendido?", "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    if (resultado == MessageBoxResult.Yes)
+                    {
+                        foreach (Ticket ticketVendido in listaDeTicketsVendidos)
+                        {
+                            Butaca butacaVendida = TrabajarButaca.buscarButaca(ticketVendido.But_Id);
+
+                            if (((Button)sender).Content.ToString().Contains(butacaVendida.But_Fila) && ((Button)sender).Content.ToString().Contains(butacaVendida.But_Nro.ToString()))
+                            {
+                                TrabajarTicket.bajaTicketFisica(ticketVendido.Tick_Nro);
+                            }
+                        }
+                        seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 0;
+                    }
                 }
                 else
                 {
-                    cantButaca++;
-                    seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 1;
+                    if (seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] == 1)
+                    {
+                        seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 0;
+                        cantButaca--;
+                    }
+                    else
+                    {
+                        cantButaca++;
+                        seleccionAsientos[obtenerFilaBoton(((Button)sender).Content.ToString()), obtenerColumnaBoton(((Button)sender).Content.ToString())] = 1;
 
-                    
+
+                    }
+                    lblTotal.Text = (double.Parse(txtTotal.Text) * cantButaca).ToString();
                 }
-                lblTotal.Text = (double.Parse(txtTotal.Text) * cantButaca).ToString();
-            }
                 validarAsientos();
+            }
         }
+            
 
 
 

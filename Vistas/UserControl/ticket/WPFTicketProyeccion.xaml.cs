@@ -35,7 +35,6 @@ namespace Vistas.UserControl.ticket
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            BitmapImage b = new BitmapImage();
             DataRowView item = (DataRowView)listaProyeccion.SelectedItem;
             ticketPadre.cargarProyeccion(Convert.ToInt32(item["Codigo"]));
             txtNombrePelicula.Text = Convert.ToString(item["Titulo de la Pelicula"]);
@@ -45,18 +44,26 @@ namespace Vistas.UserControl.ticket
             proyeccion = TrabajarProyeccion.buscarProyeccion(Convert.ToInt32(item["Codigo"]));
             pelicula = TrabajarPelicula.buscarPelicula(proyeccion.Peli_Codigo.ToString());
 
-            b.BeginInit();
-            if (pelicula.Peli_Imagen == null)
+            try
             {
-                b.UriSource = new Uri("/../../../Img/logo.png", UriKind.Relative);
-            }
-            else
-            {
+                BitmapImage b = new BitmapImage();
+                b.BeginInit();
                 b.UriSource = new Uri(pelicula.Peli_Imagen);
+                b.EndInit();
+                imgPelicula.Stretch = Stretch.Fill;
+                imgPelicula.Source = b;
             }
-            b.EndInit();
-            imgPelicula.Stretch = Stretch.Fill;
-            imgPelicula.Source = b;
+            catch
+            {
+                BitmapImage b = new BitmapImage();
+                b.BeginInit();
+                b.UriSource = new Uri("/../../../Img/logo.png", UriKind.Relative); 
+                b.EndInit();
+                imgPelicula.Stretch = Stretch.Fill;
+                imgPelicula.Source = b;
+            }
+
+
         }
 
         private void BtnMasInfo_Click(object sender, RoutedEventArgs e)
