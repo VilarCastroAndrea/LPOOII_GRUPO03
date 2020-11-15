@@ -20,7 +20,7 @@
     <Grid Background="#FF011C4B">
         <!--Listar Proyecciones-->
         <Grid Name="dgvListaDeProyecciones" HorizontalAlignment="Left" Height="290" Margin="260,70,0,0" VerticalAlignment="Top" Width="440" Background="Black" >
-            <ListView Name="listaProyeccion" ItemsSource="{Binding Source={StaticResource LIST_PROYECCION},UpdateSourceTrigger=Explicit}" SelectionChanged="ListView_SelectionChanged" Margin="0,0,0,-35">
+            <ListView Name="listaProyeccion" ItemsSource="{Binding Source={StaticResource LIST_PROYECCION},UpdateSourceTrigger=Explicit}" SelectionChanged="ListView_SelectionChanged" Margin="0,-45,0,-35">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Codigo}" Header="Codigo"></GridViewColumn>
@@ -33,12 +33,6 @@
                 </ListView.View>
             </ListView>
         </Grid>
-
-        <GroupBox Header="Filtrar" HorizontalAlignment="Left" Height="45" Margin="260,10,0,0" VerticalAlignment="Top" Width="440" Foreground="White">
-            <Grid>
-                <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" Margin="19,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="399" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
-            </Grid>
-        </GroupBox>
         <TextBlock x:Name="txtNombrePelicula"  HorizontalAlignment="Left" Margin="50,185,0,0" TextWrapping="Wrap" Text="Pelicula" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
         <TextBlock x:Name="txtHora" HorizontalAlignment="Left" Margin="116,300,0,0" TextWrapping="Wrap" Text="Horario" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Label Content="Horario" HorizontalAlignment="Left" Margin="50,298,0,0" VerticalAlignment="Top" Foreground="White"/>
