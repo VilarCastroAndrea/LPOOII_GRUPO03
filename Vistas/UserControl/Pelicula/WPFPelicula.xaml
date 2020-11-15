@@ -35,8 +35,32 @@
                         <GridViewColumn Width="50" Header="Duracion" DisplayMemberBinding="{Binding Path=Duracion}"/>
                         <GridViewColumn Width="80" Header="Genero" DisplayMemberBinding="{Binding Path=Genero}"/>
                         <GridViewColumn Width="70" Header="Clasificacion" DisplayMemberBinding="{Binding Path=Clasificacion}"/>
-                        <GridViewColumn Width="80" Header="Imagen" DisplayMemberBinding="{Binding Path=Imagen}"/>
-                        <GridViewColumn Width="80" Header="Video" DisplayMemberBinding="{Binding Path=Video}"/>
+                        <GridViewColumn Width="100" Header="Imagen" DisplayMemberBinding="{Binding Path=Imagen}"/>
+                        <GridViewColumn Width="100" Header="Video" DisplayMemberBinding="{Binding Path=Video}"/>
+                        <GridViewColumn Width="100" Header="Disponible">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Label>
+                                            <Label.Style>
+                                                <Style TargetType="Label">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Path=Disponible}" Value="True">
+                                                            <Setter Property="Content" Value="SI"/>
+                                                            <Setter Property="Foreground" Value="Green"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding Path=Disponible}" Value="False">
+                                                            <Setter Property="Content" Value="NO"/>
+                                                            <Setter Property="Foreground" Value="Red"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Label.Style>
+                                        </Label>
+                                    </Grid>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

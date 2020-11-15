@@ -61,8 +61,17 @@ namespace Vistas.UserControl.Proyeccion
         /// <param name="e"></param>
         private void BtnModificarCliente_Click(object sender, RoutedEventArgs e)
         {
-            panelProyeccion.Children.Clear();
-            panelProyeccion.Children.Add(new WPFMostrarProyeccion(new Proyeccion(), this));
+            try
+            {
+                DTOProyeccion dto = (DTOProyeccion)dgvListaDeProyecciones.SelectedItem;
+                Proyeccion p = GenerarProyeccion(dto);
+                panelProyeccion.Children.Clear();
+                panelProyeccion.Children.Add(new WPFMostrarProyeccion(p, this));
+            }
+            catch
+            {
+                MessageBoxResult resultado = MessageBox.Show("Debe seleccionar una PROYECCION para modificar.", "Atención");
+            }
         }
 
         /// <summary>
@@ -86,14 +95,7 @@ namespace Vistas.UserControl.Proyeccion
             try
             {
                 DTOProyeccion dto = (DTOProyeccion)dgvListaDeProyecciones.SelectedItem;
-                Proyeccion p = new Proyeccion();
-                p.Proy_Codigo = dto.Proy_Codigo;
-                p.Proy_Fecha = dto.Proy_Fecha;
-                p.Proy_Hora = dto.Proy_Hora;
-                p.Proy_Disponible = dto.Proy_Disponible;
-                p.Peli_Codigo = dto.Peli_Codigo;
-                p.Sla_NroSala = dto.Sla_NroSala;
-
+                Proyeccion p = GenerarProyeccion(dto);
                 panelProyeccion.Children.Clear();
                 panelProyeccion.Children.Add(new WPFMostrarProyeccion(p, this));
             }

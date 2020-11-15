@@ -25,7 +25,7 @@ namespace Vistas
         {
             InitializeComponent();
             cliente = new Cliente();
-
+            oPadre = padre;
 
         }
 
@@ -38,8 +38,8 @@ namespace Vistas
             {
                 cliente = verCliente;
                 CargarFormularioModificarCliente();
-                oPadre = padre;
             }
+            oPadre = padre;
         }
 
         /// <summary>

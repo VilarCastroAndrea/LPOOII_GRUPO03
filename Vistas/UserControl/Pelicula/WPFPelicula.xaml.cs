@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClasesBase;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -89,7 +90,28 @@ namespace Vistas
 
         private void Peliculas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            try
+            {
+                panelPelicula.Children.Clear();
 
+                DataRowView item = (DataRowView)listPeliculas.SelectedItem;
+
+                Pelicula pelicula = new Pelicula();
+                pelicula.Peli_Codigo = Convert.ToInt32(item["Codigo"]);
+                pelicula.Peli_Titulo = Convert.ToString(item["Titulo"]);
+                pelicula.Peli_Imagen = Convert.ToString(item["Imagen"]);
+                pelicula.Peli_Genero = Convert.ToString(item["Genero"]);
+                pelicula.Peli_Duracion = Convert.ToString(item["Duracion"]);
+                pelicula.Peli_Clasificacion = Convert.ToString(item["Clasificacion"]);
+                pelicula.Peli_Avance = Convert.ToString(item["Video"]);
+
+                panelPelicula.Children.Add(new WPFMostrarPelicula(pelicula, this));
+
+            }
+            catch
+            {
+                MessageBoxResult resultado = MessageBox.Show("Debe seleccionar una PELICULA para modificarla", "Atención");
+            }
         }
     }
 }

@@ -42,6 +42,7 @@
                   Foreground="Black" 
                   IsReadOnly="True"  
                   SelectionChanged="DgvListaDeProyecciones_SelectionChanged"
+                  IsSynchronizedWithCurrentItem="True"
                   ItemsSource="{Binding Source={StaticResource VISTA_PROY}}"
                   >
             <DataGrid.Columns>
@@ -52,8 +53,32 @@
                 <DataGridTextColumn Binding="{Binding Peli_Titulo}" Header="Película" Width="80"/>
                 <DataGridTextColumn Binding="{Binding Peli_Duracion}" Header="Duración" Width="60"/>
                 <DataGridTextColumn Binding="{Binding Peli_Clasificacion}" Header="Clasificación" Width="80"/>
-                <DataGridTextColumn Binding="{Binding Peli_Genero}" Header="Género" Width="70"/>
-
+                <DataGridTextColumn Binding="{Binding Peli_Genero}" Header="Género" Width="80"/>
+                <DataGridTemplateColumn Header="Disponible">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!--<CheckBox IsChecked="{Binding Proy_Disponible}" IsEnabled="False"/>-->
+                            <Grid>
+                                <Label>
+                                    <Label.Style>
+                                        <Style TargetType="Label">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=Proy_Disponible}" Value="True">
+                                                    <Setter Property="Content" Value="SI"/>
+                                                    <Setter Property="Foreground" Value="Green"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Path=Proy_Disponible}" Value="False">
+                                                    <Setter Property="Content" Value="NO"/>
+                                                    <Setter Property="Foreground" Value="Red"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Label.Style>
+                                </Label>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 

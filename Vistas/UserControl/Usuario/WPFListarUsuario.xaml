@@ -39,7 +39,30 @@
                             <GridViewColumn Header="Usuario" Width="80" DisplayMemberBinding="{Binding Usu_NombreUsuario}"/>
                             <GridViewColumn Header="Apellido y Nombre" Width="120" DisplayMemberBinding="{Binding Usu_ApellidoNombre}"/>
                             <GridViewColumn Header="Password" Width="100" DisplayMemberBinding="{Binding Usu_Password}"/>
-                            <GridViewColumn Header="Disponible" Width="70" DisplayMemberBinding="{Binding Usu_Disponible}"/>
+                            <GridViewColumn Header="Disponible" Width="70">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Label>
+                                                <Label.Style>
+                                                    <Style TargetType="Label">
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Path=Usu_Disponible}" Value="True">
+                                                                <Setter Property="Content" Value="SI"/>
+                                                                <Setter Property="Foreground" Value="Green"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger Binding="{Binding Path=Usu_Disponible}" Value="False">
+                                                                <Setter Property="Content" Value="NO"/>
+                                                                <Setter Property="Foreground" Value="Red"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Label.Style>
+                                            </Label>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
