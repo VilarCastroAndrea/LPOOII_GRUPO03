@@ -44,24 +44,19 @@ namespace Vistas.UserControl.ticket
             txtSala.Text = Convert.ToString(item["Descripcion de Sala"]);
             proyeccion = TrabajarProyeccion.buscarProyeccion(Convert.ToInt32(item["Codigo"]));
             pelicula = TrabajarPelicula.buscarPelicula(proyeccion.Peli_Codigo.ToString());
-            
-            
+
+            b.BeginInit();
             if (pelicula.Peli_Imagen == null)
             {
-                //Uri uri = new Uri("img/noimage.jpg", UriKind.Relative);
-                b.UriSource = new Uri("../../Img/noimage.jpg", UriKind.Relative);
+                b.UriSource = new Uri("/../../../Img/logo.png", UriKind.Relative);
             }
             else
             {
-                //b.BeginInit();
-                //b.UriSource = new Uri(pelicula.Peli_Imagen);
-                //b.EndInit();
-                //imgPelicula.Stretch = Stretch.Fill;
-                //imgPelicula.Source = b;
-
-                b.UriSource = new Uri("../../Img/noimage.jpg", UriKind.Relative);
-            }            
-            
+                b.UriSource = new Uri(pelicula.Peli_Imagen);
+            }
+            b.EndInit();
+            imgPelicula.Stretch = Stretch.Fill;
+            imgPelicula.Source = b;
         }
 
         private void BtnMasInfo_Click(object sender, RoutedEventArgs e)

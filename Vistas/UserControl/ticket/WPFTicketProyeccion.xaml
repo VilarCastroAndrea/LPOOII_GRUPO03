@@ -47,7 +47,7 @@
         <TextBlock x:Name="txtFecha" HorizontalAlignment="Left" Margin="116,264,0,0" TextWrapping="Wrap" Text="Horario" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Label Content="Fecha" HorizontalAlignment="Left" Margin="50,264,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button x:Name="btnMasInfo" Content="Mas Informacion" Style="{StaticResource BotonCustom}" Margin="25,370,0,0"  BorderBrush="Black" Width="205" Click="BtnMasInfo_Click"   />
-        <Image x:Name="imgPelicula" HorizontalAlignment="Left" Height="157" Margin="50,23,0,0" VerticalAlignment="Top" Width="143" Source="../../Img/noimage.jpg"/>
+        <Image x:Name="imgPelicula" HorizontalAlignment="Left" Height="157" Margin="50,23,0,0" VerticalAlignment="Top" Width="143"/>
 
     </Grid>
 </UserControl>
