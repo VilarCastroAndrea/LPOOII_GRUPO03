@@ -39,8 +39,10 @@ namespace Vistas.UserControl.Usuario
 
         private void BtnModificar_Click(object sender, RoutedEventArgs e)
         {
-            ClasesBase.Usuario usuario = new ClasesBase.Usuario();
-            int id = Convert.ToInt32(txtId.Text);
+            if(validarCampos() == true)
+            {
+                ClasesBase.Usuario usuario = new ClasesBase.Usuario();
+                int id = Convert.ToInt32(txtId.Text);
 
             usuario.Usu_Id = id;
             usuario.Usu_ApellidoNombre = txtApellidoNombre.Text;
@@ -49,30 +51,37 @@ namespace Vistas.UserControl.Usuario
             usuario.Usu_Disponible = true;
             usuario.Rol_Codigo = (int)cmbRol.SelectedValue;
 
-            TrabajarUsuario.modificarUsuario(usuario);
-            MessageBox.Show("Usuario se modifico correctamente");
+                TrabajarUsuario.modificarUsuario(usuario);
+                MessageBox.Show("Usuario se modifico correctamente");
 
-            for (int i = 0; i < listaUsuario.Count; i++)
-            {
+                for (int i = 0; i < listaUsuario.Count; i++)
+                {
 
-                if (listaUsuario[i].Usu_Disponible == false)
-                {
-                    //elimina el elemento
-                    listaUsuario.RemoveAt(i);
-                }
-                else
-                {
-                    if (listaUsuario[i].Usu_Id == id)
+                    if (listaUsuario[i].Usu_Disponible == false)
                     {
-                        //reemplaza los valores en la lista
-                        listaUsuario[i].Usu_ApellidoNombre = usuario.Usu_ApellidoNombre;
-                        listaUsuario[i].Usu_Password = usuario.Usu_Password;
-                        listaUsuario[i].Usu_NombreUsuario = usuario.Usu_NombreUsuario;
-                        listaUsuario[i].Rol_Codigo = usuario.Rol_Codigo;
+                        //elimina el elemento
+                        listaUsuario.RemoveAt(i);
                     }
+                    else
+                    {
+                        if (listaUsuario[i].Usu_Id == id)
+                        {
+                            //reemplaza los valores en la lista
+                            listaUsuario[i].Usu_ApellidoNombre = usuario.Usu_ApellidoNombre;
+                            listaUsuario[i].Usu_Password = usuario.Usu_Password;
+                            listaUsuario[i].Usu_NombreUsuario = usuario.Usu_NombreUsuario;
+                            listaUsuario[i].Rol_Codigo = usuario.Rol_Codigo;
+                        }
+                    }
+
                 }
 
             }
+            else
+            {
+                MessageBoxResult resultado = MessageBox.Show("Formulario incompleto ", "Atención");
+            }
+           
         }
 
         private void cargarComboRol()
@@ -142,5 +151,19 @@ namespace Vistas.UserControl.Usuario
         {
 
         }
+
+        private bool validarCampos()
+        {
+            if (txtApellidoNombre.Text == "" || txtApellidoNombre.Text.Length < 5 || txtNombreUsuario.Text == "" || txtNombreUsuario.Text.Length < 5 || txtPassword.Text == "" || txtPassword.Text.Length < 5)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
     }
 }

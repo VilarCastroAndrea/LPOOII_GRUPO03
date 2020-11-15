@@ -78,16 +78,31 @@
         </TextBox>
 
         <!-- Email -->
-        <Label Content="Email" Margin="5,244,0,0" Style="{StaticResource LabelCustom}" Grid.Column="1" Height="26" Width="38"/>
-        <TextBox x:Name="txtEmail" Margin="0,270,0,0" Style="{StaticResource TextBoxCustom}" Width="132" Grid.Column="1">
+        <Label Content="Email" Margin="35,244,0,0" RenderTransformOrigin="0.873,0.5"
+               Style="{StaticResource LabelCustom}" />
+
+        <TextBox x:Name="txtEmail" Margin="30,270,0,0" 
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_CLIENT}">
             <TextBox.Text>
-                <!--Enlace con Cli_Email-->
+                <!--Enlace con Email-->
+                <Binding Path="Cli_Email" 
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnDataErrors="True" 
+                         ValidatesOnExceptions="True"/>
+            </TextBox.Text>
+        </TextBox>
+        <!-- Email --><!--
+        <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
+        <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}">
+            <TextBox.Text>
+                --><!--Enlace con Cli_Email--><!--
                 <Binding Source="{StaticResource DATA_CLIENT_MOD}"
                          Path="Cli_Email"
                          />
             </TextBox.Text>
-        </TextBox>
-
+        </TextBox>-->
+        
         <!-- Botones Modificar/Borrar -->
         <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="0,320,0,0" Click="BtnModificar_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Button x:Name="btnBaja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="0,360,0,0" Click="BtnBaja_Click" Grid.Column="1" Grid.ColumnSpan="2"/>

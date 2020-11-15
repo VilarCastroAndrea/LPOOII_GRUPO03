@@ -82,12 +82,27 @@
                          ValidatesOnExceptions="True"/>
             </TextBox.Text>
         </TextBox>
-
         <!-- Email -->
-        <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}" Height="26" Width="38"/>
+        <Label Content="Email" Margin="35,244,0,0" RenderTransformOrigin="0.873,0.5"
+               Style="{StaticResource LabelCustom}" />
 
+        <TextBox x:Name="txtEmail" Margin="30,270,0,0" PreviewTextInput="PreviewTextInputOnlyLetters" 
+                 Style="{StaticResource TextBoxCustom}"
+                 DataContext="{StaticResource DATA_CLIENT}">
+            <TextBox.Text>
+                <!--Enlace con Email-->
+                <Binding Path="Cli_Email" 
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnDataErrors="True" 
+                         ValidatesOnExceptions="True"/>
+            </TextBox.Text>
+        </TextBox>
+
+        <!-- Email --><!--
+        <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
+        
         <TextBox x:Name="txtEmail" Margin="30,270,0,0" 
-                 Style="{StaticResource TextBoxCustom}"/>
+                 Style="{StaticResource TextBoxCustom}"/>-->
 
         <!-- Boton Agregar -->
         <Button x:Name="btnAlta" Content="Agregar" Margin="30,320,0,0"

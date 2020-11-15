@@ -62,7 +62,7 @@ namespace Vistas.UserControl.Usuario
                     padre.altaUsuario(new ClasesBase.Usuario(txtNombreUsuario.Text, passwordEncript, txtApellidoNombre.Text, int.Parse(cmbRol.SelectedValue.ToString()),true));
 
                     MessageBoxResult resultado = MessageBox.Show("Se agrego usuario con exito", "Atención");
-                    //limpiarCampos();
+                    limpiarCampos();
                 }
                 catch (Exception error)
                 {
@@ -86,13 +86,13 @@ namespace Vistas.UserControl.Usuario
 
         private void limpiarCampos()
         {
-            txtApellidoNombre.Text = "";
-            txtNombreUsuario.Text = "";
-            txtPassword.Text = "";
+            txtApellidoNombre.Text = null;
+            txtNombreUsuario.Text = null;
+            txtPassword.Text = null;
         }
         private bool validarCampos()
         {
-            if (txtApellidoNombre.Text == "" || txtNombreUsuario.Text == "" || txtPassword.Text == "")
+            if (txtApellidoNombre.Text == "" || txtApellidoNombre.Text.Length <5 || txtNombreUsuario.Text == "" || txtNombreUsuario.Text.Length < 5 || txtPassword.Text == "" || txtPassword.Text.Length < 5 || cmbRol.Text =="")
             {
                 return false;
             }

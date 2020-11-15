@@ -84,7 +84,7 @@ namespace Vistas
         /// 
         private bool validarCampos()
         {
-            if (txtDni.Text == "" || txtNombre.Text == "" || txtApellido.Text == "" || txtTelefono.Text == "" || txtEmail.Text == "")
+            if (txtDni.Text == "" || int.Parse(txtDni.Text) < 10000000 || int.Parse(txtDni.Text) > 99999999 || txtNombre.Text == "" || txtNombre.Text.Length <5 || txtApellido.Text == "" || txtApellido.Text.Length < 5 || txtTelefono.Text == "" || txtTelefono.Text.Length < 5 || txtEmail.Text == "" || txtEmail.Text.Length < 5)
             {
                 return false;
             }

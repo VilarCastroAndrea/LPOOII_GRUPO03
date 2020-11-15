@@ -65,7 +65,7 @@ namespace ClasesBase
         public bool Cli_Disponible { get => cli_Disponible; set => cli_Disponible = value; }
 
         //Implementacion
-       // public string Error => throw new System.NotImplementedException();
+        // public string Error => throw new System.NotImplementedException();
 
         public string Error
         {
@@ -92,34 +92,38 @@ namespace ClasesBase
                     case "Cli_Telefono":
                         msg_error = validar_Telefono();
                         break;
+                    case "Cli_Email":
+                        msg_error = validar_Email();
+                        break;
                 }
                 return msg_error;
             }
         }
 
+
         private string validar_Telefono()
         {
-            if (String.IsNullOrEmpty(Cli_Telefono))
+            if (String.IsNullOrEmpty(Cli_Telefono) || Cli_Telefono.Length < 5)
             {
-                return "El valor del campo es obligatorio";
+                return "Ingresar un numero de telefono valido";
             }
             return null;
         }
 
         private string validar_Nombre()
         {
-            if (String.IsNullOrEmpty(Cli_Nombre))
+            if (String.IsNullOrEmpty(Cli_Nombre) || Cli_Nombre.Length < 5)
             {
-                return "El valor del campo es obligatorio";
+                return "Ingresar un Nombre valido";
             }
             return null;
         }
 
         private string validar_Apellido()
         {
-            if (String.IsNullOrEmpty(Cli_Apellido))
+            if (String.IsNullOrEmpty(Cli_Apellido) || Cli_Apellido.Length < 5)
             {
-                return "El valor del campo es obligatorio";
+                return "Ingresar un Apellido valido";
             }
             return null;
         }
@@ -130,15 +134,26 @@ namespace ClasesBase
             {
                 return "El valor del campo es obligatorio";
             }
-            else if(Cli_DNI < 10000000)
+            else if (Cli_DNI < 10000000)
             {
                 return "El DNI debe ser de 8 digitos";
             }
-            else if(Cli_DNI > 99999999)
+            else if (Cli_DNI > 99999999)
             {
                 return "El DNI no debe superar los 8 digitos";
             }
             return null;
         }
+
+        private string validar_Email()
+        {
+            if (String.IsNullOrEmpty(Cli_Email) || Cli_Email.Length < 5)
+            {
+                return "Ingresar un email valido";
+            }
+            return null;
+        }
+
     }
 }
+

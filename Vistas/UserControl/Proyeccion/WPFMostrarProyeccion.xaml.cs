@@ -9,6 +9,8 @@ namespace Vistas.UserControl.Proyeccion
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Windows.Controls;
+    using System.Windows;
+    using System;
 
     /// <summary>
     /// Lógica de interacción para WPFAltaProyeccion.xaml
@@ -94,25 +96,55 @@ namespace Vistas.UserControl.Proyeccion
         /// <param name="e"></param>
         private void BtnModificar_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea Modificar esta proyeccion?" + txtFecha.Text + ", " + txtHora.Text + ", " +
-            cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (resultado == MessageBoxResult.Yes)
+            if (validarCamposVacios() != true)
             {
-                Proyeccion nuevaProyeccion = new Proyeccion();
-                nuevaProyeccion.Proy_Codigo = proyeccionMostrar.Proy_Codigo;
-                nuevaProyeccion.Peli_Codigo = ((Pelicula)cmbTitulo.SelectedItem).Peli_Codigo;
-                nuevaProyeccion.Proy_Disponible = proyeccionMostrar.Proy_Disponible;
-                nuevaProyeccion.Proy_Fecha = txtFecha.Text;
-                nuevaProyeccion.Proy_Hora = txtHora.Text;
-                nuevaProyeccion.Sla_NroSala = ((Sala)cmbSala.SelectedItem).Sla_NroSala;
+                MessageBoxResult resultado = MessageBox.Show("¿Esta seguro que desea Modificar esta proyeccion?" + txtFecha.Text + ", " + txtHora.Text + ", " +
+            cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    DateTime date = ConvertToDateTime(txtFecha.Text);
+                    if (date.CompareTo(DateTime.Today) >= 0)
+                    {
+                        Proyeccion nuevaProyeccion = new Proyeccion();
+                        nuevaProyeccion.Proy_Codigo = proyeccionMostrar.Proy_Codigo;
+                        nuevaProyeccion.Peli_Codigo = ((Pelicula)cmbTitulo.SelectedItem).Peli_Codigo;
+                        nuevaProyeccion.Proy_Disponible = proyeccionMostrar.Proy_Disponible;
+                        nuevaProyeccion.Proy_Fecha = txtFecha.Text;
+                        nuevaProyeccion.Proy_Hora = txtHora.Text;
+                        nuevaProyeccion.Sla_NroSala = ((Sala)cmbSala.SelectedItem).Sla_NroSala;
 
-                TrabajarProyeccion.modificarProyeccion(nuevaProyeccion);
-                
-                proyeccionPadre.refrescarDataGrid();
-                //proyeccionPadre.modificarProyeccion(nuevaProyeccion);
-                LimpiarFormulario();
-                MessageBox.Show("Proyeccion Modificada con exito");
+                        TrabajarProyeccion.modificarProyeccion(nuevaProyeccion);
+
+                        proyeccionPadre.refrescarDataGrid();
+                        //proyeccionPadre.modificarProyeccion(nuevaProyeccion);
+                        LimpiarFormulario();
+                        MessageBox.Show("Proyeccion Modificada con exito");
+                    }
+                    else
+                    {
+                        MessageBox.Show("La fecha no debe ser menor al dia de hoy");
+                    }
+                }
             }
+            else
+            {
+                MessageBox.Show("Formulario Incompleto");
+            }
+        }
+
+        //Convierte Fecha String a DateTime
+        private DateTime ConvertToDateTime(string value)
+        {
+            DateTime convertedDate = new DateTime();
+            try
+            {
+                convertedDate = Convert.ToDateTime(value);
+            }
+            catch
+            {
+                MessageBox.Show("Fecha Invalida");
+            }
+            return convertedDate;
         }
 
         /// <summary>
@@ -154,6 +186,15 @@ namespace Vistas.UserControl.Proyeccion
         {
             WPFMasInformacion masInfo = new WPFMasInformacion(proyeccionMostrar);
             masInfo.Show();
+        }
+
+        private bool validarCamposVacios()
+        {
+            if (txtFecha.Text == "" || txtHora.Text == "" || cmbSala.Text == "" || cmbTitulo.Text == "")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
