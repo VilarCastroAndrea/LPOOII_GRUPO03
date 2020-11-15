@@ -189,20 +189,26 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@proy_Codigo", proyCodigo);
 
             SqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                ticket = new Ticket();
-                ticket.Tick_Estado = (bool)reader["Estado"];
-                ticket.Tick_FechaVenta = (DateTime)reader["Fecha de Venta"];
-                ticket.Tick_Nro = (int)reader["Numero"];
-                ticket.Usu_Id = (int)reader["ID Vendedor"];
-                ticket.Proy_Codigo = (int)reader["Codigo"];
-                ticket.Cli_DNI = (int)reader["DNI Cliente"];
-                ticket.But_Id = (int)reader["ID de Butaca"];
-                ticket.Tick_Precio = (double)reader["Precio"];
+                while (reader.Read())
+                {
+                    ticket = new Ticket();
+                    ticket.Tick_Estado = (bool)reader["Estado"];
+                    ticket.Tick_FechaVenta = (DateTime)reader["Fecha de Venta"];
+                    ticket.Tick_Nro = (int)reader["Numero"];
+                    ticket.Usu_Id = (int)reader["ID Vendedor"];
+                    ticket.Proy_Codigo = (int)reader["Codigo"];
+                    ticket.Cli_DNI = (int)reader["DNI Cliente"];
+                    ticket.But_Id = (int)reader["ID de Butaca"];
+                    ticket.Tick_Precio = (double)reader["Precio"];
 
-                listaDeTickets.Add(ticket);
+                    listaDeTickets.Add(ticket);
+                }
+            }
+            catch
+            {
+                listaDeTickets = new List<Ticket>();
             }
             conn.Close();
             return listaDeTickets;

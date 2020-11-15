@@ -25,7 +25,6 @@
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Codigo}" Header="Codigo"></GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path='Titulo de la Pelicula'}" Header="Pelicula"></GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=Disponible}" Header="Disponible"></GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Fecha}" Header="Fecha"></GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Hora}" Header="Hora"></GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path='Descripcion de Sala'}" Header="Sala"></GridViewColumn>
