@@ -10,6 +10,8 @@ namespace Vistas
     public partial class WPFMostrarPelicula
     {
         ClasesBase.Pelicula peliculaSeleccionada;
+        ClasesBase.Pelicula peliculaTemp = new ClasesBase.Pelicula();
+
         WPFPelicula proyeccionPadre;
         public WPFMostrarPelicula(ClasesBase.Pelicula selectedItem,WPFPelicula padre)
         {
@@ -21,7 +23,8 @@ namespace Vistas
             peliculaSeleccionada = selectedItem;
             txtImagen.Text = selectedItem.Peli_Imagen;
             txtVideo.Text = selectedItem.Peli_Avance;
-                  
+             
+ 
             proyeccionPadre = padre;
         }
 
@@ -29,7 +32,7 @@ namespace Vistas
         {
             if (validarCampos() == true)
             {
-
+               
                 ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
 
                 pelicula.Peli_Codigo = peliculaSeleccionada.Peli_Codigo; 
@@ -41,15 +44,26 @@ namespace Vistas
                 pelicula.Peli_Avance = txtVideo.Text;
                 pelicula.Peli_Disponible = true;
 
-                proyeccionPadre.modificarPelicula(pelicula);
-                    MessageBoxResult resultado = MessageBox.Show("Se modifico la pelicula con exito", "Atención");
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Estas seguro de modificar la Pelicula?", "Confirmar Modificacion", System.Windows.MessageBoxButton.YesNo);
+
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    proyeccionPadre.modificarPelicula(pelicula);
                     limpiarCampos();
+                    MessageBox.Show("Se ha Modificado la Pelicula");
+                }
+                else {
+                    MessageBox.Show("Modificacion Cancelada");
+                    limpiarCampos(); 
+                }                   
             }
             else
             {
                 MessageBoxResult resultado = MessageBox.Show("Formulario incompleto ", "Atención");
             }
         }
+
+       
 
         private bool validarCampos()
         {
@@ -67,6 +81,8 @@ namespace Vistas
         {
             txtTitulo.Text = "";
             txtDuracion.Text = "";
+            cmbClasificacion.SelectedIndex = 0;
+            cmbGenero.SelectedIndex = 0;
         }
 
         private void BtnBajaPelicula_Click(object sender, RoutedEventArgs e)
