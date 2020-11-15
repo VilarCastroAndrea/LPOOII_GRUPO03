@@ -10,7 +10,7 @@
 
 
         <!--Fondo de la ventana-->
-        <Button Content="Confirmar" Name="btnConfirmar" HorizontalAlignment="Left" Margin="605,365,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource BotonCustom}" Click="BtnConfirmar_Click" Background="Black" BorderBrush="#FF04090A" />
+        <Button Content="Confirmar" Name="btnConfirmar" HorizontalAlignment="Left" Margin="605,365,0,0" VerticalAlignment="Top" Width="75" Style="{StaticResource BotonCustom}" Click="BtnConfirmar_Click" Background="#FF045472" BorderBrush="#FF045472" />
         <!--Marca de la posicion de las butacas-->
         <Image HorizontalAlignment="Left" Height="357" Margin="125,10,0,0" VerticalAlignment="Top" Width="506" Source="../../img/pro.png"/>
 
@@ -24,6 +24,12 @@
         <Grid Name="grdButacas" HorizontalAlignment="Left" Height="224" Margin="125,129,0,0" VerticalAlignment="Top" Width="506">
 
         </Grid>
+
+        <Label Content="PRECIO" Foreground="White" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <TextBox Name="txtTotal" HorizontalAlignment="Left" Height="23" Margin="10,169,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="95"/>
+
+        <TextBlock x:Name="lblTotal" Foreground="White" HorizontalAlignment="Left" Margin="16,352,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Label Content="TOTAL" Foreground="White" HorizontalAlignment="Left" Margin="16,311,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
 
 
     </Grid>
