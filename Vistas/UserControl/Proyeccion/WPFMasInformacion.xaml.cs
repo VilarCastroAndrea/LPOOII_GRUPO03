@@ -34,7 +34,6 @@ namespace Vistas.UserControl.Proyeccion
 
         public void cargarInformacion()
         {
-            BitmapImage b = new BitmapImage();
             txtPelicula.Text = pelicula.Peli_Titulo;
             txtGenero.Text = pelicula.Peli_Genero;
             txtClasificacion.Text = pelicula.Peli_Clasificacion;
@@ -42,20 +41,40 @@ namespace Vistas.UserControl.Proyeccion
             txtHora.Text = pro.Proy_Hora;
             txtDuracion.Text = pelicula.Peli_Duracion;
             txtSala.Text = sala.Sla_Descripcion;
-            b.BeginInit();
-            b.UriSource = new Uri(pelicula.Peli_Imagen);
-            //b.UriSource = new Uri("C:/Users/andii/Downloads/peliculaRiver.png");
-            //b.UriSource = new Uri(img);
-            b.EndInit();
-            imgPelicula.Stretch = Stretch.Fill;
-            imgPelicula.Source = b;
-            TransformGroup tg = new TransformGroup();            
-            videoPelicula.RenderTransform = tg;
-            videoPelicula.Source = new Uri(pelicula.Peli_Avance);
-            //videoPelicula.Source = new Uri("C:/Users/andii/Downloads/avanceRiver.mp4");
-            //videoPelicula.Source = new Uri(video);
-            
-            //videoPelicula.Play();
+
+            try
+            {
+                BitmapImage b = new BitmapImage();
+                b.BeginInit();
+                b.UriSource = new Uri(pelicula.Peli_Imagen);
+                b.EndInit();
+                imgPelicula.Stretch = Stretch.Fill;
+                imgPelicula.Source = b;
+            }
+            catch
+            {
+                BitmapImage b = new BitmapImage();
+                b.BeginInit();
+                b.UriSource = new Uri("/../../../Img/logo.png", UriKind.Relative);
+                b.EndInit();
+                imgPelicula.Stretch = Stretch.Fill;
+                imgPelicula.Source = b;
+            }
+
+
+            try
+            {
+                TransformGroup tg = new TransformGroup();
+                videoPelicula.RenderTransform = tg;
+                videoPelicula.Source = new Uri(pelicula.Peli_Avance);
+            }
+            catch
+            {
+                TransformGroup tg = new TransformGroup();
+                videoPelicula.RenderTransform = tg;
+                videoPelicula.Source = new Uri("/../../../Videos/noVideo.mp4", UriKind.Relative);
+            }
+  
         }
     }
 }
