@@ -81,13 +81,6 @@ namespace Vistas.UserControl.Pelicula
         private void BtnExaminarImg_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            // openFileDialog1.ShowDialog();
-
-            // openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
-
-            //  openFileDialog1.DefaultExt = ".jpeg";
-
             openFileDialog1.Filter = "Jpg Files |*.jpg; *.png;";
             openFileDialog1.ShowDialog();
 
@@ -97,13 +90,6 @@ namespace Vistas.UserControl.Pelicula
         private void BtnExaminarVideo_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            // openFileDialog.ShowDialog();
-
-            // openFileDialog.Filter = "Pdf Files|*.pdf";
-
-            //openFileDialog.DefaultExt = ".jpeg";
-
             openFileDialog.Filter = "Mp4 Files|*.mp4";
             openFileDialog.ShowDialog();
 

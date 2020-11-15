@@ -71,27 +71,27 @@ namespace Vistas
 
         private void BtnBajaPelicula_Click(object sender, RoutedEventArgs e)
         {
-            try
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Estas seguro de eliminar la Pelicula?", "Confirmar Eliminacion", System.Windows.MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
             {
-                proyeccionPadre.eliminarPelicula(peliculaSeleccionada);
-                MessageBox.Show("La Pelicula se ha eliminado correctamente");
+                try
+                {
+                    proyeccionPadre.eliminarPelicula(peliculaSeleccionada);
+                    MessageBox.Show("La Pelicula se ha eliminado correctamente");
+                }
+                catch(Exception error)
+                {
+                    MessageBox.Show("Ups! Ha Ocurrido un Error" + error);
+                }
+
             }
-            catch {
-                MessageBox.Show("Ups! Ha Ocurrido un Error");
-            }
-           
+
         }
 
         private void BtnExaminarImg_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            // openFileDialog1.ShowDialog();
-
-            // openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
-
-            // openFileDialog1.DefaultExt = ".jpeg";
-
             openFileDialog1.Filter = "Jpg Files |*.jpg; *.png;";
             openFileDialog1.ShowDialog();
 
@@ -102,13 +102,6 @@ namespace Vistas
         {
 
             OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            //openFileDialog.ShowDialog();
-
-            // openFileDialog.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
-
-            // openFileDialog.DefaultExt = ".jpeg";
-
             openFileDialog.Filter = "Mp4 Files|*.mp4";
             openFileDialog.ShowDialog();
 
