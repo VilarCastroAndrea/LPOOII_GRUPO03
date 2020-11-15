@@ -25,6 +25,7 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@proyeccionCodigo", ticket.Proy_Codigo);
             cmd.Parameters.AddWithValue("@usuId", ticket.Usu_Id);
             cmd.Parameters.AddWithValue("@estado", true);
+            cmd.Parameters.AddWithValue("@precio", ticket.Tick_Precio);
             cnn.Open();
 
             SqlDataReader reader = cmd.ExecuteReader();
@@ -67,6 +68,7 @@ namespace ClasesBase
                 ticket.Proy_Codigo = (int)reader["Codigo de Proyeccion"];
                 ticket.Cli_DNI = (int)reader["DNI Cliente"];
                 ticket.But_Id = (int)reader["ID de Butaca"];
+                ticket.Tick_Precio = (double)reader["Precio"];
 
                 coleccionTicket.Add(ticket);
             }
@@ -103,6 +105,7 @@ namespace ClasesBase
                 ticket.Proy_Codigo = (int)reader["Codigo"];
                 ticket.Cli_DNI = (int)reader["DNI Cliente"];
                 ticket.But_Id = (int)reader["ID de Butaca"];
+                ticket.Tick_Precio = (double)reader["Precio"];
 
                 coleccionTicket.Add(ticket);
             }
@@ -167,6 +170,7 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@butacaId", ticket.But_Id);
             cmd.Parameters.AddWithValue("@proyeccionCodigo", ticket.Proy_Codigo);
             cmd.Parameters.AddWithValue("@usuId", ticket.Usu_Id);
+            cmd.Parameters.AddWithValue("@precio", ticket.Tick_Precio);
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -196,6 +200,7 @@ namespace ClasesBase
                 ticket.Proy_Codigo = (int)reader["Codigo"];
                 ticket.Cli_DNI = (int)reader["DNI Cliente"];
                 ticket.But_Id = (int)reader["ID de Butaca"];
+                ticket.Tick_Precio = (double)reader["Precio"];
 
                 listaDeTickets.Add(ticket);
             }

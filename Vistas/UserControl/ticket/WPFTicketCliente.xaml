@@ -21,7 +21,7 @@
     <Grid Background="#FF042B70">
         <!--Listar Proyecciones-->
         <Grid  HorizontalAlignment="Left" Height="290" Margin="260,70,0,0" VerticalAlignment="Top" Width="440" Background="Black" >
-            <ListView  Name="listaClienteTicket"  ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}, UpdateSourceTrigger=Explicit}" SelectionChanged="Clientes_SelectionChanged" Margin="0,0,0,-35">
+            <ListView  Name="listaClienteTicket"  ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}, UpdateSourceTrigger=Explicit}" SelectionChanged="Clientes_SelectionChanged" Margin="0,-45,0,-35">
                 <ListView.View>
                     <GridView>
                         <!--Enlace de DNI, Nombre, Apellido, Telefono y Email a las columnas-->
@@ -34,12 +34,6 @@
                 </ListView.View>
             </ListView>
         </Grid>
-
-        <GroupBox Header="Filtrar" HorizontalAlignment="Left" Height="45" Margin="260,10,0,0" VerticalAlignment="Top" Width="440" Foreground="White" BorderBrush="{x:Null}">
-            <Grid>
-                <TextBox x:Name="txtFiltrar" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="408" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
-            </Grid>
-        </GroupBox>
         <TextBlock x:Name="txtDNI"  HorizontalAlignment="Left" Margin="26,31,0,0" TextWrapping="Wrap" Text="Cliente" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
         <TextBlock x:Name="txtNombre" HorizontalAlignment="Left" Margin="91,133,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="25,132,0,0" VerticalAlignment="Top" Foreground="White"/>

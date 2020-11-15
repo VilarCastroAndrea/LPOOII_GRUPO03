@@ -40,7 +40,7 @@
                 <ColumnDefinition Width="77*"/>
                 <ColumnDefinition Width="174*"/>
             </Grid.ColumnDefinitions>
-            <ListView  Name="Clientes"  ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}, UpdateSourceTrigger=Explicit}" Grid.ColumnSpan="2" SelectionChanged="Clientes_SelectionChanged">
+            <ListView  Name="Clientes"  ItemsSource="{Binding Source={StaticResource LIST_CLIENTES}, UpdateSourceTrigger=Explicit}" Grid.ColumnSpan="2" SelectionChanged="Clientes_SelectionChanged" Margin="0,-35,0,0">
                 <ListView.View>
                     <GridView>
                         <!--Enlace de DNI, Nombre, Apellido, Telefono y Email a las columnas-->
@@ -61,7 +61,6 @@
     <Button Name="btnAltaCliente" Style="{StaticResource BotonAlta}" Margin="120,20,0,0" Click="BtnAltaCliente_Click"/>
 
     <!--GroupBox Buscar Clientes-->
-    <GroupBox Header="Buscar" HorizontalAlignment="Left" Height="35" Margin="240,15,0,0" VerticalAlignment="Top" Width="485" Foreground="White"/>
 
     </Grid>
 </UserControl>

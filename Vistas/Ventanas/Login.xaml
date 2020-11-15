@@ -8,7 +8,7 @@
         xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:UC="clr-namespace:Vistas.UserControl"
-        Title="Ingresar al Sistema" Height="371" Width="415.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" >
+        Title="Ingresar al Sistema" Height="371" Width="415.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Vistas;component/Img/logo.png" >
     <Window.Background>
         <RadialGradientBrush>
             <GradientStop Color="Black" Offset="1"/>

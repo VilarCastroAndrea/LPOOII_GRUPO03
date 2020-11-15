@@ -6,7 +6,7 @@
        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
-        Title="Inicio" Height="520" Width="828" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}">
+        Title="Inicio" Height="520" Width="828" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}" Icon="/Vistas;component/Img/logo.png">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="SnapsToDevicePixels" Value="True" />
@@ -22,7 +22,7 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="bd" Property="Background" Value="#FF031027"/>
+                                <Setter TargetName="bd" Property="Background" Value="#FF028ABE"/>
                                 <Setter Property="Foreground" Value="White" />
                                 <Setter Property="Cursor" Value="Hand" />
                             </Trigger>
@@ -37,21 +37,19 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid Margin="0,0,57,0" Name="panelPrincipal" x:FieldModifier="public">
+        <Grid Margin="0,0,57,0" Name="panelPrincipal" x:FieldModifier="public" OpacityMask="#FF011231" Background="#FF011231">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
+            <Image HorizontalAlignment="Left" Height="481" VerticalAlignment="Top" Width="755" Source="/Vistas;component/Img/cinePOP.png"/>
 
             <!--Imagen de Fondo-->
-            <Grid.Background>
-                <ImageBrush ImageSource="../img/fondoPrincipal.png"/>
-            </Grid.Background>
         </Grid>
 
         <!--Botones de Navegacion-->
-        <Grid  Margin="750,0,0,0" Background="#FF011C4B" RenderTransformOrigin="0.5,0.826">
+        <Grid  Margin="744,0,0,0" Background="#FF011C4B" RenderTransformOrigin="0.526,0.916">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="9*"/>
                 <ColumnDefinition Width="56*"/>
@@ -59,7 +57,7 @@
             </Grid.ColumnDefinitions>
 
             <!--Boton Clientes-->
-            <Button HorizontalAlignment="Left" Name="btnCliente" Margin="1,9,0,0" VerticalAlignment="Top" Width="50" Height="58" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnCliente_Click" Foreground="{x:Null}" Grid.Column="1">
+            <Button HorizontalAlignment="Left" Name="btnCliente" Margin="1,9,0,0" VerticalAlignment="Top" Width="52" Height="58" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnCliente_Click" Foreground="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2">
                 <fa:ImageAwesome Icon="StreetView" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
 
@@ -75,7 +73,7 @@
 
 
             <!--Boton Peliculas-->
-            <Button HorizontalAlignment="Left" Name="btnPelicula" Margin="1,198,0,0" VerticalAlignment="Top" Width="50" Height="58" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnPelicula_Click" Foreground="{x:Null}" Grid.Column="1">
+            <Button HorizontalAlignment="Left" Name="btnPelicula" Margin="1,198,0,0" VerticalAlignment="Top" Width="52" Height="58" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnPelicula_Click" Foreground="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2">
                 <fa:ImageAwesome Icon="Film" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
 
@@ -86,13 +84,13 @@
             </Button>
 
             <!--Boton Salir-->
-            <Button Name="btnSalir" Margin="1,423,10,0" VerticalAlignment="Top" Height="52" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnSalir_Click" Foreground="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2">
+            <Button Name="btnSalir" Margin="1,420,10,0" VerticalAlignment="Top" Height="55" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnSalir_Click" Foreground="{x:Null}" Grid.Column="1" Grid.ColumnSpan="2">
                 <fa:ImageAwesome Icon="Openid" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Height="23" Width="25" />
             </Button>
             <Label Content="Cliente" Name="lblCliente" Grid.Column="1" HorizontalAlignment="Left" Margin="5,46,0,0" VerticalAlignment="Top" Foreground="White" Width="42" Height="21" FontSize="10"/>
             <Label Content="Ticket" Name="lblTicket" Grid.Column="1" HorizontalAlignment="Left" Margin="8,109,0,0" VerticalAlignment="Top" Foreground="White" Width="38" Height="26" FontSize="10"/>
             <Label Content="Usuario" Name="lblUsuario" Grid.Column="1" HorizontalAlignment="Left" Margin="5,172,0,0" VerticalAlignment="Top" Foreground="White" Width="43" Height="26" FontSize="10"/>
-            <Label Content="Pelicula" Name="lblPelicula" Grid.Column="1" HorizontalAlignment="Center" Margin="10,235,6,0" VerticalAlignment="Top" Foreground="White" Width="47" Height="26" FontSize="10"/>
+            <Label Content="Pelicula" Name="lblPelicula" Grid.Column="1" HorizontalAlignment="Center" Margin="8,235,8,0" VerticalAlignment="Top" Foreground="White" Width="47" Height="26" FontSize="10" Grid.ColumnSpan="2"/>
             <Label Content="Proyeccion" Name="lblProyeccion" Grid.Column="1" HorizontalAlignment="Left" Margin="1,299,0,0" VerticalAlignment="Top" Foreground="White" Width="59" Height="26" FontSize="10"/>
         </Grid>
     </Grid>

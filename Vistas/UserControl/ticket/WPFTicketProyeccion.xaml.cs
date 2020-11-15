@@ -25,6 +25,7 @@ namespace Vistas.UserControl.ticket
 
         WPFTicket ticketPadre;
         ClasesBase.Proyeccion proyeccion = new ClasesBase.Proyeccion();
+        ClasesBase.Pelicula pelicula = new ClasesBase.Pelicula();
         public WPFTicketProyeccion(WPFTicket padre)
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace Vistas.UserControl.ticket
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {   
+        {
             DataRowView item = (DataRowView)listaProyeccion.SelectedItem;
             ticketPadre.cargarProyeccion(Convert.ToInt32(item["Codigo"]));
             txtNombrePelicula.Text = Convert.ToString(item["Titulo de la Pelicula"]);
@@ -41,6 +42,28 @@ namespace Vistas.UserControl.ticket
             txtHora.Text = Convert.ToString(item["Hora"]);
             txtSala.Text = Convert.ToString(item["Descripcion de Sala"]);
             proyeccion = TrabajarProyeccion.buscarProyeccion(Convert.ToInt32(item["Codigo"]));
+            pelicula = TrabajarPelicula.buscarPelicula(proyeccion.Peli_Codigo.ToString());
+
+            try
+            {
+                BitmapImage b = new BitmapImage();
+                b.BeginInit();
+                b.UriSource = new Uri(pelicula.Peli_Imagen);
+                b.EndInit();
+                imgPelicula.Stretch = Stretch.Fill;
+                imgPelicula.Source = b;
+            }
+            catch
+            {
+                BitmapImage b = new BitmapImage();
+                b.BeginInit();
+                b.UriSource = new Uri("/../../../Img/logo.png", UriKind.Relative); 
+                b.EndInit();
+                imgPelicula.Stretch = Stretch.Fill;
+                imgPelicula.Source = b;
+            }
+
+
         }
 
         private void BtnMasInfo_Click(object sender, RoutedEventArgs e)
