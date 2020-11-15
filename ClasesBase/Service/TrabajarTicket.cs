@@ -68,7 +68,7 @@ namespace ClasesBase
                 ticket.Proy_Codigo = (int)reader["Codigo de Proyeccion"];
                 ticket.Cli_DNI = (int)reader["DNI Cliente"];
                 ticket.But_Id = (int)reader["ID de Butaca"];
-                ticket.Tick_Precio = (double)reader["Precio"];
+                ticket.Tick_Precio = (decimal)reader["Precio"];
 
                 coleccionTicket.Add(ticket);
             }
@@ -105,7 +105,7 @@ namespace ClasesBase
                 ticket.Proy_Codigo = (int)reader["Codigo"];
                 ticket.Cli_DNI = (int)reader["DNI Cliente"];
                 ticket.But_Id = (int)reader["ID de Butaca"];
-                ticket.Tick_Precio = (double)reader["Precio"];
+                ticket.Tick_Precio = (decimal)reader["Precio"];
 
                 coleccionTicket.Add(ticket);
             }
@@ -201,7 +201,7 @@ namespace ClasesBase
                     ticket.Proy_Codigo = (int)reader["Codigo"];
                     ticket.Cli_DNI = (int)reader["DNI Cliente"];
                     ticket.But_Id = (int)reader["ID de Butaca"];
-                    ticket.Tick_Precio = (double)reader["Precio"];
+                    ticket.Tick_Precio = (decimal)reader["Precio"];
 
                     listaDeTickets.Add(ticket);
                 }

@@ -70,7 +70,7 @@ namespace Vistas.UserControl.ticket
                     foreach (Butaca butaca in listaDeButacasSeleccionadas)
                     {
                         ticket1.But_Id = butaca.But_Id;
-                        ticket1.Tick_Precio = double.Parse(txtTotal.Text);
+                        ticket1.Tick_Precio = decimal.Parse(txtTotal.Text);
                         WPFTicketImpresion impresion = new WPFTicketImpresion(ticket1);
                         impresion.Show();
                     }

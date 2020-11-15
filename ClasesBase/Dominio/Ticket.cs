@@ -11,7 +11,7 @@ namespace ClasesBase
         private int but_Id;
         private bool tick_Estado;
         private int usu_Id;
-        private double tick_Precio;
+        private decimal tick_Precio;
 
         public Ticket()
         {
@@ -27,7 +27,7 @@ namespace ClasesBase
         /// <param name="sla_NroSala"></param>
         /// <param name="but_Fila"></param>
         /// <param name="but_Nro"></param>
-        public Ticket(int tick_Nro, DateTime tick_FechaVenta, int cli_DNI, int proy_Codigo, int but_Id, int usu_id, double tick_precio)
+        public Ticket(int tick_Nro, DateTime tick_FechaVenta, int cli_DNI, int proy_Codigo, int but_Id, int usu_id, decimal tick_precio)
         {
             this.tick_Nro = tick_Nro;
             this.tick_FechaVenta = tick_FechaVenta;
@@ -71,6 +71,6 @@ namespace ClasesBase
         public bool Tick_Estado { get => tick_Estado; set => tick_Estado = value; }
         public int Usu_Id { get => usu_Id; set => usu_Id = value; }
         public int But_Id { get => but_Id; set => but_Id = value; }
-        public double Tick_Precio { get => tick_Precio; set => tick_Precio = value; }
+        public decimal Tick_Precio { get => tick_Precio; set => tick_Precio = value; }
     }
 }
