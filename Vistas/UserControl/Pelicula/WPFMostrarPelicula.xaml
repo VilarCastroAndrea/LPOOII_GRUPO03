@@ -106,11 +106,11 @@
 
         <!--imagen -->
         <Label Content="Imagen" HorizontalAlignment="Left" Margin="35,230,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
-        <TextBox Name="txtImagen" HorizontalAlignment="Left" Height="23" Margin="26,254,0,0"  TextWrapping="NoWrap"   VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}"/>
+        <TextBox Name="txtImagen" HorizontalAlignment="Left" Height="23" Margin="26,254,0,0"  TextWrapping="NoWrap"   VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}" IsEnabled="False"/>
         <Button Name="btnExaminarImg" Content="Examinar" HorizontalAlignment="Left" Margin="113,254,0,0" VerticalAlignment="Top" Width="64" Height="23" Style="{StaticResource btnPeliculaEstilo}" Click="BtnExaminarImg_Click"/>
         <!--video -->
         <Label Content="Video" HorizontalAlignment="Left" Margin="35,282,0,0" VerticalAlignment="Top" Foreground="White" Height="26" Width="78"/>
-        <TextBox Name="txtVideo"  HorizontalAlignment="Left" Height="23" Margin="26,308,0,0"  TextWrapping="NoWrap"   VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}"/>
+        <TextBox Name="txtVideo"  HorizontalAlignment="Left" Height="23" Margin="26,308,0,0"  TextWrapping="NoWrap"   VerticalAlignment="Top" Width="82" Style="{StaticResource TextBoxCustom}" IsEnabled="False"/>
         <Button  Name="btnExaminarVideo" Content="Examinar" HorizontalAlignment="Left" Margin="113,308,0,0" VerticalAlignment="Top" Width="64" Height="23" Style="{StaticResource btnPeliculaEstilo}" Click="BtnExaminarVideo_Click"/>
 
 

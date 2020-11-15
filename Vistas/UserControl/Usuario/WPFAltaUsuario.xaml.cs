@@ -85,13 +85,13 @@ namespace Vistas.UserControl.Usuario
 
         private void limpiarCampos()
         {
-            txtApellidoNombre.Text = "";
-            txtNombreUsuario.Text = "";
-            txtPassword.Text = "";
+            txtApellidoNombre.Text = null;
+            txtNombreUsuario.Text = null;
+            txtPassword.Text = null;
         }
         private bool validarCampos()
         {
-            if (txtApellidoNombre.Text == "" || txtApellidoNombre.Text.Length <5 || txtNombreUsuario.Text == "" || txtNombreUsuario.Text.Length < 5 || txtPassword.Text == "" || txtPassword.Text.Length < 5)
+            if (txtApellidoNombre.Text == "" || txtApellidoNombre.Text.Length <5 || txtNombreUsuario.Text == "" || txtNombreUsuario.Text.Length < 5 || txtPassword.Text == "" || txtPassword.Text.Length < 5 || cmbRol.Text =="")
             {
                 return false;
             }
