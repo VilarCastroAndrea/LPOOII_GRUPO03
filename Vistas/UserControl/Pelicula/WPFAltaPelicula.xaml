@@ -22,6 +22,7 @@
                   Margin="10,40,0,0" 
                   TextWrapping="NoWrap"
                  Style="{StaticResource TextBoxCustom}"
+                
                  >
 
                 <!--Enlace con Peli_Titulo-->
@@ -42,6 +43,7 @@
                  Margin="26,115,0,0"
                  TextWrapping="NoWrap"
                  Style="{StaticResource TextBoxCustom}"
+                 
                 >
 
             <!--Enlace con Peli_Duracion-->

@@ -56,7 +56,7 @@ namespace Vistas.UserControl.Pelicula
 
         private bool validarCampos()
         {
-            if (txtTitulo.Text == "" || txtTitulo.Text.Length < 5 || txtDuracion.Text == "" || txtDuracion.Text.Length < 5 || txtImagen.Text == "" || txtImagen.Text.Length < 5 || txtVideo.Text == "" || txtVideo.Text.Length < 5)
+            if (txtTitulo.Text == "" || txtTitulo.Text.Length < 5 || txtDuracion.Text == "" || txtDuracion.Text.Length < 5 )
             {
                 return false;
             }
@@ -70,6 +70,10 @@ namespace Vistas.UserControl.Pelicula
         {
             txtTitulo.Text = "";
             txtDuracion.Text = "";
+            txtImagen.Text = "";
+            txtVideo.Text = "";
+            cmbClasificacion.SelectedIndex = 0;
+            cmbGenero.SelectedIndex = 0;
         }
 
         private void BtnExaminarImg_Click(object sender, RoutedEventArgs e)

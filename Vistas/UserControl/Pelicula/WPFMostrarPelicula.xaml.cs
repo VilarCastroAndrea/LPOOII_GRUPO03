@@ -53,7 +53,7 @@ namespace Vistas
 
         private bool validarCampos()
         {
-            if (txtTitulo.Text == "" || txtTitulo.Text.Length <5 || txtDuracion.Text == "" || txtDuracion.Text.Length < 5 || txtImagen.Text == "" || txtImagen.Text.Length < 5 || txtVideo.Text == "" || txtVideo.Text.Length < 5)
+            if (txtTitulo.Text == "" || txtTitulo.Text.Length <5 || txtDuracion.Text == "" || txtDuracion.Text.Length < 5)
             {
                 return false;
             }
@@ -71,7 +71,15 @@ namespace Vistas
 
         private void BtnBajaPelicula_Click(object sender, RoutedEventArgs e)
         {
-            proyeccionPadre.eliminarPelicula(peliculaSeleccionada);
+            try
+            {
+                proyeccionPadre.eliminarPelicula(peliculaSeleccionada);
+                MessageBox.Show("La Pelicula se ha eliminado correctamente");
+            }
+            catch {
+                MessageBox.Show("Ups! Ha Ocurrido un Error");
+            }
+           
         }
 
         private void BtnExaminarImg_Click(object sender, RoutedEventArgs e)
