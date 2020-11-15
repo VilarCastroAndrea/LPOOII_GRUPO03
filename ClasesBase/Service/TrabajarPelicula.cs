@@ -234,5 +234,40 @@ namespace ClasesBase
         {
             return new Pelicula();
         }
+
+        /// <summary>
+        /// Lista solamente las peliculas con DISPONIBLE == TRUE
+        /// En un observableCollection.
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<Pelicula> TraerPeliculasDisponibles()
+        {
+            ObservableCollection<Pelicula> coleccionDePeliculas = new ObservableCollection<Pelicula>();
+            Pelicula pelicula = null;
+
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            cnn.Open();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarPeliculaDisponible";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@disponible", true);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                pelicula = new Pelicula();
+                pelicula.Peli_Clasificacion = (string)reader["Clasificacion"];
+                pelicula.Peli_Codigo = (int)reader["Codigo"];
+                pelicula.Peli_Disponible = (bool)reader["Disponible"];
+                pelicula.Peli_Duracion = (string)reader["Duracion"];
+                pelicula.Peli_Genero = (string)reader["Genero"];
+                pelicula.Peli_Titulo = (string)reader["Titulo"];
+                coleccionDePeliculas.Add(pelicula);
+            }
+            cnn.Close();
+            return coleccionDePeliculas;
+        }
     }
 }
