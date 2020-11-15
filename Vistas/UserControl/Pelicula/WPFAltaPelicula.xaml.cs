@@ -18,6 +18,8 @@ namespace Vistas.UserControl.Pelicula
         {
             InitializeComponent();
             padre = formularioPadre;
+            txtTitulo.Text = "";
+            txtDuracion.Text = "";
         }
         
 

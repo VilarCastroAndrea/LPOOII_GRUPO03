@@ -22,7 +22,7 @@
                   Margin="10,40,0,0" 
                   TextWrapping="NoWrap"
                  Style="{StaticResource TextBoxCustom}"
-                
+                 DataContext="{StaticResource DATA_PELI}"
                  >
 
                 <!--Enlace con Peli_Titulo-->
@@ -43,7 +43,7 @@
                  Margin="26,115,0,0"
                  TextWrapping="NoWrap"
                  Style="{StaticResource TextBoxCustom}"
-                 
+                 DataContext="{StaticResource DATA_PELI}"
                 >
 
             <!--Enlace con Peli_Duracion-->
