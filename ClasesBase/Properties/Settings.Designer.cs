@@ -26,9 +26,9 @@ namespace ClasesBase.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\Mis Documentos\\Documents\\" +
-            "Github\\LPOOII_GRUPO03\\ClasesBase\\cines.mdf\";Integrated Security=True;Connect Tim" +
-            "eout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\SEBA\\Desktop\\cursada" +
+            "2020\\LPO2\\tpFinal\\bdFinal_15_11\\cines.mdf;Integrated Security=True;Connect Timeo" +
+            "ut=30")]
         public string cinesConnectionString {
             get {
                 return ((string)(this["cinesConnectionString"]));
