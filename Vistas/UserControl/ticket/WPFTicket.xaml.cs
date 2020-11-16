@@ -56,6 +56,8 @@ namespace Vistas.UserControl.ticket
         {
             panelTicket.Children.Clear();
             panelTicket.Children.Add(new WPFTicketButaca(ticket,ventanaPadre));
+            btnCLiente.Visibility = Visibility.Hidden;
+            btnButaca.Visibility = Visibility.Hidden;
         }
 
 
