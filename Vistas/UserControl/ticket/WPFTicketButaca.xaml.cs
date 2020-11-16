@@ -176,7 +176,7 @@ namespace Vistas.UserControl.ticket
             foreach (Butaca butaca in listaDeButacas)
             {
                 columna++;
-                if (columna > columnasMax)
+                if (columna > columnasMax-1)
                 {
                     columna = 0;
                     fila++;
