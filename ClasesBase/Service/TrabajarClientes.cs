@@ -33,6 +33,30 @@ namespace ClasesBase
         }
 
         /// <summary>
+        /// Trae una lista de clientes disponibles
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable TraerClientesDisponibles()
+        {
+            SqlConnection conn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "listarClienteDisponible";
+            cmd.CommandType = CommandType.StoredProcedure;
+            
+            cmd.Connection = conn;
+
+            cmd.Parameters.AddWithValue("@disponible", true);
+
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+
+            return (dt);
+        }
+        /// <summary>
         /// Busca cliente por dni
         /// </summary>
         /// <param name="dni"></param>

@@ -15,7 +15,7 @@
             x:Name="odpClientes"
             x:Key="LIST_CLIENTES"
             ObjectType="{x:Type svc:TrabajarClientes}"
-            MethodName="TraerClientes"
+            MethodName="TraerClientesDisponibles"
             />
     </UserControl.Resources>
 
