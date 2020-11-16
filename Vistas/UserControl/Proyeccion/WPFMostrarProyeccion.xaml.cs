@@ -134,6 +134,7 @@ namespace Vistas.UserControl.Proyeccion
                         proyeccionPadre.refrescarDataGrid();
                         //proyeccionPadre.modificarProyeccion(nuevaProyeccion);
                         LimpiarFormulario();
+                        proyeccionPadre.ResetVentana();
                         MessageBox.Show("Proyeccion Modificada con exito");
                     }
                     else
