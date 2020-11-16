@@ -225,6 +225,7 @@ namespace ClasesBase
             oCliente.Cli_Apellido = "";
             oCliente.Cli_Nombre = "";
             oCliente.Cli_Telefono = "";
+            oCliente.Cli_Email = "";
             return oCliente;
 
         }
