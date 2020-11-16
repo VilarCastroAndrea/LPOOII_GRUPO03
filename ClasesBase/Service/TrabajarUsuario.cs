@@ -196,6 +196,21 @@ namespace ClasesBase
             return coleccionUsuarios;
         }
 
+        public static DataTable buscarUsuario1(string nombreusuario)
+        {
+            SqlConnection cnn = new SqlConnection(ClasesBase.Properties.Settings.Default.cinesConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "buscarUsuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = cnn;
+            cmd.Parameters.AddWithValue("@nombreUsuario", nombreusuario);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
+
         public static ObservableCollection<Usuario> traerUsuarioDisponibleNoEncrypt()
         {
             ObservableCollection<Usuario> coleccionUsuarios = new ObservableCollection<Usuario>();
@@ -247,18 +262,18 @@ namespace ClasesBase
             cmd.CommandText = "loginUsuario";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Connection = cnn;
-            cmd.Parameters.AddWithValue("@nombre",usuario);
+            cmd.Parameters.AddWithValue("@nombre", usuario);
             cmd.Parameters.AddWithValue("@password", contra);
-       
+
             SqlDataReader reader;
             reader = cmd.ExecuteReader();
-          
+
             if (reader.HasRows)
             {
 
                 while (reader.Read())
                 {   //almacena los datos en una clase para mantener la sesion
-                    
+
                     UsuarioLogin.usu_Id = reader.GetInt32(0);
                     UsuarioLogin.usu_NombreUsuario = reader.GetString(1);
                     UsuarioLogin.usu_Password = reader.GetString(2);

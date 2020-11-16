@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,9 @@ namespace Vistas.UserControl.Usuario
     /// <summary>
     /// Lógica de interacción para WPFAltaUsuario.xaml
     /// </summary>
-    public partial class WPFAltaUsuario 
+    public partial class WPFAltaUsuario
     {
-
+        string frmIncompleto = "";
         WPFUsuario padre;
 
         public WPFAltaUsuario(WPFUsuario formularioPadre)
@@ -56,23 +57,26 @@ namespace Vistas.UserControl.Usuario
         {
             if (validarCampos() == true)
             {
-                try
+                DataTable usuarioNomUsu = TrabajarUsuario.buscarUsuario1(txtNombreUsuario.Text);
+                if (usuarioNomUsu.Rows.Count == 0)
                 {
                     String passwordEncript = Encryp.Encriptar(txtPassword.Text);
-                    padre.altaUsuario(new ClasesBase.Usuario(txtNombreUsuario.Text, passwordEncript, txtApellidoNombre.Text, int.Parse(cmbRol.SelectedValue.ToString()),true));
+                    padre.altaUsuario(new ClasesBase.Usuario(txtNombreUsuario.Text, passwordEncript, txtApellidoNombre.Text, int.Parse(cmbRol.SelectedValue.ToString()), true));
+                    limpiarCampos();
+                    padre.actualizarVentana();
 
                     MessageBoxResult resultado = MessageBox.Show("Se agrego usuario con exito", "Atención");
-                    limpiarCampos();
                 }
-                catch (Exception error)
+                else
                 {
-                    MessageBoxResult resultado = MessageBox.Show("Error al realizar alta de Usuario ", "Atención");
+                    MessageBoxResult resultado = MessageBox.Show("El Nombre de usuario ingresado ya existe", "Atención");
                 }
+
 
             }
             else
             {
-                MessageBoxResult resultado = MessageBox.Show("Formulario incompleto ", "Atención");
+                MessageBoxResult resultado = MessageBox.Show("Formulario incompleto " + frmIncompleto, "Atención");
             }
 
         }
@@ -86,20 +90,41 @@ namespace Vistas.UserControl.Usuario
 
         private void limpiarCampos()
         {
-            txtApellidoNombre.Text = null;
-            txtNombreUsuario.Text = null;
-            txtPassword.Text = null;
+            txtApellidoNombre.Text = "";
+            txtNombreUsuario.Text = "";
+            txtPassword.Text = "";
+
         }
         private bool validarCampos()
         {
-            if (txtApellidoNombre.Text == "" || txtApellidoNombre.Text.Length <5 || txtNombreUsuario.Text == "" || txtNombreUsuario.Text.Length < 5 || txtPassword.Text == "" || txtPassword.Text.Length < 5 || cmbRol.Text =="")
+            bool res = false;
+            if (txtApellidoNombre.Text == "" || txtNombreUsuario.Text == "" || txtPassword.Text == "" || cmbRol.Text == "")
             {
-                return false;
+                this.frmIncompleto = "Debe Completar todos los campos";
+                res = false;
             }
             else
             {
-                return true;
+                if (txtApellidoNombre.Text.Length < 5 || txtNombreUsuario.Text.Length < 5 || txtPassword.Text.Length < 5)
+                {
+                    this.frmIncompleto = "todos los campos deben tener al menos 5 caracteres";
+                }
+                else
+                {
+                    res = true;
+                }
             }
+            return res;
+
+        }
+
+        private void PreviewTextInputOnlyLetters(object sender, TextCompositionEventArgs e)
+        {
+            int character = Convert.ToInt32(Convert.ToChar(e.Text));
+            if ((character >= 65 && character <= 90) || (character >= 97 && character <= 122))
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
 
     }

@@ -30,7 +30,7 @@ namespace Vistas.UserControl.Usuario
             panelUsuario.Children.Add(new WPFAltaUsuario(this));
             ventana = main;
         }
-        
+
         //public WPFUsuario()
         //{
         //    InitializeComponent();
@@ -47,6 +47,11 @@ namespace Vistas.UserControl.Usuario
         public void altaUsuario(ClasesBase.Usuario usuarioNuevo)
         {
             ClasesBase.TrabajarUsuario.altaUsuario(usuarioNuevo);
+        }
+
+        public void actualizarVentana()
+        {
+
             ventana.refrescarUsuario();
         }
 
