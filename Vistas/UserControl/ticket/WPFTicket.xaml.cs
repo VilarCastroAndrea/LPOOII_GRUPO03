@@ -34,6 +34,12 @@ namespace Vistas.UserControl.ticket
             ventanaPadre = padre;
         }
 
+        /// <summary>
+        /// BOTONES
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             panelTicket.Children.Clear();
@@ -50,8 +56,15 @@ namespace Vistas.UserControl.ticket
         {
             panelTicket.Children.Clear();
             panelTicket.Children.Add(new WPFTicketButaca(ticket,ventanaPadre));
+            btnCLiente.Visibility = Visibility.Hidden;
+            btnButaca.Visibility = Visibility.Hidden;
         }
 
+
+        /// <summary>
+        /// Metodos para cargar atribitos de tickets
+        /// </summary>
+        /// <param name="ticketProyeccion"></param>
         public void cargarProyeccion(int ticketProyeccion)
         {
             ticket.Proy_Codigo = ticketProyeccion;

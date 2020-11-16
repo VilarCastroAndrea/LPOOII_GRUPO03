@@ -33,6 +33,12 @@ namespace Vistas.UserControl.ticket
             
         }
 
+
+        /// <summary>
+        /// Muestra la proyeccion seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataRowView item = (DataRowView)listaProyeccion.SelectedItem;
@@ -65,6 +71,7 @@ namespace Vistas.UserControl.ticket
 
 
         }
+
 
         private void BtnMasInfo_Click(object sender, RoutedEventArgs e)
         {
