@@ -20,7 +20,7 @@ namespace Vistas.UserControl.Usuario
     /// <summary>
     /// Lógica de interacción para WPFMostrarUsuario.xaml
     /// </summary>
-    public partial class WPFMostrarUsuario 
+    public partial class WPFMostrarUsuario
     {
         CollectionView vista;
         ObservableCollection<ClasesBase.Usuario> listaUsuario;
@@ -39,17 +39,17 @@ namespace Vistas.UserControl.Usuario
 
         private void BtnModificar_Click(object sender, RoutedEventArgs e)
         {
-            if(validarCampos() == true)
+            if (validarCampos() == true)
             {
                 ClasesBase.Usuario usuario = new ClasesBase.Usuario();
                 int id = Convert.ToInt32(txtId.Text);
 
-            usuario.Usu_Id = id;
-            usuario.Usu_ApellidoNombre = txtApellidoNombre.Text;
-            usuario.Usu_NombreUsuario = txtNombreUsuario.Text;
-            usuario.Usu_Password = Encryp.Encriptar(txtPassword.Text);
-            usuario.Usu_Disponible = true;
-            usuario.Rol_Codigo = (int)cmbRol.SelectedValue;
+                usuario.Usu_Id = id;
+                usuario.Usu_ApellidoNombre = txtApellidoNombre.Text;
+                usuario.Usu_NombreUsuario = txtNombreUsuario.Text;
+                usuario.Usu_Password = Encryp.Encriptar(txtPassword.Text);
+                usuario.Usu_Disponible = checkDisponible.IsChecked.Value;
+                usuario.Rol_Codigo = (int)cmbRol.SelectedValue;
 
                 TrabajarUsuario.modificarUsuario(usuario);
                 MessageBox.Show("Usuario se modifico correctamente");
@@ -57,22 +57,24 @@ namespace Vistas.UserControl.Usuario
                 for (int i = 0; i < listaUsuario.Count; i++)
                 {
 
-                    if (listaUsuario[i].Usu_Disponible == false)
+                    //if (listaUsuario[i].Usu_Disponible == false)
+                    //{
+                    //    //elimina el elemento
+                    //    listaUsuario.RemoveAt(i);
+                    //}
+                    //else
+                    //{
+                    if (listaUsuario[i].Usu_Id == id)
                     {
-                        //elimina el elemento
-                        listaUsuario.RemoveAt(i);
+                        //reemplaza los valores en la lista
+                        listaUsuario[i].Usu_ApellidoNombre = usuario.Usu_ApellidoNombre;
+                        listaUsuario[i].Usu_Password = usuario.Usu_Password;
+                        listaUsuario[i].Usu_NombreUsuario = usuario.Usu_NombreUsuario;
+                        listaUsuario[i].Rol_Codigo = usuario.Rol_Codigo;
+                        listaUsuario[i].Usu_Disponible = usuario.Usu_Disponible;
+
                     }
-                    else
-                    {
-                        if (listaUsuario[i].Usu_Id == id)
-                        {
-                            //reemplaza los valores en la lista
-                            listaUsuario[i].Usu_ApellidoNombre = usuario.Usu_ApellidoNombre;
-                            listaUsuario[i].Usu_Password = usuario.Usu_Password;
-                            listaUsuario[i].Usu_NombreUsuario = usuario.Usu_NombreUsuario;
-                            listaUsuario[i].Rol_Codigo = usuario.Rol_Codigo;
-                        }
-                    }
+                    //}
 
                 }
 
@@ -81,7 +83,7 @@ namespace Vistas.UserControl.Usuario
             {
                 MessageBoxResult resultado = MessageBox.Show("Formulario incompleto ", "Atención");
             }
-           
+
         }
 
         private void cargarComboRol()
@@ -116,7 +118,7 @@ namespace Vistas.UserControl.Usuario
                 }
                 MessageBox.Show("Usuario Eliminado Correctamente");
             }
-            
+
         }
 
         private void BtnPrimera_Click(object sender, RoutedEventArgs e)

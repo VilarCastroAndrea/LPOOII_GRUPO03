@@ -120,6 +120,8 @@ namespace ClasesBase
             cmd.Parameters.AddWithValue("@password", usuario.Usu_Password);
             cmd.Parameters.AddWithValue("@apellidoNombre", usuario.Usu_ApellidoNombre);
             cmd.Parameters.AddWithValue("@codigoRol", usuario.Rol_Codigo);
+            cmd.Parameters.AddWithValue("@disponible", usuario.Usu_Disponible);
+
             cnn.Open();
             cmd.ExecuteNonQuery();
             cnn.Close();
@@ -150,7 +152,7 @@ namespace ClasesBase
                 usuario.Usu_Id = (int)reader["ID"];
                 usuario.Usu_ApellidoNombre = (string)reader["Apellido y Nombre"];
                 usuario.Usu_NombreUsuario = (string)reader["Nombre de Usuario"];
-                usuario.Usu_Password = (string)reader["Password"];
+                usuario.Usu_Password = Encryp.DesEncriptar((string)reader["Password"]);
                 usuario.Rol_Codigo = (int)reader["Codigo"];
                 usuario.Usu_Disponible = (bool)reader["Disponible"];
 

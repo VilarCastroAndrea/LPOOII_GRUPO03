@@ -13,7 +13,7 @@
         <ObjectDataProvider
             x:Key="LIST_USER"
             ObjectType="{x:Type svc:TrabajarUsuario}"
-            MethodName="traerUsuarioDisponibleNoEncrypt">
+            MethodName="traerUsuario">
         </ObjectDataProvider>
     </UserControl.Resources>
 
