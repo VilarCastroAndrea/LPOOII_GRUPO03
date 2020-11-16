@@ -30,7 +30,7 @@ namespace Vistas.UserControl.ticket
         {
             InitializeComponent();
             ticketPadre = padre;
-            
+            btnMasInfo.Visibility = Visibility.Hidden;
         }
 
 
@@ -49,7 +49,7 @@ namespace Vistas.UserControl.ticket
             txtSala.Text = Convert.ToString(item["Descripcion de Sala"]);
             proyeccion = TrabajarProyeccion.buscarProyeccion(Convert.ToInt32(item["Codigo"]));
             pelicula = TrabajarPelicula.buscarPelicula(proyeccion.Peli_Codigo.ToString());
-
+            btnMasInfo.Visibility = Visibility.Visible;
             try
             {
                 BitmapImage b = new BitmapImage();
@@ -68,7 +68,6 @@ namespace Vistas.UserControl.ticket
                 imgPelicula.Stretch = Stretch.Fill;
                 imgPelicula.Source = b;
             }
-
 
         }
 

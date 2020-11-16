@@ -20,7 +20,7 @@
     <Grid Background="#FF011C4B">
         <!--Listar Proyecciones-->
         <Grid Name="dgvListaDeProyecciones" HorizontalAlignment="Left" Height="290" Margin="260,70,0,0" VerticalAlignment="Top" Width="440" Background="Black" >
-            <ListView Name="listaProyeccion" ItemsSource="{Binding Source={StaticResource LIST_PROYECCION},UpdateSourceTrigger=Explicit}" SelectionChanged="ListView_SelectionChanged" Margin="0,-45,0,-35">
+            <ListView Name="listaProyeccion" ItemsSource="{Binding Source={StaticResource LIST_PROYECCION},UpdateSourceTrigger=Explicit}"   SelectionChanged="ListView_SelectionChanged"  Margin="0,-45,0,-35">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=Codigo}" Header="Codigo"></GridViewColumn>
