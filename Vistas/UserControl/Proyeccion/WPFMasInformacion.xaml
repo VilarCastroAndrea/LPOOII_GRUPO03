@@ -23,7 +23,7 @@
         <TextBlock x:Name="txtDuracion" HorizontalAlignment="Left" Margin="90,187,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
         <TextBlock x:Name="txtSala" HorizontalAlignment="Left" Margin="10,218,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Avance" HorizontalAlignment="Left" Margin="10,239,0,0" VerticalAlignment="Top" Width="65" Foreground="White"/>
-        <Image x:Name="imgPelicula" HorizontalAlignment="Left" Height="157" Margin="170,63,0,0" VerticalAlignment="Top" Width="143"/>
-        <MediaElement x:Name="videoPelicula" HorizontalAlignment="Left" Height="150" Margin="75,265,0,0" VerticalAlignment="Top" Width="175"/>
+        <Image x:Name="imgPelicula" HorizontalAlignment="Left" Height="157" Margin="167,63,0,0" VerticalAlignment="Top" Width="143"/>
+        <MediaElement x:Name="videoPelicula" HorizontalAlignment="Left" Height="145" Margin="10,270,0,0" VerticalAlignment="Top" Width="300"/>
     </Grid>
 </Window>
