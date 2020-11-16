@@ -16,29 +16,29 @@
                 <BlockUIContainer>
                     <Grid Background="#FF01102B" Height="380" Width="300">
 
-                        <Label Content="TICKET" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Segoe UI"/>
-                        <Label Content="Av. Exodo 346 - San Salvador de Jujuy" HorizontalAlignment="Left" Margin="25,61,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10" FontFamily="Segoe UI"/>
-                        <Label Content="Nº" HorizontalAlignment="Left" Margin="165,22,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10" FontFamily="Segoe UI"/>
-                        <Label Content="Fecha" HorizontalAlignment="Left" Margin="28,81,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10" FontFamily="Segoe UI"/>
-                        <Label Content="Fecha" HorizontalAlignment="Left" Margin="25,142,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
-                        <Label Content="Hora" HorizontalAlignment="Left" Margin="25,173,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
-                        <Label Content="Butaca" HorizontalAlignment="Left" Margin="80,205,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
-                        <Label Content="Apellido" HorizontalAlignment="Left" Margin="25,267,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
-                        <Label Content="Nombre" HorizontalAlignment="Left" Margin="25,298,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
-                        <Label Content="DNI" HorizontalAlignment="Left" Margin="25,329,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtnombrePelicula" HorizontalAlignment="Left" Margin="25,99,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtFecha" HorizontalAlignment="Left" Margin="83,147,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtHora" HorizontalAlignment="Left" Margin="83,178,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtButaca" HorizontalAlignment="Left" Margin="138,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
-                        <Label Content="Cliente" HorizontalAlignment="Left" Margin="25,231,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtApeliidoCliente" HorizontalAlignment="Left" Margin="95,272,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtNombreCliente" HorizontalAlignment="Left" Margin="95,303,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtDNICliente" HorizontalAlignment="Left" Margin="95,334,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtNroTicket" HorizontalAlignment="Left" Margin="208,21,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtFechaTicket" HorizontalAlignment="Left" Margin="83,84,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtSala" HorizontalAlignment="Left" Margin="30,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
-                        <TextBlock x:Name="txtPrecio" HorizontalAlignment="Left" Margin="209,83,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Segoe UI"/>
-                        <Label Content="Precio:" HorizontalAlignment="Left" Margin="165,81,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10" FontFamily="Segoe UI"/>
+                        <Label Content="TICKET" HorizontalAlignment="Left" Margin="23,-1,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Segoe UI"/>
+                        <Label Content="Av. Exodo 346 - San Salvador de Jujuy" HorizontalAlignment="Left" Margin="27,50,0,0" VerticalAlignment="Top" Foreground="White" FontSize="10" FontFamily="Segoe UI"/>
+                        <Label Content="Nº" HorizontalAlignment="Left" Margin="163,11,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10" FontFamily="Segoe UI"/>
+                        <Label Content="Fecha" HorizontalAlignment="Left" Margin="26,70,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10" FontFamily="Segoe UI"/>
+                        <Label Content="Fecha" HorizontalAlignment="Left" Margin="25,152,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="Hora" HorizontalAlignment="Left" Margin="25,183,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="Butaca" HorizontalAlignment="Left" Margin="80,215,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="Apellido" HorizontalAlignment="Left" Margin="25,277,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="Nombre" HorizontalAlignment="Left" Margin="25,308,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <Label Content="DNI" HorizontalAlignment="Left" Margin="25,339,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtnombrePelicula" HorizontalAlignment="Left" Margin="25,109,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtFecha" HorizontalAlignment="Left" Margin="83,157,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtHora" HorizontalAlignment="Left" Margin="83,188,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtButaca" HorizontalAlignment="Left" Margin="138,220,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <Label Content="Cliente" HorizontalAlignment="Left" Margin="25,241,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtApeliidoCliente" HorizontalAlignment="Left" Margin="95,282,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtNombreCliente" HorizontalAlignment="Left" Margin="95,313,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtDNICliente" HorizontalAlignment="Left" Margin="95,344,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtNroTicket" HorizontalAlignment="Left" Margin="206,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtFechaTicket" HorizontalAlignment="Left" Margin="76,72,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtSala" HorizontalAlignment="Left" Margin="30,220,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtPrecio" HorizontalAlignment="Left" Margin="76,91,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Segoe UI"/>
+                        <Label Content="Precio:" HorizontalAlignment="Left" Margin="27,92,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10" FontFamily="Segoe UI"/>
                     </Grid>
 
                 </BlockUIContainer>
