@@ -37,6 +37,8 @@
                         <TextBlock x:Name="txtNroTicket" HorizontalAlignment="Left" Margin="208,21,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
                         <TextBlock x:Name="txtFechaTicket" HorizontalAlignment="Left" Margin="83,84,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
                         <TextBlock x:Name="txtSala" HorizontalAlignment="Left" Margin="30,210,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Foreground="White" FontFamily="Segoe UI"/>
+                        <TextBlock x:Name="txtPrecio" HorizontalAlignment="Left" Margin="209,83,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontFamily="Segoe UI"/>
+                        <Label Content="Precio:" HorizontalAlignment="Left" Margin="165,81,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.375,0.385" FontSize="10" FontFamily="Segoe UI"/>
                     </Grid>
 
                 </BlockUIContainer>

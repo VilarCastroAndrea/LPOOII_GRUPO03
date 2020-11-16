@@ -28,6 +28,11 @@ namespace Vistas.UserControl.ticket
             ticketPadre = padre;
         }
 
+        /// <summary>
+        /// Muestra los datos del cliente seleccionado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataRowView item = (DataRowView)listaClienteTicket.SelectedItem;
