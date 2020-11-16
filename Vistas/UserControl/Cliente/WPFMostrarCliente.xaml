@@ -17,7 +17,7 @@
         <!--DNI-->
         <Label Content="DNI" Margin="5,45,0,0"  Style="{StaticResource LabelCustom}" Grid.Column="1" Height="26" Width="31"/>
         <TextBox x:Name="txtDni" Margin="0,70,0,0"  
-                 Style="{StaticResource TextBoxCustom}" IsEnabled="False" Grid.Column="1"
+                 Style="{StaticResource TextBoxCustom}" IsEnabled="True" Grid.Column="1"
                  >
             <TextBox.Text>
                 <Binding Source="{StaticResource DATA_CLIENT_MOD}"
