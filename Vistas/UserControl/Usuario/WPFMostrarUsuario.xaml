@@ -72,7 +72,7 @@
                     <TextBox x:Name="txtApellidoNombre" 
                              Margin="334,178,0,0" 
                              Style="{StaticResource TBCustomAltaUsu}"
-                             DataContext="{StaticResource DATA_USU}">
+                             DataContext="{StaticResource DATA_USU}" PreviewTextInput="PreviewTextInputOnlyLetters">
 
                         <!--Enlace con la propiedad Usu_ApellidoNombre-->
                         <TextBox.Text>

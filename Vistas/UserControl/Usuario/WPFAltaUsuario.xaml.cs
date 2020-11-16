@@ -101,6 +101,25 @@ namespace Vistas.UserControl.Usuario
                 return true;
             }
         }
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int result;
 
+            if (!(int.TryParse(e.Text, out result) || e.Text == "."))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PreviewTextInputOnlyLetters(object sender, TextCompositionEventArgs e)
+        {
+            int character = Convert.ToInt32(Convert.ToChar(e.Text));
+            if ((character >= 65 && character <= 90) || (character >= 97 && character <= 122))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+       
     }
 }
