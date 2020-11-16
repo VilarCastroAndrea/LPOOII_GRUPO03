@@ -26,8 +26,8 @@ namespace ClasesBase.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\andii\\Downloads\\BDFi" +
-            "nal1.0\\cines.mdf;Integrated Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\men_v\\Desktop\\facult" +
+            "ad\\LPOOII\\cines.mdf;Integrated Security=True;Connect Timeout=30")]
         public string cinesConnectionString {
             get {
                 return ((string)(this["cinesConnectionString"]));

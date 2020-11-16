@@ -38,9 +38,56 @@
 
                     <!--Textbox enlazados-->
                     <TextBox HorizontalAlignment="Left" Text="{Binding Usu_Id}" Name="txtId" Height="23" Margin="334,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" Foreground="White" Background="Black" BorderBrush="#FF191818" IsEnabled="False"/>
-                    <TextBox HorizontalAlignment="Left" Name="txtNombreUsuario" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="{Binding Usu_NombreUsuario}" VerticalAlignment="Top" Width="215" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
-                    <TextBox HorizontalAlignment="Left" Name="txtPassword" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="{Binding Usu_Password}"  VerticalAlignment="Top" Width="215" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
-                    <TextBox HorizontalAlignment="Left" Name="txtApellidoNombre" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="{Binding Usu_ApellidoNombre}" VerticalAlignment="Top" Width="215" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
+
+                    <!--<TextBox HorizontalAlignment="Left" Name="txtNombreUsuario" Height="23" Margin="334,89,0,0" TextWrapping="Wrap" Text="{Binding Usu_NombreUsuario}" VerticalAlignment="Top" Width="215" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>-->
+                    <!--TextBox Nombre Usuario-->
+                    <TextBox x:Name="txtNombreUsuario" 
+                         Margin="334,89,0,0"  
+                         Style="{StaticResource TBCustomAltaUsu}"
+                         >
+
+                        <!--Enlace con la propiedad Usu_NombreUsuario-->
+                        <TextBox.Text>
+                            <Binding
+                            Path="Usu_NombreUsuario"
+                            UpdateSourceTrigger="PropertyChanged" 
+                            ValidatesOnExceptions="True" 
+                            ValidatesOnDataErrors="True"/>
+                        </TextBox.Text>
+                    </TextBox>
+                    <!--TextBox Contraseña-->
+                    <TextBox x:Name="txtPassword"
+                         Margin="334,134,0,0" 
+                         Style="{StaticResource TBCustomAltaUsu}"
+                         >
+
+                        <!--Enlace con la propiedad Usu_Password-->
+                        <TextBox.Text>
+                            <Binding Path="Usu_Password"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+                        </TextBox.Text>
+                    </TextBox>
+                    <!--TextBox Apellido y Nombre-->
+                    <TextBox x:Name="txtApellidoNombre" 
+                             Margin="334,178,0,0" 
+                             Style="{StaticResource TBCustomAltaUsu}"
+                             PreviewTextInput="PreviewTextInputOnlyLetters">
+
+                        <!--Enlace con la propiedad Usu_ApellidoNombre-->
+                        <TextBox.Text>
+                            <Binding Path="Usu_ApellidoNombre"
+                         UpdateSourceTrigger="PropertyChanged" 
+                         ValidatesOnExceptions="True" 
+                         ValidatesOnDataErrors="True"/>
+                        </TextBox.Text>
+                    </TextBox>
+
+
+                    <!--<TextBox HorizontalAlignment="Left" Name="txtPassword" Height="23" Margin="334,132,0,0" TextWrapping="Wrap" Text="{Binding Usu_Password}"  VerticalAlignment="Top" Width="215" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>
+                    <Text-->
+                    <!--Box HorizontalAlignment="Left" Name="txtApellidoNombre" Height="23" Margin="334,176,0,0" TextWrapping="Wrap" Text="{Binding Usu_ApellidoNombre}" VerticalAlignment="Top" Width="215" Foreground="White" Background="#FF021127" BorderBrush="#FF021127"/>-->
 
                     <!--Botones navegacion y edicion de usuarios-->
                     <Button HorizontalAlignment="Left" Name="btnModificar" Margin="154,294,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="{x:Null}" BorderBrush="{x:Null}" Click="BtnModificar_Click">

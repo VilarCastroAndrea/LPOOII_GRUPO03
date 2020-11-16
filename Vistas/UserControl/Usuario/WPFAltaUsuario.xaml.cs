@@ -126,6 +126,16 @@ namespace Vistas.UserControl.Usuario
             else
                 e.Handled = true;
         }
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            int result;
+
+            if (!(int.TryParse(e.Text, out result) || e.Text == "."))
+            {
+                e.Handled = true;
+            }
+        }
+
 
     }
 }
