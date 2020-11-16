@@ -154,6 +154,13 @@ namespace Vistas.UserControl.Proyeccion
             DTOProyeccion dtoProyeccion = e.Item as DTOProyeccion;
         }
 
-        
+        /// <summary>
+        /// Deja por defecto el formulario de alta
+        /// </summary>
+        public void ResetVentana()
+        {
+            panelProyeccion.Children.Clear();
+            panelProyeccion.Children.Add(new WPFAltaProyeccion(this));
+        }
     }
 }
