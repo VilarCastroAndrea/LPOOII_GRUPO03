@@ -136,15 +136,6 @@ namespace Vistas.UserControl.Usuario
             }
         }
 
-        private void PreviewTextInputOnlyLetters(object sender, TextCompositionEventArgs e)
-        {
-            int character = Convert.ToInt32(Convert.ToChar(e.Text));
-            if ((character >= 65 && character <= 90) || (character >= 97 && character <= 122))
-                e.Handled = false;
-            else
-                e.Handled = true;
-        }
 
-       
     }
 }
