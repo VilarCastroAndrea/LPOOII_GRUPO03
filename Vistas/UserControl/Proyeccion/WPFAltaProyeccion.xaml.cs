@@ -77,8 +77,9 @@ namespace Vistas.UserControl.Proyeccion
                         MessageBox.Show("Proyeccion Guardada con exito");
 
                         //Agrega en el data grid
-                        proyeccionPadre.refrescarDataGrid();
                         limpiarCampos();
+                        proyeccionPadre.refrescarDataGrid();
+                        proyeccionPadre.ResetVentana();
                     }
                     else
                     {

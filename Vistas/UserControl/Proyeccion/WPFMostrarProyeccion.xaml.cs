@@ -191,10 +191,23 @@ namespace Vistas.UserControl.Proyeccion
          cmbSala.Text + ", " + cmbTitulo.Text, "Atención", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (resultado == MessageBoxResult.Yes)
             {
-                TrabajarProyeccion.bajaProyeccionFisica(proyeccionMostrar.Proy_Codigo);
-                proyeccionPadre.refrescarDataGrid();
-                LimpiarFormulario();
-                MessageBox.Show("Proyeccion Eliminada con exito");
+                try
+                {
+                    TrabajarProyeccion.bajaProyeccionFisica(proyeccionMostrar.Proy_Codigo);
+                    
+                }
+                catch
+                {
+                    TrabajarProyeccion.bajaProyeccion(proyeccionMostrar.Proy_Codigo, false);
+
+                }
+                finally
+                {
+                    LimpiarFormulario();
+                    proyeccionPadre.refrescarDataGrid();
+                    proyeccionPadre.ResetVentana();
+                    MessageBox.Show("Proyeccion Eliminada con exito");
+                }
             }
         }
 
