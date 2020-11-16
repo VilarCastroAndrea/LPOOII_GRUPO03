@@ -34,7 +34,7 @@
         <Label Content="Nombre" Margin="5,94,0,0" Style="{StaticResource LabelCustom}" Grid.Column="1" Height="26" Width="54"/>
         <TextBox x:Name="txtNombre" Margin="0,120,0,0"  
                  Style="{StaticResource TextBoxCustom}" Grid.Column="1"
-                 >
+                 PreviewTextInput="PreviewTextInputOnlyLetters">
             <TextBox.Text>
                 <!--Enlace con Cli_Nombre-->
                 <Binding Source="{StaticResource DATA_CLIENT_MOD}"
@@ -49,7 +49,8 @@
         <!-- Apellido -->
         <Label Content="Apellido" Margin="6,144,0,0" Style="{StaticResource LabelCustom}" Grid.Column="1" Height="26" Width="54"/>
         <TextBox x:Name="txtApellido" Margin="0,172,0,0" 
-                 Style="{StaticResource TextBoxCustom}" Grid.Column="1">
+                 Style="{StaticResource TextBoxCustom}" Grid.Column="1"
+                 PreviewTextInput="PreviewTextInputOnlyLetters">
             <TextBox.Text>
                 <!--Enlace con Cli_Apellido-->
                 <Binding Source="{StaticResource DATA_CLIENT_MOD}"
@@ -65,7 +66,7 @@
         <Label Content="Telefono" Margin="5,195,0,0" Style="{StaticResource LabelCustom}" RenderTransformOrigin="0.873,0.5" Grid.Column="1" Height="26" Width="55"/>
         <TextBox x:Name="txtTelefono" Margin="0,220,0,0" 
                  Style="{StaticResource TextBoxCustom}" Grid.Column="1"
-                 >
+                 PreviewTextInput="TextBox_PreviewTextInput" >
             <TextBox.Text>
                 <!--Enlace con Cli_Telefono-->
                 <Binding Source="{StaticResource DATA_CLIENT_MOD}"
@@ -78,31 +79,36 @@
         </TextBox>
 
         <!-- Email -->
-        <Label Content="Email" Margin="35,244,0,0" RenderTransformOrigin="0.873,0.5"
-               Style="{StaticResource LabelCustom}" />
+        <Label Content="Email" Margin="5,244,0,0" RenderTransformOrigin="0.873,0.5"
+               Style="{StaticResource LabelCustom}" Grid.Column="1" Width="43" />
 
-        <TextBox x:Name="txtEmail" Margin="30,270,0,0" 
+        <TextBox x:Name="txtEmail" Margin="0,270,0,0" 
                  Style="{StaticResource TextBoxCustom}"
-                 DataContext="{StaticResource DATA_CLIENT}">
+                 Grid.Column="1"
+                 PreviewTextInput="TxtEmail_PreviewTextInput">
             <TextBox.Text>
                 <!--Enlace con Email-->
-                <Binding Path="Cli_Email" 
+                <Binding Source="{StaticResource DATA_CLIENT_MOD}"
+                         Path="Cli_Email" 
                          UpdateSourceTrigger="PropertyChanged" 
                          ValidatesOnDataErrors="True" 
                          ValidatesOnExceptions="True"/>
             </TextBox.Text>
         </TextBox>
-        <!-- Email --><!--
+        <!-- Email -->
+        <!--
         <Label Content="Email" Margin="35,244,0,0" Style="{StaticResource LabelCustom}"/>
         <TextBox x:Name="txtEmail" Margin="30,270,0,0" Style="{StaticResource TextBoxCustom}">
             <TextBox.Text>
-                --><!--Enlace con Cli_Email--><!--
+                -->
+        <!--Enlace con Cli_Email-->
+        <!--
                 <Binding Source="{StaticResource DATA_CLIENT_MOD}"
                          Path="Cli_Email"
                          />
             </TextBox.Text>
         </TextBox>-->
-        
+
         <!-- Botones Modificar/Borrar -->
         <Button x:Name="btnModificar" Content="Modificar" Style="{StaticResource BotonCustom}"  Margin="0,320,0,0" Click="BtnModificar_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
         <Button x:Name="btnBaja" Content="Borrar" Style="{StaticResource BotonCustom}"  Margin="0,360,0,0" Click="BtnBaja_Click" Grid.Column="1" Grid.ColumnSpan="2"/>
