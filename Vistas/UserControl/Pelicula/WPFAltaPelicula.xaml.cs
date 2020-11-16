@@ -18,6 +18,8 @@ namespace Vistas.UserControl.Pelicula
         {
             InitializeComponent();
             padre = formularioPadre;
+            txtTitulo.Text = "";
+            txtDuracion.Text = "";
         }
         
 
@@ -56,7 +58,7 @@ namespace Vistas.UserControl.Pelicula
 
         private bool validarCampos()
         {
-            if (txtTitulo.Text == "" || txtTitulo.Text.Length < 5 || txtDuracion.Text == "" || txtDuracion.Text.Length < 5 || txtImagen.Text == "" || txtImagen.Text.Length < 5 || txtVideo.Text == "" || txtVideo.Text.Length < 5)
+            if (txtTitulo.Text == "" || txtTitulo.Text.Length < 5 || txtDuracion.Text == "" || txtDuracion.Text.Length < 5 )
             {
                 return false;
             }
@@ -70,17 +72,17 @@ namespace Vistas.UserControl.Pelicula
         {
             txtTitulo.Text = "";
             txtDuracion.Text = "";
+            txtImagen.Text = "";
+            txtVideo.Text = "";
+            cmbClasificacion.SelectedIndex = 0;
+            cmbGenero.SelectedIndex = 0;
         }
 
         private void BtnExaminarImg_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
+            openFileDialog1.Filter = "Jpg Files |*.jpg; *.png;";
             openFileDialog1.ShowDialog();
-
-            openFileDialog1.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
-
-            openFileDialog1.DefaultExt = ".jpeg";
 
             txtImagen.Text = openFileDialog1.FileName;
         }
@@ -88,12 +90,8 @@ namespace Vistas.UserControl.Pelicula
         private void BtnExaminarVideo_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-
+            openFileDialog.Filter = "Mp4 Files|*.mp4";
             openFileDialog.ShowDialog();
-
-            openFileDialog.Filter = "Todos(*.*) | *.*| Imagenes | *.jpg; *.gif; *.png; *.bmp”";
-
-            openFileDialog.DefaultExt = ".jpeg";
 
             txtVideo.Text = openFileDialog.FileName;
         }
